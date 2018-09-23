@@ -1,0 +1,37 @@
+# build front
+FROM node:8.12.0-slim AS front
+RUN mkdir -p /app/front
+WORKDIR /app/front
+
+ENV NODE_ENV production
+
+COPY package.json package-lock.json ./
+RUN npm install
+
+COPY angular.json tsconfig.json tslint.json ./
+COPY src /app/front/src
+RUN npm run build
+
+COPY nginx.conf /app/nginx/nginx.conf
+COPY server /app/server
+
+# install auth service dependencies
+FROM node:8.12.0-slim AS auth
+RUN mkdir -p /app/server
+WORKDIR /app/server
+COPY --from=front /app/server/package-prod.json ./package.json
+RUN npm install
+COPY --from=front /app/server/index.js /app/server/.env ./
+
+# nginx + node preparation
+FROM nginx:1.15-alpine as nginx
+RUN mkdir -p /app
+COPY --from=auth /usr/local/lib/node_modules /usr/local/lib/node_modules
+COPY --from=auth /usr/local/bin/node /usr/local/bin/npm /usr/local/bin/
+COPY --from=front /app/server /usr/app/server
+COPY --from=front /app/front/dist/stack /usr/share/nginx/html
+COPY --from=front /app/nginx/nginx.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 8081
+
+CMD ["/production-run.sh"]

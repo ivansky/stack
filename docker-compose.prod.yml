@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  app:
+    build:
+      context: ./server
+      dockerfile: DockerfileProd
+    volumes:
+      - ./node_modules:/app/node_modules
+    ports:
+      - 3030:3030
+    depends_on:
+      - db
+      - front
+    container_name: es_master
+  front:
+    build:
+      context: .
+      dockerfile: DockerfileProd
+    volumes:
+      - ./src:/app/src
+      - ./node_modules:/app/node_modules
+  db:
+    image: mongo:latest
+    volumes:
+      - ./node_modules/.cache/mongo/data/db:/data/db
+    command: mongod --smallfiles --logpath=/dev/null

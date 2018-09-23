@@ -1,27 +1,56 @@
-# Stack
+# Stackoverflow Search Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.3.
 
-## Development server
+## Agenda
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+ 1. [Prerequisites](#pre)
+ 2. [Configuration](#config)
+ 2. [Development](#dev)
+ 2. [Production](#prod)
 
-## Code scaffolding
+## <a name="pre"></a> Prerequisites
+To develop and build for prod you should use **Docker**.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Install docker on [Mac][docker-for-mac] or [Windows][docker-for-windows].
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## <a name="config"></a> Configuration
 
-## Running unit tests
+You should configure OAuth
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+ 1. [Register you Stack App][oauth-register]
+ 2. You should copy `server/.env` file from `server/.env.example`
+ 3. Replace environment variables
+    ```
+    STACKEXCHANGE_CLIENT_ID = #client_id#
+    STACKEXCHANGE_CLIENT_SECRET = #secret_token#
+    STACKEXCHANGE_APPS_KEY = #app_key#
+    ```
+ 4. Go to the [next step](#dev) below.
 
-## Running end-to-end tests
+## <a name="dev"></a> Development
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+To run front, auth and api services just run _docker-compose_.
 
-## Further help
+It will build containers and instantly run it.
+```shell
+docker-compose up
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Navigate to `http://localhost:3030/` and develop.
+
+To re-build it just add `--build` at the end of command.
+
+## <a name="prod"></a> Production
+Build images
+```shell
+docker-compose -f docker-compose.prod.yml build
+```
+
+Run `ng build` to build the project. 
+The build artifacts will be stored in the `dist/` directory. 
+Use the `--prod` flag for a production build.
+
+[oauth-register]: https://stackapps.com/apps/oauth/register
+[docker-for-mac]: https://store.docker.com/editions/community/docker-ce-desktop-mac
+[docker-for-windows]: https://store.docker.com/editions/community/docker-ce-desktop-windows
