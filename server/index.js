@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-const proxy = require('http-proxy-middleware');
+const proxyMiddleware = require('http-proxy-middleware');
 const express = require('express');
 const passport = require('passport');
 const mongoose = require('mongoose');
@@ -16,14 +16,16 @@ const SERVER_DOMAIN = process.env.SERVER_DOMAIN || 'localhost';
 const SERVER_PORT = process.env.SERVER_PORT || 3030;
 const SERVER_SESSION_SECRET = process.env.SERVER_SESSION_SECRET || 'some_sesssion_secret';
 
-const API_SERVER_URL = process.env.API_SERVER_URL;
-const STATIC_SERVER_URL = process.env.STATIC_SERVER_URL || 'http://front:3031/';
+const API_SERVER_URL = process.env.API_SERVER_URL || 'http://api.stackexchange.com/2.2';
+const STATIC_SERVER_URL = process.env.STATIC_SERVER_URL || 'http://front:3031';
 
 const STACKEXCHANGE_CLIENT_ID = process.env.STACKEXCHANGE_CLIENT_ID;
 const STACKEXCHANGE_CLIENT_SECRET = process.env.STACKEXCHANGE_CLIENT_SECRET;
 const STACKEXCHANGE_APPS_KEY = process.env.STACKEXCHANGE_APPS_KEY;
 
-mongoose.connect('mongodb://db/stack');
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://db/stack';
+
+mongoose.connect(MONGODB_URI);
 
 const Schema = mongoose.Schema;
 
@@ -95,49 +97,57 @@ app.use(session({ secret: SERVER_SESSION_SECRET }));
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/api/auth/stack', passport.authenticate('stack-exchange'));
+const authRouter = express.Router();
 
-app.get(
-  '/api/auth/stack/callback',
-  passport.authenticate('stack-exchange', { failureRedirect: '/login' }),
-  (req, res) => {
+authRouter
+  .get('/stack', passport.authenticate('stack-exchange'))
+  .get('/stack/callback', passport.authenticate('stack-exchange', { failureRedirect: '/login' }), (req, res) => {
     // Successful authentication, redirect home.
     res.redirect('/');
-  }
-);
+  })
+  .get('/profile', (req, res, next) => {
+    if (req.isAuthenticated()) {
+      return next();
+    }
 
-app.get('/api/auth/profile', (req, res, next) => {
-  if (req.isAuthenticated()) {
-    return next();
-  }
-
-  res.status(401).send('Unauthorized');
-}, (req, res) => {
-  res.json({
-    ...req.user,
-    passwordHash: undefined,
+    res.status(401).json({
+      code: 401,
+      message: 'Unauthorized',
+    });
+  }, (req, res) => {
+    res.json({
+      ...req.user,
+      passwordHash: undefined,
+    });
+  })
+  .get('/logout', (req, res) => {
+    req.logout();
+    res.end(200);
   });
-});
 
-app.get('/api/auth/logout', (req, res) => {
-  req.logout();
-  res.end(200);
-});
+app.use('/api/auth', authRouter);
 
 if (API_SERVER_URL) {
-  app.use('/api', proxy({
+  app.use('/api', proxyMiddleware({
     target: API_SERVER_URL,
     secure: false,
     changeOrigin: true,
+    logLevel: 'debug',
+    pathRewrite: {
+      '^/api': '', // rewrite path
+    },
   }));
 }
 
+// Production image will use nginx routing
 if (NODE_ENV !== 'production' && STATIC_SERVER_URL) {
   // Proxy webpack-dev-server front only for development
-  app.use(proxy({
+  app.use(proxyMiddleware({
     target: STATIC_SERVER_URL,
     secure: false,
     changeOrigin: true,
+    // To turn Webpack ws
+    ws: true,
   }));
 }
 
