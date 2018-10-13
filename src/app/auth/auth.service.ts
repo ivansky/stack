@@ -5,15 +5,19 @@ import { delay, tap } from 'rxjs/operators';
 @Injectable()
 export class AuthService {
 
-  isLoggedIn = false;
+  private loggedIn = false;
   redirectUrl: string;
 
   login(): void {
-    this.isLoggedIn = true;
+    this.loggedIn = true;
   }
 
   logout(): void {
-    this.isLoggedIn = false;
+    this.loggedIn = false;
+  }
+
+  isLoggedIn(): boolean {
+    return this.loggedIn;
   }
 
 }
