@@ -16,8 +16,7 @@ import { environment } from '../../../environments/environment';
 import { metaReducers, reducers } from '../../store/reducers/root.reducer';
 import rootEffects from '../../store/effects/root.effects';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatToolbarModule } from '@angular/material';
-import { MaterialModule } from './material.module';
+import { MaterialModule } from '../material/material.module';
 
 @NgModule({
   declarations: [

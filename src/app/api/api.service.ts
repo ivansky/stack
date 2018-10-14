@@ -10,8 +10,8 @@ export class ApiService {
 
   constructor(private http: HttpClient) {}
 
-  public get(path, options = {}) {
-    return this.http.get(`${this.url}${path}`, options);
+  public get<T = any>(path, options = {}) {
+    return this.http.get<T>(`${this.url}${path}`, options);
   }
 
   public post<T = any>(path, body, options = {}) {
@@ -20,6 +20,10 @@ export class ApiService {
 
   public login(loginData: LoginData) {
     return this.post<User>('/login', loginData);
+  }
+
+  public getProfile() {
+    return this.get<User>('/profile');
   }
 
 }

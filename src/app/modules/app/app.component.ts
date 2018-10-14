@@ -4,7 +4,9 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   template: `
     <mat-toolbar>
-      <span>StackApp Observer</span>
+      <span><a routerLink="/search">StackApp Observer</a></span>
+      <span class="toolbar-spacer"></span>
+      <button mat-flat-button routerLink="/login">Login</button>
     </mat-toolbar>
     <router-outlet></router-outlet>
   `,

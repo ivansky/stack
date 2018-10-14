@@ -7,6 +7,4 @@ import { Component } from '@angular/core';
     </form>
   `,
 })
-export class SignUpComponent {
-
-}
+export class SignUpComponent {}

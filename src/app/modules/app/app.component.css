@@ -2,3 +2,7 @@
   line-height: 1;
   border-bottom: 1px solid #e5e5e5;
 }
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}

@@ -4,7 +4,11 @@ import {
   MatIconModule,
   MatListModule,
   MatSidenavModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatCardModule,
+  MatDividerModule,
+  MatFormFieldModule,
+  MatInputModule,
 } from '@angular/material';
 
 const materialModules = [
@@ -13,6 +17,10 @@ const materialModules = [
   MatListModule,
   MatSidenavModule,
   MatToolbarModule,
+  MatCardModule,
+  MatDividerModule,
+  MatFormFieldModule,
+  MatInputModule,
 ];
 
 @NgModule({

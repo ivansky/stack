@@ -42,7 +42,7 @@ const User = mongoose.model('User', userSchema);
 passport.use(new StackExchangeStrategy({
     clientID: STACKEXCHANGE_CLIENT_ID,
     clientSecret: STACKEXCHANGE_CLIENT_SECRET,
-    callbackURL: `${SERVER_PROTOCOL}://${SERVER_DOMAIN}:${SERVER_PORT}/auth/stack/callback`,
+    callbackURL: `${SERVER_PROTOCOL}://${SERVER_DOMAIN}:${SERVER_PORT}/api/auth/stack/callback`,
     stackAppsKey: STACKEXCHANGE_APPS_KEY,
     site: 'stackoverflow',
   },

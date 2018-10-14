@@ -5,6 +5,7 @@ import { LoginComponent } from './login.component';
 import { AuthService } from '../../auth/auth.service';
 import { LoginRoutingModule } from './login-routing.module';
 import { SignUpComponent } from './sign-up.component';
+import { MaterialModule } from '../material/material.module';
 
 @NgModule({
   declarations: [
@@ -15,10 +16,14 @@ import { SignUpComponent } from './sign-up.component';
     FormsModule,
     LoginRoutingModule,
     ReactiveFormsModule,
+    MaterialModule,
   ],
-  exports: [],
+  exports: [
+    MaterialModule,
+  ],
   providers: [
     AuthService,
+    { provide: 'Window',  useValue: window },
   ],
 })
 export class LoginModule {}

@@ -18,6 +18,11 @@ export const authReducer = (state = initialAuthState, action: authActions.AuthAc
         ...state,
         isLoading: true,
       };
+    case authActions.GET_PROFILE_SUCCESS:
+      return {
+        ...state,
+        user: action.payload,
+      };
   }
 
   return state;

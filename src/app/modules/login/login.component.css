@@ -1,0 +1,23 @@
+.login-card {
+  max-width: 480px;
+  margin: 20px auto;
+}
+
+.login-field {
+  width: 100%;
+}
+
+.login-buttons {
+  display: block;
+  text-align: right;
+  margin-top: 20px;
+}
+
+.login-buttons button {
+  margin-left: 8px;
+}
+
+.stack-logo {
+  width: 30px;
+  height: 30px;
+}
