@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 
 import { AuthRoutingModule } from './auth-routing.module';
 import { MaterialModule } from '../material/material.module';
-import { AuthService } from '../../auth/auth.service';
+import { AuthService } from '../../services/auth.service';
 
 import { LoginFormComponent } from '../../components/login-form/login-form.component';
 import { SignUpFormComponent } from '../../components/sign-up-form/sign-up-form.component';

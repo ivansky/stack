@@ -3,7 +3,7 @@ import { provideMockActions } from '@ngrx/effects/testing';
 import { AuthEffects } from './auth.effects';
 import { Subject, of, throwError, ReplaySubject } from 'rxjs';
 import * as authActions from '../actions/auth.actions';
-import { ApiService } from '../../api/api.service';
+import { ApiService } from '../../services/api.service';
 import { LoginData, User } from '../../models/auth.models';
 
 describe('Auth Effects', () => {

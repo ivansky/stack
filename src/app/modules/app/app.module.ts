@@ -1,26 +1,30 @@
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterStateSerializer, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { EffectsModule } from '@ngrx/effects';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import rootEffects from '../../store/effects/root.effects';
+import { environment } from '../../../environments/environment';
+import { MaterialModule } from '../material/material.module';
 import { AppRoutingModule } from './app-routing.module';
-import { AuthGuardService } from '../../auth/auth-guard.service';
-import { AuthService } from '../../auth/auth.service';
+
+import { metaReducers, reducers, CustomRouterSerializer } from '../../store/reducers/root.reducer';
+import { AuthGuardService } from '../../services/auth-guard.service';
+import { AuthService } from '../../services/auth.service';
+
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { NotFoundComponent } from '../not-found/not-found.component';
-import { environment } from '../../../environments/environment';
-import { metaReducers, reducers, CustomRouterSerializer } from '../../store/reducers/root.reducer';
-import rootEffects from '../../store/effects/root.effects';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from '../material/material.module';
-import { LayoutComponent } from '../../components/layout/layout.component';
+import { LayoutComponent } from '../../containers/layout.component';
+import { NavComponent } from '../../components/nav/nav.component';
 
 @NgModule({
   declarations: [
     LayoutComponent,
+    NavComponent,
     DashboardComponent,
     NotFoundComponent,
   ],

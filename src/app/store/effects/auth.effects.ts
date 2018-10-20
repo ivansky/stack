@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Actions as ActionsEffect, Effect, ofType, ROOT_EFFECTS_INIT } from '@ngrx/effects';
 import { ROUTER_NAVIGATION } from '@ngrx/router-store';
-import { Router } from '@angular/router';
 import { combineLatest, of } from 'rxjs';
 import { mergeMap, take, tap } from 'rxjs/operators';
 
 import * as authActions from '../actions/auth.actions';
 import { makeRequestEffect } from '../utils/makeRequestEffect';
-import { ApiService } from '../../api/api.service';
 import { LoginData, User } from '../../models/auth.models';
+import { AuthService } from '../../services/auth.service';
 
 @Injectable()
 export class AuthEffects {
@@ -17,7 +16,7 @@ export class AuthEffects {
   login$ = makeRequestEffect<LoginData, User, any>(
     this.actions$,
     authActions.LOGIN,
-    this.api.login.bind(this.api),
+    this.auth.login.bind(this.auth),
     authActions.LoginSuccessAction,
     authActions.LoginFailureAction
   );
@@ -26,7 +25,7 @@ export class AuthEffects {
   logout$ = makeRequestEffect<LoginData, User, any>(
     this.actions$,
     authActions.LOGOUT,
-    this.api.login.bind(this.api),
+    this.auth.logout.bind(this.auth),
     authActions.LogoutSuccessAction,
     authActions.LogoutFailureAction
   );
@@ -35,7 +34,7 @@ export class AuthEffects {
   gerProfile$ = makeRequestEffect<LoginData, User, any>(
     this.actions$,
     authActions.GET_PROFILE,
-    this.api.getProfile.bind(this.api),
+    this.auth.getProfile.bind(this.auth),
     authActions.GetProfileSuccessAction,
     authActions.GetProfileFailureAction,
   );
@@ -59,7 +58,7 @@ export class AuthEffects {
   ).pipe(
     take(1),
     tap(() => {
-      console.log('test');
+      console.log('Some side-effect here to play after application loaded');
     })
   );
 
@@ -70,13 +69,12 @@ export class AuthEffects {
       authActions.LOGOUT,
     ),
     tap(authed => {
-      this.router.navigate(['/auth/login']);
+      this.auth.redirectToLogin();
     })
   );
 
   constructor(
-    private api: ApiService,
-    private router: Router,
+    private auth: AuthService,
     private actions$: ActionsEffect,
   ) {}
 }

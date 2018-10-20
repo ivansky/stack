@@ -38,7 +38,6 @@ export class AuthGuardService implements CanActivate, CanActivateChild {
     return waitProfileLoaded$.pipe(
       mergeMap(() => getUserProfile$),
       map((user, user1) => {
-        console.log('wait map', user, user1);
         if (!user) {
           this.store$.dispatch(new authActions.LoginRedirect());
           return false;

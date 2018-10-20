@@ -49,9 +49,6 @@ passport.serializeUser((user, done) => {
 passport.deserializeUser((userId, done) => {
   User.findById(userId, (err, userObject) => {
     const user = userObject.toObject()
-
-    console.log('finded', user);
-
     done(err, user);
   });
 });
@@ -64,7 +61,6 @@ passport.use(new StackExchangeStrategy({
     site: 'stackoverflow',
   },
   async (accessToken, refreshToken, profile, done) => {
-    console.log(profile);
     const {
       id: stackId,
       photos,
@@ -128,6 +124,10 @@ const authRouter = express.Router();
 authRouter
   .post('/login', passport.authenticate('local'), (req, res) => {
     res.json(req.user);
+  })
+  .post('/logout', (req, res) => {
+    req.logout();
+    res.json({});
   })
   .post('/sign-up', async (req, res) => {
     const {
@@ -196,10 +196,6 @@ authRouter
         message: 'Unauthorized',
       });
     }
-  })
-  .get('/logout', (req, res) => {
-    req.logout();
-    res.end(200);
   });
 
 app.use('/api/auth', authRouter);
