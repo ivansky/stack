@@ -1,5 +1,7 @@
 require('dotenv').config();
 
+const EMAIL_REGEXP = /^(?=.{1,254}$)(?=.{1,64}@)[-!#$%&'*+/0-9=?A-Z^_`a-z{|}~]+(\.[-!#$%&'*+/0-9=?A-Z^_`a-z{|}~]+)*@[A-Za-z0-9]([A-Za-z0-9-]{0,61}[A-Za-z0-9])?(\.[A-Za-z0-9]([A-Za-z0-9-]{0,61}[A-Za-z0-9])?)*$/;
+
 const proxyMiddleware = require('http-proxy-middleware');
 const crypto = require('crypto');
 const express = require('express');
@@ -40,6 +42,20 @@ const userSchema = new Schema({
 
 const User = mongoose.model('User', userSchema);
 
+passport.serializeUser((user, done) => {
+  done(null, user._id);
+});
+
+passport.deserializeUser((userId, done) => {
+  User.findById(userId, (err, userObject) => {
+    const user = userObject.toObject()
+
+    console.log('finded', user);
+
+    done(err, user);
+  });
+});
+
 passport.use(new StackExchangeStrategy({
     clientID: STACKEXCHANGE_CLIENT_ID,
     clientSecret: STACKEXCHANGE_CLIENT_SECRET,
@@ -48,11 +64,14 @@ passport.use(new StackExchangeStrategy({
     site: 'stackoverflow',
   },
   async (accessToken, refreshToken, profile, done) => {
+    console.log(profile);
     const {
-      user_id: stackId,
-      profile_image: avatar,
-      display_name: name
+      id: stackId,
+      photos,
+      displayName: name
     } = profile;
+
+    const avatar = photos.length > 0 ? photos[0] : null;
 
     try {
       let user = await User.findOne({ stackId });
@@ -75,12 +94,10 @@ passport.use(new StackExchangeStrategy({
   }
 ));
 
-passport.use(new LocalStrategy(
-  {
+passport.use(new LocalStrategy({
     usernameField: 'email',
     passwordField: 'password',
-  },
-  function(username, password, done) {
+}, (username, password, done) => {
     User.findOne({ username: username }, function(err, user) {
       if (err) { return done(err); }
       if (!user) {
@@ -111,6 +128,56 @@ const authRouter = express.Router();
 authRouter
   .post('/login', passport.authenticate('local'), (req, res) => {
     res.json(req.user);
+  })
+  .post('/sign-up', async (req, res) => {
+    const {
+      email = null,
+      password = null,
+      name = null,
+    } =  req.body;
+
+    const errors = {};
+
+    if (!email) {
+      errors.email = 'Please, enter email';
+    } else if (!EMAIL_REGEXP.test(email)) {
+      errors.name = 'Email should be correct';
+    }
+
+    if (!password) {
+      errors.password = 'Please, enter password';
+    } else if (password.length < 3) {
+      errors.password = 'Password should be at least 3 characters';
+    }
+
+    if (!name) {
+      errors.name = 'Please, enter name';
+    } else if (name.length < 3) {
+      errors.name = 'Name should be at least 3 characters';
+    }
+
+    if (Object.keys(errors).length > 0) {
+      res.status(400).json({
+        code: 400,
+        message: 'Sign-up Data Incorrect',
+        errors,
+      });
+    } else {
+      const passwordHash = crypto.createHash('md5').update(password).digest('hex');
+
+      const user = new User({
+        email,
+        passwordHash,
+        name,
+      });
+
+      await user.save();
+
+      res.json({
+        email,
+        name,
+      });
+    }
   })
   .get('/stack', passport.authenticate('stack-exchange'))
   .get('/stack/callback', passport.authenticate('stack-exchange', { failureRedirect: '/login' }), (req, res) => {

@@ -13,24 +13,38 @@ import { SignUpData } from '../../models/auth.models';
         <mat-form-field class="sign-up-field">
           <input matInput formControlName="email" placeholder="Email" autocomplete="off">
 
-          <div *ngIf="email.errors.required">
-            Name is required.
-          </div>
-          <div *ngIf="email.errors.minlength">
-            Name must be at least 4 characters long.
-          </div>
+          <mat-error *ngIf="email.hasError('required')">
+            Email is required.
+          </mat-error>
+          <mat-error *ngIf="email.hasError('email')">
+            Email should be correct pattern.
+          </mat-error>
         </mat-form-field>
 
         <mat-form-field class="sign-up-field">
           <input matInput formControlName="password" placeholder="Password">
+
+          <mat-error *ngIf="password.hasError('required')">
+            Password is required.
+          </mat-error>
+          <mat-error *ngIf="password.hasError('minlength')">
+            Password should be at least 3 characters.
+          </mat-error>
         </mat-form-field>
 
         <mat-form-field class="sign-up-field">
           <input matInput formControlName="name" placeholder="Name">
+
+          <mat-error *ngIf="name.hasError('required')">
+            Name is required.
+          </mat-error>
+          <mat-error *ngIf="name.hasError('minlength')">
+            Name should be at least 3 characters.
+          </mat-error>
         </mat-form-field>
 
         <div class="sign-up-buttons">
-          <button mat-stroked-button color="primary" routerLink="/auth/login">Login</button>
+          <button mat-stroked-button color="primary" routerLink="/auth/login">Just go Login</button>
           <button mat-stroked-button color="accent" type="submit">Sign Up</button>
         </div>
       </form>
@@ -67,11 +81,13 @@ export class SignUpFormComponent {
     ])),
   });
 
-  get email() {
-    return this.signUpForm.get('email');
-  }
+  get email() { return this.signUpForm.get('email'); }
+  get password() { return this.signUpForm.get('password'); }
+  get name() { return this.signUpForm.get('name'); }
 
   onSubmit() {
-    console.warn(this.signUpForm.value);
+    if (this.signUpForm.valid) {
+      this.submitted.emit(this.signUpForm.value);
+    }
   }
 }

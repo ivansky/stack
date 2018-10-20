@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { combineLatest, of } from 'rxjs';
 import { mergeMap, take, tap } from 'rxjs/operators';
 
-import * as actions from '../actions';
 import * as authActions from '../actions/auth.actions';
 import { makeRequestEffect } from '../utils/makeRequestEffect';
 import { ApiService } from '../../api/api.service';
@@ -17,25 +16,34 @@ export class AuthEffects {
   @Effect()
   login$ = makeRequestEffect<LoginData, User, any>(
     this.actions$,
-    actions.LOGIN_REQUEST,
+    authActions.LOGIN,
     this.api.login.bind(this.api),
-    actions.loginSuccess,
-    actions.loginFailure
+    authActions.LoginSuccessAction,
+    authActions.LoginFailureAction
+  );
+
+  @Effect()
+  logout$ = makeRequestEffect<LoginData, User, any>(
+    this.actions$,
+    authActions.LOGOUT,
+    this.api.login.bind(this.api),
+    authActions.LogoutSuccessAction,
+    authActions.LogoutFailureAction
   );
 
   @Effect()
   gerProfile$ = makeRequestEffect<LoginData, User, any>(
     this.actions$,
-    actions.GET_PROFILE_REQUEST,
+    authActions.GET_PROFILE,
     this.api.getProfile.bind(this.api),
-    actions.getProfileSuccess,
-    actions.getProfileFailure
+    authActions.GetProfileSuccessAction,
+    authActions.GetProfileFailureAction,
   );
 
   @Effect()
   initGetProfile$ = this.actions$.pipe(
     ofType(ROOT_EFFECTS_INIT),
-    mergeMap(() => of(actions.getProfile())),
+    mergeMap(() => of(new authActions.GetProfileAction())),
   );
 
   @Effect({ dispatch: false })
@@ -44,8 +52,8 @@ export class AuthEffects {
     this.actions$.pipe(ofType(ROUTER_NAVIGATION)),
     this.actions$.pipe(
       ofType(
-        actions.GET_PROFILE_SUCCESS,
-        actions.GET_PROFILE_FAILURE,
+        authActions.GET_PROFILE_SUCCESS,
+        authActions.GET_PROFILE_FAILURE,
       )
     ),
   ).pipe(

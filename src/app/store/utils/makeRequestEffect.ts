@@ -1,21 +1,28 @@
 import { Actions as ActionsEffect, ofType } from '@ngrx/effects';
+import { Action } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
 import { catchError, map, mergeMap } from 'rxjs/operators';
-import { Action, ActionCreator } from './makeAction';
+
+type ActionWithPayload<P> = Action & { payload?: P };
+
+interface ActionWithPayloadClass<P> {
+  new (payload?: P): ActionWithPayload<P>;
+}
 
 export const makeRequestEffect = <RequestPayload, SuccessPayload, FailurePayload>(
   actions$: ActionsEffect,
-  requestAction: string,
+  requestActionType: string,
   requestFunction: (requestData?: RequestPayload) => Observable<SuccessPayload>,
-  successActionCreator: ActionCreator<SuccessPayload>,
-  failureActionCreator: ActionCreator<FailurePayload>,
-): Observable<Action<SuccessPayload>> =>
-  actions$.pipe(
-    ofType(requestAction),
-    mergeMap<Action<RequestPayload>, Action<SuccessPayload>>(({ payload: formData }) =>
+  SuccessActionCreator: ActionWithPayloadClass<SuccessPayload>,
+  FailureActionCreator: ActionWithPayloadClass<FailurePayload>,
+): Observable<Action> => {
+  return actions$.pipe(
+    ofType(requestActionType),
+    mergeMap<ActionWithPayload<RequestPayload>, ActionWithPayload<SuccessPayload>>(({ payload: formData }) =>
       requestFunction(formData).pipe(
-        map<SuccessPayload, Action<SuccessPayload>>(responseData => successActionCreator(responseData)),
-        catchError((error) => of(failureActionCreator(error)))
+        map<SuccessPayload, ActionWithPayload<SuccessPayload>>(responseData => new SuccessActionCreator(responseData)),
+        catchError((error) => of(new FailureActionCreator(error)))
       )
     )
   );
+};

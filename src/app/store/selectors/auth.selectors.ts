@@ -9,11 +9,16 @@ export const selectUser = createSelector(
   (authState) => authState.user,
 );
 
+export const selectProfilePending = createSelector(
+  selectAuthState,
+  (authState) => authState.isProfilePending,
+);
+
 export const selectLoggedIn = createSelector(selectUser, user => !!user);
 
 export const selectLoginPending = createSelector(
   selectAuthState,
-  (authState) => authState.isPending,
+  (authState) => authState.isLoginPending,
 );
 
 export const selectLoginError = createSelector(
@@ -21,5 +26,8 @@ export const selectLoginError = createSelector(
   (authState) => authState.error,
 );
 
-export const selectSignUpPending = selectLoginPending;
+export const selectSignUpPending = createSelector(
+  selectAuthState,
+  (authState) => authState.isSignUpPending,
+);
 export const selectSignUpError = selectLoginError;

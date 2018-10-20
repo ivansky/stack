@@ -33,7 +33,7 @@ describe('Auth Effects', () => {
 
   describe('login$ effect', () => {
     const loginData: LoginData = {
-      login: 'login',
+      email: 'email',
       password: 'password',
     };
 

@@ -11,8 +11,8 @@ export interface SignUpData {
 }
 
 export interface User {
-  stackId: string;
   email: string;
   name: string;
-  avatar: string;
+  stackId?: string;
+  avatar?: string;
 }

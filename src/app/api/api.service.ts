@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { LoginData, User } from '../models/auth.models';
+import { LoginData, SignUpData, User } from '../models/auth.models';
 
 @Injectable({
   providedIn: 'root',
@@ -20,6 +20,10 @@ export class ApiService {
 
   public login(loginData: LoginData) {
     return this.post<User>('/auth/login', loginData);
+  }
+
+  public signUp(signUpData: SignUpData) {
+    return this.post<User>('/auth/sign-up', signUpData);
   }
 
   public getProfile() {
