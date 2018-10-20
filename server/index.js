@@ -1,6 +1,7 @@
 require('dotenv').config();
 
 const proxyMiddleware = require('http-proxy-middleware');
+const crypto = require('crypto');
 const express = require('express');
 const passport = require('passport');
 const mongoose = require('mongoose');
@@ -75,15 +76,23 @@ passport.use(new StackExchangeStrategy({
 ));
 
 passport.use(new LocalStrategy(
+  {
+    usernameField: 'email',
+    passwordField: 'password',
+  },
   function(username, password, done) {
     User.findOne({ username: username }, function(err, user) {
       if (err) { return done(err); }
       if (!user) {
-        return done(null, false, { message: 'Incorrect username.' });
+        return done(null, false, { message: 'Incorrect email' });
       }
-      if (!user.validPassword(password)) {
-        return done(null, false, { message: 'Incorrect password.' });
+
+      const hash = crypto.createHash('md5').update(password).digest('hex');
+
+      if (user.passwordHash !== hash) {
+        return done(null, false, { message: 'Incorrect password' });
       }
+
       return done(null, user);
     });
   }
@@ -92,14 +101,17 @@ passport.use(new LocalStrategy(
 const app = express();
 
 app.use(cookieParser());
-app.use(bodyParser());
+app.use(bodyParser.json());
 app.use(session({ secret: SERVER_SESSION_SECRET }));
 app.use(passport.initialize());
-app.use(passport.session());
+app.use(passport.session({ secret: SERVER_SESSION_SECRET }));
 
 const authRouter = express.Router();
 
 authRouter
+  .post('/login', passport.authenticate('local'), (req, res) => {
+    res.json(req.user);
+  })
   .get('/stack', passport.authenticate('stack-exchange'))
   .get('/stack/callback', passport.authenticate('stack-exchange', { failureRedirect: '/login' }), (req, res) => {
     // Successful authentication, redirect home.
@@ -107,18 +119,16 @@ authRouter
   })
   .get('/profile', (req, res, next) => {
     if (req.isAuthenticated()) {
-      return next();
+      res.json({
+        ...req.user,
+        passwordHash: undefined,
+      });
+    } else {
+      res.status(401).json({
+        code: 401,
+        message: 'Unauthorized',
+      });
     }
-
-    res.status(401).json({
-      code: 401,
-      message: 'Unauthorized',
-    });
-  }, (req, res) => {
-    res.json({
-      ...req.user,
-      passwordHash: undefined,
-    });
   })
   .get('/logout', (req, res) => {
     req.logout();

@@ -19,11 +19,11 @@ export class ApiService {
   }
 
   public login(loginData: LoginData) {
-    return this.post<User>('/login', loginData);
+    return this.post<User>('/auth/login', loginData);
   }
 
   public getProfile() {
-    return this.get<User>('/profile');
+    return this.get<User>('/auth/profile');
   }
 
 }

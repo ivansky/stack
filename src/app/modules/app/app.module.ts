@@ -2,25 +2,25 @@ import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { RouterStateSerializer, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AuthGuardService } from '../../auth/auth-guard.service';
 import { AuthService } from '../../auth/auth.service';
-import { AppComponent } from './app.component';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { NotFoundComponent } from '../not-found/not-found.component';
 import { environment } from '../../../environments/environment';
-import { metaReducers, reducers } from '../../store/reducers/root.reducer';
+import { metaReducers, reducers, CustomRouterSerializer } from '../../store/reducers/root.reducer';
 import rootEffects from '../../store/effects/root.effects';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '../material/material.module';
+import { LayoutComponent } from '../../components/layout/layout.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    LayoutComponent,
     DashboardComponent,
     NotFoundComponent,
   ],
@@ -76,7 +76,8 @@ import { MaterialModule } from '../material/material.module';
   providers: [
     AuthGuardService,
     AuthService,
+    { provide: RouterStateSerializer, useClass: CustomRouterSerializer }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [LayoutComponent]
 })
 export class AppModule { }
