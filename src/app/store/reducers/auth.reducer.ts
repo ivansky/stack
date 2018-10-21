@@ -1,5 +1,5 @@
 import { User } from '../../models/auth.models';
-import * as authActions from '../actions/auth.actions';
+import * as authActions from '../../modules/auth/auth.actions';
 
 export interface AuthReducerState {
   isLoginPending: boolean;

@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { AbstractAction } from '../utils/abstract-actions';
+import { AbstractAction } from '../../store/utils/abstract-actions';
 import { LoginData, SignUpData, User } from '../../models/auth.models';
 
 export const LOGIN_REDIRECT = 'redirect/login';

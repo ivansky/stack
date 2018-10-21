@@ -4,10 +4,10 @@ import { ROUTER_NAVIGATION } from '@ngrx/router-store';
 import { combineLatest, of } from 'rxjs';
 import { mergeMap, take, tap } from 'rxjs/operators';
 
-import * as authActions from '../actions/auth.actions';
-import { makeRequestEffect } from '../utils/makeRequestEffect';
+import * as authActions from './auth.actions';
+import { makeRequestEffect } from '../../store/utils/makeRequestEffect';
 import { LoginData, User } from '../../models/auth.models';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from './auth.service';
 
 @Injectable()
 export class AuthEffects {

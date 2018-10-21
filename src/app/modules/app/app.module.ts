@@ -14,18 +14,16 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { metaReducers, reducers, CustomRouterSerializer } from '../../store/reducers/root.reducer';
 import { AuthGuardService } from '../../services/auth-guard.service';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../auth/auth.service';
 
-import { DashboardComponent } from '../dashboard/dashboard.component';
-import { NotFoundComponent } from '../not-found/not-found.component';
-import { LayoutComponent } from '../../containers/layout.component';
-import { NavComponent } from '../../components/nav/nav.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { LayoutComponent } from './containers/layout.component';
+import { NavComponent } from './components/nav/nav.component';
 
 @NgModule({
   declarations: [
     LayoutComponent,
     NavComponent,
-    DashboardComponent,
     NotFoundComponent,
   ],
   imports: [

@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { AuthEffects } from './auth.effects';
 import { Subject, of, throwError, ReplaySubject } from 'rxjs';
-import * as authActions from '../actions/auth.actions';
+import * as authActions from './auth.actions';
 import { ApiService } from '../../services/api.service';
 import { LoginData, User } from '../../models/auth.models';
 

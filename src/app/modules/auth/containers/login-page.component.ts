@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { LoginData } from '../models/auth.models';
-import { State } from '../store/reducers/root.reducer';
-import * as authSelectors from '../store/selectors/auth.selectors';
-import * as authActions from '../store/actions/auth.actions';
+import { LoginData } from '../../../models/auth.models';
+import { State } from '../../../store/reducers/root.reducer';
+import * as authSelectors from '../../../store/selectors/auth.selectors';
+import * as authActions from '../auth.actions';
 
 @Component({
   selector: 'app-login-page',

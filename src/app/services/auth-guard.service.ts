@@ -4,14 +4,14 @@ import {
   CanActivateChild, Router,
   RouterStateSnapshot,
 } from '@angular/router';
-import { AuthService } from './auth.service';
+import { AuthService } from '../modules/auth/auth.service';
 import { Injectable } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { State } from '../store/reducers/root.reducer';
 import { filter, map, mergeMap, take } from 'rxjs/operators';
 import * as authSelectors from '../store/selectors/auth.selectors';
 import { Observable } from 'rxjs';
-import * as authActions from '../store/actions/auth.actions';
+import * as authActions from '../modules/auth/auth.actions';
 
 @Injectable({
   providedIn: 'root',

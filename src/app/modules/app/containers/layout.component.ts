@@ -2,9 +2,9 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { State } from '../store/reducers/root.reducer';
-import * as selectors from '../store/selectors/index';
-import * as authActions from '../store/actions/auth.actions';
+import { State } from '../../../store/reducers/root.reducer';
+import * as selectors from '../../../store/selectors/index';
+import * as authActions from '../../auth/auth.actions';
 
 @Component({
   selector: 'app-root',
