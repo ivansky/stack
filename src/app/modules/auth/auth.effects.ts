@@ -4,9 +4,9 @@ import { ROUTER_NAVIGATION } from '@ngrx/router-store';
 import { combineLatest, of } from 'rxjs';
 import { mergeMap, take, tap } from 'rxjs/operators';
 
-import * as authActions from './auth.actions';
 import { makeRequestEffect } from '../../store/utils/makeRequestEffect';
-import { LoginData, User } from '../../models/auth.models';
+import * as authActions from './auth.actions';
+import { LoginData, User } from './auth.models';
 import { AuthService } from './auth.service';
 
 @Injectable()

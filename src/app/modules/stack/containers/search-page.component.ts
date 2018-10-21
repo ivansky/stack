@@ -1,6 +1,7 @@
 import { Component, Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { State } from '../../../store/reducers/root.reducer';
+import { State } from '../../../store/reducers';
+import * as stackActions from '../stack.actions';
 
 @Component({
   selector: 'app-search-page',
@@ -13,9 +14,7 @@ export class SearchPageComponent {
   constructor(
     private store: Store<State>,
   ) {
-
-    store.dispatch();
-
+    store.dispatch(new stackActions.SearchAction('test'));
   }
 
 }

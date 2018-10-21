@@ -7,18 +7,20 @@ import { RouterStateSerializer, StoreRouterConnectingModule } from '@ngrx/router
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import rootEffects from '../../store/effects/root.effects';
+import effects from '../../store/effects';
 import { environment } from '../../../environments/environment';
 import { MaterialModule } from '../material/material.module';
 import { AppRoutingModule } from './app-routing.module';
 
-import { metaReducers, reducers, CustomRouterSerializer } from '../../store/reducers/root.reducer';
-import { AuthGuardService } from '../../services/auth-guard.service';
+import { metaReducers, reducers, CustomRouterSerializer } from '../../store/reducers';
+import { AuthCheckGuard } from '../auth/guards/auth-check.guard';
 import { AuthService } from '../auth/auth.service';
 
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { LayoutComponent } from './containers/layout.component';
 import { NavComponent } from './components/nav/nav.component';
+import { AuthModule } from '../auth/auth.module';
+import { StackModule } from '../stack/stack.module';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,11 @@ import { NavComponent } from './components/nav/nav.component';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    MaterialModule,
+
+    AuthModule,
+    StackModule,
 
     /**
      * StoreModule.forRoot is imported once in the root module, accepting a reducer
@@ -67,17 +74,12 @@ import { NavComponent } from './components/nav/nav.component';
      *
      * See: https://github.com/ngrx/platform/blob/master/docs/effects/api.md#forroot
      */
-    EffectsModule.forRoot(rootEffects),
-
-    BrowserAnimationsModule,
-    MaterialModule,
+    EffectsModule.forRoot(effects),
   ],
   exports: [
     MaterialModule,
   ],
   providers: [
-    AuthGuardService,
-    AuthService,
     { provide: RouterStateSerializer, useClass: CustomRouterSerializer }
   ],
   bootstrap: [LayoutComponent]

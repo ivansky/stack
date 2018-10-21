@@ -6,7 +6,7 @@ import { SignUpPageComponent } from './containers/sign-up-page.component';
 
 @NgModule({
   imports: [RouterModule.forChild([
-    { path: '', redirectTo: 'login' },
+    { path: '', redirectTo: 'login', pathMatch: 'full' },
     { path: 'login', component: LoginPageComponent },
     { path: 'sign-up', component: SignUpPageComponent },
   ])],

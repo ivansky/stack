@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Inject, Input, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { LoginData } from '../../../../models/auth.models';
+import { LoginData } from '../../auth.models';
 
 @Component({
   selector: 'app-login-form',

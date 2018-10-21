@@ -4,8 +4,8 @@ import {
   MetaReducer,
 } from '@ngrx/store';
 import { storeLogger } from 'ngrx-store-logger';
-import { environment } from '../../../environments/environment';
-import { authReducer, AuthReducerState } from './auth.reducer';
+import { environment } from '../../environments/environment';
+import { authReducer, AuthReducerState } from '../modules/auth/auth.reducer';
 import { RouterReducerState, routerReducer, RouterStateSerializer } from '@ngrx/router-store';
 import { ActivatedRouteSnapshot, Params, RouterStateSnapshot } from '@angular/router';
 

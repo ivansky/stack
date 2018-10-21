@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { SignUpData } from '../../../models/auth.models';
-import { State } from '../../../store/reducers/root.reducer';
-import * as authSelectors from '../../../store/selectors/auth.selectors';
+import { SignUpData } from '../auth.models';
+import { State } from '../../../store/reducers';
+import * as authSelectors from '../auth.selectors';
 import * as authActions from '../auth.actions';
 
 @Component({

@@ -4,7 +4,7 @@ import { AuthEffects } from './auth.effects';
 import { Subject, of, throwError, ReplaySubject } from 'rxjs';
 import * as authActions from './auth.actions';
 import { ApiService } from '../../services/api.service';
-import { LoginData, User } from '../../models/auth.models';
+import { LoginData, User } from './auth.models';
 
 describe('Auth Effects', () => {
   let effects: AuthEffects;

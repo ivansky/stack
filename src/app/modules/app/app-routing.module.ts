@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { AuthGuardService as AuthGuard } from '../../services/auth-guard.service';
+import { AuthCheckGuard as AuthGuard } from '../auth/guards/auth-check.guard';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
