@@ -25,9 +25,6 @@ export class SearchPageComponent {
 
   onSubmit(searchData: SearchData) {
     this.store.dispatch(new stackActions.SearchAction(searchData));
-    this.store.pipe(
-      select(),
-    );
   }
 
 }
