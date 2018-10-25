@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Inject, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { LoginData } from '../../../auth/auth.models';
+import { SearchData } from '../../stack.models';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-search-form',
@@ -15,7 +16,8 @@ import { LoginData } from '../../../auth/auth.models';
         </mat-form-field>
 
         <div class="search-buttons">
-          <button mat-stroked-button color="primary" type="submit">Search</button>
+          <mat-spinner *ngIf="isPending | async" diameter="30"></mat-spinner>
+          <button mat-stroked-button color="primary" type="submit" [disabled]="!searchForm.valid">Search</button>
         </div>
       </form>
     </mat-card>
@@ -23,8 +25,12 @@ import { LoginData } from '../../../auth/auth.models';
   styleUrls: ['./search-form.component.css'],
 })
 export class SearchFormComponent {
+  public isPending = new BehaviorSubject(false);
+
   @Input()
   set pending(isPending: boolean) {
+    this.isPending.next(isPending);
+
     if (isPending) {
       this.searchForm.disable();
     } else {
@@ -34,11 +40,10 @@ export class SearchFormComponent {
 
   @Input() errorMessage: string | null;
 
-  @Output() submitted = new EventEmitter<LoginData>();
+  @Output() submitted = new EventEmitter<SearchData>();
 
   searchForm = new FormGroup({
-    email: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required),
+    query: new FormControl('', Validators.required),
   });
 
   onSubmit() {

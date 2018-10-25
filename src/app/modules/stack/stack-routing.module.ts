@@ -1,11 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { SearchPageComponent } from './containers/search-page.component';
+import { SearchResultsComponent } from './containers/search-results.component';
+import { NotFoundComponent } from '../shared/components/not-found/not-found.component';
 
 @NgModule({
   imports: [RouterModule.forChild([
     { path: '', redirectTo: 'search', pathMatch: 'full' },
     { path: 'search', component: SearchPageComponent },
+    { path: 'search/:query', component: SearchResultsComponent },
+    { path: '**', component: NotFoundComponent }
   ])],
   exports: [RouterModule],
 })

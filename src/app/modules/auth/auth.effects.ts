@@ -6,7 +6,7 @@ import { mergeMap, take, tap } from 'rxjs/operators';
 
 import { makeRequestEffect } from '../../store/utils/makeRequestEffect';
 import * as authActions from './auth.actions';
-import { LoginData, User } from './auth.models';
+import { LoginData, SignUpData, User } from './auth.models';
 import { AuthService } from './auth.service';
 
 @Injectable()
@@ -19,6 +19,15 @@ export class AuthEffects {
     this.auth.login.bind(this.auth),
     authActions.LoginSuccessAction,
     authActions.LoginFailureAction
+  );
+
+  @Effect()
+  signUp$ = makeRequestEffect<SignUpData, User, any>(
+    this.actions$,
+    authActions.SIGN_UP,
+    this.auth.signUp.bind(this.auth),
+    authActions.SignUpSuccessAction,
+    authActions.SignUpFailureAction
   );
 
   @Effect()

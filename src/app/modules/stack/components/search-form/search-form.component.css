@@ -8,9 +8,11 @@
 }
 
 .search-buttons {
-  display: block;
+  display: flex;
   text-align: right;
   margin-top: 20px;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .search-buttons button {

@@ -13,20 +13,16 @@ import { MaterialModule } from '../material/material.module';
 import { AppRoutingModule } from './app-routing.module';
 
 import { metaReducers, reducers, CustomRouterSerializer } from '../../store/reducers';
-import { AuthCheckGuard } from '../auth/guards/auth-check.guard';
-import { AuthService } from '../auth/auth.service';
 
-import { NotFoundComponent } from './components/not-found/not-found.component';
 import { LayoutComponent } from './containers/layout.component';
 import { NavComponent } from './components/nav/nav.component';
 import { AuthModule } from '../auth/auth.module';
-import { StackModule } from '../stack/stack.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
     LayoutComponent,
     NavComponent,
-    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,9 +30,8 @@ import { StackModule } from '../stack/stack.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-
+    SharedModule,
     AuthModule,
-    StackModule,
 
     /**
      * StoreModule.forRoot is imported once in the root module, accepting a reducer

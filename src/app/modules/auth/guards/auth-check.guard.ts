@@ -19,18 +19,18 @@ import * as authActions from '../auth.actions';
 export class AuthCheckGuard implements CanActivate, CanActivateChild {
   constructor(
     private authService: AuthService,
-    private store$: Store<State>,
+    private store: Store<State>,
     private router: Router,
   ) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
-    const waitProfileLoaded$ = this.store$.pipe(
+    const waitProfileLoaded$ = this.store.pipe(
       select(authSelectors.selectProfilePending),
       filter((isPending) => !isPending),
       take(1)
     );
 
-    const getUserProfile$ = this.store$.pipe(
+    const getUserProfile$ = this.store.pipe(
       select(authSelectors.selectUser),
       take(1),
     );
@@ -39,7 +39,7 @@ export class AuthCheckGuard implements CanActivate, CanActivateChild {
       mergeMap(() => getUserProfile$),
       map((user, user1) => {
         if (!user) {
-          this.store$.dispatch(new authActions.LoginRedirect());
+          this.store.dispatch(new authActions.LoginRedirect());
           return false;
         } else {
           return true;

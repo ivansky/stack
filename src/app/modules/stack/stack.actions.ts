@@ -1,10 +1,25 @@
 import { Action } from '@ngrx/store';
 import { AbstractAction } from '../../store/utils/abstract-actions';
+import { SearchData, SearchResults } from './stack.models';
 
-export class SearchAction extends AbstractAction<string> implements Action {
-  type = 'stack/search';
+export const SEARCH = 'stack/search';
+export const SEARCH_SUCCESS = 'stack/search/success';
+export const SEARCH_FAILURE = 'stack/search/failure';
 
-  constructor (queryString: string) {
-    super(queryString);
+export class SearchAction extends AbstractAction<SearchData> implements Action {
+  type = SEARCH;
+
+  constructor (searchData: SearchData) {
+    super(searchData);
   }
 }
+
+export class SearchSuccessAction extends AbstractAction<SearchResults, SearchData> implements Action {
+  type = SEARCH_SUCCESS;
+}
+
+export class SearchFailureAction extends AbstractAction<any, SearchData> implements Action {
+  type = SEARCH_FAILURE;
+}
+
+export type StackActionUnion = SearchAction | SearchSuccessAction | SearchFailureAction;

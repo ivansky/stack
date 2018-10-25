@@ -15,6 +15,7 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { SignUpFormComponent } from './components/sign-up-form/sign-up-form.component';
 import { LoginPageComponent } from './containers/login-page.component';
 import { SignUpPageComponent } from './containers/sign-up-page.component';
+import { AuthCheckGuard } from './guards/auth-check.guard';
 
 export const COMPONENTS = [
   LoginPageComponent,
@@ -39,6 +40,7 @@ export const COMPONENTS = [
   ],
   providers: [
     AuthService,
+    AuthCheckGuard,
     { provide: 'Window',  useValue: window },
   ],
 })
