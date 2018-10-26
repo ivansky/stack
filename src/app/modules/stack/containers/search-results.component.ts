@@ -1,29 +1,39 @@
 import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import * as stackActions from '../stack.actions';
 import * as stackSelectors from '../stack.selectors';
-import { Question, SearchData } from '../stack.models';
+import { Question} from '../stack.models';
 import { StackState } from '../stack.reducer';
-import { filter, switchMap, take, tap } from 'rxjs/operators';
+import { filter, take } from 'rxjs/operators';
 import { BehaviorSubject, Observable } from 'rxjs';
+
+const QUESTIONS_PER_PAGE = 10;
 
 @Component({
   selector: 'app-search-results',
   template: `
-    <h2>Search results for: {{ query }}</h2>
+    <h2 class="search-results__title">Search results for: {{ query }}</h2>
     <app-search-table
-      (onScrolled)="onScrolled($event)"
+      (reachedEnd)="onReachedEnd($event)"
       [pending]="pending$ | async"
       [errorMessage]="error$ | async"
       [questions]="questions$ | async"
     ></app-search-table>
-  `
+  `,
+  styles: [
+    `
+    .search-results__title {
+      margin: 20px;
+    }
+    `
+  ]
 })
 export class SearchResultsComponent implements OnInit {
-  private currentPage = 1;
-
+  public requestedPagesMap: { [page: number]: boolean } = {};
+  public page$ = new BehaviorSubject<number>(1);
   public questions$ = new BehaviorSubject<Question[]>([]);
+
   public pending$ = this.store.pipe(select(stackSelectors.selectSearchPending));
   public error$ = this.store.pipe(select(stackSelectors.selectSearchError));
 
@@ -34,17 +44,14 @@ export class SearchResultsComponent implements OnInit {
     private store: Store<StackState>,
   ) {}
 
-  nextPage(page) {
-    this.store.dispatch(new stackActions.SearchAction({
-      query: this.query,
-      page,
-    }));
+  loadPage(page) {
+    this.page$.next(page);
   }
 
-  waitForQueryPage(query, page): Observable<Question[]> {
+  waitForLoadingPage(page): Observable<Question[]> {
     return this.store.pipe(
       select(stackSelectors.selectSearchedQuestions, {
-        query,
+        query: this.query,
         page,
       }),
       filter(questions => !!questions),
@@ -52,32 +59,59 @@ export class SearchResultsComponent implements OnInit {
     );
   }
 
-  ngOnInit(): void {
-    this.query = this.route.snapshot.paramMap.get('query');
-    this.waitForQueryPage(this.query, this.currentPage).subscribe(console.log);
-
-    this.store.pipe(
+  selectPageQuestions(page): Observable<Question[]> {
+    return this.store.pipe(
       select(stackSelectors.selectSearchedQuestions, {
         query: this.query,
-        page: this.currentPage,
-      })
-    ).subscribe((questions) => {
-      if (!questions) {
-        this.nextPage(1);
-      } else {
-        this.questions$.next(questions);
-      }
-    });
-
-    this.questions$.subscribe((questions) => {
-      if (!questions) {
-        this.nextPage(1);
-      }
-    });
+        page,
+      }),
+      take(1),
+    );
   }
 
-  onScrolled() {
+  onLoadedPageQuestions(page, questions) {
+    const pageIndex = page - 1;
+    const offset = QUESTIONS_PER_PAGE * pageIndex;
+    const currentQuestions = this.questions$.getValue();
 
+    this.questions$.next([
+      ...currentQuestions.slice(0, offset),
+      ...questions,
+      ...currentQuestions.slice(offset + questions.length),
+    ]);
+  }
+
+  onChangedPage(nextPage) {
+    if (!this.requestedPagesMap[nextPage]) {
+      this.store.dispatch(new stackActions.SearchAction({
+        query: this.query,
+        page: nextPage,
+      }));
+
+      this.requestedPagesMap[nextPage] = true;
+
+      this.waitForLoadingPage(nextPage)
+        .subscribe((questions) => this.onLoadedPageQuestions(nextPage, questions));
+    }
+  }
+
+  ngOnInit(): void {
+    this.query = this.route.snapshot.paramMap.get('query');
+
+    this.page$.subscribe(this.onChangedPage.bind(this));
+
+    this.selectPageQuestions(this.page$.getValue())
+      .subscribe((questions) => {
+        if (!questions) {
+          this.loadPage(this.page$.getValue());
+        } else {
+          this.questions$.next(questions);
+        }
+      });
+  }
+
+  onReachedEnd() {
+    this.loadPage(this.page$.value + 1);
   }
 
 }

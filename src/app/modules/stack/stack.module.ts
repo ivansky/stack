@@ -38,6 +38,7 @@ import { SharedModule } from '../shared/shared.module';
   ],
   providers: [
     StackService,
+    { provide: 'Window',  useValue: window },
   ],
 })
 export class StackModule {}

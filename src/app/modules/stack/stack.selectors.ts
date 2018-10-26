@@ -22,7 +22,6 @@ export const selectSearchedQuestions = createSelector(
   selectStackState,
   (_, props) => props,
   ({ searchResultsMap, questionsEntities }, { query, page }) => {
-    console.log(searchResultsMap, query, page);
     if (searchResultsMap[query] && searchResultsMap[query][page]) {
       return searchResultsMap[query][page].map(questionId => questionsEntities[questionId]);
     }

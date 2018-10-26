@@ -1,0 +1,11 @@
+.search-table {
+
+}
+
+.search-table__item {
+  margin: 20px;
+}
+
+.search-table__spinner {
+  margin: 10px auto;
+}

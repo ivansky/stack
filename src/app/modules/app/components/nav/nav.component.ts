@@ -4,7 +4,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   selector: 'app-nav',
   template: `
     <mat-toolbar class="header">
-      <span><a routerLink="/search">StackApp Observer</a></span>
+      <span><a routerLink="/">StackApp Observer</a></span>
       <span class="toolbar-spacer"></span>
       <button *ngIf="!loggedIn" mat-flat-button routerLink="/auth/login">Login</button>
       <button *ngIf="loggedIn" mat-flat-button color="accent" (click)="onLogout()">Logout</button>
