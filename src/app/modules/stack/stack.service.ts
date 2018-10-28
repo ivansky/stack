@@ -22,7 +22,18 @@ export class StackService {
         sort: 'creation',
         site: 'stackoverflow',
         pagesize: 10,
+        page: searchData.page,
         intitle: searchData.query,
+      }
+    });
+  }
+
+  getQuestion(questionId: number) {
+    return this.api.get(`/questions/${questionId}`, {
+      params: {
+        order: 'desc',
+        sort: 'activity',
+        site: 'stackoverflow',
       }
     });
   }

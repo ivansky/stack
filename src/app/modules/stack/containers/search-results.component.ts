@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { ActivatedRoute } from '@angular/router';
+import { MatBottomSheet } from '@angular/material';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { filter, take } from 'rxjs/operators';
 import * as stackActions from '../stack.actions';
 import * as stackSelectors from '../stack.selectors';
 import { Question} from '../stack.models';
 import { StackState } from '../stack.reducer';
-import { filter, take } from 'rxjs/operators';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { SearchTableQuickComponent } from '../components/search-table-quick/search-table-quick.component';
 
 const QUESTIONS_PER_PAGE = 10;
 
@@ -16,6 +18,8 @@ const QUESTIONS_PER_PAGE = 10;
     <h2 class="search-results__title">Search results for: {{ query }}</h2>
     <app-search-table
       (reachedEnd)="onReachedEnd($event)"
+      (openUserQuestions)="onOpenUsersQuestions($event)"
+      [query]="query"
       [pending]="pending$ | async"
       [errorMessage]="error$ | async"
       [questions]="questions$ | async"
@@ -42,6 +46,7 @@ export class SearchResultsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private store: Store<StackState>,
+    private bottomSheet: MatBottomSheet,
   ) {}
 
   loadPage(page) {
@@ -112,6 +117,10 @@ export class SearchResultsComponent implements OnInit {
 
   onReachedEnd() {
     this.loadPage(this.page$.value + 1);
+  }
+
+  onOpenUsersQuestions() {
+    this.bottomSheet.open(SearchTableQuickComponent);
   }
 
 }

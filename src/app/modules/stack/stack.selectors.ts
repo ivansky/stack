@@ -29,3 +29,15 @@ export const selectSearchedQuestions = createSelector(
     return null;
   }
 );
+
+export const selectQuestion = createSelector(
+  selectStackState,
+  (_, props) => props.questionId,
+  ({ questionsEntities }, questionId) => {
+    if (questionsEntities[questionId]) {
+      return questionsEntities[questionId];
+    }
+
+    return null;
+  }
+);

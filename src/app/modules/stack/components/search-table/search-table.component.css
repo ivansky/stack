@@ -6,6 +6,33 @@
   margin: 20px;
 }
 
+.search-table__item-buttons {
+  display: flex;
+}
+
+.search-table__item-buttons button {}
+
+.search-table__item-buttons .item-avatar,
+.search-table__item-buttons .item-avatar img {
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+}
+
+.search-table__item-buttons .buttons-spacer {
+  flex: 1 1 auto;
+}
+
+.search-table__item-buttons .item-avatar {
+  margin-left: 6px;
+  margin-right: -6px;
+}
+
+:host >>> .highlight {
+  background-color: yellow;
+  font-weight: bold;
+}
+
 .search-table__spinner {
   margin: 10px auto;
 }

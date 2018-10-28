@@ -6,15 +6,18 @@ import { EffectsModule } from '@ngrx/effects';
 
 import { StackRoutingModule } from './stack-routing.module';
 import { MaterialModule } from '../material/material.module';
+import { SharedModule } from '../shared/shared.module';
 import { StackService } from './stack.service';
 import { stackReducer } from './stack.reducer';
 import { StackEffects } from './stack.effects';
 
 import { SearchPageComponent } from './containers/search-page.component';
 import { SearchResultsComponent } from './containers/search-results.component';
+import { QuestionDetailsComponent } from './containers/question-details.component';
+import { HighlightSubstringPipe } from './pipes/highlight-substring.pipe';
 import { SearchFormComponent } from './components/search-form/search-form.component';
 import { SearchTableComponent } from './components/search-table/search-table.component';
-import { SharedModule } from '../shared/shared.module';
+import { SearchTableQuickComponent } from './components/search-table-quick/search-table-quick.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +25,9 @@ import { SharedModule } from '../shared/shared.module';
     SearchResultsComponent,
     SearchFormComponent,
     SearchTableComponent,
+    SearchTableQuickComponent,
+    QuestionDetailsComponent,
+    HighlightSubstringPipe,
   ],
   imports: [
     CommonModule,
@@ -35,6 +41,9 @@ import { SharedModule } from '../shared/shared.module';
   ],
   exports: [
     MaterialModule,
+  ],
+  entryComponents: [
+    SearchTableQuickComponent,
   ],
   providers: [
     StackService,

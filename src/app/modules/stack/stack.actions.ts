@@ -1,6 +1,6 @@
 import { Action } from '@ngrx/store';
 import { AbstractAction } from '../../store/utils/abstract-actions';
-import { SearchData, SearchResults } from './stack.models';
+import { Question, QuestionId, SearchData, SearchResults } from './stack.models';
 
 export const SEARCH = 'stack/search';
 export const SEARCH_SUCCESS = 'stack/search/success';
@@ -22,4 +22,21 @@ export class SearchFailureAction extends AbstractAction<any, SearchData> impleme
   type = SEARCH_FAILURE;
 }
 
-export type StackActionUnion = SearchAction | SearchSuccessAction | SearchFailureAction;
+export const GET_QUESTION = 'stack/question/get';
+export const GET_QUESTION_SUCCESS = 'stack/question/get/success';
+export const GET_QUESTION_FAILURE = 'stack/question/get/failure';
+
+export class GetQuestionAction extends AbstractAction<QuestionId> implements Action {
+  type = GET_QUESTION;
+}
+
+export class GetQuestionSuccessAction extends AbstractAction<Question, QuestionId> implements Action {
+  type = GET_QUESTION_SUCCESS;
+}
+
+export class GetQuestionFailureAction extends AbstractAction<any, QuestionId> implements Action {
+  type = GET_QUESTION_FAILURE;
+}
+
+export type StackActionUnion = SearchAction | SearchSuccessAction | SearchFailureAction
+  | GetQuestionAction | GetQuestionSuccessAction | GetQuestionFailureAction;

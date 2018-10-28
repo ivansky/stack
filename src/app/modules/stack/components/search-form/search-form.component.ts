@@ -48,7 +48,10 @@ export class SearchFormComponent {
 
   onSubmit() {
     if (this.searchForm.valid) {
-      this.submitted.emit(this.searchForm.value);
+      this.submitted.emit({
+        ...this.searchForm.value,
+        page: 1,
+      });
     }
   }
 }

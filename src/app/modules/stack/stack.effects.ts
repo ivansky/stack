@@ -6,7 +6,7 @@ import { combineLatest } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { makeRequestEffect } from '../../store/utils/makeRequestEffect';
 import * as stackActions from './stack.actions';
-import { SearchData } from './stack.models';
+import { Question, QuestionId, SearchData } from './stack.models';
 import { RouterStateUrl } from '../../store/reducers';
 
 @Injectable()
@@ -31,6 +31,15 @@ export class StackEffects {
         this.stack.redirectToSearchResult(successAction.parentPayload.query);
       }
     })
+  );
+
+  @Effect()
+  getQuestion$ = makeRequestEffect<QuestionId, Question, any>(
+    this.actions$,
+    stackActions.GET_QUESTION,
+    this.stack.getQuestion.bind(this.stack),
+    stackActions.GetQuestionSuccessAction,
+    stackActions.GetQuestionFailureAction,
   );
 
   constructor(
