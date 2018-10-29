@@ -3,7 +3,7 @@ import { Component, EventEmitter, Inject, Input, OnDestroy, OnInit, Output } fro
 @Component({
   selector: 'app-search-table',
   template: `
-    <div class="search-table">
+    <div class="search-table" *ngIf="questions">
       <mat-card class="search-table__item" *ngFor="let question of questions">
         <mat-card-title>
           <a routerLink="/stack/question/{{ question.question_id }}"

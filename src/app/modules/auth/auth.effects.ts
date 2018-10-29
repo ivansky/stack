@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Actions as ActionsEffect, Effect, ofType, ROOT_EFFECTS_INIT } from '@ngrx/effects';
-import { ROUTER_NAVIGATION } from '@ngrx/router-store';
+import { ROUTER_NAVIGATION, RouterNavigationAction } from '@ngrx/router-store';
 import { combineLatest, of } from 'rxjs';
-import { mergeMap, take, tap } from 'rxjs/operators';
+import { mergeMap, take, tap, withLatestFrom } from 'rxjs/operators';
 
 import { makeRequestEffect } from '../../store/utils/makeRequestEffect';
 import * as authActions from './auth.actions';
 import { LoginData, SignUpData, User } from './auth.models';
 import { AuthService } from './auth.service';
+import { RouterStateUrl } from '../../store/reducers';
 
 @Injectable()
 export class AuthEffects {
@@ -68,6 +69,17 @@ export class AuthEffects {
     take(1),
     tap(() => {
       console.log('Some side-effect here to play after application loaded');
+    })
+  );
+
+  @Effect({ dispatch: false })
+  authComplete$ = this.actions$.pipe(
+    ofType(authActions.LOGIN_SUCCESS, authActions.SIGN_UP_SUCCESS),
+    withLatestFrom(this.actions$.pipe(ofType(ROUTER_NAVIGATION))),
+    tap(([, routerAction]: [any, RouterNavigationAction<RouterStateUrl>]) => {
+      if (/^\/auth/.test(routerAction.payload.routerState.url)) {
+        this.auth.redirectToDashboard();
+      }
     })
   );
 

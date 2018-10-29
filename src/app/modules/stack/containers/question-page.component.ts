@@ -4,22 +4,24 @@ import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import * as stackSelectors from '../stack.selectors';
 import { StackState } from '../stack.reducer';
-import { Question } from '../stack.models';
+import { Answer, Question } from '../stack.models';
 import * as stackActions from '../stack.actions';
 
 @Component({
-  selector: 'app-question-details',
+  selector: 'app-question-page',
   template: `
-    <div class="question-details" *ngIf="(question$ | async) as question">
-      {{ question.title }}
-    </div>
-    <mat-spinner *ngIf="!(question$ | async)" class="question-details__spinner" [diameter]="50"></mat-spinner>
+    <app-question-detail [question]="question$ | async"></app-question-detail>
+    <mat-spinner *ngIf="!(question$ | async) || !(answers$ | async)"
+                 class="question-details__spinner"
+                 [diameter]="50"></mat-spinner>
+    <app-answer-list [answers]="answers$ | async"></app-answer-list>
   `,
 })
-export class QuestionDetailsComponent implements OnInit {
+export class QuestionPageComponent implements OnInit {
   public questionId: number;
 
   public question$: Observable<Question>;
+  public answers$: Observable<Answer[]>;
 
   constructor(
     private route: ActivatedRoute,
@@ -27,17 +29,29 @@ export class QuestionDetailsComponent implements OnInit {
   ) {}
 
   onQuestionLoad = (question: Question) => {
-    if (!question) {
+    if (!question || !question.body) {
       this.store.dispatch(new stackActions.GetQuestionAction(this.questionId));
+    }
+  }
+
+  onAnswersLoad = (answers: Answer[]) => {
+    if (!answers) {
+      this.store.dispatch(new stackActions.GetAnswersAction(this.questionId));
     }
   }
 
   ngOnInit(): void {
     this.questionId = parseInt(this.route.snapshot.paramMap.get('question_id'), 10);
 
+    console.log('QuestionPageComponent ngOnInit', this.questionId);
+
     this.question$ = this.store.pipe(select(stackSelectors.selectQuestion, { questionId: this.questionId }));
 
     this.question$.subscribe(this.onQuestionLoad);
+
+    this.answers$ = this.store.pipe(select(stackSelectors.selectAnswers, { questionId: this.questionId }));
+
+    this.answers$.subscribe(this.onAnswersLoad);
   }
 
 }

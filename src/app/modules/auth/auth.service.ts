@@ -15,6 +15,10 @@ export class AuthService {
     return this.router.navigate(['/auth/login']);
   }
 
+  public redirectToDashboard() {
+    return this.router.navigate(['/']);
+  }
+
   public login(loginData: LoginData) {
     return this.api.post<User>('/auth/login', loginData);
   }

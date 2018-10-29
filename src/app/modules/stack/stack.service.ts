@@ -34,6 +34,18 @@ export class StackService {
         order: 'desc',
         sort: 'activity',
         site: 'stackoverflow',
+        filter: '!9Z(-wwYGT',
+      }
+    });
+  }
+
+  getQuestionAnswers(questionId: number) {
+    return this.api.get(`/questions/${questionId}/answers`, {
+      params: {
+        order: 'desc',
+        sort: 'activity',
+        site: 'stackoverflow',
+        filter: '!9Z(-wzu0T',
       }
     });
   }

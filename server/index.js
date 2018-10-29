@@ -93,8 +93,8 @@ passport.use(new StackExchangeStrategy({
 passport.use(new LocalStrategy({
     usernameField: 'email',
     passwordField: 'password',
-}, (username, password, done) => {
-    User.findOne({ username: username }, function(err, user) {
+}, (email, password, done) => {
+   User.findOne({ email }, function(err, user) {
       if (err) { return done(err); }
       if (!user) {
         return done(null, false, { message: 'Incorrect email' });

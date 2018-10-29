@@ -1,6 +1,6 @@
 import { Action } from '@ngrx/store';
 import { AbstractAction } from '../../store/utils/abstract-actions';
-import { Question, QuestionId, SearchData, SearchResults } from './stack.models';
+import { Answer, Question, QuestionId, ResponseList, SearchData } from './stack.models';
 
 export const SEARCH = 'stack/search';
 export const SEARCH_SUCCESS = 'stack/search/success';
@@ -14,7 +14,7 @@ export class SearchAction extends AbstractAction<SearchData> implements Action {
   }
 }
 
-export class SearchSuccessAction extends AbstractAction<SearchResults, SearchData> implements Action {
+export class SearchSuccessAction extends AbstractAction<ResponseList<Question>, SearchData> implements Action {
   type = SEARCH_SUCCESS;
 }
 
@@ -30,7 +30,7 @@ export class GetQuestionAction extends AbstractAction<QuestionId> implements Act
   type = GET_QUESTION;
 }
 
-export class GetQuestionSuccessAction extends AbstractAction<Question, QuestionId> implements Action {
+export class GetQuestionSuccessAction extends AbstractAction<ResponseList<Question>, QuestionId> implements Action {
   type = GET_QUESTION_SUCCESS;
 }
 
@@ -38,5 +38,22 @@ export class GetQuestionFailureAction extends AbstractAction<any, QuestionId> im
   type = GET_QUESTION_FAILURE;
 }
 
+export const GET_ANSWERS = 'stack/answers/get';
+export const GET_ANSWERS_SUCCESS = 'stack/answers/get/success';
+export const GET_ANSWERS_FAILURE = 'stack/answers/get/failure';
+
+export class GetAnswersAction extends AbstractAction<QuestionId> implements Action {
+  type = GET_ANSWERS;
+}
+
+export class GetAnswersSuccessAction extends AbstractAction<ResponseList<Answer>, QuestionId> implements Action {
+  type = GET_ANSWERS_SUCCESS;
+}
+
+export class GetAnswersFailureAction extends AbstractAction<any, QuestionId> implements Action {
+  type = GET_ANSWERS_FAILURE;
+}
+
 export type StackActionUnion = SearchAction | SearchSuccessAction | SearchFailureAction
-  | GetQuestionAction | GetQuestionSuccessAction | GetQuestionFailureAction;
+  | GetQuestionAction | GetQuestionSuccessAction | GetQuestionFailureAction
+  | GetAnswersAction | GetAnswersSuccessAction | GetAnswersFailureAction;

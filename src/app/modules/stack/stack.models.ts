@@ -11,6 +11,8 @@ export interface StackUser {
 }
 
 export type QuestionId = number;
+export type AnswerId = number;
+export type HTMLString = string;
 
 export interface Question {
   question_id: QuestionId;
@@ -24,12 +26,22 @@ export interface Question {
   answer_count: number;
   score: number;
   title: string;
-  body: string;
+  body: HTMLString;
   link: string;
 }
 
-export interface SearchResults {
-  items: Question[];
+export interface Answer {
+  answer_id: AnswerId;
+  question_id: QuestionId;
+  owner: StackUser;
+  is_accepted: boolean;
+  score: number;
+  creation_date: number;
+  body: HTMLString;
+}
+
+export interface ResponseList<T> {
+  items: T[];
   has_more: boolean;
   quota_max: number;
   quota_remaining: number;

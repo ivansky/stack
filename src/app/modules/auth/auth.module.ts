@@ -11,17 +11,21 @@ import { AuthService } from './auth.service';
 import { authReducer } from './auth.reducer';
 import { AuthEffects } from './auth.effects';
 
-import { LoginFormComponent } from './components/login-form/login-form.component';
-import { SignUpFormComponent } from './components/sign-up-form/sign-up-form.component';
+import { AuthCheckGuard } from './guards/auth-check.guard';
 import { LoginPageComponent } from './containers/login-page.component';
 import { SignUpPageComponent } from './containers/sign-up-page.component';
-import { AuthCheckGuard } from './guards/auth-check.guard';
+import { ProfilePageComponent } from './containers/profile-page.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
+import { SignUpFormComponent } from './components/sign-up-form/sign-up-form.component';
+import { UserButtonComponent } from './components/user-button/user-button.component';
 
 export const COMPONENTS = [
   LoginPageComponent,
   SignUpPageComponent,
   LoginFormComponent,
   SignUpFormComponent,
+  UserButtonComponent,
+  ProfilePageComponent,
 ];
 
 @NgModule({
@@ -36,7 +40,7 @@ export const COMPONENTS = [
     EffectsModule.forFeature([AuthEffects])
   ],
   exports: [
-    // MaterialModule,
+    UserButtonComponent,
   ],
   providers: [
     AuthService,

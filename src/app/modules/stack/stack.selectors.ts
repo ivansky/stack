@@ -41,3 +41,15 @@ export const selectQuestion = createSelector(
     return null;
   }
 );
+
+export const selectAnswers = createSelector(
+  selectStackState,
+  (_, props) => props.questionId,
+  ({ answersMap }, questionId) => {
+    if (answersMap[questionId]) {
+      return answersMap[questionId];
+    }
+
+    return null;
+  }
+);

@@ -2,17 +2,16 @@ import { Injectable } from '@angular/core';
 import { StackService } from './stack.service';
 import { ROUTER_NAVIGATION, RouterNavigationAction } from '@ngrx/router-store';
 import { Actions as ActionsEffect, Effect, ofType } from '@ngrx/effects';
-import { combineLatest } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { tap, withLatestFrom } from 'rxjs/operators';
 import { makeRequestEffect } from '../../store/utils/makeRequestEffect';
 import * as stackActions from './stack.actions';
-import { Question, QuestionId, SearchData } from './stack.models';
+import { Answer, Question, QuestionId, ResponseList, SearchData } from './stack.models';
 import { RouterStateUrl } from '../../store/reducers';
 
 @Injectable()
 export class StackEffects {
   @Effect()
-  search$ = makeRequestEffect<SearchData, any/* @todo interface */, any>(
+  search$ = makeRequestEffect<SearchData, ResponseList<Question>, any>(
     this.actions$,
     stackActions.SEARCH,
     this.stack.search.bind(this.stack),
@@ -21,25 +20,32 @@ export class StackEffects {
   );
 
   @Effect({ dispatch: false })
-  searchSuccess$ = combineLatest(
-    this.actions$.pipe(ofType(ROUTER_NAVIGATION)),
-    this.actions$.pipe(ofType(stackActions.SEARCH_SUCCESS)),
-  ).pipe(
-    map(actions => actions),
-    tap(([routerAction, successAction]: [RouterNavigationAction<RouterStateUrl>, stackActions.SearchSuccessAction]) => {
+  searchSuccess$ = this.actions$.pipe(
+    ofType(stackActions.SEARCH_SUCCESS),
+    withLatestFrom(this.actions$.pipe(ofType(ROUTER_NAVIGATION))),
+    tap(([successAction, routerAction]: [stackActions.SearchSuccessAction, RouterNavigationAction<RouterStateUrl>]) => {
       if ('/stack/search' === routerAction.payload.routerState.url) {
         this.stack.redirectToSearchResult(successAction.parentPayload.query);
       }
-    })
+    }),
   );
 
   @Effect()
-  getQuestion$ = makeRequestEffect<QuestionId, Question, any>(
+  getQuestion$ = makeRequestEffect<QuestionId, ResponseList<Question>, any>(
     this.actions$,
     stackActions.GET_QUESTION,
     this.stack.getQuestion.bind(this.stack),
     stackActions.GetQuestionSuccessAction,
     stackActions.GetQuestionFailureAction,
+  );
+
+  @Effect()
+  getAnswers$ = makeRequestEffect<QuestionId, ResponseList<Answer>, any>(
+    this.actions$,
+    stackActions.GET_ANSWERS,
+    this.stack.getQuestionAnswers.bind(this.stack),
+    stackActions.GetAnswersSuccessAction,
+    stackActions.GetAnswersFailureAction,
   );
 
   constructor(

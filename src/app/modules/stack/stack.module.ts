@@ -13,11 +13,13 @@ import { StackEffects } from './stack.effects';
 
 import { SearchPageComponent } from './containers/search-page.component';
 import { SearchResultsComponent } from './containers/search-results.component';
-import { QuestionDetailsComponent } from './containers/question-details.component';
+import { QuestionPageComponent } from './containers/question-page.component';
 import { HighlightSubstringPipe } from './pipes/highlight-substring.pipe';
 import { SearchFormComponent } from './components/search-form/search-form.component';
 import { SearchTableComponent } from './components/search-table/search-table.component';
 import { SearchTableQuickComponent } from './components/search-table-quick/search-table-quick.component';
+import { QuestionDetailComponent } from './components/question-detail/question-detail.component';
+import { AnswerListComponent } from './components/answer-list/answer-list.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { SearchTableQuickComponent } from './components/search-table-quick/searc
     SearchFormComponent,
     SearchTableComponent,
     SearchTableQuickComponent,
-    QuestionDetailsComponent,
+    QuestionPageComponent,
+    QuestionDetailComponent,
+    AnswerListComponent,
     HighlightSubstringPipe,
   ],
   imports: [
