@@ -43,8 +43,6 @@ export class QuestionPageComponent implements OnInit {
   ngOnInit(): void {
     this.questionId = parseInt(this.route.snapshot.paramMap.get('question_id'), 10);
 
-    console.log('QuestionPageComponent ngOnInit', this.questionId);
-
     this.question$ = this.store.pipe(select(stackSelectors.selectQuestion, { questionId: this.questionId }));
 
     this.question$.subscribe(this.onQuestionLoad);

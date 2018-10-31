@@ -85,8 +85,6 @@ export class SearchResultsComponent implements OnInit {
       ...currentQuestions.slice(offset + questions.length),
     ];
 
-    console.log('onLoadedPageQuestions', page, offset, questions, nextQuestions);
-
     this.questions$.next(nextQuestions);
   }
 
@@ -107,13 +105,10 @@ export class SearchResultsComponent implements OnInit {
   ngOnInit(): void {
     this.query = this.route.snapshot.paramMap.get('query');
 
-    console.log('ON_INIT_PAGE', this.page$.getValue());
-
     this.page$.subscribe(this.onChangedPage.bind(this));
 
     this.selectPageQuestions(this.page$.getValue())
       .subscribe((questions) => {
-        console.log('ON_SELECT_QUESTIONS', questions);
         if (!questions) {
           this.loadPage(this.page$.getValue());
         } else {
