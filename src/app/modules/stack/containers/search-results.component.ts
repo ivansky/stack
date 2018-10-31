@@ -55,7 +55,7 @@ export class SearchResultsComponent implements OnInit {
 
   waitForLoadingPage(page): Observable<Question[]> {
     return this.store.pipe(
-      select(stackSelectors.selectSearchedQuestions, {
+      select(stackSelectors.selectSearchedPageQuestions, {
         query: this.query,
         page,
       }),
@@ -66,7 +66,7 @@ export class SearchResultsComponent implements OnInit {
 
   selectPageQuestions(page): Observable<Question[]> {
     return this.store.pipe(
-      select(stackSelectors.selectSearchedQuestions, {
+      select(stackSelectors.selectSearchedPageQuestions, {
         query: this.query,
         page,
       }),
@@ -79,11 +79,15 @@ export class SearchResultsComponent implements OnInit {
     const offset = QUESTIONS_PER_PAGE * pageIndex;
     const currentQuestions = this.questions$.getValue();
 
-    this.questions$.next([
+    const nextQuestions = [
       ...currentQuestions.slice(0, offset),
       ...questions,
       ...currentQuestions.slice(offset + questions.length),
-    ]);
+    ];
+
+    console.log('onLoadedPageQuestions', page, offset, questions, nextQuestions);
+
+    this.questions$.next(nextQuestions);
   }
 
   onChangedPage(nextPage) {
@@ -103,10 +107,13 @@ export class SearchResultsComponent implements OnInit {
   ngOnInit(): void {
     this.query = this.route.snapshot.paramMap.get('query');
 
+    console.log('ON_INIT_PAGE', this.page$.getValue());
+
     this.page$.subscribe(this.onChangedPage.bind(this));
 
     this.selectPageQuestions(this.page$.getValue())
       .subscribe((questions) => {
+        console.log('ON_SELECT_QUESTIONS', questions);
         if (!questions) {
           this.loadPage(this.page$.getValue());
         } else {

@@ -35,7 +35,7 @@ const searchSuccessReducer = (state, { items }: ResponseList<Question>, { query,
   const questionsEntities = items.reduce((entities: QuestionsEntities, question: Question) => ({
     ...entities,
     [question.question_id]: question,
-  }), items);
+  }), state.questionsEntities);
 
   const searchQuestionsIds: QuestionId[] = items.map((question) => question.question_id);
 

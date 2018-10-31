@@ -24,6 +24,7 @@
 }
 
 .search-table__item-buttons .item-avatar {
+  display: inline-block;
   margin-left: 6px;
   margin-right: -6px;
 }

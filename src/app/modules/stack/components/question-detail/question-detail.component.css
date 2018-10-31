@@ -6,6 +6,10 @@
 
 }
 
+:host >>> .question-detail__body img {
+  max-width: 100%;
+}
+
 :host >>> .mat-card-header-text {
   margin: 0 16px;
 }

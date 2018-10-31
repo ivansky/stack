@@ -18,12 +18,29 @@ export const selectQuestions = createSelector(
   stackState => Object.values(stackState.questionsEntities),
 );
 
-export const selectSearchedQuestions = createSelector(
+export const selectSearchedPageQuestions = createSelector(
   selectStackState,
   (_, props) => props,
   ({ searchResultsMap, questionsEntities }, { query, page }) => {
     if (searchResultsMap[query] && searchResultsMap[query][page]) {
       return searchResultsMap[query][page].map(questionId => questionsEntities[questionId]);
+    }
+
+    return null;
+  }
+);
+
+export const selectSearchedAllQuestions = createSelector(
+  selectStackState,
+  (_, props) => props,
+  ({ searchResultsMap, questionsEntities }, { query }) => {
+    if (searchResultsMap[query]) {
+      Object.keys(searchResultsMap[query]).reduce((questions, page) => (
+        [
+          ...questions,
+          searchResultsMap[query][page].map(questionId => questionsEntities[questionId]),
+        ]
+      ), []);
     }
 
     return null;
