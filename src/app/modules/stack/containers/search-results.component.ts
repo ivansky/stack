@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { ActivatedRoute } from '@angular/router';
 import { MatBottomSheet } from '@angular/material';
@@ -9,6 +9,8 @@ import * as stackSelectors from '../stack.selectors';
 import { Question} from '../stack.models';
 import { StackState } from '../stack.reducer';
 import { SearchTableQuickComponent } from '../components/search-table-quick/search-table-quick.component';
+import { PageableQuestionListService } from '../services/impl/pageable-question-list.service';
+import { PageableItemsListService } from '../services/pageable-items-list.service';
 
 const QUESTIONS_PER_PAGE = 10;
 
@@ -22,7 +24,8 @@ const QUESTIONS_PER_PAGE = 10;
       [query]="query"
       [pending]="pending$ | async"
       [errorMessage]="error$ | async"
-      [questions]="questions$ | async"
+      [questions]="itemsListService.items$ | async"
+      [scrollingElement]="window"
     ></app-search-table>
   `,
   styles: [
@@ -34,95 +37,50 @@ const QUESTIONS_PER_PAGE = 10;
   ]
 })
 export class SearchResultsComponent implements OnInit {
-  public requestedPagesMap: { [page: number]: boolean } = {};
-  public page$ = new BehaviorSubject<number>(1);
-  public questions$ = new BehaviorSubject<Question[]>([]);
-
   public pending$ = this.store.pipe(select(stackSelectors.selectSearchPending));
   public error$ = this.store.pipe(select(stackSelectors.selectSearchError));
 
   public query: string;
+  public itemsListService: PageableItemsListService<Question>;
 
   constructor(
     private route: ActivatedRoute,
     private store: Store<StackState>,
     private bottomSheet: MatBottomSheet,
+    @Inject('Window') public window: Window,
   ) {}
-
-  loadPage(page) {
-    this.page$.next(page);
-  }
-
-  waitForLoadingPage(page): Observable<Question[]> {
-    return this.store.pipe(
-      select(stackSelectors.selectSearchedPageQuestions, {
-        query: this.query,
-        page,
-      }),
-      filter(questions => !!questions),
-      take(1),
-    );
-  }
-
-  selectPageQuestions(page): Observable<Question[]> {
-    return this.store.pipe(
-      select(stackSelectors.selectSearchedPageQuestions, {
-        query: this.query,
-        page,
-      }),
-      take(1),
-    );
-  }
-
-  onLoadedPageQuestions(page, questions) {
-    const pageIndex = page - 1;
-    const offset = QUESTIONS_PER_PAGE * pageIndex;
-    const currentQuestions = this.questions$.getValue();
-
-    const nextQuestions = [
-      ...currentQuestions.slice(0, offset),
-      ...questions,
-      ...currentQuestions.slice(offset + questions.length),
-    ];
-
-    this.questions$.next(nextQuestions);
-  }
-
-  onChangedPage(nextPage) {
-    if (!this.requestedPagesMap[nextPage]) {
-      this.store.dispatch(new stackActions.SearchAction({
-        query: this.query,
-        page: nextPage,
-      }));
-
-      this.requestedPagesMap[nextPage] = true;
-
-      this.waitForLoadingPage(nextPage)
-        .subscribe((questions) => this.onLoadedPageQuestions(nextPage, questions));
-    }
-  }
 
   ngOnInit(): void {
     this.query = this.route.snapshot.paramMap.get('query');
 
-    this.page$.subscribe(this.onChangedPage.bind(this));
+    this.itemsListService = PageableQuestionListService.create(
+      this.store,
+      {
+        limit: QUESTIONS_PER_PAGE,
+        itemsSelectProject: (page: number) => select(stackSelectors.selectSearchedPageQuestions, {
+          query: this.query,
+          page,
+        }),
+        nextPageActionCreator: (page: number) => new stackActions.SearchAction({
+          query: this.query,
+          page,
+        }),
+      },
+    );
 
-    this.selectPageQuestions(this.page$.getValue())
-      .subscribe((questions) => {
-        if (!questions) {
-          this.loadPage(this.page$.getValue());
-        } else {
-          this.questions$.next(questions);
-        }
-      });
+    this.itemsListService.init();
   }
 
   onReachedEnd() {
-    this.loadPage(this.page$.value + 1);
+    this.itemsListService.nextPage();
   }
 
-  onOpenUsersQuestions() {
-    this.bottomSheet.open(SearchTableQuickComponent);
+  onOpenUsersQuestions(userId) {
+    this.bottomSheet.open(SearchTableQuickComponent, {
+      data: {
+        userId,
+      }
+    });
   }
 
 }

@@ -43,15 +43,14 @@ export class SearchTableComponent implements OnInit, OnDestroy {
   @Input()
   questions;
 
+  @Input()
+  scrollingElement: Node;
+
   @Output()
   reachedEnd = new EventEmitter<void>();
 
   @Output()
   openUserQuestions = new EventEmitter<number>();
-
-  constructor(
-    @Inject('Window') private window: Window,
-  ) {}
 
   onScroll = (event) => {
     const {
@@ -70,10 +69,10 @@ export class SearchTableComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.window.addEventListener('scroll', this.onScroll);
+    this.scrollingElement.addEventListener('scroll', this.onScroll);
   }
 
   ngOnDestroy(): void {
-    this.window.removeEventListener('scroll', this.onScroll);
+    this.scrollingElement.removeEventListener('scroll', this.onScroll);
   }
 }
