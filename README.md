@@ -5,8 +5,9 @@
 
  1. [Prerequisites](#pre)
  2. [Configuration](#config)
- 2. [Development](#dev)
- 2. [Production](#prod)
+ 3. [Development](#dev)
+ 4. [Production](#prod)
+ 5. [TODO](#todo)
 
 ## <a name="pre"></a> Prerequisites
 To develop and build for prod you should use **Docker**.
@@ -50,6 +51,14 @@ docker-compose -f docker-compose.prod.yml build
 Run `ng build` to build the project. 
 The build artifacts will be stored in the `dist/` directory. 
 Use the `--prod` flag for a production build.
+
+## <a name="todo"></a> TODO
+- Tags
+- Page transitions (animations)
+- ~~Accessibility~~
+- Profile
+- Change password
+- Change name
 
 [oauth-register]: https://stackapps.com/apps/oauth/register
 [docker-for-mac]: https://store.docker.com/editions/community/docker-ce-desktop-mac

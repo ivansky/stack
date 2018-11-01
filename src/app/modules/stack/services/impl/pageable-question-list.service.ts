@@ -1,6 +1,6 @@
 import { PageableItemsListService, PageableItemsListServiceOptions } from '../pageable-items-list.service';
 import { Question } from '../../stack.models';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { filter, take } from 'rxjs/operators';
 import { StackState } from '../../stack.reducer';
@@ -11,6 +11,10 @@ const defaultOptions = {
 
 export class PageableQuestionListService implements PageableItemsListService<Question> {
   private requestedPagesMap: { [page: number]: boolean } = {};
+
+  private pageSubscription: Subscription;
+  private selectPageSubscription: Subscription;
+  private waitForLoadingPageSubscription: Subscription;
 
   private constructor(
     private store: Store<StackState>,
@@ -35,9 +39,8 @@ export class PageableQuestionListService implements PageableItemsListService<Que
   }
 
   public init() {
-    this.page$.subscribe(this.onChangedPage.bind(this));
-
-    this.selectPageQuestions(this.page$.getValue())
+    this.pageSubscription = this.page$.subscribe(this.onChangedPage.bind(this));
+    this.selectPageSubscription = this.selectPageQuestions(this.page$.getValue())
       .subscribe((questions) => {
         if (!questions) {
           this.loadPage(this.page$.getValue());
@@ -45,6 +48,12 @@ export class PageableQuestionListService implements PageableItemsListService<Que
           this.items$.next(questions);
         }
       });
+  }
+
+  public destroy() {
+    this.pageSubscription.unsubscribe();
+    this.selectPageSubscription.unsubscribe();
+    this.waitForLoadingPageSubscription.unsubscribe();
   }
 
   public nextPage() {
@@ -90,7 +99,7 @@ export class PageableQuestionListService implements PageableItemsListService<Que
 
       this.requestedPagesMap[nextPage] = true;
 
-      this.waitForLoadingPage(nextPage)
+      this.waitForLoadingPageSubscription = this.waitForLoadingPage(nextPage)
         .subscribe((questions) => this.onLoadedPageQuestions(nextPage, questions));
     }
   }

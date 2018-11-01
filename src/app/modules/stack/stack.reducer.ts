@@ -1,5 +1,6 @@
 import * as stackActions from './stack.actions';
 import { QuestionId, Question, SearchData, ResponseList, Answer, UserId, UserQuestionsRequestData } from './stack.models';
+import { GET_USER_QUESTIONS, GET_USER_QUESTIONS_FAILURE } from './stack.actions';
 
 interface QuestionsEntities { [id: number]: Question; }
 
@@ -19,6 +20,7 @@ export interface StackReducerState {
   query: string;
   isSearchPending: boolean;
   isGetQuestionPending: boolean;
+  isGetUserQuestionsPending: boolean;
   error: any;
   questionsEntities: QuestionsEntities;
   answersMap: QuestionAnswersMap;
@@ -30,6 +32,7 @@ const initialStackState: StackReducerState = {
   query: '',
   isSearchPending: false,
   isGetQuestionPending: false,
+  isGetUserQuestionsPending: false,
   error: null,
   questionsEntities: {},
   answersMap: {},
@@ -108,6 +111,7 @@ const getUserQuestionsSuccessReducer = (state, { items }: ResponseList<Question>
 
   return {
     ...state,
+    isGetUserQuestionPending: false,
     questionsEntities,
     userQuestionsMap
   };
@@ -138,12 +142,22 @@ export const stackReducer = (state = initialStackState, action: stackActions.Sta
       };
     case stackActions.GET_ANSWERS_SUCCESS:
       return getAnswersSuccessReducer(state, action.payload as ResponseList<Answer>, action.parentPayload as QuestionId);
+    case GET_USER_QUESTIONS:
+      return {
+        ...state,
+        isGetUserQuestionsPending: true,
+      };
     case stackActions.GET_USER_QUESTIONS_SUCCESS:
       return getUserQuestionsSuccessReducer(
         state,
         action.payload as ResponseList<Question>,
         action.parentPayload as UserQuestionsRequestData
       );
+    case GET_USER_QUESTIONS_FAILURE:
+      return {
+        ...state,
+        isGetUserQuestionsPending: false,
+      };
   }
 
   return state;

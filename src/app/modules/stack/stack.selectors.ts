@@ -8,6 +8,11 @@ export const selectSearchPending = createSelector(
   (stackState) => stackState.isSearchPending,
 );
 
+export const  selectGetUserQuestionsPending = createSelector(
+  selectStackState,
+  (stackState) => stackState.isGetUserQuestionsPending,
+);
+
 export const selectSearchError = createSelector(
   selectStackState,
   (stackState) => stackState.error,

@@ -6,7 +6,7 @@ import * as stackActions from '../stack.actions';
 import * as stackSelectors from '../stack.selectors';
 import { Question} from '../stack.models';
 import { StackState } from '../stack.reducer';
-import { PopularUserQuestionsComponent } from '../components/popular-user-questions/popular-user-questions.component';
+import { PopularUserQuestionsComponent } from './popular-user-questions.component';
 import { PageableQuestionListService } from '../services/impl/pageable-question-list.service';
 import { PageableItemsListService } from '../services/pageable-items-list.service';
 
@@ -24,7 +24,7 @@ const QUESTIONS_PER_PAGE = 10;
       [pending]="pending$ | async"
       [errorMessage]="error$ | async"
       [questions]="itemsListService.items$ | async"
-      [scrollingElement]="window.document.scrollingElement"
+      [scrollingElement]="window"
     ></app-search-table>
   `,
   styles: [

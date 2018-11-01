@@ -1,14 +1,6 @@
 import { AfterViewInit, Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { fromEvent, Observable, Subscription } from 'rxjs';
-import { throttleTime } from 'rxjs/operators';
-
-const wheelEvt = 'onwheel' in document.createElement('div')
-  ? 'wheel' //     Modern browsers support 'wheel'
-  : (
-    document.onmousewheel !== undefined
-      ? 'mousewheel' // Webkit and IE support at least 'mousewheel'
-      : 'DOMMouseScroll' // let's assume that remaining browsers are older Firefox
-  );
+import { debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-search-table',
@@ -72,7 +64,9 @@ export class SearchTableComponent implements AfterViewInit, OnDestroy {
       scrollTop,
       scrollHeight,
       clientHeight,
-    } = this.scrollingElement;
+    } = (this.scrollingElement.hasOwnProperty('document'))
+      ? (this.scrollingElement as any).document.scrollingElement
+      : this.scrollingElement;
 
     if (!this.pending && scrollTop + clientHeight === scrollHeight) {
       this.reachedEnd.emit();
@@ -92,8 +86,8 @@ export class SearchTableComponent implements AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
-    this.scrollSubscription = fromEvent(this.scrollingElement, wheelEvt)
-      .pipe(throttleTime(200))
+    this.scrollSubscription = fromEvent(this.scrollingElement, 'scroll')
+      .pipe(debounceTime(200))
       .subscribe(this.onScroll);
   }
 

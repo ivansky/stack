@@ -7,3 +7,8 @@
   width: auto;
   max-height: 600px;
 }
+
+:host >>> .layout-content {
+  min-width: 100vw;
+  min-height: 100vh;
+}

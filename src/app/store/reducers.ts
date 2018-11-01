@@ -16,7 +16,9 @@ export interface State {
 
 export function logger(reducer: ActionReducer<State>): any {
   // default, no options
-  return storeLogger()(reducer);
+  return storeLogger({
+    collapsed: true,
+  })(reducer);
 }
 
 export interface RouterStateUrl {
