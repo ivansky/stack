@@ -1,0 +1,273 @@
+{
+  "items": [
+    {
+      "tags": [
+        "ruby-on-rails",
+        "ruby",
+        "ruby-on-rails-3.2",
+        "asset-pipeline",
+        "digital-ocean"
+      ],
+      "owner": {
+        "reputation": 762,
+        "user_id": 276664,
+        "user_type": "registered",
+        "accept_rate": 81,
+        "profile_image": "https://i.stack.imgur.com/sMtuc.jpg?s=128&g=1",
+        "display_name": "cmhobbs",
+        "link": "https://stackoverflow.com/users/276664/cmhobbs"
+      },
+      "is_answered": false,
+      "view_count": 59,
+      "bounty_amount": 500,
+      "bounty_closes_date": 1541644560,
+      "answer_count": 3,
+      "score": 1,
+      "last_activity_date": 1541058472,
+      "creation_date": 1540866456,
+      "last_edit_date": 1541035650,
+      "question_id": 53056537,
+      "link": "https://stackoverflow.com/questions/53056537/some-assets-not-loading-in-an-old-rails-3-2-stable-app",
+      "title": "Some assets not loading in an old Rails 3-2-stable app",
+      "body": "<p><strong>BIG UPDATES AT THE BOTTOM OF THIS POST</strong></p>\n\n<p>I have a Rails 3-2-stable app that I'm moving to a new server so I can work on upgrading it to Rails 5.  Currently, it's hosted on Heroku and most of the assets show up just fine (the app Just Works (TM)).  I have a few random assets that will not show up after precompilation on a Digital Ocean droplet.  I'm deploying with Capistrano.</p>\n\n<p>The error for the assets that won't show up look something like this:</p>\n\n<pre><code>Loading failed for the &lt;script&gt; with source “http://stage.fancy-new-droplet.com/assets/application/application.js”.\n</code></pre>\n\n<p>In some cases, there will be a hash associated with the asset like this:</p>\n\n<pre><code>Loading failed for the &lt;script&gt; with source “http://stage.fancy-new-droplet.com/assets/application/certifications-56046476595984b00d1267a4f02822e5.js\n</code></pre>\n\n<p>In the former case, the asset is actually in <code>public/assets/</code> as opposed to <code>public/assets/application/</code> on the droplet.  Moving or symlinking the missing asset to that location doesn't seem to affect anything.  In the latter case, the assets just don't exist anywhere on the droplet as far as I can tell.</p>\n\n<p>For the case with no hashes in filenames, changing my include tags from this: </p>\n\n<p><code>&lt;%= javascript_include_tag \"application/application\" %&gt;</code></p>\n\n<p>To something like this:</p>\n\n<p><code>&lt;%= javascript_include_tag \"application\" %&gt;</code></p>\n\n<p>Will solve the issue but I feel like that's a red herring given the other assets that don't seem to exist after precompilation.</p>\n\n<p>I did run into an esoteric issue where the droplet was running out of memory and silently failing halfway through asset compilation but I increased the available memory and it doesn't even use half the memory now.  It does max out the CPU 100%, though.  I may try to increase both CPU and memory on the droplet.</p>\n\n<p>Here are the relevant asset compilation lines from <code>config/environments/production.rb</code>:</p>\n\n<pre><code>  config.serve_static_assets = false\n  config.assets.compress = true\n  config.assets.compile = true\n  config.assets.digest = true\n</code></pre>\n\n<p>And the relevant asset compilation lines from <code>application.rb</code>:</p>\n\n<pre><code>config.assets.enabled = true\nconfig.assets.version = '1.0'\n</code></pre>\n\n<p>Locally, everything works 100% just peachy, no errors.  Assets load fine and we're all good.  Here's the asset pipeline bits from my <code>development.rb</code> file:</p>\n\n<pre><code>  config.assets.compile = true\n  config.assets.compress = false\n  config.assets.debug = true\n</code></pre>\n\n<p>I've run various combinations of <code>rake assets:clean</code>, <code>rake assets:precompile</code>, and <code>rake assets:precompile:all</code> on the production server (in the production environment) and I've even nuked the public/assets/ folder to start it all over again.  All to no avail.</p>\n\n<p>What might cause these assets to not be created on our droplet while they do manage to get created on Heroku?</p>\n\n<p><strong>EDIT</strong></p>\n\n<p>As requested, my DO stack is simply just a droplet (2vcpu, 2gb ram), I'm using Puma and Nginx.  Here is my Capfile:</p>\n\n<pre><code># Load DSL and Setup Up Stages\nrequire 'capistrano/setup'\nrequire 'capistrano/deploy'\n\nrequire 'capistrano/scm/git'\ninstall_plugin Capistrano::SCM::Git\n\nrequire 'capistrano/rails'\nrequire 'capistrano/bundler'\nrequire 'capistrano/rvm'\nrequire 'capistrano/puma'\n\ninstall_plugin Capistrano::Puma\n\n# Loads custom tasks from `lib/capistrano/tasks' if you have any defined.\nDir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }\n</code></pre>\n\n<p><strong>FURTHER EDIT</strong></p>\n\n<p>I've frobbed <code>config.assets.initialize_on_precompile</code> a couple of times in <code>application.rb</code> and ran various permutations of <code>rake assets:clean, assets:precompile</code>, and <code>assets:precompile:all</code> with <code>RAILS_ENV=production</code> locally to no avail.</p>\n\n<p><strong>YET ANOTHER EDIT</strong></p>\n\n<p>I've noticed at this point that precompiling production assets seems to not be compiling four of the javascript files, and about seven of the css files.  It also doesn't seem to put application.js into <code>public/assets/application/application.js</code> (where the app is looking), rather it lands in <code>public/assets/application.js</code>.  </p>\n\n<p><strong>MORE EDITS</strong></p>\n\n<p>I have resolved the issue of the JavaScript assets not loading by fixing a <code>require_tree</code> statement in <code>application.js</code> and now the only issue seems to be several missing CSS files.</p>\n\n<p>In this application there are two directories with css files:</p>\n\n<ul>\n<li><code>app/assets/stylesheets/</code></li>\n<li><code>app/assets/stylesheets/application</code></li>\n</ul>\n\n<p>There are a total of 21 stylesheets that do not load out of nearly 100 total.  The stylesheets that don't load are being called with a hashed filename (<code>somefile-hash.css</code>) but those hashed files don't exist in <code>public/assets/</code> on the droplet. </p>\n\n<p>Here's the requires from <code>application.css.scss</code>:</p>\n\n<pre><code>/*\n *= require_self\n *= require chosen\n *= require jquery-ui/autocomplete\n *= require jquery-ui/datepicker\n *= require feature-carousel\n *= require_tree .\n */\n</code></pre>\n\n<p>Out of frustration, I added <code>= require_directory ./assets</code> to that list and now I've only got about 15 stylesheets failing to compile/load.  That behaviour doesn't make any sense to me as I assumed the <code>= require_tree .</code> would've covered the wonky subdirectory.</p>\n\n<p>Individually specifying files <code>= require foo</code> or <code>= require foo.css.scss</code> does not seem to affect anything, either.</p>\n\n<p>I also bumped the <code>config.assets.version</code> out of frustration to no avail.</p>\n\n<p>And furthermore, no amount of foul language can persuade these assets to compile.</p>\n"
+    },
+    {
+      "tags": [
+        "apache-kafka",
+        "kafka-consumer-api"
+      ],
+      "owner": {
+        "reputation": 22,
+        "user_id": 9970563,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/2cc54163f4aa666ad8889d2cbf4a45b9?s=128&d=identicon&r=PG&f=1",
+        "display_name": "JunRzz",
+        "link": "https://stackoverflow.com/users/9970563/junrzz"
+      },
+      "is_answered": false,
+      "view_count": 15,
+      "answer_count": 0,
+      "score": 0,
+      "last_activity_date": 1541056146,
+      "creation_date": 1541041715,
+      "last_edit_date": 1541056146,
+      "question_id": 53094696,
+      "link": "https://stackoverflow.com/questions/53094696/kafka-consumer-cant-receive-some-messages",
+      "title": "Kafka Consumer Can&#39;t Receive Some Messages",
+      "body": "<p>Recently,I had some problems when using kafka consumer AIPs,and there is my code:</p>\n\n<pre><code>public class ConsumerClientDemo {\n\n    private static final String KAFKA_SERVERS = \"17.162.110.1:9292,17.162.112.1:9293,17.162.114.1:9294\";\n    private static final String GROUP = \"group-admin-test\";\n\n    public static void main(String[] args) {\n        Properties props = new Properties();\n        props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, KAFKA_SERVERS);\n        props.put(ConsumerConfig.GROUP_ID_CONFIG, GROUP);\n        props.put(ConsumerConfig.CLIENT_ID_CONFIG, \"mbGW4rH5\");\n        props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);\n        props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);\n        props.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, \"SASL_PLAINTEXT\");\n        props.put(SaslConfigs.SASL_MECHANISM, \"PLAIN\");\n\n        props.put(SaslConfigs.SASL_JAAS_CONFIG, String.format(\n                PlainLoginModule.class.getName() + \" required username=\\\"%s\\\" \" + \"password=\\\"%s\\\";\",\n                \"admin\",\n                \"admin\"\n        ));\n        final KafkaConsumer&lt;String, String&gt; consumer = new KafkaConsumer&lt;&gt;(props);\n        consumer.subscribe(Collections.singletonList(\"mbGW4rH5\"));\n        final AtomicBoolean isShuttingDown = new AtomicBoolean(false);\n        Runtime.getRuntime().addShutdownHook(new Thread(() -&gt; {\n            isShuttingDown.set(true);\n            synchronized (consumer) {\n                consumer.close();\n            }\n        }));\n        try {\n            while (!isShuttingDown.get()) {\n                ConsumerRecords&lt;String, String&gt; records = consumer.poll(Duration.ofMillis(100));\n                for (ConsumerRecord&lt;String, String&gt; record : records) {\n                        System.out.printf(\"topic=%s, partition=%s, offset = %d, key = %s, value = %s%n\",\n                                record.topic(), record.partition(),record.offset(), record.key(), deviceData.value());\n                    }\n                }\n        } catch (Exception e) {\n            System.exit(1);\n        }\n        System.exit(0);\n    }\n}\n</code></pre>\n\n<p>It didnt have any problems at first,but when successfully received 15 messages,the console printed:</p>\n\n<pre><code>10:42:40:446 INFO [FetchSessionHandler] [Consumer clientId=mbGW4rH5, groupId=group-mbGW4rH5] Node 2 sent an invalid full fetch response with extra=(mbGW4rH5-0, response=(\n10:43:10:499 INFO [FetchSessionHandler] [Consumer clientId=mbGW4rH5, groupId=group-admin-test] Error sending fetch request (sessionId=INVALID, epoch=INITIAL) to node 2: org.apache.kafka.common.errors.TimeoutException: Failed to send request after 30000 ms..\n</code></pre>\n\n<p>and then the client was suspended since then,it couldn't receive any messages,so I turned up DEBUG of the log.and there are the logs:</p>\n\n<pre><code>10:58:11:200 INFO [FetchSessionHandler] [Consumer clientId=mbGW4rH5, groupId=group-mbGW4rH5] Error sending fetch request (sessionId=INVALID, epoch=INITIAL) to node 2: org.apache.kafka.common.errors.TimeoutException: Failed to send request after 30000 ms..\n10:58:11:200 DEBUG [Fetcher] [Consumer clientId=mbGW4rH5, groupId=group-mbGW4rH5] Added READ_UNCOMMITTED fetch request for partition mbGW4rH5-0 at offset 15 to node 17.162.114.1:9294 (id: 2 rack: null)\n10:58:11:200 DEBUG [FetchSessionHandler$Builder] [Consumer clientId=mbGW4rH5, groupId=group-mbGW4rH5] Built full fetch (sessionId=INVALID, epoch=INITIAL) for node 2 with 1 partition(s).\n10:58:11:200 DEBUG [Fetcher] [Consumer clientId=mbGW4rH5, groupId=group-mbGW4rH5] Sending READ_UNCOMMITTED FullFetchRequest(mbGW4rH5-0) to broker 17.162.114.1:9294 (id: 2 rack: null)\n10:58:13:161 DEBUG [AbstractCoordinator] [Consumer clientId=mbGW4rH5, groupId=group-mbGW4rH5] Sending Heartbeat request to coordinator cloud-access.hanclouds.com:9292 (id: 2147483647 rack: null)\n10:58:13:207 DEBUG [AbstractCoordinator$HeartbeatResponseHandler] [Consumer clientId=mbGW4rH5, groupId=group-mbGW4rH5] Received successful Heartbeat response\n10:58:15:113 DEBUG [ConsumerCoordinator] [Consumer clientId=mbGW4rH5, groupId=group-mbGW4rH5] Sending asynchronous auto-commit of offsets {mbGW4rH5-0=OffsetAndMetadata{offset=15, metadata=''}}\n10:58:15:159 DEBUG [ConsumerCoordinator$OffsetCommitResponseHandler] [Consumer clientId=mbGW4rH5, groupId=group-mbGW4rH5] Committed offset 15 for partition mbGW4rH5-0\n10:58:15:159 DEBUG [ConsumerCoordinator$4] [Consumer clientId=mbGW4rH5, groupId=group-mbGW4rH5] Completed asynchronous auto-commit of offsets {mbGW4rH5-0=OffsetAndMetadata{offset=15, metadata=''}}\n10:58:16:162 DEBUG [AbstractCoordinator] [Consumer clientId=mbGW4rH5, groupId=group-mbGW4rH5] Sending Heartbeat request to coordinator 17.162.110.1:9292 (id: 2147483647 rack: null)\n10:58:16:217 DEBUG [AbstractCoordinator$HeartbeatResponseHandler] [Consumer clientId=mbGW4rH5, groupId=group-mbGW4rH5] Received successful Heartbeat response\n10:58:19:162 DEBUG [AbstractCoordinator] [Consumer clientId=mbGW4rH5, groupId=group-mbGW4rH5] Sending Heartbeat request to coordinator 17.162.110.1:9292 (id: 2147483647 rack: null)\n10:58:19:211 DEBUG [AbstractCoordinator$HeartbeatResponseHandler] [Consumer clientId=mbGW4rH5, groupId=group-mbGW4rH5] Received successful Heartbeat response\n10:58:20:114 DEBUG [ConsumerCoordinator] [Consumer clientId=mbGW4rH5, groupId=group-mbGW4rH5] Sending asynchronous auto-commit of offsets {mbGW4rH5-0=OffsetAndMetadata{offset=15, metadata=''}}\n10:58:20:165 DEBUG [ConsumerCoordinator$OffsetCommitResponseHandler] [Consumer clientId=mbGW4rH5, groupId=group-mbGW4rH5] Committed offset 15 for partition mbGW4rH5-0\n10:58:20:165 DEBUG [ConsumerCoordinator$4] [Consumer clientId=mbGW4rH5, groupId=group-mbGW4rH5] Completed asynchronous auto-commit of offsets {mbGW4rH5-0=OffsetAndMetadata{offset=15, metadata=''}}\n10:58:22:163 DEBUG [AbstractCoordinator] [Consumer clientId=mbGW4rH5, groupId=group-mbGW4rH5] Sending Heartbeat request to coordinator 17.162.110.1:9292 (id: 2147483647 rack: null)\n10:58:22:226 DEBUG [AbstractCoordinator$HeartbeatResponseHandler] [Consumer clientId=mbGW4rH5, groupId=group-mbGW4rH5] Received successful Heartbeat response\n</code></pre>\n\n<p>It seemed that the client couldn't receive the offset of 15,So I changed the group,and set the offset to the latest and it worked again.So I want to ask why the offset of 15 can't be received? and how to jump over the offset which cant not be received to avoid the client being hanged? By the way the Kafka version was 2.0.0 and so was the kafka-clients.</p>\n\n<p>Thanks.</p>\n"
+    },
+    {
+      "tags": [
+        "android",
+        "android-mediaplayer",
+        "fadein",
+        "fadeout",
+        "pause"
+      ],
+      "owner": {
+        "reputation": 1,
+        "user_id": 10477142,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/62efa8df80e84d8c25069cd77a198597?s=128&d=identicon&r=PG&f=1",
+        "display_name": "Sachin Jagtap",
+        "link": "https://stackoverflow.com/users/10477142/sachin-jagtap"
+      },
+      "is_answered": false,
+      "view_count": 14,
+      "answer_count": 0,
+      "score": 0,
+      "last_activity_date": 1541052243,
+      "creation_date": 1541000445,
+      "last_edit_date": 1541052243,
+      "question_id": 53087201,
+      "link": "https://stackoverflow.com/questions/53087201/during-crossfading-mediaplayer-player-pauses-for-while-on-some-devices-mostly-on",
+      "title": "During crossfading MediaPlayer player pauses for while on some devices mostly on Oreo and Pie",
+      "body": "<p>I want crossfading effect when one song is about to end and other starts.I have used below code for crossFading between audio and it works fine on most of the devices but it is not working on some samsung devices running on Oreo and one plus 6. Their is very small pause as soon as second media player starts playing next song. Thanks in advance.</p>\n\n<pre><code>private void crossFade() {\n    fadeOut(musicPlayer, CROSSFADE_DURATION);\n    fadeIn(musicPlayer2, CROSSFADE_DURATION);\n}\n\npublic void fadeOut(final MediaPlayer _player, final int duration) {\n    final float deviceVolume = getDeviceVolume();\n    final Handler h = new Handler();\n    h.postDelayed(new Runnable() {\n        private float time = duration;\n        private float volume = 0.0f;\n\n        @Override\n        public void run() {               \n            // can call h again after work!\n            time -= 100;\n            volume = (deviceVolume * time) / duration;\n            _player.setVolume(volume, volume);\n            if (time &gt; 0)\n                h.postDelayed(this, 100);\n            else {\n                _player.stop();\n                _player.release();\n            }\n        }\n    }, 100); // delay (takes millis)\n\n\n}\n\npublic void fadeIn(final MediaPlayer _player, final int duration) {\n    final float deviceVolume = getDeviceVolume();\n    final Handler h = new Handler();\n    h.postDelayed(new Runnable() {\n        private float time = 0.0f;\n        private float volume = 0.0f;\n\n        @Override\n        public void run() {\n            if (!_player.isPlaying())\n                _player.start();\n            // can call h again after work!\n            time += 100;\n            volume = (deviceVolume * time) / duration;\n            _player.setVolume(volume, volume);\n            if (time &lt; duration)\n                h.postDelayed(this, 100);\n        }\n    }, 100); // delay (takes millis)\n\n}\n</code></pre>\n"
+    },
+    {
+      "tags": [
+        "c++",
+        "do-while"
+      ],
+      "owner": {
+        "reputation": 1595,
+        "user_id": 2318505,
+        "user_type": "registered",
+        "accept_rate": 46,
+        "profile_image": "https://www.gravatar.com/avatar/768a6aa45f0465c9ecd022351bb76c87?s=128&d=identicon&r=PG",
+        "display_name": "Sankalp",
+        "link": "https://stackoverflow.com/users/2318505/sankalp"
+      },
+      "is_answered": true,
+      "view_count": 17632,
+      "answer_count": 27,
+      "score": 229,
+      "last_activity_date": 1541051876,
+      "creation_date": 1377769613,
+      "last_edit_date": 1378010784,
+      "question_id": 18507518,
+      "link": "https://stackoverflow.com/questions/18507518/what-are-some-better-ways-to-avoid-the-do-while0-hack-in-c",
+      "title": "What are some better ways to avoid the do-while(0); hack in C++?",
+      "body": "<p>When the code flow is like this:</p>\n\n<pre><code>if(check())\n{\n  ...\n  ...\n  if(check())\n  {\n    ...\n    ...\n    if(check())\n    {\n      ...\n      ...\n    }\n  }\n}\n</code></pre>\n\n<p>I have generally seen this work around to avoid the above messy code flow:</p>\n\n<pre><code>do {\n    if(!check()) break;\n    ...\n    ...\n    if(!check()) break;\n    ...\n    ...\n    if(!check()) break;\n    ...\n    ...\n} while(0);\n</code></pre>\n\n<p>What are some better ways that avoid this work-around/hack so that it becomes a higher-level (industry level) code?</p>\n\n<p>Any suggestions which are out of the box are welcome!</p>\n"
+    },
+    {
+      "tags": [
+        "charles"
+      ],
+      "owner": {
+        "reputation": 398,
+        "user_id": 1783046,
+        "user_type": "registered",
+        "accept_rate": 50,
+        "profile_image": "https://i.stack.imgur.com/XtVxU.jpg?s=128&g=1",
+        "display_name": "zephor",
+        "link": "https://stackoverflow.com/users/1783046/zephor"
+      },
+      "is_answered": false,
+      "view_count": 6,
+      "answer_count": 0,
+      "score": 0,
+      "last_activity_date": 1541051598,
+      "creation_date": 1541051598,
+      "question_id": 53095844,
+      "link": "https://stackoverflow.com/questions/53095844/why-part-of-https-requests-fail-on-charles-proxy-as-some-https-requests-are-ok",
+      "title": "Why part of https requests fail on Charles Proxy as some https requests are ok?",
+      "body": "<p>I set everything well and some https request did be proxied well, but some are still <code>unknown</code> , is there any new way I don't known to prevent being proxied ?</p>\n"
+    },
+    {
+      "tags": [
+        "javascript",
+        "reactjs",
+        "redux"
+      ],
+      "owner": {
+        "reputation": 323,
+        "user_id": 3068500,
+        "user_type": "registered",
+        "accept_rate": 77,
+        "profile_image": "https://www.gravatar.com/avatar/0cf641fb92b7fd2625f7690aac7f424c?s=128&d=identicon&r=PG&f=1",
+        "display_name": "Gambit2007",
+        "link": "https://stackoverflow.com/users/3068500/gambit2007"
+      },
+      "is_answered": true,
+      "view_count": 48,
+      "accepted_answer_id": 53071239,
+      "answer_count": 3,
+      "score": 0,
+      "last_activity_date": 1541049945,
+      "creation_date": 1540924335,
+      "question_id": 53070745,
+      "link": "https://stackoverflow.com/questions/53070745/redux-need-some-clarifications-on-some-basic-setup",
+      "title": "Redux: need some clarifications on some basic setup",
+      "body": "<p>I'm a Redux beginner and after watching a few tutorials i still have a few questions:</p>\n\n<p>1) \nAfter creating my <code>store</code>, i have:</p>\n\n<pre><code>ReactDOM.render(&lt;Provider store={store}&gt;&lt;BrowserRouter&gt;&lt;App/&gt;&lt;/BrowserRouter&gt;&lt;/Provider&gt;, document.getElementById('root'));\n</code></pre>\n\n<p>Going into the <code>App</code> component, i define:</p>\n\n<pre><code>function mapStateToProps(state) {\n    return {\n        posts: state.posts,\n        comments: state.comments \n\n    }\n}\n\nfunction mapDispatchToProps(dispatch) {\n    return bindActionCreators(actions, dispatch)\n\n}\n</code></pre>\n\n<p>Where do <code>state</code> and <code>dispatch</code> come from? Is this automatically referring to the <code>store</code>'s state and dispatch since i connected it to my component?</p>\n\n<p>2) One of my React components has a form which on submit, calls a function:</p>\n\n<pre><code>handleSubmit(event) { ... }\n</code></pre>\n\n<p>So in the constructor of that component, i have:</p>\n\n<pre><code>constructor() {\n    super()\n    this.handleSubmit = this.handleSubmit.bind(this);\n}\n</code></pre>\n\n<p>Is calling <code>super()</code> always necessary when declaring a React class component?\nWhy do i need to do this type of binding there? </p>\n\n<p>3) After submitting that form, i dispatch an action called <code>addPost</code>.\nHow does it \"go\" to the reducer? Is it just because the reducer was given when i created the store and using <code>mapDispatchToProps(dispatch)</code> i \"let\" Redux know which actions could be dispatched to that reducer?</p>\n\n<p>4) The reducer simply returns a <code>state</code> object - where is the logic that actually \"saves\" that state into the store? Is it hidden?</p>\n\n<p>Sorry for the long post and thank you!</p>\n"
+    },
+    {
+      "tags": [
+        "android",
+        "drag-and-drop"
+      ],
+      "owner": {
+        "reputation": 99,
+        "user_id": 5851265,
+        "user_type": "registered",
+        "accept_rate": 70,
+        "profile_image": "https://www.gravatar.com/avatar/360b1567791a77804dfcbbdc77c599bf?s=128&d=identicon&r=PG&f=1",
+        "display_name": "Jack",
+        "link": "https://stackoverflow.com/users/5851265/jack"
+      },
+      "is_answered": false,
+      "view_count": 41,
+      "bounty_amount": 50,
+      "bounty_closes_date": 1541481774,
+      "answer_count": 1,
+      "score": 1,
+      "last_activity_date": 1541048527,
+      "creation_date": 1539043476,
+      "last_edit_date": 1541048527,
+      "question_id": 52711596,
+      "link": "https://stackoverflow.com/questions/52711596/drag-and-drop-not-working-between-2-activities-on-some-devices",
+      "title": "Drag and Drop not working between 2 activities on some devices",
+      "body": "<p>I use the following code to drag a view from an activity to another activity within my application. Knowing that the second activity (That receives drop event) is not created / alive when the drag starts.</p>\n\n<p><strong>It works good on</strong> </p>\n\n<p>Samsung Note 3 Android 5 API 21, \nSamsung Note 4 Android 6.0.1 API 23</p>\n\n<p><strong>but not working on</strong> </p>\n\n<p>ASUS ZenPad 8.0 Android 5.1.1 API 22,\nLe Max 2 Android 6.0 API 23</p>\n\n<p>Your thoughts are appreciated.</p>\n\n<p><strong>Starting Drag operation:</strong></p>\n\n<pre><code>public boolean onItemLongClick(AdapterView&lt;?&gt; aParent, View aView, int aPos, long aID) {\n\n    View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(aView);\n\n    Intent intent = prepDNDIntent();\n\n    if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.N) {\n        aView.startDragAndDrop(ClipData.newIntent(DRAG_N_DROP_DESCRIPTION, intent), shadowBuilder, null, 0);\n    } else {\n        aView.startDrag(ClipData.newIntent(DRAG_N_DROP_DESCRIPTION, intent), shadowBuilder, null, 0);\n    }\n\n\n    startMainActivity();\n\n    finishThisActivity();\n\n    return true;\n}\n</code></pre>\n\n<p><strong>Receiving Drop Operation</strong></p>\n\n<pre><code>public boolean validDragNDropOperation(View aView, DragEvent aEvent){\n    boolean status = false;\n\n    ClipDescription clipDescription = aEvent.getClipDescription();\n    if (clipDescription != null &amp;&amp; clipDescription.getLabel().toString().equalsIgnoreCase(DRAG_N_DROP_DESCRIPTION)) {\n        status = true;\n    }\n\n    return status;\n}\n\n\npublic boolean onDrag(View aView, DragEvent aEvent) {\n\n    switch (aEvent.getAction()) {\n          case DragEvent.ACTION_DRAG_STARTED:\n\n               This is not called on some devices\n\n               return validDragNDropOperation(aView, aEvent, false);\n\n          case DragEvent.ACTION_DROP:\n                    ....\n                    ....\n                    ....\n                    ....\n                    ....\n                 break;\n    }\n\n    return true;\n}\n</code></pre>\n\n<p><strong>Knowing that both Activities are set android:launchMode=\"standard\"</strong></p>\n\n<p><strong>EDIT</strong></p>\n\n<p>During testing, I used an AlertDialog that holds the views being dragged (Instead of using activity), and I faced the same problem, when dragging the view from the AlertDialog to the Activity (That owns the AlertDialog), ACTION_DRAG_STARTED not called.</p>\n"
+    },
+    {
+      "tags": [
+        "python",
+        "string",
+        "semicolon"
+      ],
+      "owner": {
+        "reputation": 317,
+        "user_id": 1298833,
+        "user_type": "registered",
+        "accept_rate": 48,
+        "profile_image": "https://www.gravatar.com/avatar/77bcef13f4903d7a438b57d5fd23474a?s=128&d=identicon&r=PG",
+        "display_name": "TJE",
+        "link": "https://stackoverflow.com/users/1298833/tje"
+      },
+      "is_answered": true,
+      "view_count": 26,
+      "accepted_answer_id": 53093744,
+      "answer_count": 2,
+      "score": 2,
+      "last_activity_date": 1541041924,
+      "creation_date": 1541031951,
+      "question_id": 53093660,
+      "link": "https://stackoverflow.com/questions/53093660/how-to-manage-a-problem-reading-a-csv-that-is-a-semicolon-separated-file-where-s",
+      "title": "How to manage a problem reading a csv that is a semicolon-separated file where some strings contain semi-colons?",
+      "body": "<p>The problem I have can be illustrated by showing a couple of sample rows in my csv (semicolon-separated) file, which look like this:</p>\n\n<pre><code>4;1;\"COFFEE; COMPANY\";4\n3;2;SALVATION ARMY;4\n</code></pre>\n\n<p>Notice that in one row, a string is in quotation marks and has a semi-colon inside of it (none of the columns have quotations marks around them in my input file except for the ones containing semicolons).</p>\n\n<p>These rows with the quotation marks and semicolons are causing a problem -- basically, my code apparently is counting the semicolon inside the one thinks that the row with the semicolon inside the string has an extra field/column.</p>\n\n<p>The desired output would look like this, with no quotation marks around \"coffee company\" and no semicolon between 'coffee' and 'company':</p>\n\n<pre><code>4;1;COFFEE COMPANY;4\n3;2;SALVATION ARMY;4\n</code></pre>\n\n<p>Actually, this column with \"coffee company\" is totally useless to me, so the final file could look like this too:</p>\n\n<pre><code>4;1;xxxxxxxxxxx;4\n3;2;xxxxxxxxxxx;4\n</code></pre>\n\n<p>How can I get rid of just the semi-colons inside of this one particular column, but without getting rid of all of the other semi-colons?</p>\n"
+    },
+    {
+      "tags": [
+        "pdf-generation",
+        "doc"
+      ],
+      "owner": {
+        "reputation": 1,
+        "user_id": 9683893,
+        "user_type": "registered",
+        "profile_image": "https://graph.facebook.com/1400025356769762/picture?type=large",
+        "display_name": "Hari Krishna KJ",
+        "link": "https://stackoverflow.com/users/9683893/hari-krishna-kj"
+      },
+      "is_answered": false,
+      "view_count": 8,
+      "answer_count": 0,
+      "score": 0,
+      "last_activity_date": 1541038157,
+      "creation_date": 1541038157,
+      "question_id": 53094331,
+      "link": "https://stackoverflow.com/questions/53094331/how-does-certain-doc-file-converted-to-pdf-become-some-random-text",
+      "title": "How does certain doc file converted to pdf become some random text",
+      "body": "<p>When i converted a word file to pdf then the result file looks like a page full of random alphabets .is there some sort of blocking of conversion.how can we remove. It.</p>\n"
+    },
+    {
+      "tags": [
+        "putty",
+        "pscp"
+      ],
+      "owner": {
+        "reputation": 8236,
+        "user_id": 663148,
+        "user_type": "registered",
+        "accept_rate": 90,
+        "profile_image": "https://i.stack.imgur.com/Vi0w6.gif?s=128&g=1",
+        "display_name": "arsenal",
+        "link": "https://stackoverflow.com/users/663148/arsenal"
+      },
+      "is_answered": false,
+      "view_count": 8926,
+      "answer_count": 4,
+      "score": 2,
+      "last_activity_date": 1541037638,
+      "creation_date": 1340909353,
+      "last_edit_date": 1375314548,
+      "question_id": 11251047,
+      "link": "https://stackoverflow.com/questions/11251047/transfer-files-from-linux-to-windows-using-pscp-or-some-other-tool",
+      "title": "Transfer files from Linux to Windows using pscp or some other tool",
+      "body": "<p><strong>Problem Statement- I want to copy some files from remote machine (linux) to my windows machine. I know I can do it using pscp.</strong></p>\n\n<p>I tried looking on the internet, I found several articles, but in those articles I was not able to understand and I was having lot of problems in copying the files from Linx box to Windows.</p>\n\n<p>Can anyone provide me step by step method here, so that I can follow that to transfer files. That will be of great help to me.</p>\n\n<p>I am connected to host <code>cli.vip.host.com</code> using putty and that is linux with username- <code>rkost</code> and password as- <code>password</code>. And I want to copy file <code>a.txt</code> from linux to windows.</p>\n"
+    }
+  ],
+  "has_more": true,
+  "quota_max": 10000,
+  "quota_remaining": 9670
+}

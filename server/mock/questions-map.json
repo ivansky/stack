@@ -1,0 +1,2052 @@
+{
+  "68144": {
+    "tags": [
+      "c++",
+      "windows",
+      "ssl",
+      "xml-rpc"
+    ],
+    "owner": {
+      "reputation": 5490,
+      "user_id": 10592,
+      "user_type": "registered",
+      "accept_rate": 79,
+      "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+      "display_name": "Tim Cooper",
+      "link": "https://stackoverflow.com/users/10592/tim-cooper"
+    },
+    "is_answered": true,
+    "view_count": 8018,
+    "accepted_answer_id": 999308,
+    "answer_count": 5,
+    "score": 7,
+    "last_activity_date": 1380848219,
+    "creation_date": 1221523934,
+    "last_edit_date": 1226267232,
+    "question_id": 68144,
+    "link": "https://stackoverflow.com/questions/68144/using-xmlrpc-in-c-and-windows",
+    "title": "Using XmlRpc in C++ and Windows",
+    "body": "<p>I need to use XmlRpc in C++ on a Windows platform.  Despite the fact that my friends assure me that XmlRpc is a \"widely available standard technology\", there are not many libraries available for it.  In fact I only found one library to do this on Windows, (plus another one that claims \"you'll have to do a lot of work to get this to compile on Windows).  The library I found was Chris Morley's \"XmlRpc++\".  However, it doesn't have support for SSL.</p>\n\n<p>My question therefore is:  what library should I be using?  </p>\n"
+  },
+  "118686": {
+    "tags": [
+      "gdi+",
+      "drawstring"
+    ],
+    "owner": {
+      "reputation": 5490,
+      "user_id": 10592,
+      "user_type": "registered",
+      "accept_rate": 79,
+      "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+      "display_name": "Tim Cooper",
+      "link": "https://stackoverflow.com/users/10592/tim-cooper"
+    },
+    "is_answered": true,
+    "view_count": 12812,
+    "accepted_answer_id": 118764,
+    "answer_count": 5,
+    "score": 16,
+    "last_activity_date": 1393799416,
+    "creation_date": 1222134315,
+    "last_edit_date": 1363794823,
+    "question_id": 118686,
+    "link": "https://stackoverflow.com/questions/118686/measurestring-pads-the-text-on-the-left-and-the-right",
+    "title": "MeasureString() pads the text on the left and the right",
+    "body": "<p>I'm using GDI+ in C++.  (This issue might exist in C# too). </p>\n\n<p>I notice that whenever I call Graphics::MeasureString() or Graphics::DrawString(), the string is padded with blank space on the left and right.</p>\n\n<p>For example, if I am using a Courier font, (not italic!) and I measure \"P\" I get 90, but \"PP\" gives me 150.  I would expect a monospace font to give exactly double the width for \"PP\".</p>\n\n<p>My question is:  is this intended or documented behaviour, and how do I disable this?  </p>\n\n<pre><code>RectF Rect(0,0,32767,32767);\nRectF Bounds1, Bounds2;\ngraphics-&gt;MeasureString(L\"PP\", 1, font, Rect, &amp;Bounds1);\ngraphics-&gt;MeasureString(L\"PP\", 2, font, Rect, &amp;Bounds2);\nmargin = Bounds1.Width * 2 - Bounds2.Width;\n</code></pre>\n"
+  },
+  "252297": {
+    "tags": [
+      "c++",
+      "winapi",
+      "windows-vista",
+      "registry",
+      "wow64"
+    ],
+    "owner": {
+      "reputation": 5490,
+      "user_id": 10592,
+      "user_type": "registered",
+      "accept_rate": 79,
+      "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+      "display_name": "Tim Cooper",
+      "link": "https://stackoverflow.com/users/10592/tim-cooper"
+    },
+    "is_answered": true,
+    "view_count": 47744,
+    "accepted_answer_id": 252302,
+    "answer_count": 5,
+    "score": 26,
+    "last_activity_date": 1496586173,
+    "creation_date": 1225414704,
+    "last_edit_date": 1311961445,
+    "question_id": 252297,
+    "link": "https://stackoverflow.com/questions/252297/why-is-regopenkeyex-returning-error-code-2-on-vista-64bit",
+    "title": "Why is RegOpenKeyEx() returning error code 2 on Vista 64bit?",
+    "body": "<p>I was making the following call:</p>\n\n<pre><code>result = RegOpenKeyEx(key, s, 0, KEY_READ, &amp;key);\n</code></pre>\n\n<p>(C++, Visual Studio 5, Vista 64bit).</p>\n\n<p>It is failing with error code 2 (\"File not found\") even though \"<code>regedit</code>\" shows that the key exists.  This code has always worked on 32bit XP.  Why is it \"file not found\" when it clearly is there?</p>\n"
+  },
+  "637695": {
+    "tags": [
+      "c++",
+      "stl",
+      "performance"
+    ],
+    "owner": {
+      "reputation": 5490,
+      "user_id": 10592,
+      "user_type": "registered",
+      "accept_rate": 79,
+      "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+      "display_name": "Tim Cooper",
+      "link": "https://stackoverflow.com/users/10592/tim-cooper"
+    },
+    "is_answered": true,
+    "view_count": 16334,
+    "accepted_answer_id": 637737,
+    "answer_count": 14,
+    "score": 13,
+    "last_activity_date": 1456047970,
+    "creation_date": 1236845351,
+    "last_edit_date": 1456047970,
+    "question_id": 637695,
+    "link": "https://stackoverflow.com/questions/637695/how-efficient-is-stdstring-compared-to-null-terminated-strings",
+    "title": "How efficient is std::string compared to null-terminated strings?",
+    "body": "<p>I've discovered that <code>std::string</code>s are very slow compared to old-fashioned null-terminated strings, so much slow that they significantly slow down my overall program by a factor of 2.</p>\n\n<p>I expected STL to be slower, I didn't realise it was going to be this much slower.  </p>\n\n<p>I'm using Visual Studio 2008, release mode. It shows assignment of a string to be 100-1000 times slower than <code>char*</code> assignment (it's very difficult to test the run-time of a <code>char*</code> assignment).  I know it's not a fair comparison, a pointer assignment versus string copy, but my program has lots of string assignments and I'm not sure I could use the \"<em>const reference</em>\" trick in all places.  With a reference counting implementation my program would have been fine, but these implementations don't seem to exist anymore.</p>\n\n<p>My real question is:  why don't people use reference counting implementations anymore, and does this mean we all need to be much more careful about avoiding common performance pitfalls of std::string?</p>\n\n<p>My full code is below.  </p>\n\n<pre><code>#include &lt;string&gt;\n#include &lt;iostream&gt;\n#include &lt;time.h&gt;\n\nusing std::cout;\n\nvoid stop()\n{\n}\n\nint main(int argc, char* argv[])\n{\n    #define LIMIT 100000000\n    clock_t start;\n    std::string foo1 = \"Hello there buddy\";\n    std::string foo2 = \"Hello there buddy, yeah you too\";\n    std::string f;\n    start = clock();\n    for (int i=0; i &lt; LIMIT; i++) {\n        stop();\n        f = foo1;\n        foo1 = foo2;\n        foo2 = f;\n    }\n    double stl = double(clock() - start) / CLOCKS\\_PER\\_SEC;\n\n    start = clock();\n    for (int i=0; i &lt; LIMIT; i++) {\n        stop();\n    }\n    double emptyLoop = double(clock() - start) / CLOCKS_PER_SEC;\n\n    char* goo1 = \"Hello there buddy\";\n    char* goo2 = \"Hello there buddy, yeah you too\";\n    char *g;\n    start = clock();\n    for (int i=0; i &lt; LIMIT; i++) {\n        stop();\n        g = goo1;\n        goo1 = goo2;\n        goo2 = g;\n    }\n    double charLoop = double(clock() - start) / CLOCKS_PER_SEC;\n    cout &lt;&lt; \"Empty loop = \" &lt;&lt; emptyLoop &lt;&lt; \"\\n\";\n    cout &lt;&lt; \"char* loop = \" &lt;&lt; charLoop &lt;&lt; \"\\n\";\n    cout &lt;&lt; \"std::string = \" &lt;&lt; stl &lt;&lt; \"\\n\";\n    cout &lt;&lt; \"slowdown = \" &lt;&lt; (stl - emptyLoop) / (charLoop - emptyLoop) &lt;&lt; \"\\n\";\n    std::string wait;\n    std::cin &gt;&gt; wait;\n    return 0;\n}\n</code></pre>\n"
+  },
+  "648960": {
+    "tags": [
+      "c++",
+      "stl"
+    ],
+    "owner": {
+      "reputation": 5490,
+      "user_id": 10592,
+      "user_type": "registered",
+      "accept_rate": 79,
+      "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+      "display_name": "Tim Cooper",
+      "link": "https://stackoverflow.com/users/10592/tim-cooper"
+    },
+    "is_answered": true,
+    "view_count": 1128,
+    "accepted_answer_id": 649071,
+    "answer_count": 7,
+    "score": 7,
+    "last_activity_date": 1237241653,
+    "creation_date": 1237166901,
+    "last_edit_date": 1237171543,
+    "question_id": 648960,
+    "link": "https://stackoverflow.com/questions/648960/stdvector-on-visualstudio2008-appears-to-be-suboptimally-implemented-too-man",
+    "title": "std::vector on VisualStudio2008 appears to be suboptimally implemented - too many copy constructor calls",
+    "body": "<p>I've been comparing a STL implementation of a popular XmlRpc library with an implementation that mostly avoids STL.  The STL implementation is much slower - I got 47s down to 4.5s.  I've diagnosed some of the reasons: it's partly due to std::string being mis-used (e.g. the author should have used \"const std::string&amp;\" wherever possible - don't just use std::string's as if they were Java strings), but it's also because copy constructors were being constantly called each time the vector outgrew its bounds, which was exceedingly often. The copy constructors were very slow because they did deep-copies of trees (of XmlRpc values).</p>\n\n<p>I was told by someone else on StackOverflow that std::vector implementations typically double the size of the buffer each time they outgrow.  This does not seem to be the case on VisualStudio 2008:  to add 50 items to a std::vector took 177 calls of the copy constructor.  Doubling each time should call the copy constructor 64 times.  If you were very concerned about keeping memory usage low, then increasing by 50% each time should call the copy constructor 121 times.  So where does the 177 come from?</p>\n\n<p>My question is: (a) why is the copy constructor called so often?  (b) is there any way to avoid using the copy constructor if you're just <em>moving</em> an object from one location to another?  (In this case and indeed most cases a memcpy() would have sufficed - and this makes a BIG difference).</p>\n\n<p>(NB: I know about vector::reserve(), I'm just a bit disappointed that application programmers would need to implement the doubling trick when something like this is already part of any good STL implementation.)</p>\n\n<p>My test program:</p>\n\n<pre><code>#include &lt;string&gt;\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\n\n\n\nusing namespace std;\n\n\nint constructorCalls;\nint assignmentCalls;\nint copyCalls;\n\n\nclass C {\n    int n;\n\npublic:\n    C(int _n) { n = _n; constructorCalls++; }\n    C(const C&amp; orig) { copyCalls++; n = orig.n; }\n    void operator=(const C &amp;orig) { assignmentCalls++; n = orig.n; }\n};\n\n\n\nint main(int argc, char* argv[])\n{\n    std::vector&lt;C&gt; A;\n\n    //A.reserve(50);\n    for (int i=0; i &lt; 50; i++)\n        A.push_back(i);\n    cout &lt;&lt; \"constructor calls = \" &lt;&lt; constructorCalls &lt;&lt; \"\\n\";\n    cout &lt;&lt; \"assignment calls = \" &lt;&lt; assignmentCalls &lt;&lt; \"\\n\";\n    cout &lt;&lt; \"copy calls = \" &lt;&lt; copyCalls &lt;&lt; \"\\n\";\n    return 0;\n}\n</code></pre>\n"
+  },
+  "1042415": {
+    "tags": [
+      "c++",
+      "user-interface",
+      "winapi",
+      "xp-theme"
+    ],
+    "owner": {
+      "reputation": 5490,
+      "user_id": 10592,
+      "user_type": "registered",
+      "accept_rate": 79,
+      "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+      "display_name": "Tim Cooper",
+      "link": "https://stackoverflow.com/users/10592/tim-cooper"
+    },
+    "is_answered": true,
+    "view_count": 5933,
+    "accepted_answer_id": 1066246,
+    "answer_count": 6,
+    "score": 4,
+    "last_activity_date": 1481756993,
+    "creation_date": 1245911153,
+    "question_id": 1042415,
+    "link": "https://stackoverflow.com/questions/1042415/windows-xp-style-why-do-we-get-dark-grey-background-on-static-text-widgets",
+    "title": "Windows XP Style: Why do we get dark grey background on static text widgets?",
+    "body": "<p>We're writing Windows desktop apps using C++ and Win32.  Our dialog boxes have an ugly appearance with \"Windows XP style\":  the background to the static text is grey.  Where the dialog box background is also grey, this is not a problem, but inside a tab control, where the background is white, the grey background to the text is very noticeable.</p>\n\n<p>In the past we have done a lot of our own drawing of controls, but these days we are trying to use the standard look'n'feel as much as possible, and to avoid overriding standard behaviour as much as possible.  </p>\n\n<p>We are using the Win32 API, which is getting a bit dated, but I think the problem occurs even with ATL.   We are creating a DIALOGTEMPLATE. The text is in a \"static\" control (0x0082).  The only flag we set for the style is \"SS_LEFT\".  The text control is inside a tab control:  \"SysTabControl32\" with only one flag:  WS_CLIPSIBLINGS set on it.  I've experimented with SS_WHITERECT and WS_EX_TRANSPARENT and other settings, to no avail.</p>\n\n<p>All of this gets drawn with the standard Windows dialog box message handler.  My main question is \"what are we doing wrong?\" rather than \"how can I work around it?\", although I'll settle for the latter if no-one can help me with the first.</p>\n\n<p>Any ideas?</p>\n"
+  },
+  "1376688": {
+    "tags": [
+      "xml",
+      "xml-rpc"
+    ],
+    "owner": {
+      "reputation": 5490,
+      "user_id": 10592,
+      "user_type": "registered",
+      "accept_rate": 79,
+      "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+      "display_name": "Tim Cooper",
+      "link": "https://stackoverflow.com/users/10592/tim-cooper"
+    },
+    "is_answered": true,
+    "view_count": 7055,
+    "accepted_answer_id": 1733163,
+    "answer_count": 5,
+    "score": 15,
+    "last_activity_date": 1311289698,
+    "creation_date": 1252024339,
+    "last_edit_date": 1289595083,
+    "question_id": 1376688,
+    "link": "https://stackoverflow.com/questions/1376688/what-is-the-benefit-of-xml-rpc-over-plain-xml",
+    "title": "What is the benefit of XML-RPC over plain XML?",
+    "body": "<p>My company has been using <a href=\"http://en.wikipedia.org/wiki/XML-RPC\" rel=\"noreferrer\">XML-RPC</a> for a while, but lately I'm wondering what the benefit is of XML-RPC compared to plain XML. Firstly, it's horrible \"obese\", consider:</p>\n\n<pre><code>&lt;struct&gt;\n    &lt;member&gt;\n        &lt;name&gt;ROOM_ID&lt;/name&gt;\n        &lt;value&gt;\n            &lt;int&gt;1&lt;/int&gt;\n        &lt;/value&gt;\n    &lt;/member&gt;\n\n    &lt;member&gt;\n        &lt;name&gt;CODE&lt;/name&gt;\n        &lt;value&gt;\n            &lt;string&gt;MR-101&lt;/string&gt;\n        &lt;/value&gt;\n    &lt;/member&gt;\n\n    &lt;member&gt;\n        &lt;name&gt;NAME&lt;/name&gt;\n        &lt;value&gt;\n            &lt;string&gt;Math Room&lt;/string&gt;\n        &lt;/value&gt;\n    &lt;/member&gt;\n\n    &lt;member&gt;\n        &lt;name&gt;CAPACITY&lt;/name&gt;\n        &lt;value&gt;\n            &lt;int&gt;30&lt;/int&gt;\n        &lt;/value&gt;\n    &lt;/member&gt;\n&lt;/struct&gt;\n</code></pre>\n\n<p>Compared to this:</p>\n\n<pre><code>&lt;room&gt;&lt;ROOM_ID&gt;1&lt;/ROOM_ID&gt;&lt;CODE&gt;MR-101&lt;/CODE&gt;\n&lt;NAME&gt;Math Room&lt;/NAME&gt;&lt;CAPACITY&gt;30&lt;/CAPACITY&gt;&lt;/room&gt;\n</code></pre>\n\n<p>Or even this:</p>\n\n<pre><code>&lt;room ROOM_ID=1 CODE=MR-101 NAME=”Math Room” CAPACITY=30 /&gt;\n</code></pre>\n\n<p>Secondly, XML-RPC seems fairly widespread but not quite ubiquitous and I'm not that impressed with the support for it in C++ and PHP. I've had problems with all the libraries that I tried in both languages.</p>\n\n<p>Thirdly, it seems to me that I could make remote procedure calls with plain XML as easily as  with XML-RPC.  {(9/9/2009): Every language has libraries for serialising language-level objects into XML. Both XML and XML-RPC require application-level schemas to be defined, for example, how the fields should be spelt, but neither needs any additional schema to be defined. Many people make RPC calls with plain XML.}</p>\n\n<p>So what is the value-add of XML-RPC?</p>\n"
+  },
+  "1403515": {
+    "tags": [
+      "java",
+      "google-app-engine"
+    ],
+    "owner": {
+      "reputation": 5490,
+      "user_id": 10592,
+      "user_type": "registered",
+      "accept_rate": 79,
+      "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+      "display_name": "Tim Cooper",
+      "link": "https://stackoverflow.com/users/10592/tim-cooper"
+    },
+    "is_answered": true,
+    "view_count": 7956,
+    "accepted_answer_id": 1532336,
+    "answer_count": 3,
+    "score": 12,
+    "last_activity_date": 1427113437,
+    "creation_date": 1252560676,
+    "last_edit_date": 1256899143,
+    "question_id": 1403515,
+    "link": "https://stackoverflow.com/questions/1403515/appengine-datastore-object-with-id-is-managed-by-a-different-object-manage",
+    "title": "AppEngine datastore: &quot;Object with id ... is managed by a different Object Manager&quot;",
+    "body": "<p>I'm using the Google AppEngine, with Java.  When I use some datastore features, I'm getting an error message:  </p>\n\n<pre><code>Object with id \"edvaltt.Teacher@64064b\" is managed by a different Object Manager\n</code></pre>\n\n<p>I don't know what this means or how to fix it or where to look for documentation on this error. Can anyone help me?  The code I'm using is:</p>\n\n<pre><code>@PersistenceCapable(identityType = IdentityType.APPLICATION)\npublic class School {\n@PrimaryKey\n@Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)\nprivate String shortname;\n\n@Persistent\nprivate String fullname;\n\n@Persistent\n@Order(extensions = @Extension(vendorName=\"datanucleus\", key=\"list-ordering\", value=\"code asc\"))\nprivate List&lt;Teacher&gt; Teachers;\n\n...\n\npublic Teacher FindOrCreateTeacher(String code)\n{\n    // Can we find the teacher without any database code?\n    Teacher newTeacher = FindTeacher(code);\n    if (newTeacher != null)\n        return newTeacher;\n\n    // Create the teacher:\n    PersistenceManager pm = PMF.get().getPersistenceManager();\n    Transaction tx = pm.currentTransaction();\n    try {\n        tx.begin();\n        for (Teacher teacher : Teachers) {\n            if (teacher.getCode() == code) {\n                tx.rollback();\n                return teacher;\n            }\n        }\n        newTeacher = new Teacher(code);\n        Teachers.add(newTeacher);\n        pm.makePersistent(newTeacher);\n        pm.makePersistent(Teachers);\n        tx.commit();\n    } finally {\n        tx.commit();\n    }\n    return newTeacher;\n}\n</code></pre>\n\n<p>I believe that \"<code>private List&lt;Teacher&gt; Teachers;</code>\" refers to an \"owned, one to many\" relationship.</p>\n"
+  },
+  "2590585": {
+    "tags": [
+      "java",
+      "serialization",
+      "graph"
+    ],
+    "owner": {
+      "reputation": 5490,
+      "user_id": 10592,
+      "user_type": "registered",
+      "accept_rate": 79,
+      "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+      "display_name": "Tim Cooper",
+      "link": "https://stackoverflow.com/users/10592/tim-cooper"
+    },
+    "is_answered": true,
+    "view_count": 893,
+    "answer_count": 2,
+    "score": 2,
+    "last_activity_date": 1270637712,
+    "creation_date": 1270624090,
+    "question_id": 2590585,
+    "link": "https://stackoverflow.com/questions/2590585/how-do-i-serialise-a-graph-in-java-without-getting-stackoverflowexception",
+    "title": "How do I serialise a graph in Java without getting StackOverflowException?",
+    "body": "<p>I have a graph structure in java, (\"graph\" as in \"edges and nodes\") and I'm attempting to serialise it.  However, I get \"StackOverflowException\", despite significantly increasing the JVM stack size.  I did some googling, and apparently this is a well known limitation of java serialisation:  that it doesn't work for deeply nested object graphs such as long linked lists - it uses a stack record for each link in the chain, and it doesn't do anything clever such as a breadth-first traversal, and therefore you very quickly get a stack overflow.</p>\n\n<p>The recommended solution is to customise the serialisation code by overriding readObject() and writeObject(), however this seems a little complex to me.</p>\n\n<p>(It may or may not be relevant, but I'm storing a bunch of fields on each edge in the graph so I have a class <code>JuNode</code> which contains a member <code>ArrayList&lt;JuEdge&gt; links;</code>, i.e. there are 2 classes involved, rather than plain object references from one node to another.  It shouldn't matter for the purposes of the question).</p>\n\n<p>My question is threefold:<br>\n(a) why don't the implementors of Java rectify this limitation or are they already working on it?  (I can't believe I'm the first person to ever want to serialise a graph in java)<br>\n(b) is there a better way?  Is there some drop-in alternative to the default serialisation classes that does it in a cleverer way?<br>\n(c) if my best option is to get my hands dirty with low-level code, does someone have an example of graph serialisation java source-code that can use to learn how to do it?  </p>\n"
+  },
+  "3522031": {
+    "tags": [
+      "intellij-idea"
+    ],
+    "owner": {
+      "reputation": 5490,
+      "user_id": 10592,
+      "user_type": "registered",
+      "accept_rate": 79,
+      "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+      "display_name": "Tim Cooper",
+      "link": "https://stackoverflow.com/users/10592/tim-cooper"
+    },
+    "is_answered": true,
+    "view_count": 4553,
+    "accepted_answer_id": 3545256,
+    "answer_count": 2,
+    "score": 4,
+    "last_activity_date": 1296578757,
+    "creation_date": 1282223067,
+    "question_id": 3522031,
+    "link": "https://stackoverflow.com/questions/3522031/intellij-after-hiding-my-output-sub-panel-within-the-debug-panel-how-do-i",
+    "title": "IntelliJ: After hiding my &quot;Output&quot; sub-panel within the &quot;Debug&quot; panel, how do I get it back?",
+    "body": "<p>I'm using IntelliJ 9.0.1.  I have the \"Debug\" panel open.  I previously had an \"Output\" sub-panel within the Debug panel showing the System.out text output of my program.  I clicked on the  ->|  button to hide it, and now I can't get it back.   I notice that with the Variables and Watches sub-panels, when I hide them I get an icon on the far right of the Debug toolbar.  But I have no icon for the Output panel.  I've tried restarting IntelliJ but it doesn't help, nor does closing and reopening the Debug panel.</p>\n\n<p>How can I get my \"Output\" sub-panel back?</p>\n"
+  },
+  "7550190": {
+    "tags": [
+      "java",
+      "flush"
+    ],
+    "owner": {
+      "reputation": 5490,
+      "user_id": 10592,
+      "user_type": "registered",
+      "accept_rate": 79,
+      "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+      "display_name": "Tim Cooper",
+      "link": "https://stackoverflow.com/users/10592/tim-cooper"
+    },
+    "is_answered": true,
+    "view_count": 6346,
+    "accepted_answer_id": 7550233,
+    "answer_count": 6,
+    "score": 9,
+    "last_activity_date": 1453546993,
+    "creation_date": 1317004789,
+    "last_edit_date": 1453546993,
+    "question_id": 7550190,
+    "link": "https://stackoverflow.com/questions/7550190/how-do-i-flush-a-randomaccessfile-java",
+    "title": "How do I flush a &#39;RandomAccessFile&#39; (java)?",
+    "body": "<p>I'm using RandomAccessFile in java:</p>\n\n<pre><code>file = new RandomAccessFile(filename, \"rw\");\n...\nfile.writeBytes(...);\n</code></pre>\n\n<p>How can I ensure that this data is flushed to the Operating System?  There is no file.flush() method.  (Note that I don't actually expect it to be physically written, I'm content with it being flushed to the operating system, so that the data will survive a tomcat crash but not necessarily an unexpected server power loss).</p>\n\n<p>I'm using tomcat6 on Linux.</p>\n"
+  },
+  "7897628": {
+    "tags": [
+      "rdbms",
+      "acid",
+      "durability"
+    ],
+    "owner": {
+      "reputation": 5490,
+      "user_id": 10592,
+      "user_type": "registered",
+      "accept_rate": 79,
+      "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+      "display_name": "Tim Cooper",
+      "link": "https://stackoverflow.com/users/10592/tim-cooper"
+    },
+    "is_answered": true,
+    "view_count": 394,
+    "accepted_answer_id": 7913567,
+    "answer_count": 3,
+    "score": 1,
+    "last_activity_date": 1319705210,
+    "creation_date": 1319590934,
+    "question_id": 7897628,
+    "link": "https://stackoverflow.com/questions/7897628/does-a-typical-acid-rdbms-sync-to-disk-every-commit",
+    "title": "Does a typical ACID RDBMS sync to disk every commit?",
+    "body": "<p>The 'D' in ACID means \"Durability\" which is defined by Wikipedia as: \"every committed transaction is protected against power loss/crash/errors and cannot be lost by the system and can thus be guaranteed to be completed\".</p>\n\n<p>However, this would mean that every transaction must be sync'd to disk before being reported as successful, not just flushed.  ('flush'=sent to the operating system level, 'sync'=sent to the physical disk platter).  This would make it impossible to implement a high transaction rate RDBMS.</p>\n\n<p>Do popular RDBMS's really sync every transaction?</p>\n"
+  },
+  "9079781": {
+    "tags": [
+      "gwt",
+      "intellij-idea",
+      "gwt-compiler"
+    ],
+    "owner": {
+      "reputation": 5490,
+      "user_id": 10592,
+      "user_type": "registered",
+      "accept_rate": 79,
+      "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+      "display_name": "Tim Cooper",
+      "link": "https://stackoverflow.com/users/10592/tim-cooper"
+    },
+    "is_answered": true,
+    "view_count": 7722,
+    "accepted_answer_id": 9080101,
+    "answer_count": 5,
+    "score": 12,
+    "last_activity_date": 1389263415,
+    "creation_date": 1328014133,
+    "question_id": 9079781,
+    "link": "https://stackoverflow.com/questions/9079781/gwt-compiler-is-running-out-of-memory-how-do-i-configure-it-within-intellij",
+    "title": "GWT compiler is running out of memory. How do I configure it within IntelliJ?",
+    "body": "<p>I'm running GWT from within IntelliJ.  (Plain GWT, IntelliJ v9).  I'm able to run my application via my \"GWT development mode\" configuration, but when I try to run it through my \"local tomcat\" configuration, I get a bunch of incomprehensible error messages referring to Oracle and all sorts of weird stuff that I don't use, followed by this error which is sorted to the bottom of all the others:</p>\n\n<p>Error: Out of memory; to increase the amount of memory, use the -Xmx flag at startup (java -Xmx128M ...)</p>\n\n<p>I'm guessing that this error is the root cause.</p>\n\n<p>According to my understanding, there is a GWT compilation step which runs in a JVM separate to both IntelliJ and tomcat, and so I'm unsure where to set the -Xmx parameter. </p>\n\n<p>My question is:  where do I find this -Xmx parameter?  (And:  am I on the right track, taking this error message at face value, or is it a symptom of deeper problems?)</p>\n"
+  },
+  "10386454": {
+    "tags": [
+      "email",
+      "sms"
+    ],
+    "owner": {
+      "reputation": 5490,
+      "user_id": 10592,
+      "user_type": "registered",
+      "accept_rate": 79,
+      "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+      "display_name": "Tim Cooper",
+      "link": "https://stackoverflow.com/users/10592/tim-cooper"
+    },
+    "is_answered": false,
+    "view_count": 81,
+    "answer_count": 1,
+    "score": 0,
+    "last_activity_date": 1345296562,
+    "creation_date": 1335800542,
+    "question_id": 10386454,
+    "link": "https://stackoverflow.com/questions/10386454/best-practice-for-handling-sms-email-convergence",
+    "title": "Best practice for handling SMS/email convergence",
+    "body": "<p>I'm writing a school administration software package, but it strikes me that many developers will face this same issue: when communicating with users, should you use email or SMS or try to combine them?</p>\n\n<p>A previous version of this question was closed for being too subjective. The answers will be somewhat subjective but I do think this is a good question, topical and not yet debated widely.  I'll try to narrow it down as much as I can:</p>\n\n<ol>\n<li>Is it feasible to give users the choice of email versus SMS, and have the same business logic apply to both, with the help of a long form and short form message template?</li>\n<li>Do users get annoyed when receiving the same message over SMS and email?</li>\n<li>Is it common to present administrators with a single report listing message delivery failures combining both SMS and email?</li>\n<li>Are there significant numbers of users who prefer to be contacted via facebook rather than SMS or email?</li>\n<li>Is there a best practice for all this stuff?</li>\n<li>Is there a place on the web where this stuff has been debated?</li>\n<li>Are there any reputable commentators who have made predictions about the future of all this stuff?</li>\n</ol>\n\n<p>I'm particularly interested in hearing from developers who have already grappled with these questions.</p>\n"
+  },
+  "11251047": {
+    "tags": [
+      "putty",
+      "pscp"
+    ],
+    "owner": {
+      "reputation": 8236,
+      "user_id": 663148,
+      "user_type": "registered",
+      "accept_rate": 90,
+      "profile_image": "https://i.stack.imgur.com/Vi0w6.gif?s=128&g=1",
+      "display_name": "arsenal",
+      "link": "https://stackoverflow.com/users/663148/arsenal"
+    },
+    "is_answered": false,
+    "view_count": 8926,
+    "answer_count": 4,
+    "score": 2,
+    "last_activity_date": 1541037638,
+    "creation_date": 1340909353,
+    "last_edit_date": 1375314548,
+    "question_id": 11251047,
+    "link": "https://stackoverflow.com/questions/11251047/transfer-files-from-linux-to-windows-using-pscp-or-some-other-tool",
+    "title": "Transfer files from Linux to Windows using pscp or some other tool",
+    "body": "<p><strong>Problem Statement- I want to copy some files from remote machine (linux) to my windows machine. I know I can do it using pscp.</strong></p>\n\n<p>I tried looking on the internet, I found several articles, but in those articles I was not able to understand and I was having lot of problems in copying the files from Linx box to Windows.</p>\n\n<p>Can anyone provide me step by step method here, so that I can follow that to transfer files. That will be of great help to me.</p>\n\n<p>I am connected to host <code>cli.vip.host.com</code> using putty and that is linux with username- <code>rkost</code> and password as- <code>password</code>. And I want to copy file <code>a.txt</code> from linux to windows.</p>\n"
+  },
+  "11355393": {
+    "tags": [
+      "google-maps",
+      "google-places-api"
+    ],
+    "owner": {
+      "reputation": 5490,
+      "user_id": 10592,
+      "user_type": "registered",
+      "accept_rate": 79,
+      "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+      "display_name": "Tim Cooper",
+      "link": "https://stackoverflow.com/users/10592/tim-cooper"
+    },
+    "is_answered": true,
+    "view_count": 1079,
+    "accepted_answer_id": 11382759,
+    "answer_count": 2,
+    "score": 0,
+    "last_activity_date": 1341797486,
+    "creation_date": 1341544981,
+    "question_id": 11355393,
+    "link": "https://stackoverflow.com/questions/11355393/google-maps-gives-results-not-returned-by-google-places-api-or-google-maps-api",
+    "title": "google maps gives results not returned by google places API or google maps API",
+    "body": "<p>I'm trying to find the lat/long of the Sydney Opera House using either the Google maps API or the Google Places API.  But neither return anything like it, despite the fact that Google Maps from the browser instantly finds the correct result.</p>\n\n<p>I'm using these URL's:</p>\n\n<p><a href=\"http://maps.googleapis.com/maps/api/geocode/json?sensor=false&amp;bounds=-28.729,153.984|-36.102,142.470&amp;address=OPERA%20HOUSE\" rel=\"nofollow\">http://maps.googleapis.com/maps/api/geocode/json?sensor=false&amp;bounds=-28.729,153.984|-36.102,142.470&amp;address=OPERA%20HOUSE</a></p>\n\n<p>and </p>\n\n<p><a href=\"https://maps.googleapis.com/maps/api/place/search/json?location=-33.9179,151.2333&amp;radius=5000&amp;sensor=false&amp;name=opera%20house&amp;key=\" rel=\"nofollow\">https://maps.googleapis.com/maps/api/place/search/json?location=-33.9179,151.2333&amp;radius=5000&amp;sensor=false&amp;name=opera%20house&amp;key=</a>{secret}</p>\n\n<p>Google Maps API returns 3 places in China &amp; USA, and Google Places API returns \"ZERO_RESULTS\". You'll excuse me for not including my Google Places key.  The lat/long are for central Sydney.  </p>\n\n<p>Am I doing something wrong, or does Google Maps use a private database which is more complete than the database the API's use?</p>\n"
+  },
+  "12738991": {
+    "tags": [
+      "java",
+      "numa"
+    ],
+    "owner": {
+      "reputation": 5490,
+      "user_id": 10592,
+      "user_type": "registered",
+      "accept_rate": 79,
+      "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+      "display_name": "Tim Cooper",
+      "link": "https://stackoverflow.com/users/10592/tim-cooper"
+    },
+    "is_answered": true,
+    "view_count": 483,
+    "closed_date": 1349873663,
+    "answer_count": 1,
+    "score": 4,
+    "last_activity_date": 1349429886,
+    "creation_date": 1349406960,
+    "question_id": 12738991,
+    "link": "https://stackoverflow.com/questions/12738991/why-are-my-opteron-cores-running-at-only-75-capacity-each-25-cpu-idle",
+    "closed_reason": "off topic",
+    "title": "Why are my Opteron cores running at only 75% capacity each? (25% CPU idle)",
+    "body": "<p>We've just taken delivery of a powerful 32-core AMD Opteron server with 128Gb.  We have 2 x 6272 CPU's with 16 cores each. We are running a big long-running java task on 30 threads. We have the NUMA optimisations for Linux and java turned on.  Our Java threads are mainly using objects that are private to that thread, sometimes reading memory that other threads will be reading, and very very occasionally writing or locking shared objects.</p>\n\n<p>We can't explain why the CPU cores are 25% idle. Below is a dump of \"top\":</p>\n\n<pre>\ntop - 23:06:38 up 1 day, 23 min,  3 users,  load average: 10.84, 10.27, 9.62\nTasks: 676 total,   1 running, 675 sleeping,   0 stopped,   0 zombie\nCpu(s): 64.5%us,  1.3%sy,  0.0%ni, 32.9%id,  1.3%wa,  0.0%hi,  0.0%si,  0.0%st\nMem:  132138168k total, 131652664k used,   485504k free,    92340k buffers\nSwap:  5701624k total,   230252k used,  5471372k free, 13444344k cached\n...\ntop - 22:37:39 up 23:54,  3 users,  load average: 7.83, 8.70, 9.27\nTasks: 678 total,   1 running, 677 sleeping,   0 stopped,   0 zombie\nCpu0  : 75.8%us,  2.0%sy,  0.0%ni, 22.2%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu1  : 77.2%us,  1.3%sy,  0.0%ni, 21.5%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu2  : 77.3%us,  1.0%sy,  0.0%ni, 21.7%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu3  : 77.8%us,  1.0%sy,  0.0%ni, 21.2%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu4  : 76.9%us,  2.0%sy,  0.0%ni, 21.1%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu5  : 76.3%us,  2.0%sy,  0.0%ni, 21.7%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu6  : 12.6%us,  3.0%sy,  0.0%ni, 84.4%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu7  :  8.6%us,  2.0%sy,  0.0%ni, 89.4%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu8  : 77.0%us,  2.0%sy,  0.0%ni, 21.1%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu9  : 77.0%us,  2.0%sy,  0.0%ni, 21.1%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu10 : 77.6%us,  1.7%sy,  0.0%ni, 20.8%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu11 : 75.7%us,  2.0%sy,  0.0%ni, 21.4%id,  1.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu12 : 76.6%us,  2.3%sy,  0.0%ni, 21.1%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu13 : 76.6%us,  2.3%sy,  0.0%ni, 21.1%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu14 : 76.2%us,  2.6%sy,  0.0%ni, 15.9%id,  5.3%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu15 : 76.6%us,  2.0%sy,  0.0%ni, 21.5%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu16 : 73.6%us,  2.6%sy,  0.0%ni, 23.8%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu17 : 74.5%us,  2.3%sy,  0.0%ni, 23.2%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu18 : 73.9%us,  2.3%sy,  0.0%ni, 23.8%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu19 : 72.9%us,  2.6%sy,  0.0%ni, 24.4%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu20 : 72.8%us,  2.6%sy,  0.0%ni, 24.5%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu21 : 72.7%us,  2.3%sy,  0.0%ni, 25.0%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu22 : 72.5%us,  2.6%sy,  0.0%ni, 24.8%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu23 : 73.0%us,  2.3%sy,  0.0%ni, 24.7%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu24 : 74.7%us,  2.7%sy,  0.0%ni, 22.7%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu25 : 74.5%us,  2.6%sy,  0.0%ni, 22.8%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu26 : 73.7%us,  2.0%sy,  0.0%ni, 24.3%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu27 : 74.1%us,  2.3%sy,  0.0%ni, 23.6%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu28 : 74.1%us,  2.3%sy,  0.0%ni, 23.6%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu29 : 74.0%us,  2.0%sy,  0.0%ni, 24.0%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu30 : 73.2%us,  2.3%sy,  0.0%ni, 24.5%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu31 : 73.1%us,  2.0%sy,  0.0%ni, 24.9%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nMem:  132138168k total, 131711704k used,   426464k free,    88336k buffers\nSwap:  5701624k total,   229572k used,  5472052k free, 13745596k cached\n\n  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND\n13865 root      20   0  122g 112g 3.1g S 2334.3 89.6  20726:49 java\n27139 jayen     20   0 15428 1728  952 S  2.6  0.0   0:04.21 top\n27161 sysadmin  20   0 15428 1712  940 R  1.0  0.0   0:00.28 top\n   33 root      20   0     0    0    0 S  0.3  0.0   0:06.24 ksoftirqd/7\n  131 root      20   0     0    0    0 S  0.3  0.0   0:09.52 events/0\n 1858 root      20   0     0    0    0 S  0.3  0.0   1:35.14 kondemand/0\n</pre>\n\n<p>A dump of the java stack confirms that none of the threads are anywhere near the few places where locks are used, nor are they anywhere near any disk or network i/o.</p>\n\n<p>I had trouble finding a clear explanation of what 'top' means by \"idle\" versus \"wait\", but I get the impression that \"idle\" means \"no more threads that need to be run\" but this doesn't make sense in our case.  We're using a \"Executors.newFixedThreadPool(30)\".  There are a large number of tasks pending and each task lasts for 10 seconds or so.</p>\n\n<p>I suspect that the explanation requires a good understanding of NUMA. Is the \"idle\" state what you see when a CPU is waiting for a non-local access?  If not, then what is the explanation?</p>\n"
+  },
+  "13465425": {
+    "tags": [
+      "parallel-processing",
+      "cpu",
+      "multicore",
+      "numa"
+    ],
+    "owner": {
+      "reputation": 5490,
+      "user_id": 10592,
+      "user_type": "registered",
+      "accept_rate": 79,
+      "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+      "display_name": "Tim Cooper",
+      "link": "https://stackoverflow.com/users/10592/tim-cooper"
+    },
+    "is_answered": true,
+    "view_count": 817,
+    "answer_count": 3,
+    "score": 7,
+    "last_activity_date": 1365630604,
+    "creation_date": 1353375905,
+    "last_edit_date": 1354152853,
+    "question_id": 13465425,
+    "link": "https://stackoverflow.com/questions/13465425/many-core-cpus-programming-techniques-to-avoid-disappointing-scalability",
+    "title": "many-core CPU&#39;s: Programming techniques to avoid disappointing scalability",
+    "body": "<p>We've just bought a 32-core Opteron machine, and the speedups we get are a little disappointing:  beyond about 24 threads we see no speedup at all (actually gets slower overall) and after about 6 threads it becomes significantly sub-linear.</p>\n\n<p>Our application is very thread-friendly:  our job breaks down into about 170,000 little tasks which can each be executed separately, each taking 5-10 seconds.  They all read from the same memory-mapped file of size about 4Gb. They make occasional writes to it, but it might be 10,000 reads to each write - we just write a little bit of data at the end of each of the 170,000 tasks. The writes are lock-protected.  Profiling shows that the locks are not a problem. The threads use a lot of JVM memory each in non-shared objects and they make very little access to shared JVM objects and of that, only a small percentage of accesses involve writes.</p>\n\n<p>We're programming in Java, on Linux, with NUMA enabled. We have 128Gb RAM. We have 2 Opteron CPU's (model 6274) of 16 cores each. Each CPU has 2 NUMA nodes. The same job running on an Intel quad-core (i.e. 8 cores) scaled nearly linearly up to 8 threads.</p>\n\n<p>We've tried replicating the read-only data to have one-per-thread, in the hope that most lookups can be local to a NUMA node, but we observed no speedup from this.</p>\n\n<p>With 32 threads, 'top' shows the CPU's 74% \"us\" (user) and about 23% \"id\" (idle). But there are no sleeps and almost no disk i/o.  With 24 threads we get 83% CPU usage.  I'm not sure how to interpret 'idle' state - does this mean 'waiting for memory controller'?  </p>\n\n<p>We tried turning NUMA on and off (I'm referring to the Linux-level setting that requires a reboot) and saw no difference. When NUMA was enabled, 'numastat' showed only about 5% of 'allocation and access misses' (95% of cache misses were local to the NUMA node).  [Edit:] But adding \"-XX:+useNUMA\" as a java commandline flag gave us a 10% boost.</p>\n\n<p>One theory we have is that we're maxing out the memory controllers, because our application uses a lot of RAM and we think there are a lot of cache misses.</p>\n\n<p><strong>What can we do to either (a) speed up our program to approach linear scalability, or (b) diagnose what's happening?</strong></p>\n\n<p>Also: (c) how do I interpret the 'top' result - does 'idle' mean 'blocked on memory controllers'?  and (d) is there any difference in the characteristics of Opteron vs Xeon's?</p>\n"
+  },
+  "17112228": {
+    "tags": [
+      "php",
+      "file",
+      "title"
+    ],
+    "owner": {
+      "reputation": 467,
+      "user_id": 2486570,
+      "user_type": "registered",
+      "accept_rate": 60,
+      "profile_image": "https://www.gravatar.com/avatar/9d7c31c919cc243c1691264ade95332c?s=128&d=identicon&r=PG",
+      "display_name": "user2486570",
+      "link": "https://stackoverflow.com/users/2486570/user2486570"
+    },
+    "is_answered": true,
+    "view_count": 34,
+    "accepted_answer_id": 17112295,
+    "answer_count": 1,
+    "score": 0,
+    "last_activity_date": 1371224553,
+    "creation_date": 1371224326,
+    "question_id": 17112228,
+    "link": "https://stackoverflow.com/questions/17112228/file-line-search-doesn%c2%b4t-match",
+    "title": "file line search doesn&#180;t match",
+    "body": "<p>Im trying to create system which recognize if article has title (under title, there must be $recognizer, here set to \"test\"). I want to use this:</p>\n\n<pre><code>&lt;h2&gt;TITLE&lt;/h2&gt;\ntest\n&lt;hr&gt;\n\n&lt;?php\n$file = file('article.php');\n$title = $file[0];\n$recognizer = $file[1];\necho $title;\necho $recognizer;\necho '&lt;hr&gt;';\n\nif ($recognizer == 'test') {\n    echo 'success';\n} else {\n    echo 'unsuccessful';\n    echo \"&lt;br&gt;\" . $recognizer;\n}\n</code></pre>\n\n<p>while i use echo $recognizer, it echoes test, but if() returns unsuccessful. Can you tell me where is the problem?</p>\n"
+  },
+  "17157465": {
+    "tags": [
+      "php",
+      "anchor",
+      "trim"
+    ],
+    "owner": {
+      "reputation": 467,
+      "user_id": 2486570,
+      "user_type": "registered",
+      "accept_rate": 60,
+      "profile_image": "https://www.gravatar.com/avatar/9d7c31c919cc243c1691264ade95332c?s=128&d=identicon&r=PG",
+      "display_name": "user2486570",
+      "link": "https://stackoverflow.com/users/2486570/user2486570"
+    },
+    "is_answered": true,
+    "view_count": 41,
+    "closed_date": 1371559871,
+    "accepted_answer_id": 17157582,
+    "answer_count": 1,
+    "score": -2,
+    "last_activity_date": 1375975955,
+    "creation_date": 1371505788,
+    "last_edit_date": 1375975955,
+    "question_id": 17157465,
+    "link": "https://stackoverflow.com/questions/17157465/article-trimmed-anchors",
+    "closed_reason": "not a real question",
+    "title": "Article trimmed anchors",
+    "body": "<p>Hi,<br>\nI'm creating redaction system and I want to cut the article (article summary page) when its length exceeds 80 words (or some amount of characters). </p>\n\n<p>Problem is that if I cut it in the middle of anchor (so it will look like this: a       href=\"blahblah\"> Text of anchor [closing tag gets erased]), any following text is then    inserted into anchor and it messes up other articles and coding. Any tips how to avoid this? I was thinking about setting up cut mark (for example <code>&lt;end&gt;</code> tag) and cut post on that mark, but still if I forget to put mark there, I don't want to have filled whole article summary with one article.</p>\n"
+  },
+  "17900211": {
+    "tags": [
+      "php",
+      "ip",
+      "http-status-code-404"
+    ],
+    "owner": {
+      "reputation": 467,
+      "user_id": 2486570,
+      "user_type": "registered",
+      "accept_rate": 60,
+      "profile_image": "https://www.gravatar.com/avatar/9d7c31c919cc243c1691264ade95332c?s=128&d=identicon&r=PG",
+      "display_name": "user2486570",
+      "link": "https://stackoverflow.com/users/2486570/user2486570"
+    },
+    "is_answered": true,
+    "view_count": 117,
+    "accepted_answer_id": 17900261,
+    "answer_count": 1,
+    "score": 1,
+    "last_activity_date": 1375365781,
+    "creation_date": 1374943727,
+    "last_edit_date": 1375365781,
+    "question_id": 17900211,
+    "link": "https://stackoverflow.com/questions/17900211/ip-limited-access-and-404-shown-if-false",
+    "title": "IP limited access and 404 shown if false",
+    "body": "<p>I want to show page only to users with a specific IP, and if the IP doesn't match, make the page look like it doesn't exist (show 404 error page without redirecting).</p>\n\n<p>I have the part which checks the IP:</p>\n\n<pre><code>if ($_SERVER['REMOTE_ADDR'] == 'IP address' || $_SERVER['REMOTE_ADDR'] == '127.0.0.1')\necho '&lt;li&gt;&lt;a href=\"page.php\"&gt;&lt;b&gt;Page&lt;/b&gt;&lt;/a&gt;&lt;/li&gt;';\n</code></pre>\n\n<p>However, I don't know how to show the 404 error page.</p>\n\n<p><hr>\nEDIT:\nThanks for the tips. After all, I solved it like this:</p>\n\n<pre><code>$ip = $_SERVER['REMOTE_ADDR'];\n$ip = substr($ip, 0, strrpos($ip, \".\"));\n\nif ($ip !== 'someIp' &amp;&amp; $_SERVER['REMOTE_ADDR'] !== '127.0.0.1') {\n$error = file_get_contents('./error/404.php');\nexit(eval('?&gt;' . $error));\n}\n</code></pre>\n"
+  },
+  "17909585": {
+    "tags": [
+      "php"
+    ],
+    "owner": {
+      "reputation": 467,
+      "user_id": 2486570,
+      "user_type": "registered",
+      "accept_rate": 60,
+      "profile_image": "https://www.gravatar.com/avatar/9d7c31c919cc243c1691264ade95332c?s=128&d=identicon&r=PG",
+      "display_name": "user2486570",
+      "link": "https://stackoverflow.com/users/2486570/user2486570"
+    },
+    "is_answered": true,
+    "view_count": 73,
+    "closed_date": 1375079520,
+    "accepted_answer_id": 17909639,
+    "answer_count": 3,
+    "score": -2,
+    "last_activity_date": 1375978173,
+    "creation_date": 1375023834,
+    "last_edit_date": 1375978173,
+    "question_id": 17909585,
+    "link": "https://stackoverflow.com/questions/17909585/how-to-terminate-error-message",
+    "closed_reason": "unclear what you&#39;re asking",
+    "title": "How to terminate error message",
+    "body": "<p>I have part of script, which sometimes may return warning or error, but it still works and I want to terminate all error messages from this part of script. Any ideas?</p>\n\n<p><hr>\nEDIT: <br></p>\n\n<pre><code>function ping($host, $port, $timeout) {\n    $tB = microtime(true);\n    $fP = fSockOpen($host, $port, $errno, $errstr, $timeout);\n    if (!isset($fP)) return 'down';\n    $tA = microtime(true);\n    return round((($tA - $tB) * 1000), 0).\" ms\";\n}\n\necho ping('www.blahblahblah.com', 80, 10);\n</code></pre>\n\n<p>problem is that when it fails (target doesnt exists), it returns error message and 'down'(intended response), so I want to terminate those error reports.\n<hr>\nEDIT:\nTo be clear, when it fails, it outputs system error message + my intended error message, so I wanted to have only my message and dont show system message. </p>\n"
+  },
+  "17911312": {
+    "tags": [
+      "php",
+      "logging",
+      "ip"
+    ],
+    "owner": {
+      "reputation": 467,
+      "user_id": 2486570,
+      "user_type": "registered",
+      "accept_rate": 60,
+      "profile_image": "https://www.gravatar.com/avatar/9d7c31c919cc243c1691264ade95332c?s=128&d=identicon&r=PG",
+      "display_name": "user2486570",
+      "link": "https://stackoverflow.com/users/2486570/user2486570"
+    },
+    "is_answered": true,
+    "view_count": 53,
+    "accepted_answer_id": 17911389,
+    "answer_count": 1,
+    "score": 0,
+    "last_activity_date": 1375978012,
+    "creation_date": 1375035461,
+    "last_edit_date": 1375978012,
+    "question_id": 17911312,
+    "link": "https://stackoverflow.com/questions/17911312/file-name-in-function",
+    "title": "File name in function",
+    "body": "<p>I have file called functions.php, where I have function to log IP address of visitor. Function is used in multiple pages, so I want to have name of page in the log. Code looks like this:</p>\n\n<pre><code>function ipLog($path) {\n    $content = file_get_contents($path);\n    $ip = $_SERVER['REMOTE_ADDR'];\n    $data = $content . \"\\n\" . basename(__FILE__, '.php') . ';' . $ip . ';' . date('Y.n.d H:i');\n    file_put_contents($path, $data);\n}\n</code></pre>\n\n<p>Problem is that it always return functions.php and not name of page which it is included in. Any ideas?</p>\n\n<p><hr>\nEDIT: I used </p>\n\n<pre><code>$file = debug_backtrace();\n$file = $file[0];\n$data = $content . \"\\n\" . basename($file['file']) . ';' . $ip . ';' . date('Y.n.d.H.i');\n</code></pre>\n\n<p>Thanks very much.\n<hr>\nEDIT: final version:</p>\n\n<pre><code>function ipLog($path = './log/ipLog.txt') {\n    file_put_contents($path, date('Y.n.d.H.i.s') . ';' . $_SERVER['REQUEST_URI'] . ';' . $_SERVER['REMOTE_ADDR'] . ';' . \"\\n\", FILE_APPEND);\n}\n</code></pre>\n"
+  },
+  "17936866": {
+    "tags": [
+      "gwt",
+      "tomcat",
+      "https"
+    ],
+    "owner": {
+      "reputation": 5490,
+      "user_id": 10592,
+      "user_type": "registered",
+      "accept_rate": 79,
+      "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+      "display_name": "Tim Cooper",
+      "link": "https://stackoverflow.com/users/10592/tim-cooper"
+    },
+    "is_answered": true,
+    "view_count": 647,
+    "accepted_answer_id": 18091838,
+    "answer_count": 1,
+    "score": 1,
+    "last_activity_date": 1375829351,
+    "creation_date": 1375147188,
+    "last_edit_date": 1375573167,
+    "question_id": 17936866,
+    "link": "https://stackoverflow.com/questions/17936866/tomcat-6-https-times-out-but-http-works-maybe-gwt-issue",
+    "title": "Tomcat 6: HTTPS times out but HTTP works (Maybe GWT issue?)",
+    "body": "<p>We have a Linux server running tomcat6  (6.0.36).  We have a GWT-based web-app.  It has been running fine for 2 years, until twice in 5 days it developed a problem:  HTTPS ceased to work even though HTTP works fine.  Both times, a simple restart solved the problem.  </p>\n\n<ul>\n<li>The certificates are not close to expiry and indeed are fine after the restart</li>\n<li>There was no significant load on the server at the time of the fault, CPU and %MEM were fine</li>\n<li>HTTP responds instantly</li>\n<li>HTTPS just times out without giving us any clues</li>\n<li>There's nothing in the 'catalina.out' file but there are SocketTimeoutException's in the localhost.*log file, see below</li>\n<li>A thread dump (kill -3) shows nothing out of the ordinary</li>\n</ul>\n\n<p>Any ideas, anyone?</p>\n\n<pre><code>SEVERE: Exception while dispatching incoming RPC call\njava.net.SocketTimeoutException\n    at org.apache.coyote.http11.InternalAprInputBuffer.fill(InternalAprInputBuffer.java:796)\n    at org.apache.coyote.http11.InternalAprInputBuffer$SocketInputBuffer.doRead(InternalAprInputBuffer.java:830)\n    at org.apache.coyote.http11.filters.IdentityInputFilter.doRead(IdentityInputFilter.java:116)\n    at org.apache.coyote.http11.InternalAprInputBuffer.doRead(InternalAprInputBuffer.java:738)\n    at org.apache.coyote.Request.doRead(Request.java:427)\n    at org.apache.catalina.connector.InputBuffer.realReadBytes(InputBuffer.java:304)\n    at org.apache.tomcat.util.buf.ByteChunk.substract(ByteChunk.java:419)\n    at org.apache.catalina.connector.InputBuffer.read(InputBuffer.java:327)\n    at org.apache.catalina.connector.CoyoteInputStream.read(CoyoteInputStream.java:162)\n    at com.google.gwt.user.server.rpc.RPCServletUtils.readContent(RPCServletUtils.java:222)\n    at com.google.gwt.user.server.rpc.RPCServletUtils.readContentAsGwtRpc(RPCServletUtils.java:250)\n    at com.google.gwt.user.server.rpc.AbstractRemoteServiceServlet.readContent(AbstractRemoteServiceServlet.java:182)\n    at com.google.gwt.user.server.rpc.RemoteServiceServlet.processPost(RemoteServiceServlet.java:239)\n    at com.google.gwt.user.server.rpc.AbstractRemoteServiceServlet.doPost(AbstractRemoteServiceServlet.java:62)\n    at javax.servlet.http.HttpServlet.service(HttpServlet.java:637)\n    at javax.servlet.http.HttpServlet.service(HttpServlet.java:717)\n    at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)\n    at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)\n    at au.com.edval.timetable.server.filter.LoginFilter.doFilter(LoginFilter.java:27)\n    at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)\n    at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)\n    at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)\n    at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)\n    at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:127)\n    at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:103)\n    at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:615)\n    at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)\n    at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:293)\n    at org.apache.coyote.http11.Http11AprProcessor.process(Http11AprProcessor.java:879)\n    at org.apache.coyote.http11.Http11AprProtocol$Http11ConnectionHandler.process(Http11AprProtocol.java:600)\n    at org.apache.tomcat.util.net.AprEndpoint$Worker.run(AprEndpoint.java:1703)\n    at java.lang.Thread.run(Thread.java:679)\nJul 30, 2013 10:27:31 AM org.apache.catalina.core.ApplicationContext log\n</code></pre>\n\n<p>Note that a couple of years ago I had a similar problem - HTTPS was working but was very slow.  It turns out there was a configuration option that says that HTTPS should do reverse DNS lookups on each page request.  And this naturally slowed everything down heaps. But this is still disabled now so it can't be the cause, I don't think.</p>\n"
+  },
+  "18507518": {
+    "tags": [
+      "c++",
+      "do-while"
+    ],
+    "owner": {
+      "reputation": 1595,
+      "user_id": 2318505,
+      "user_type": "registered",
+      "accept_rate": 46,
+      "profile_image": "https://www.gravatar.com/avatar/768a6aa45f0465c9ecd022351bb76c87?s=128&d=identicon&r=PG",
+      "display_name": "Sankalp",
+      "link": "https://stackoverflow.com/users/2318505/sankalp"
+    },
+    "is_answered": true,
+    "view_count": 17632,
+    "answer_count": 27,
+    "score": 229,
+    "last_activity_date": 1541051876,
+    "creation_date": 1377769613,
+    "last_edit_date": 1378010784,
+    "question_id": 18507518,
+    "link": "https://stackoverflow.com/questions/18507518/what-are-some-better-ways-to-avoid-the-do-while0-hack-in-c",
+    "title": "What are some better ways to avoid the do-while(0); hack in C++?",
+    "body": "<p>When the code flow is like this:</p>\n\n<pre><code>if(check())\n{\n  ...\n  ...\n  if(check())\n  {\n    ...\n    ...\n    if(check())\n    {\n      ...\n      ...\n    }\n  }\n}\n</code></pre>\n\n<p>I have generally seen this work around to avoid the above messy code flow:</p>\n\n<pre><code>do {\n    if(!check()) break;\n    ...\n    ...\n    if(!check()) break;\n    ...\n    ...\n    if(!check()) break;\n    ...\n    ...\n} while(0);\n</code></pre>\n\n<p>What are some better ways that avoid this work-around/hack so that it becomes a higher-level (industry level) code?</p>\n\n<p>Any suggestions which are out of the box are welcome!</p>\n"
+  },
+  "22193583": {
+    "tags": [
+      "c++",
+      "winapi",
+      "windows-8"
+    ],
+    "owner": {
+      "reputation": 5490,
+      "user_id": 10592,
+      "user_type": "registered",
+      "accept_rate": 79,
+      "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+      "display_name": "Tim Cooper",
+      "link": "https://stackoverflow.com/users/10592/tim-cooper"
+    },
+    "is_answered": true,
+    "view_count": 955,
+    "answer_count": 2,
+    "score": 2,
+    "last_activity_date": 1456595210,
+    "creation_date": 1394011712,
+    "last_edit_date": 1394014862,
+    "question_id": 22193583,
+    "link": "https://stackoverflow.com/questions/22193583/win32-program-crashes-on-windows-8-when-calling-getsavefilename-or-shbrowsefor",
+    "title": "Win32 program crashes on Windows 8 when calling GetSaveFileName() or SHBrowseForFolder()",
+    "body": "<p>I'm maintaining a C++ program that uses Win32.  It's been working fine for years, but now I am having problems with the \"select file\" or \"select folder\" functions on 2 computers both running Windows 8, yet not on 2 other computers running Windows 8.  </p>\n\n<p>The problem is that the program crashes in the \"select file\" or \"select folder\" functions, deep in Microsoft code. It crashes immediately after displaying the dialog, before the user has a chance to touch anything.</p>\n\n<p>I've done a lot of experimentation, and I've got it to randomly work, but then recompiling the same code will make the bug reappear.  Finally I produced a tiny program that calls the function 10 times in succession, without any other code, and the first time always succeeds but the 2nd time the program crashes.  Linked in with my full program, it sometimes crashes on the first call, sometimes on the 2nd.  My code is below:</p>\n\n<pre><code>#include &lt;windows.h&gt;\nint WINAPI WinMain(HINSTANCE _hInstance, HINSTANCE hPrevInstance,\n    LPSTR args, int nCmdShow)\n{   \nfor (int i=0; i &lt; 10; i++) {\n    OPENFILENAME OFN;\n    char buf[1024];\n\n    memset(&amp;OFN, 0, sizeof(OFN));\n    OFN.lStructSize = sizeof(OFN);\n    OFN.hwndOwner = NULL;\n    OFN.hInstance = NULL;\n    OFN.lpstrFilter = \"PTN files\\0*.ptn\\0\\0\\0\";//overkill\n    OFN.lpstrCustomFilter = NULL;\n    OFN.nMaxCustFilter = 0;\n    OFN.nFilterIndex = 1;\n    OFN.nMaxFile = sizeof(buf);\n    OFN.lpstrFileTitle = NULL;\n    OFN.nMaxFileTitle = 0;\n    OFN.lpstrTitle = NULL;\n    OFN.nFileOffset = 0;\n    OFN.nFileExtension = 0;\n    OFN.lpstrDefExt = \"ptn\";\n    OFN.lCustData = 0;\n    OFN.lpfnHook = 0;\n    OFN.lpTemplateName = NULL;\n    OFN.lpstrInitialDir = NULL;\n    strcpy(buf, \"\\0\");//overkill\n    OFN.lpstrFile = buf;\n    OFN.Flags = OFN_LONGNAMES | OFN_HIDEREADONLY | OFN_EXPLORER;\n    //NB: tried both with and without OFN_EXPLORER\n    GetSaveFileName(&amp;OFN);\n}\nreturn 0;\n}\n</code></pre>\n\n<p>Any ideas?</p>\n"
+  },
+  "25766228": {
+    "tags": [
+      "linux",
+      "tomcat",
+      "tomcat7"
+    ],
+    "owner": {
+      "reputation": 5490,
+      "user_id": 10592,
+      "user_type": "registered",
+      "accept_rate": 79,
+      "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+      "display_name": "Tim Cooper",
+      "link": "https://stackoverflow.com/users/10592/tim-cooper"
+    },
+    "is_answered": true,
+    "view_count": 1856,
+    "accepted_answer_id": 26009334,
+    "answer_count": 5,
+    "score": 10,
+    "last_activity_date": 1423399619,
+    "creation_date": 1410354329,
+    "last_edit_date": 1411156213,
+    "question_id": 25766228,
+    "link": "https://stackoverflow.com/questions/25766228/weird-tomcat-outage-possibly-related-to-maxconnections",
+    "title": "Weird Tomcat outage, possibly related to maxConnections",
+    "body": "<p>In my company we experienced a serious problem today: our production server went down.  Most people accessing our software via a browser were unable to get a connection, however people who had already been using the software were able to continue using it. Even our hot standby server was unable to communicate with the production server, which it does using HTTP, not even going out to the broader internet. The whole time the server was accessible via ping and ssh, and in fact was quite underloaded - it's normally running at 5% CPU load and it was even lower at this time. We do almost no disk i/o.</p>\n\n<p>A few days after the problem started we have a new variation:  port 443 (HTTPS) is responding but port 80 stopped responding. The server load is very low. Immediately after restarting tomcat, port 80 started responding again.</p>\n\n<p>We're using tomcat7, with maxThreads=\"200\", and using maxConnections=10000. We serve all data out of main memory, so each HTTP request completes very quickly, but we have a large number of users doing very simple interactions (this is high school subject selection). But it seems very unlikely we would have 10,000 users all with their browser open on our page at the same time.</p>\n\n<p>My question has several parts:</p>\n\n<ul>\n<li>Is it likely that the \"maxConnections\" parameter is the cause of our woes?</li>\n<li>Is there any reason not to set \"maxConnections\" to a ridiculously high value e.g. 100,000?  (i.e. what's the cost of doing so?)</li>\n<li>Does tomcat output a warning message anywhere once it hits the \"maxConnections\" message?  (We didn't notice anything).</li>\n<li>Is it possible there's an OS limit we're hitting?  We're using CentOS 6.4 (Linux) and \"ulimit -f\" says \"unlimited\".  (Do firewalls understand the concept of Tcp/Ip connections? Could there be a limit elsewhere?)</li>\n<li>What happens when tomcat hits the \"maxConnections\" limit? Does it try to close down some inactive connections?  If not, why not?  I don't like the idea that our server can be held to ransom by people having their browsers on it, sending the keep-alive's to keep the connection open.</li>\n</ul>\n\n<p>But the main question is, \"How do we fix our server?\"</p>\n\n<p>More info as requested by Stefan and Sharpy:</p>\n\n<ul>\n<li>Our clients communicate directly with this server</li>\n<li>TCP connections were in some cases immediately refused and in other cases timed out</li>\n<li>The problem is evident even connecting my browser to the server within the network, or with the hot standby server - also in the same network - unable to do database replication messages which normally happens over HTTP</li>\n<li>IPTables - yes, IPTables6 - I don't think so. Anyway, there's nothing between my browser and the server when I test after noticing the problem.</li>\n</ul>\n\n<p>More info:\nIt really looked like we had solved the problem when we realised we were using the default Tomcat7 setting of BIO, which has one thread per connection, and we had maxThreads=200. In fact 'netstat -an' showed about 297 connections, which matches 200 + queue of 100. So we changed this to NIO and restarted tomcat. Unfortunately the same problem occurred the following day.  It's possible we misconfigured the server.xml.</p>\n\n<p>The server.xml and extract from catalina.out is available here:\n<a href=\"https://www.dropbox.com/sh/sxgd0fbzyvuldy7/AACZWoBKXNKfXjsSmkgkVgW_a?dl=0\" rel=\"noreferrer\">https://www.dropbox.com/sh/sxgd0fbzyvuldy7/AACZWoBKXNKfXjsSmkgkVgW_a?dl=0</a></p>\n\n<p>More info:\nI did a load test.  I'm able to create 500 connections from my development laptop, and do an HTTP GET 3 times on each, without any problem. Unless my load test is invalid (the Java class is also in the above link).</p>\n"
+  },
+  "28140198": {
+    "tags": [
+      "node.js"
+    ],
+    "owner": {
+      "reputation": 467,
+      "user_id": 2486570,
+      "user_type": "registered",
+      "accept_rate": 60,
+      "profile_image": "https://www.gravatar.com/avatar/9d7c31c919cc243c1691264ade95332c?s=128&d=identicon&r=PG",
+      "display_name": "user2486570",
+      "link": "https://stackoverflow.com/users/2486570/user2486570"
+    },
+    "is_answered": false,
+    "view_count": 211,
+    "answer_count": 2,
+    "score": 1,
+    "last_activity_date": 1422215534,
+    "creation_date": 1422212281,
+    "last_edit_date": 1422214864,
+    "question_id": 28140198,
+    "link": "https://stackoverflow.com/questions/28140198/get-raw-request-in-node-js",
+    "title": "Get raw request in Node.js",
+    "body": "<p>I need to test my JavaScript browser client and I need echo server. When I say echo server, I don't mean only to echo the body (POST data), but whole request, including headers.</p>\n\n<p>Is it possible, or do I have to remake request head from request properties?</p>\n"
+  },
+  "28461769": {
+    "tags": [
+      "coffeescript",
+      "webstorm",
+      "browserify"
+    ],
+    "owner": {
+      "reputation": 467,
+      "user_id": 2486570,
+      "user_type": "registered",
+      "accept_rate": 60,
+      "profile_image": "https://www.gravatar.com/avatar/9d7c31c919cc243c1691264ade95332c?s=128&d=identicon&r=PG",
+      "display_name": "user2486570",
+      "link": "https://stackoverflow.com/users/2486570/user2486570"
+    },
+    "is_answered": true,
+    "view_count": 1063,
+    "answer_count": 2,
+    "score": 0,
+    "last_activity_date": 1478243587,
+    "creation_date": 1423679513,
+    "question_id": 28461769,
+    "link": "https://stackoverflow.com/questions/28461769/compile-browserify-when-files-are-changed",
+    "title": "Compile browserify when files are changed",
+    "body": "<p>I'm using coffeeify plugin to browserify (compiles directly from .coffee files, correctly creates source maps) to compile my modular coffee project. However, manually compiling after each change seems annoying to me.</p>\n\n<p>The best solution so far was to use watchify. However, I'm sure, that there must be a way to set WebStorm file watchers to trigger the compilation automatically. My question is, how to set it correctly (to only trigger when needed,...)?</p>\n"
+  },
+  "28621905": {
+    "tags": [
+      "c++",
+      "windows",
+      "stack-trace"
+    ],
+    "owner": {
+      "reputation": 5490,
+      "user_id": 10592,
+      "user_type": "registered",
+      "accept_rate": 79,
+      "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+      "display_name": "Tim Cooper",
+      "link": "https://stackoverflow.com/users/10592/tim-cooper"
+    },
+    "is_answered": true,
+    "view_count": 298,
+    "accepted_answer_id": 28892952,
+    "answer_count": 1,
+    "score": 1,
+    "last_activity_date": 1425620327,
+    "creation_date": 1424408369,
+    "last_edit_date": 1495540250,
+    "question_id": 28621905,
+    "link": "https://stackoverflow.com/questions/28621905/dumping-a-stack-trace-from-c-windows-fails-to-find-symbols",
+    "title": "Dumping a stack trace from C++ (Windows) - fails to find symbols",
+    "body": "<p>I'm a developer of Windows desktop software, and from time to time our app crashes.  In rare cases I'd like to get a customer to run a debug version of the app to send me a stack trace so I know where it crashed.  I followed the instructions in here:</p>\n\n<p><a href=\"https://stackoverflow.com/questions/6205981/windows-c-stack-trace-from-a-running-app/28276227\">Windows C++ stack trace from a running app</a></p>\n\n<p>...but while it works on my development machine, it doesn't work on any client machine or those of my colleagues, who don't have Visual Studio installed.  So I presume that there's some .dll or something they need before it'll work. They're using the same .exe I'm using, i.e. the one I compiled in VC++ in debug mode.</p>\n\n<p>After some painstaking \"message window\" debugging, I learnt it's failing in SymGetSymFromAddr64() - this returns FALSE. But when I walk the stack, this always returns FALSE or it returns garbage that doesn't make sense (random unrelated method names), as if it's the PC values which are invalid, not the mapping process.  To reiterate, it's a debug mode .exe that produces a perfect symbolic stack trace on my development machine. </p>\n\n<p>I did some research and found some mentions of \"dbghelp.dll\" and \"imagehlp.dll\" but I just ended up confused.  \"dbghelp.dll\" ships with all versions of Windows, but with reduced functionality. There's some other things I could install, but it's a little scary to be installing some Windows \"WDK\" or \"debug kits\" which might overwrite important system .dll's or do god-knows-what to your computer.</p>\n\n<p>So what I need to know is:  \"what's the simplest set of instructions I can give to these helper customers e.g. the minimum set of .dll's and where to stick them so that we can get proper symbolic information out of the stack traces when our program crashes?\"</p>\n"
+  },
+  "29244995": {
+    "tags": [
+      "bing-maps"
+    ],
+    "owner": {
+      "reputation": 5490,
+      "user_id": 10592,
+      "user_type": "registered",
+      "accept_rate": 79,
+      "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+      "display_name": "Tim Cooper",
+      "link": "https://stackoverflow.com/users/10592/tim-cooper"
+    },
+    "is_answered": true,
+    "view_count": 333,
+    "accepted_answer_id": 29380751,
+    "answer_count": 3,
+    "score": 1,
+    "last_activity_date": 1427930936,
+    "creation_date": 1427240789,
+    "question_id": 29244995,
+    "link": "https://stackoverflow.com/questions/29244995/bing-maps-transit-api-am-i-formatting-the-query-datetime-incorrectly-or-parsing",
+    "title": "Bing Maps transit API: Am I formatting the query datetime incorrectly or parsing output datetime incorrectly?",
+    "body": "<p>I'm failing to get the Bing Maps API working.  I'm inputting a query \"How do I get from Annandale to Eastwood (Sydney) using public transport?\" and getting results that have completely different times to what I queried.</p>\n\n<p>The API is documented here:</p>\n\n<p><a href=\"https://msdn.microsoft.com/en-us/library/ff701717.aspx\" rel=\"nofollow\">https://msdn.microsoft.com/en-us/library/ff701717.aspx</a></p>\n\n<p>and here:</p>\n\n<p><a href=\"https://msdn.microsoft.com/en-us/library/ff701718.aspx\" rel=\"nofollow\">https://msdn.microsoft.com/en-us/library/ff701718.aspx</a></p>\n\n<p>The documentation fails to specify what date format the responses are in, but I presume this is correct:</p>\n\n<p><a href=\"http://weblogs.asp.net/bleroy/dates-and-json\" rel=\"nofollow\">http://weblogs.asp.net/bleroy/dates-and-json</a></p>\n\n<p>So here's my query:\n<a href=\"http://dev.virtualearth.net/REST/V1/Routes/Transit?wp.0=-33.886620,151.171720&amp;wp.1=-33.785780,151.075740&amp;timeType=Departure&amp;dateTime=11:43:00&amp;maxSolns=3&amp;output=json&amp;key=(redacted)\" rel=\"nofollow\">http://dev.virtualearth.net/REST/V1/Routes/Transit?wp.0=-33.886620,151.171720&amp;wp.1=-33.785780,151.075740&amp;timeType=Departure&amp;dateTime=11:43:00&amp;maxSolns=3&amp;output=json&amp;key=(redacted)</a></p>\n\n<p>Note that I redacted our API key, for obvious reasons.  </p>\n\n<p>Note that I'm requesting a bus at 11:43am.  I've tried this in conjunction with a date and without a date, it makes no difference.</p>\n\n<p>I get a response which looks quite valid at first glance, but it's giving me times like this:\n\"time\":\"/Date(1427222880000-0700)/\"</p>\n\n<p>...which would be reasonable if my query time was 5:43, but it's not. That date format clearly indicates \"milliseconds since 1970, UTC\" (in desperation I tried adding &amp; subtracting 7 hrs, but got nothing meaningful). The documentation clearly says my time of 11:43 should be specified in the local timezone, i.e. just as \"11:43\".  </p>\n\n<p>Proceeding on the assumption that the Bing documentation is wrong or that the implementation is wrong, I tried arbitrarily adding 6 hrs or subtracting 18 hrs from my query time (that necessitated adding the date into the URL), but I got nothing that made sense.  I can't get any correspondence between my API results and the public Bing browser app.</p>\n\n<p>I couldn't find out who to ask from Microsoft either.</p>\n\n<p>Any ideas?</p>\n"
+  },
+  "39077661": {
+    "tags": [
+      "python",
+      "excel",
+      "hyperlink",
+      "openpyxl"
+    ],
+    "owner": {
+      "reputation": 351,
+      "user_id": 5080612,
+      "user_type": "registered",
+      "accept_rate": 3,
+      "profile_image": "https://www.gravatar.com/avatar/511db5baa147e6a23d63c80fa76001eb?s=128&d=identicon&r=PG&f=1",
+      "display_name": "gis20",
+      "link": "https://stackoverflow.com/users/5080612/gis20"
+    },
+    "is_answered": true,
+    "view_count": 4209,
+    "answer_count": 4,
+    "score": 5,
+    "last_activity_date": 1541060472,
+    "creation_date": 1471863150,
+    "last_edit_date": 1471880109,
+    "question_id": 39077661,
+    "link": "https://stackoverflow.com/questions/39077661/adding-hyperlinks-in-some-cells-openpyxl",
+    "title": "adding hyperlinks in some cells openpyxl",
+    "body": "<p>I have to generate an excel with summary results. The results are included in a list. Some of the elements are values and some links.</p>\n\n<p>I managed to generate the excel with the right format but not generate the hyperlink in some of the cells</p>\n\n<p>My try:\nfrom openpyxl import Workbook</p>\n\n<pre><code>from openpyxl.styles import PatternFill, Border, Side, Alignment, Protection, Font, Fill\nfrom openpyxl.cell import get_column_letter\n\ndef summaryMCP(self,result):\n\n            c1=Column('Name',[result[0]])\n            c2=Column('R2 check',[result[1]])\n            c3=Column('Dir Diff.',[result[2]])\n\n            c4=Column('CHI2 Sm-Sc',[result[3]])#Lets say this one is a hyperlink to one image png\n            c5=Column('Rose Sm-Sc',[result[4]])\n\n            s=Sheet(\"MCP main results\", [c1,c2,c3,c4,c5]\n            excelMCP([s],\"/results.xlsx\") \n\ndef excelMCP(self, sheets,foname):\n            wb = Workbook()\n            ws = wb.active\n            #from here format options (a bit long)\n</code></pre>\n\n<p>My question is can I define that the value is a hyperlink when defining the Column in def summaryMCP and then in excelMCP the format of the link?? And in case, how ? I could not find it so far</p>\n"
+  },
+  "42358681": {
+    "tags": [
+      "oracle",
+      "dump"
+    ],
+    "owner": {
+      "reputation": 143,
+      "user_id": 2380168,
+      "user_type": "registered",
+      "accept_rate": 52,
+      "profile_image": "https://i.stack.imgur.com/dkVxj.jpg?s=128&g=1",
+      "display_name": "flyingbird013",
+      "link": "https://stackoverflow.com/users/2380168/flyingbird013"
+    },
+    "is_answered": true,
+    "view_count": 2439,
+    "accepted_answer_id": 42359078,
+    "answer_count": 3,
+    "score": 1,
+    "last_activity_date": 1541033858,
+    "creation_date": 1487651130,
+    "question_id": 42358681,
+    "link": "https://stackoverflow.com/questions/42358681/how-to-backup-view-and-some-tables-in-oracle",
+    "title": "How to backup view and some tables in oracle?",
+    "body": "<p>I have an Oracle database. On the database There are three tables (a,b,c tables) and a view (union of a and b tables). </p>\n\n<p>I want to backup of a dan b tables and also the view. I used this syntax <code>exp user/psw file=backup.dmp tables=(a,b)</code> ,but it doesnt backup the view,only the table.\nHow can i include the view to be backed up?</p>\n"
+  },
+  "43708204": {
+    "tags": [
+      "javascript",
+      "math",
+      "browser"
+    ],
+    "owner": {
+      "reputation": 467,
+      "user_id": 2486570,
+      "user_type": "registered",
+      "accept_rate": 60,
+      "profile_image": "https://www.gravatar.com/avatar/9d7c31c919cc243c1691264ade95332c?s=128&d=identicon&r=PG",
+      "display_name": "user2486570",
+      "link": "https://stackoverflow.com/users/2486570/user2486570"
+    },
+    "is_answered": false,
+    "view_count": 174,
+    "closed_date": 1493568305,
+    "answer_count": 1,
+    "score": -2,
+    "last_activity_date": 1493567808,
+    "creation_date": 1493567055,
+    "last_edit_date": 1495540009,
+    "question_id": 43708204,
+    "link": "https://stackoverflow.com/questions/43708204/why-does-0-14-100-return-imprecise-result-in-browsers",
+    "closed_reason": "duplicate",
+    "title": "Why does 0.14 * 100 return imprecise result in browsers?",
+    "body": "<p>When I try <code>0.14 * 100</code> in browser console (result is same in all browsers), I get <code>14.000000000000002</code> as a result. If I, however, try <code>0.14 * 1000</code>, it correctly returns <code>140</code>.</p>\n\n<p>If it returned approximate results in both cases, I'd just assume that 0.14 cannot be exactly represented in binary, but this doesn't seem to be the case.</p>\n\n<p>EDIT: no, it is not duplicate of <a href=\"https://stackoverflow.com/questions/588004\">Is floating point math broken?</a> - they use 0.1 + 0.2, which evaluates to imprecise number. Meanwhile, 0.14 is completely precise, the problem only occurs when multiplying it by 10 / 100, but it works with 1000.</p>\n\n<p>EDIT: sorry, it's not precise, but the point stands - why does it return whole number when multiplied by 1000?</p>\n"
+  },
+  "45626556": {
+    "tags": [
+      "c++",
+      "url-encoding",
+      "wininet"
+    ],
+    "owner": {
+      "reputation": 5490,
+      "user_id": 10592,
+      "user_type": "registered",
+      "accept_rate": 79,
+      "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+      "display_name": "Tim Cooper",
+      "link": "https://stackoverflow.com/users/10592/tim-cooper"
+    },
+    "is_answered": false,
+    "view_count": 49,
+    "answer_count": 1,
+    "score": 0,
+    "last_activity_date": 1502984416,
+    "creation_date": 1502422457,
+    "last_edit_date": 1502422953,
+    "question_id": 45626556,
+    "link": "https://stackoverflow.com/questions/45626556/what-characters-are-automatically-url-escaped-by-c-windows-httpopenrequest",
+    "title": "What characters are automatically url-escaped by C++ Windows HttpOpenRequest()?",
+    "body": "<p>I'm using Visual Studio 2015 on Windows, C++ and Win32.  I have a URL which contains spaces and other unsafe characters.  If I paste the un-escaped URL into Postman, Postman correctly escapes them and the request works.  But if I put the un-escaped URL into HttpOpenRequest(), some characters but not all are escaped as detected in the receiving system.</p>\n\n<p>Original:\n    <a href=\"https://nsw.redacted.com/ScheduledActivitys;zoneId=urn:www.dec.nsw.gov.au:school:8481;contextId=current?where=[(//ScheduledActivitys/ScheduledActivity/ActivityDate\" rel=\"nofollow noreferrer\">https://nsw.redacted.com/ScheduledActivitys;zoneId=urn:www.dec.nsw.gov.au:school:8481;contextId=current?where=[(//ScheduledActivitys/ScheduledActivity/ActivityDate</a>>=\"2017-08-11\") and (//ScheduledActivitys/ScheduledActivity/ActivityDate&lt;=\"2017-08-11\")]</p>\n\n<p>Postman:  <a href=\"https://nsw.redacted.com/ScheduledActivitys;zoneId=urn:www.dec.nsw.gov.au:school:8481;contextId=current?where=[(//ScheduledActivitys/ScheduledActivity/ActivityDate%3E=%222017-08-10%22)%20and%20(//ScheduledActivitys/ScheduledActivity/ActivityDate%3C=%222017-08-10%22)]\" rel=\"nofollow noreferrer\">https://nsw.redacted.com/ScheduledActivitys;zoneId=urn:www.dec.nsw.gov.au:school:8481;contextId=current?where=[(//ScheduledActivitys/ScheduledActivity/ActivityDate%3E=%222017-08-10%22)%20and%20(//ScheduledActivitys/ScheduledActivity/ActivityDate%3C=%222017-08-10%22)]</a></p>\n\n<p>Wininet:<br>\n  <a href=\"https://nsw.redacted.com/ScheduledActivitys;zoneId=urn:www.dec.nsw.gov.au:school:8481;contextId=current?where=[(//ScheduledActivitys/ScheduledActivity/ActivityDate\" rel=\"nofollow noreferrer\">https://nsw.redacted.com/ScheduledActivitys;zoneId=urn:www.dec.nsw.gov.au:school:8481;contextId=current?where=[(//ScheduledActivitys/ScheduledActivity/ActivityDate</a>>=\"2017-08-11\")%20and%20(//ScheduledActivitys/ScheduledActivity/ActivityDate&lt;=\"2017-08-11\")]</p>\n\n<p>So my question is: what am I supposed to do - escape the characters myself, or rely on the Win32 library to escape them, or try to work around an incomplete implementation in the Win32 Wininet library?  Is there a danger it'll be URL-encoded twice?  And in other reading it looks like you're not  supposed to escape the \"query\" part of a URL (the piece after the '?') - is that advice not correct?  (And what characters are escaped and why do Microsoft escape some and not others?)</p>\n"
+  },
+  "48697766": {
+    "tags": [
+      "android",
+      "android-studio"
+    ],
+    "owner": {
+      "reputation": 5490,
+      "user_id": 10592,
+      "user_type": "registered",
+      "accept_rate": 79,
+      "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+      "display_name": "Tim Cooper",
+      "link": "https://stackoverflow.com/users/10592/tim-cooper"
+    },
+    "is_answered": true,
+    "view_count": 1193,
+    "accepted_answer_id": 48698559,
+    "answer_count": 1,
+    "score": 3,
+    "last_activity_date": 1518148865,
+    "creation_date": 1518142503,
+    "question_id": 48697766,
+    "link": "https://stackoverflow.com/questions/48697766/android-studio-noclassdeffounderror-with-java-util-base64",
+    "title": "Android studio: NoClassDefFoundError with java.util.Base64",
+    "body": "<p>Apologies, I've scanned the many similar-sounding questions and none of them have helped me.</p>\n\n<p>I'm running Android Studio 3.0.1, I'm a newbie, I'm following the online tutorial \"HelloWorld\" program but then adding a call to java.util.Base64.getDecoder().   This fails at runtime when I run it on my actual phone (Samsung Galaxy S8):</p>\n\n<pre><code>              java.lang.NoClassDefFoundError: Failed resolution of: Ljava/util/Base64;\n\n               Caused by: java.lang.ClassNotFoundException: Didn't find class \"java.util.Base64\" on path: DexPathList[[zip file \"/data/app/com.skedgo.helloworld-1/base.apk\", zip file \"/data/app/com.skedgo.helloworld-1/split_lib_dependencies_apk.apk\", zip file \"/data/app/com.skedgo.helloworld-1/split_lib_slice_0_apk.apk\", zip file \"/data/app/com.skedgo.helloworld-1/split_lib_slice_1_apk.apk\", zip file \"/data/app/com.skedgo.helloworld-1/split_lib_slice_2_apk.apk\", zip file \"/data/app/com.skedgo.helloworld-1/split_lib_slice_3_apk.apk\", zip file \"/data/app/com.skedgo.helloworld-1/split_lib_slice_4_apk.apk\", zip file \"/data/app/com.skedgo.helloworld-1/split_lib_slice_5_apk.apk\", zip file \"/data/app/com.skedgo.helloworld-1/split_lib_slice_6_apk.apk\", zip file \"/data/app/com.skedgo.helloworld-1/split_lib_slice_7_apk.apk\", zip file \"/data/app/com.skedgo.helloworld-1/split_lib_slice_8_apk.apk\", zip file \"/data/app/com.skedgo.helloworld-1/split_lib_slice_9_apk.apk\"],nativeLibraryDirectories=[/data/app/com.skedgo.helloworld-1/lib/arm64, /system/lib64, /vendor/lib64]]\n</code></pre>\n\n<p>I have in AndroidManifest.xml:</p>\n\n<pre><code>&lt;uses-sdk android:minSdkVersion=\"19\" android:targetSdkVersion=\"27\"/&gt;\n</code></pre>\n\n<p>I have:  Compile SDK Version:  API 26: Android 8.0 (Oreo)</p>\n\n<p>How can I solve this problem?</p>\n\n<p>I was under the belief that \"java.util.Base64\" was part of the standard Java library, at least for the version I'm using, so I shouldn't need to do anything special to use it.  I don't know anything about Gradle but I know that I'm using it.</p>\n"
+  },
+  "48747828": {
+    "tags": [
+      "android",
+      "multithreading",
+      "camera"
+    ],
+    "owner": {
+      "reputation": 5490,
+      "user_id": 10592,
+      "user_type": "registered",
+      "accept_rate": 79,
+      "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+      "display_name": "Tim Cooper",
+      "link": "https://stackoverflow.com/users/10592/tim-cooper"
+    },
+    "is_answered": true,
+    "view_count": 73,
+    "accepted_answer_id": 48747901,
+    "answer_count": 1,
+    "score": 0,
+    "last_activity_date": 1518442919,
+    "creation_date": 1518442678,
+    "question_id": 48747828,
+    "link": "https://stackoverflow.com/questions/48747828/android-camera-classic-api-writing-a-blocking-synchronous-takepicture",
+    "title": "android camera classic API: writing a blocking (synchronous) &#39;takePicture()&#39;",
+    "body": "<p>I'm writing an Android app and I need to take photos.  I got it mostly working very quickly using the standard tutorial.  But I need to write a blocking version of \"takePicture()\".  I've trying reworking my design so that everything is done asynchronously, but the code just ends up as spaghetti code because so many tasks are dependent on the previous task completing.  And I had expected that taking a photo would take less than a second.  So I think it's a reasonable goal to have a blocking (synchronous) \"takePicture()\".</p>\n\n<p>So I created a camera in the UI thread (I'm an Android newbie but I presume that 'onCreate()' et al are called in the UI thread).  I also open the camera and release it in the UI thread.  I also call \"takePicture()\" in the UI thread.  I tried polling for a \"volatile byte[] jpeg;\" field to become non-null, with a \"while (jpeg != null) sleep(1000);\" but it never gets assigned.  To my surprise, my callback doesn't get called until I pass out of the \"onClick()\" function - 'takePicture()' doesn't seem to trigger anything, it merely queues something, as far as I can figure out.</p>\n\n<p>My next attempt involved doing all the camera work (open, takePicture, release) in a \"ExecutorService.newSingleThreadExecutor()\" but that was also unsuccessful.  Even when I did it this way (see below), the callback wasn't called until the app finished the 'onClick()'.</p>\n\n<pre><code>public byte[] takePhoto()\n{\n    if (camera == null)\n        return null;\n    cameraThreadService.submit(new Runnable() {\n        @Override\n        public void run() {\n            Camera.PictureCallback mPicture = new Camera.PictureCallback() {\n\n                @Override\n                public void onPictureTaken(byte[] data, Camera camera) {\n                    jpeg = data;\n                }\n            };\n            camera.takePicture(null, null, mPicture);\n        }\n    });\n    int n = 0;\n    while (jpeg == null) {\n        sleep(1000);\n        if (n++ &gt; 5)\n            break;\n    }\n    return jpeg;\n}\n</code></pre>\n\n<p>Can anyone tell me how to write a blocking (synchronous) 'camera.takePicture()'?</p>\n"
+  },
+  "49357079": {
+    "tags": [
+      "java",
+      "opencv",
+      "opencv-stitching"
+    ],
+    "owner": {
+      "reputation": 5490,
+      "user_id": 10592,
+      "user_type": "registered",
+      "accept_rate": 79,
+      "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+      "display_name": "Tim Cooper",
+      "link": "https://stackoverflow.com/users/10592/tim-cooper"
+    },
+    "is_answered": true,
+    "view_count": 227,
+    "answer_count": 1,
+    "score": 3,
+    "last_activity_date": 1529327383,
+    "creation_date": 1521441368,
+    "question_id": 49357079,
+    "link": "https://stackoverflow.com/questions/49357079/trying-to-get-opencv-to-work-in-java-sample-code-to-stitch-2-photos-together",
+    "title": "Trying to get OpenCV to work in Java, sample code to stitch 2 photos together",
+    "body": "<p>I'm trying to use OpenCV in Java.  I want to stitch 2 photos together.  OpenCV is a C++ library and it has a Java wrapper.</p>\n\n<ol>\n<li><p>I downloaded OpenCV Java with the pre-build Windows .dll's from the official site:  <a href=\"https://sourceforge.net/projects/opencvlibrary/files/opencv-win/3.4.1/opencv-3.4.1-vc14_vc15.exe/download\" rel=\"nofollow noreferrer\">https://sourceforge.net/projects/opencvlibrary/files/opencv-win/3.4.1/opencv-3.4.1-vc14_vc15.exe/download</a></p></li>\n<li><p>I'm using IntelliJ 2016.1.4</p></li>\n<li><p>I set up my project and pointed it to the relevant .jar</p></li>\n<li><p>I found code like you see below on the web.  </p></li>\n<li><p>It didn't work out of the box so I fixed a couple of things, e.g.:\n    private static final int CV_RANSAC = 8; // This is just a guess!</p></li>\n<li><p>I ran it. It fails with the error:  \"error: (-5) Specified descriptor extractor type is not supported\"  on the line:              fe = DescriptorExtractor.create(DescriptorExtractor.SURF);  I </p></li>\n<li><p>I tried a bunch of alternative algoriths (ORB, SIFT, BRIEF) and got the same error.</p></li>\n</ol>\n\n<p>I'd like to get this code working.  Ideally I'd get working code which is not using a bunch of deprecated functions...the functions are deprecated but there's no comment saying what I should use instead...that always annoys me.</p>\n\n<p>(More generally I'd like any working Java sample code which can stitch together photos to form a panorama.)</p>\n\n<p>Can anyone help?</p>\n\n<pre><code>import org.opencv.calib3d.Calib3d;\nimport org.opencv.core.*;\nimport org.opencv.features2d.DescriptorExtractor;\nimport org.opencv.features2d.DescriptorMatcher;\nimport org.opencv.features2d.FeatureDetector;\nimport org.opencv.features2d.Features2d;\nimport org.opencv.imgproc.Imgproc;\n\nimport java.util.LinkedList;\nimport java.util.List;\n\nimport static org.opencv.imgcodecs.Imgcodecs.imread;\nimport static org.opencv.imgcodecs.Imgcodecs.imwrite;\n\n\npublic class ImageStitching {\n\n    static Mat image1;\n    static Mat image2;\n\n    static FeatureDetector fd;\n    static DescriptorExtractor fe;\n    static DescriptorMatcher fm;\n\n\n    // Compulsory\n    static{\n        try {\n            System.loadLibrary(Core.NATIVE_LIBRARY_NAME);\n        }\n        catch (UnsatisfiedLinkError e) {\n            throw new RuntimeException(\"Couldn't find \\\"\" + Core.NATIVE_LIBRARY_NAME + \".dll .\\n\"\n                    +\"You need to add something like this to the run configuration \\\"VM options\\\":\\n\"\n                    +\"-Djava.library.path=C:\\\\OpenCvPreBuilt\\\\opencv\\\\build\\\\java\\\\x64\");\n        }\n    }\n\n\n    public static void go()\n    {\n        //new CvException(\"hello\");\n        fd = FeatureDetector.create(FeatureDetector.BRISK);\n        fe = DescriptorExtractor.create(DescriptorExtractor.SURF);\n        fm = DescriptorMatcher.create(DescriptorMatcher.BRUTEFORCE);\n\n        //images\n        image1 = imread(\"A.jpg\");\n        image2 = imread(\"B.jpg\");\n\n        //structures for the keypoints from the 2 images\n        MatOfKeyPoint keypoints1 = new MatOfKeyPoint();\n        MatOfKeyPoint keypoints2 = new MatOfKeyPoint();\n\n        //structures for the computed descriptors\n        Mat descriptors1 = new Mat();\n        Mat descriptors2 = new Mat();\n\n        //structure for the matches\n        MatOfDMatch matches = new MatOfDMatch();\n\n        //getting the keypoints\n        fd.detect(image1, keypoints1);\n        fd.detect(image1, keypoints2);\n\n        //getting the descriptors from the keypoints\n        fe.compute(image1, keypoints1, descriptors1);\n        fe.compute(image2,keypoints2,descriptors2);\n\n        //getting the matches the 2 sets of descriptors\n        fm.match(descriptors2,descriptors1, matches);\n\n        //turn the matches to a list\n        List&lt;DMatch&gt; matchesList = matches.toList();\n\n        Double maxDist = 0.0; //keep track of max distance from the matches\n        Double minDist = 100.0; //keep track of min distance from the matches\n\n        //calculate max &amp; min distances between keypoints\n        for(int i=0; i&lt;keypoints1.rows();i++){\n            Double dist = (double) matchesList.get(i).distance;\n            if (dist&lt;minDist) minDist = dist;\n            if(dist&gt;maxDist) maxDist=dist;\n        }\n\n        System.out.println(\"max dist: \" + maxDist );\n        System.out.println(\"min dist: \" + minDist);\n\n        //structure for the good matches\n        LinkedList&lt;DMatch&gt; goodMatches = new LinkedList&lt;DMatch&gt;();\n\n        //use only the good matches (i.e. whose distance is less than 3*min_dist)\n        for(int i=0;i&lt;descriptors1.rows();i++){\n            if(matchesList.get(i).distance&lt;3*minDist){\n                goodMatches.addLast(matchesList.get(i));\n            }\n        }\n\n        //structures to hold points of the good matches (coordinates)\n        LinkedList&lt;Point&gt; objList = new LinkedList&lt;Point&gt;(); // image1\n        LinkedList&lt;Point&gt; sceneList = new LinkedList&lt;Point&gt;(); //image 2\n\n        List&lt;KeyPoint&gt; keypoints_objectList = keypoints1.toList();\n        List&lt;KeyPoint&gt; keypoints_sceneList = keypoints2.toList();\n\n        //putting the points of the good matches into above structures\n        for(int i = 0; i&lt;goodMatches.size(); i++){\n            objList.addLast(keypoints_objectList.get(goodMatches.get(i).queryIdx).pt);\n            sceneList.addLast(keypoints_sceneList.get(goodMatches.get(i).trainIdx).pt);\n        }\n\n        System.out.println(\"\\nNum. of good matches\" +goodMatches.size());\n\n        MatOfDMatch gm = new MatOfDMatch();\n        gm.fromList(goodMatches);\n\n        //converting the points into the appropriate data structure\n        MatOfPoint2f obj = new MatOfPoint2f();\n        obj.fromList(objList);\n\n        MatOfPoint2f scene = new MatOfPoint2f();\n        scene.fromList(sceneList);\n\n        //finding the homography matrix\n        Mat H = Calib3d.findHomography(obj, scene, CV_RANSAC, 3);\n\n        //LinkedList&lt;Point&gt; cornerList = new LinkedList&lt;Point&gt;();\n        Mat obj_corners = new Mat(4,1,CvType.CV_32FC2);\n        Mat scene_corners = new Mat(4,1,CvType.CV_32FC2);\n\n        obj_corners.put(0,0, new double[]{0,0});\n        obj_corners.put(0,0, new double[]{image1.cols(),0});\n        obj_corners.put(0,0,new double[]{image1.cols(),image1.rows()});\n        obj_corners.put(0,0,new double[]{0,image1.rows()});\n\n        Core.perspectiveTransform(obj_corners, scene_corners, H);\n\n        //structure to hold the result of the homography matrix\n        Mat result = new Mat();\n\n        //size of the new image - i.e. image 1 + image 2\n        Size s = new Size(image1.cols()+image2.cols(),image1.rows());\n\n        //using the homography matrix to warp the two images\n        Imgproc.warpPerspective(image1, result, H, s);\n        int i = image1.cols();\n        Mat m = new Mat(result,new Rect(i,0,image2.cols(), image2.rows()));\n\n        image2.copyTo(m);\n\n        Mat img_mat = new Mat();\n\n        Features2d.drawMatches(image1, keypoints1, image2, keypoints2, gm, img_mat, new Scalar(254,0,0),new Scalar(254,0,0) , new MatOfByte(), 2);\n\n        //creating the output file\n        boolean imageStitched = imwrite(\"imageStitched.jpg\",result);\n        boolean imageMatched = imwrite(\"imageMatched.jpg\",img_mat);\n    }\n\n\n    public static void main(String args[])\n    {\n        go();\n    }\n}\n</code></pre>\n"
+  },
+  "49357458": {
+    "tags": [
+      "java",
+      "opencv",
+      "opencv-stitching"
+    ],
+    "owner": {
+      "reputation": 5490,
+      "user_id": 10592,
+      "user_type": "registered",
+      "accept_rate": 79,
+      "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+      "display_name": "Tim Cooper",
+      "link": "https://stackoverflow.com/users/10592/tim-cooper"
+    },
+    "is_answered": false,
+    "view_count": 387,
+    "answer_count": 0,
+    "score": 9,
+    "last_activity_date": 1534494949,
+    "creation_date": 1521443232,
+    "last_edit_date": 1534494949,
+    "question_id": 49357458,
+    "link": "https://stackoverflow.com/questions/49357458/opencv-in-java-descriptorextractor-is-deprecated-what-do-i-use-instead",
+    "title": "OpenCv in Java: DescriptorExtractor is deprecated. What do I use instead?",
+    "body": "<p>I have some sample code which uses OpenCV (Java wrapper) to stitch 2 images together.  It refers to a class \"DescriptorExtractor\" which is deprecated.  I can't find any information in the official web documentation or the source-code  about what I should use instead.  I always get annoyed when something is deprecated and it doesn't tell you what you should use instead.</p>\n\n<p>Can anyone help me?</p>\n\n<p>I'm using OpenCV 3.4.1 with pre-built Windows libraries. </p>\n\n<p>The official documentation for the class seems to be <a href=\"https://docs.opencv.org/3.4/javadoc/org/opencv/features2d/DescriptorExtractor.html\" rel=\"nofollow noreferrer\">here</a>.</p>\n\n<p>The \"FeatureDetector\" class is likewise deprecated, likewise without any hint about what to use instead.</p>\n"
+  },
+  "50480597": {
+    "tags": [
+      "android",
+      "android-camera",
+      "jpeg",
+      "orientation"
+    ],
+    "owner": {
+      "reputation": 5490,
+      "user_id": 10592,
+      "user_type": "registered",
+      "accept_rate": 79,
+      "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+      "display_name": "Tim Cooper",
+      "link": "https://stackoverflow.com/users/10592/tim-cooper"
+    },
+    "is_answered": false,
+    "view_count": 76,
+    "answer_count": 0,
+    "score": 0,
+    "last_activity_date": 1527226979,
+    "creation_date": 1527054128,
+    "last_edit_date": 1527226979,
+    "question_id": 50480597,
+    "link": "https://stackoverflow.com/questions/50480597/exifinterface-returns-wrong-orientation-because-it-stores-multiple-conflicting",
+    "title": "ExifInterface returns wrong orientation (because it stores multiple conflicting attributes)",
+    "body": "<p>I'm writing an Android app which pulls photos from the gallery.  I discovered that some photos, e.g. a panorama taken in a left direction by a Galaxy S7, are output by the built-in camera app as a \"non-normalised jpeg\" file, meaning that the image is upside down (or even vertical for a landscape panorama on a Galaxy S5), but it contains instructions in the EXIF data that the viewer should fix it up.</p>\n\n<p>So I read up on ExifInterface and I implemented code to normalise the images:</p>\n\n<pre><code>                ExifInterface exif = new ExifInterface(file.toString());\n                int orig = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, -1);\n                if (orig != -1 &amp;&amp; orig != ExifInterface.ORIENTATION_NORMAL) {\n                    orientation = orig;\n                    exif.setAttribute(ExifInterface.TAG_ORIENTATION, String.valueOf(ExifInterface.ORIENTATION_NORMAL));\n                    exif.saveAttributes();\n                }\n</code></pre>\n\n<p>...</p>\n\n<pre><code>        Matrix matrix = null;\n        if (orientation != ExifInterface.ORIENTATION_NORMAL) {\n            matrix = new Matrix();\n            switch (orientation) {\n                case ExifInterface.ORIENTATION_ROTATE_90:   matrix.postRotate(90); break;\n                case ExifInterface.ORIENTATION_ROTATE_180:  matrix.postRotate(180); break;\n                case ExifInterface.ORIENTATION_ROTATE_270:  matrix.postRotate(-90); break;\n            }\n        }\n</code></pre>\n\n<p>...\netc</p>\n\n<p>However, on a Galaxy S7, my code fails to work.  After some debugging and delving into system source-code, I discovered that the ExifInterface object stores multiple conflicting values for the \"Orientation\" attribute, and it was returning the wrong one.  The correct value (i.e. 3) is stored in exif.mAttributes[4] (does this correspond to IFD_THUMBNAIL_TAGS group?) and the incorrect value (i.e. 1) is stored in exif.mAttributes[0] (does this correspond to IFD_TIFF_TAGS?).  So 'exif' reported that it's ORIENTATION_NORMAL but the image loads upside-down, and my matrix code is not called.</p>\n\n<p>What is the recommended solution, or any solution to this problem?</p>\n"
+  },
+  "51834577": {
+    "tags": [
+      "html5",
+      "canvas",
+      "coords"
+    ],
+    "owner": {
+      "reputation": 5490,
+      "user_id": 10592,
+      "user_type": "registered",
+      "accept_rate": 79,
+      "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+      "display_name": "Tim Cooper",
+      "link": "https://stackoverflow.com/users/10592/tim-cooper"
+    },
+    "is_answered": false,
+    "view_count": 16,
+    "answer_count": 1,
+    "score": 0,
+    "last_activity_date": 1534376803,
+    "creation_date": 1534226282,
+    "last_edit_date": 1534376803,
+    "question_id": 51834577,
+    "link": "https://stackoverflow.com/questions/51834577/html5-canvas-how-do-i-query-or-modify-the-underlying-bitmap-dimensions-as-oppos",
+    "title": "HTML5 canvas: how do I query or modify the underlying bitmap dimensions as opposed to the DOM element dimensions?",
+    "body": "<p>I'm using an HTML5 canvas element:</p>\n\n<pre><code>&lt;style&gt;\n    #myCanvas {\n        width: 100%;\n        height: 100%;\n        object-fit: contain;\n    }\n&lt;/style&gt;\n\n &lt;canvas id=\"myCanvas\" ontouchstart=\"...\" /&gt;\n</code></pre>\n\n<p>I understand that there is an underlying bitmap, and then there is a DOM element that this bitmap is boxed in, and the 2 objects have different dimensions, so e.g. the bitmap is scaled/squished to fit into the DOM element.  It would be easier for me to understand if the bitmap dimensions always equalled the DOM element dimensions, but that's not how it works.</p>\n\n<p>How do I query the respective dimensions? \nHow do I set the respective dimensions?\nHow do I see the 2 sets of dimensions in the Chrome developer tool?\nHow do I keep the 2 sets of dimensions in sync?</p>\n\n<p>This is important because mouse-clicks and finger touches are delivered in DOM coords but we'd usually need to interpret them in canvas coords.</p>\n\n<p>(And a related question:  have I done it correctly, to set the DOM element to expand to the maximum dimensions allowed by the parent?).</p>\n"
+  },
+  "51940010": {
+    "tags": [
+      "javascript",
+      "python",
+      "user-interface",
+      "rpa"
+    ],
+    "owner": {
+      "reputation": 7,
+      "user_id": 10252288,
+      "user_type": "registered",
+      "profile_image": "https://lh3.googleusercontent.com/-bg9YIUhBz7w/AAAAAAAAAAI/AAAAAAAAAAA/APUIFaP-S89IF9eOS46Te4foDrKnB0EMQg/mo/photo.jpg?sz=128",
+      "display_name": "Im Hun Jung",
+      "link": "https://stackoverflow.com/users/10252288/im-hun-jung"
+    },
+    "is_answered": false,
+    "view_count": 207,
+    "answer_count": 2,
+    "score": 0,
+    "last_activity_date": 1541058648,
+    "creation_date": 1534810494,
+    "last_edit_date": 1534945665,
+    "question_id": 51940010,
+    "link": "https://stackoverflow.com/questions/51940010/could-anyone-give-me-some-solutions-to-open-chrome-with-an-automated-rpa-solutio",
+    "title": "Could anyone give me some solutions to open Chrome with an automated RPA solution tool?",
+    "body": "<p>I am using a RPA Solution tool people are not familiar with.\nBut the thing is, I tried to open Chrome through the RPA Solution tool or program but is receiving this message: Chrome is being controlled by automated test software.</p>\n\n<p>cmd shows a message of : </p>\n\n<pre><code>Starting ChromeDriver 2.36.540470 (e522d04694c7ebea4ba8821272dbef4f9b818c91) on port 62023\nOnly local connections are allowed.\n[6036:12108:0821/085345.853:ERROR:install_util.cc(603)] Failed to read HKLM\\SOFTWARE\\Policies\\Google\\Chrome\\MachineLevelUserCloudPolicyEnrollmentToken: The system cannot find the file specified. (0x2)\n[6036:12108:0821/085345.853:ERROR:configuration_policy_handler_list.cc(91)] Unknown policy: AlwaysAuthorizePlugins\n[6036:12108:0821/085345.853:ERROR:configuration_policy_handler_list.cc(91)] Unknown policy: DisablePluginFinder\n[6036:12108:0821/085345.853:ERROR:configuration_policy_handler_list.cc(91)] Unknown policy: PasswordManagerAllowShowPasswords\n[6036:12108:0821/085345.994:ERROR:configuration_policy_handler_list.cc(91)] Unknown policy: AlwaysAuthorizePlugins\n[6036:12108:0821/085345.994:ERROR:configuration_policy_handler_list.cc(91)] Unknown policy: DisablePluginFinder\n[6036:12108:0821/085345.994:ERROR:configuration_policy_handler_list.cc(91)] Unknown policy: PasswordManagerAllowShowPasswords\n\nDevTools listening on ws://127.0.0.1:12172/devtools/browser/31ad3913-bdcd-4095-9113-b8b95f710c1c\n[6036:17560:0821/085346.865:ERROR:browser_gpu_channel_host_factory.cc(119)] Failed to launch GPU process.\n[6036:12108:0821/085346.865:ERROR:gpu_process_transport_factory.cc(1016)] Lost UI shared context.\n[1534809826.362][SEVERE]: Timed out receiving message from renderer: 600.000\n</code></pre>\n\n<p>could any developers give me some solution?</p>\n\n<p>ps. it is not common solution tools such as blueprism.</p>\n"
+  },
+  "52711596": {
+    "tags": [
+      "android",
+      "drag-and-drop"
+    ],
+    "owner": {
+      "reputation": 99,
+      "user_id": 5851265,
+      "user_type": "registered",
+      "accept_rate": 70,
+      "profile_image": "https://www.gravatar.com/avatar/360b1567791a77804dfcbbdc77c599bf?s=128&d=identicon&r=PG&f=1",
+      "display_name": "Jack",
+      "link": "https://stackoverflow.com/users/5851265/jack"
+    },
+    "is_answered": false,
+    "view_count": 41,
+    "bounty_amount": 50,
+    "bounty_closes_date": 1541481774,
+    "answer_count": 1,
+    "score": 1,
+    "last_activity_date": 1541048527,
+    "creation_date": 1539043476,
+    "last_edit_date": 1541048527,
+    "question_id": 52711596,
+    "link": "https://stackoverflow.com/questions/52711596/drag-and-drop-not-working-between-2-activities-on-some-devices",
+    "title": "Drag and Drop not working between 2 activities on some devices",
+    "body": "<p>I use the following code to drag a view from an activity to another activity within my application. Knowing that the second activity (That receives drop event) is not created / alive when the drag starts.</p>\n\n<p><strong>It works good on</strong> </p>\n\n<p>Samsung Note 3 Android 5 API 21, \nSamsung Note 4 Android 6.0.1 API 23</p>\n\n<p><strong>but not working on</strong> </p>\n\n<p>ASUS ZenPad 8.0 Android 5.1.1 API 22,\nLe Max 2 Android 6.0 API 23</p>\n\n<p>Your thoughts are appreciated.</p>\n\n<p><strong>Starting Drag operation:</strong></p>\n\n<pre><code>public boolean onItemLongClick(AdapterView&lt;?&gt; aParent, View aView, int aPos, long aID) {\n\n    View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(aView);\n\n    Intent intent = prepDNDIntent();\n\n    if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.N) {\n        aView.startDragAndDrop(ClipData.newIntent(DRAG_N_DROP_DESCRIPTION, intent), shadowBuilder, null, 0);\n    } else {\n        aView.startDrag(ClipData.newIntent(DRAG_N_DROP_DESCRIPTION, intent), shadowBuilder, null, 0);\n    }\n\n\n    startMainActivity();\n\n    finishThisActivity();\n\n    return true;\n}\n</code></pre>\n\n<p><strong>Receiving Drop Operation</strong></p>\n\n<pre><code>public boolean validDragNDropOperation(View aView, DragEvent aEvent){\n    boolean status = false;\n\n    ClipDescription clipDescription = aEvent.getClipDescription();\n    if (clipDescription != null &amp;&amp; clipDescription.getLabel().toString().equalsIgnoreCase(DRAG_N_DROP_DESCRIPTION)) {\n        status = true;\n    }\n\n    return status;\n}\n\n\npublic boolean onDrag(View aView, DragEvent aEvent) {\n\n    switch (aEvent.getAction()) {\n          case DragEvent.ACTION_DRAG_STARTED:\n\n               This is not called on some devices\n\n               return validDragNDropOperation(aView, aEvent, false);\n\n          case DragEvent.ACTION_DROP:\n                    ....\n                    ....\n                    ....\n                    ....\n                    ....\n                 break;\n    }\n\n    return true;\n}\n</code></pre>\n\n<p><strong>Knowing that both Activities are set android:launchMode=\"standard\"</strong></p>\n\n<p><strong>EDIT</strong></p>\n\n<p>During testing, I used an AlertDialog that holds the views being dragged (Instead of using activity), and I faced the same problem, when dragging the view from the AlertDialog to the Activity (That owns the AlertDialog), ACTION_DRAG_STARTED not called.</p>\n"
+  },
+  "53056537": {
+    "tags": [
+      "ruby-on-rails",
+      "ruby",
+      "ruby-on-rails-3.2",
+      "asset-pipeline",
+      "digital-ocean"
+    ],
+    "owner": {
+      "reputation": 762,
+      "user_id": 276664,
+      "user_type": "registered",
+      "accept_rate": 81,
+      "profile_image": "https://i.stack.imgur.com/sMtuc.jpg?s=128&g=1",
+      "display_name": "cmhobbs",
+      "link": "https://stackoverflow.com/users/276664/cmhobbs"
+    },
+    "is_answered": false,
+    "view_count": 59,
+    "bounty_amount": 500,
+    "bounty_closes_date": 1541644560,
+    "answer_count": 3,
+    "score": 1,
+    "last_activity_date": 1541058472,
+    "creation_date": 1540866456,
+    "last_edit_date": 1541035650,
+    "question_id": 53056537,
+    "link": "https://stackoverflow.com/questions/53056537/some-assets-not-loading-in-an-old-rails-3-2-stable-app",
+    "title": "Some assets not loading in an old Rails 3-2-stable app",
+    "body": "<p><strong>BIG UPDATES AT THE BOTTOM OF THIS POST</strong></p>\n\n<p>I have a Rails 3-2-stable app that I'm moving to a new server so I can work on upgrading it to Rails 5.  Currently, it's hosted on Heroku and most of the assets show up just fine (the app Just Works (TM)).  I have a few random assets that will not show up after precompilation on a Digital Ocean droplet.  I'm deploying with Capistrano.</p>\n\n<p>The error for the assets that won't show up look something like this:</p>\n\n<pre><code>Loading failed for the &lt;script&gt; with source “http://stage.fancy-new-droplet.com/assets/application/application.js”.\n</code></pre>\n\n<p>In some cases, there will be a hash associated with the asset like this:</p>\n\n<pre><code>Loading failed for the &lt;script&gt; with source “http://stage.fancy-new-droplet.com/assets/application/certifications-56046476595984b00d1267a4f02822e5.js\n</code></pre>\n\n<p>In the former case, the asset is actually in <code>public/assets/</code> as opposed to <code>public/assets/application/</code> on the droplet.  Moving or symlinking the missing asset to that location doesn't seem to affect anything.  In the latter case, the assets just don't exist anywhere on the droplet as far as I can tell.</p>\n\n<p>For the case with no hashes in filenames, changing my include tags from this: </p>\n\n<p><code>&lt;%= javascript_include_tag \"application/application\" %&gt;</code></p>\n\n<p>To something like this:</p>\n\n<p><code>&lt;%= javascript_include_tag \"application\" %&gt;</code></p>\n\n<p>Will solve the issue but I feel like that's a red herring given the other assets that don't seem to exist after precompilation.</p>\n\n<p>I did run into an esoteric issue where the droplet was running out of memory and silently failing halfway through asset compilation but I increased the available memory and it doesn't even use half the memory now.  It does max out the CPU 100%, though.  I may try to increase both CPU and memory on the droplet.</p>\n\n<p>Here are the relevant asset compilation lines from <code>config/environments/production.rb</code>:</p>\n\n<pre><code>  config.serve_static_assets = false\n  config.assets.compress = true\n  config.assets.compile = true\n  config.assets.digest = true\n</code></pre>\n\n<p>And the relevant asset compilation lines from <code>application.rb</code>:</p>\n\n<pre><code>config.assets.enabled = true\nconfig.assets.version = '1.0'\n</code></pre>\n\n<p>Locally, everything works 100% just peachy, no errors.  Assets load fine and we're all good.  Here's the asset pipeline bits from my <code>development.rb</code> file:</p>\n\n<pre><code>  config.assets.compile = true\n  config.assets.compress = false\n  config.assets.debug = true\n</code></pre>\n\n<p>I've run various combinations of <code>rake assets:clean</code>, <code>rake assets:precompile</code>, and <code>rake assets:precompile:all</code> on the production server (in the production environment) and I've even nuked the public/assets/ folder to start it all over again.  All to no avail.</p>\n\n<p>What might cause these assets to not be created on our droplet while they do manage to get created on Heroku?</p>\n\n<p><strong>EDIT</strong></p>\n\n<p>As requested, my DO stack is simply just a droplet (2vcpu, 2gb ram), I'm using Puma and Nginx.  Here is my Capfile:</p>\n\n<pre><code># Load DSL and Setup Up Stages\nrequire 'capistrano/setup'\nrequire 'capistrano/deploy'\n\nrequire 'capistrano/scm/git'\ninstall_plugin Capistrano::SCM::Git\n\nrequire 'capistrano/rails'\nrequire 'capistrano/bundler'\nrequire 'capistrano/rvm'\nrequire 'capistrano/puma'\n\ninstall_plugin Capistrano::Puma\n\n# Loads custom tasks from `lib/capistrano/tasks' if you have any defined.\nDir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }\n</code></pre>\n\n<p><strong>FURTHER EDIT</strong></p>\n\n<p>I've frobbed <code>config.assets.initialize_on_precompile</code> a couple of times in <code>application.rb</code> and ran various permutations of <code>rake assets:clean, assets:precompile</code>, and <code>assets:precompile:all</code> with <code>RAILS_ENV=production</code> locally to no avail.</p>\n\n<p><strong>YET ANOTHER EDIT</strong></p>\n\n<p>I've noticed at this point that precompiling production assets seems to not be compiling four of the javascript files, and about seven of the css files.  It also doesn't seem to put application.js into <code>public/assets/application/application.js</code> (where the app is looking), rather it lands in <code>public/assets/application.js</code>.  </p>\n\n<p><strong>MORE EDITS</strong></p>\n\n<p>I have resolved the issue of the JavaScript assets not loading by fixing a <code>require_tree</code> statement in <code>application.js</code> and now the only issue seems to be several missing CSS files.</p>\n\n<p>In this application there are two directories with css files:</p>\n\n<ul>\n<li><code>app/assets/stylesheets/</code></li>\n<li><code>app/assets/stylesheets/application</code></li>\n</ul>\n\n<p>There are a total of 21 stylesheets that do not load out of nearly 100 total.  The stylesheets that don't load are being called with a hashed filename (<code>somefile-hash.css</code>) but those hashed files don't exist in <code>public/assets/</code> on the droplet. </p>\n\n<p>Here's the requires from <code>application.css.scss</code>:</p>\n\n<pre><code>/*\n *= require_self\n *= require chosen\n *= require jquery-ui/autocomplete\n *= require jquery-ui/datepicker\n *= require feature-carousel\n *= require_tree .\n */\n</code></pre>\n\n<p>Out of frustration, I added <code>= require_directory ./assets</code> to that list and now I've only got about 15 stylesheets failing to compile/load.  That behaviour doesn't make any sense to me as I assumed the <code>= require_tree .</code> would've covered the wonky subdirectory.</p>\n\n<p>Individually specifying files <code>= require foo</code> or <code>= require foo.css.scss</code> does not seem to affect anything, either.</p>\n\n<p>I also bumped the <code>config.assets.version</code> out of frustration to no avail.</p>\n\n<p>And furthermore, no amount of foul language can persuade these assets to compile.</p>\n"
+  },
+  "53070185": {
+    "tags": [
+      "compilation",
+      "linker",
+      "autotools",
+      "configure"
+    ],
+    "owner": {
+      "reputation": 27,
+      "user_id": 5201079,
+      "user_type": "registered",
+      "accept_rate": 20,
+      "profile_image": "https://lh5.googleusercontent.com/-PcykN1eSfrQ/AAAAAAAAAAI/AAAAAAAAAEM/5UO63fMvsQM/photo.jpg?sz=128",
+      "display_name": "Khasan Khafizov",
+      "link": "https://stackoverflow.com/users/5201079/khasan-khafizov"
+    },
+    "is_answered": false,
+    "view_count": 21,
+    "answer_count": 1,
+    "score": 0,
+    "last_activity_date": 1541035654,
+    "creation_date": 1540922146,
+    "last_edit_date": 1540931787,
+    "question_id": 53070185,
+    "link": "https://stackoverflow.com/questions/53070185/why-some-symbols-are-not-found-in-the-library-when-i-run-configure",
+    "title": "Why some symbols are not found in the library when I run ./configure?",
+    "body": "<p>I'm trying to install <a href=\"http://i8086emu.sourceforge.net/\" rel=\"nofollow noreferrer\">8086 emulator</a> from sources. \nI run <code>./configure</code> and see the following warnings in the output:</p>\n\n<pre><code>checking for g_signal_emit in -lgtk-x11-2.0... no\nconfigure: WARNING: Without GTK there will be no GTK-GUI of i8086emu!\nchecking for XkbGetMap in -lgdk-x11-2.0... no\nconfigure: WARNING: Without GTK there will be no GTK-GUI of i8086emu!\nchecking for g_malloc in -latk-1.0... no\nconfigure: WARNING: Without ATK there will be no GTK-GUI of i8086emu!\nchecking for g_log in -lgdk_pixbuf-2.0... no\nconfigure: WARNING: Without GTK there will be no GTK-GUI of i8086emu!\n</code></pre>\n\n<p>What can cause it? Does it mean that I have the wrong version of library? Or maybe the library should be recompiled with other configuration? What should I do if I face that kind of problem?</p>\n\n<p><strong>UPD:</strong>\n<code>g_signal_emit</code> symbol belongs not to the <code>-lgtk-x11-2.0</code> but to the <code>-lgobject-2.0</code>. If I run:</p>\n\n<pre><code>env LIBS='-lgobject-2.0' ./configure\n</code></pre>\n\n<p>then I have</p>\n\n<pre><code>checking for g_signal_emit in -lgtk-x11-2.0... yes\n</code></pre>\n\n<p>The situation becomes even more confusing. </p>\n"
+  },
+  "53070745": {
+    "tags": [
+      "javascript",
+      "reactjs",
+      "redux"
+    ],
+    "owner": {
+      "reputation": 323,
+      "user_id": 3068500,
+      "user_type": "registered",
+      "accept_rate": 77,
+      "profile_image": "https://www.gravatar.com/avatar/0cf641fb92b7fd2625f7690aac7f424c?s=128&d=identicon&r=PG&f=1",
+      "display_name": "Gambit2007",
+      "link": "https://stackoverflow.com/users/3068500/gambit2007"
+    },
+    "is_answered": true,
+    "view_count": 48,
+    "accepted_answer_id": 53071239,
+    "answer_count": 3,
+    "score": 0,
+    "last_activity_date": 1541049945,
+    "creation_date": 1540924335,
+    "question_id": 53070745,
+    "link": "https://stackoverflow.com/questions/53070745/redux-need-some-clarifications-on-some-basic-setup",
+    "title": "Redux: need some clarifications on some basic setup",
+    "body": "<p>I'm a Redux beginner and after watching a few tutorials i still have a few questions:</p>\n\n<p>1) \nAfter creating my <code>store</code>, i have:</p>\n\n<pre><code>ReactDOM.render(&lt;Provider store={store}&gt;&lt;BrowserRouter&gt;&lt;App/&gt;&lt;/BrowserRouter&gt;&lt;/Provider&gt;, document.getElementById('root'));\n</code></pre>\n\n<p>Going into the <code>App</code> component, i define:</p>\n\n<pre><code>function mapStateToProps(state) {\n    return {\n        posts: state.posts,\n        comments: state.comments \n\n    }\n}\n\nfunction mapDispatchToProps(dispatch) {\n    return bindActionCreators(actions, dispatch)\n\n}\n</code></pre>\n\n<p>Where do <code>state</code> and <code>dispatch</code> come from? Is this automatically referring to the <code>store</code>'s state and dispatch since i connected it to my component?</p>\n\n<p>2) One of my React components has a form which on submit, calls a function:</p>\n\n<pre><code>handleSubmit(event) { ... }\n</code></pre>\n\n<p>So in the constructor of that component, i have:</p>\n\n<pre><code>constructor() {\n    super()\n    this.handleSubmit = this.handleSubmit.bind(this);\n}\n</code></pre>\n\n<p>Is calling <code>super()</code> always necessary when declaring a React class component?\nWhy do i need to do this type of binding there? </p>\n\n<p>3) After submitting that form, i dispatch an action called <code>addPost</code>.\nHow does it \"go\" to the reducer? Is it just because the reducer was given when i created the store and using <code>mapDispatchToProps(dispatch)</code> i \"let\" Redux know which actions could be dispatched to that reducer?</p>\n\n<p>4) The reducer simply returns a <code>state</code> object - where is the logic that actually \"saves\" that state into the store? Is it hidden?</p>\n\n<p>Sorry for the long post and thank you!</p>\n"
+  },
+  "53073586": {
+    "tags": [
+      "php",
+      "api",
+      "twitter",
+      "twitter-oauth"
+    ],
+    "owner": {
+      "reputation": 64,
+      "user_id": 5223227,
+      "user_type": "registered",
+      "accept_rate": 80,
+      "profile_image": "https://graph.facebook.com/748111485315164/picture?type=large",
+      "display_name": "James",
+      "link": "https://stackoverflow.com/users/5223227/james"
+    },
+    "is_answered": false,
+    "view_count": 22,
+    "answer_count": 1,
+    "score": 0,
+    "last_activity_date": 1541064525,
+    "creation_date": 1540937330,
+    "question_id": 53073586,
+    "link": "https://stackoverflow.com/questions/53073586/embedding-tweets-using-url-received-from-twitter-api-some-are-returning-errors",
+    "title": "Embedding tweets using URL received from Twitter API: some are returning errors",
+    "body": "<p>I am using the TwitteroAuth API.</p>\n\n<p>I am searching for Tweets using the search API: <a href=\"https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets.html\" rel=\"nofollow noreferrer\">https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets.html</a></p>\n\n<p>Embedding via this method (as you will see from code): <a href=\"https://developer.twitter.com/en/docs/twitter-for-websites/embedded-tweets/guides/embedded-tweet-parameter-reference\" rel=\"nofollow noreferrer\">https://developer.twitter.com/en/docs/twitter-for-websites/embedded-tweets/guides/embedded-tweet-parameter-reference</a></p>\n\n<p>Here is my PHP (having already gotten the json object from twitter):</p>\n\n<pre><code>&lt;?php\n$tweet_array = json_decode(json_encode($tweets), true);\n  // Turn each item into tweet\n  foreach ($tweet_array['statuses'] as $tweet ) {\n    // Variables\n    $tweet_text = $tweet['text'];\n    $twitter_username = $tweet['user']['name'];\n    $twitter_handle = $tweet['user']['screen_name'];\n    $output = \"\";\n    // Blockquote wrapper\n    $output .= \"&lt;blockquote class='twitter-tweet' data-lang='en'&gt;\";\n    // Text\n    $output .= \"&lt;p lang='en' dir='ltr'&gt;$tweet_text&lt;/p&gt;\";\n    // User name and Handle\n    $output .= \"&amp;mdash; $twitter_username (@$twitter_handle)\";\n    // Link to tweet\n    foreach ($tweet['entities'] as $key) {\n      // So don't break search\n      if (empty($key)) {\n        // Do nothing\n      } else {\n        // Check for extended_url key\n        if (array_key_exists(\"expanded_url\",($key[0]))) {\n          // Boolean to confirm retrieval of URL\n          $url = true;\n          // URL output\n          $url_string = $key[0]['expanded_url'];\n          $output .= \"&lt;a href='$url_string'&gt;$url_string&lt;/a&gt;\";\n        }\n      }\n    }\n    $output .= \"&lt;/blockquote&gt;\";\n    // if URL present, output code\n    if ($url == true) {\n      echo $output;\n    }\n  }\n</code></pre>\n\n<p>That code outputs this, a mix of working and not working tweets:</p>\n\n<p><a href=\"https://i.stack.imgur.com/9M9uw.png\" rel=\"nofollow noreferrer\"><img src=\"https://i.stack.imgur.com/9M9uw.png\" alt=\"enter image description here\"></a></p>\n\n<p>The code being output looks like this (working and not working examples):</p>\n\n<p>Working!</p>\n\n<pre><code>&lt;twitterwidget class=\"twitter-tweet twitter-tweet-rendered\" id=\"twitter-widget-1\" style=\"position: static; visibility: visible; display: block; transform: rotate(0deg); max-width: 100%; width: 500px; min-width: 220px; margin-top: 10px; margin-bottom: 10px;\" data-tweet-id=\"1057283419007143936\"&gt;&lt;/twitterwidget&gt;\n</code></pre>\n\n<p>Not working!</p>\n\n<pre><code>&lt;blockquote class=\"twitter-tweet twitter-tweet-error\" data-lang=\"en\" data-twitter-extracted-i1540936951520207597=\"true\"&gt;&lt;p lang=\"en\" dir=\"ltr\"&gt;He’ll say anything before the election. Don’t take the bait. Focus on ending the hate. Hug a kid. Be nice to someon… &lt;!-- SHORTENED LINK TAKEN OUT FOR STACK OVERFLOW --&gt;&lt;/p&gt;— Amy Klobuchar (@amyklobuchar)&lt;a href=\"https://twitter.com/i/web/status/1057234049587167232\"&gt;https://twitter.com/i/web/status/1057234049587167232&lt;/a&gt;&lt;/blockquote&gt;\n</code></pre>\n\n<p>Any help would be appreciated immensely</p>\n"
+  },
+  "53079620": {
+    "tags": [
+      "c++",
+      "gcc"
+    ],
+    "owner": {
+      "reputation": 331,
+      "user_id": 1903880,
+      "user_type": "registered",
+      "accept_rate": 60,
+      "profile_image": "https://www.gravatar.com/avatar/3a7f0353e763f3e86ca839f199ebc6dd?s=128&d=identicon&r=PG",
+      "display_name": "zhihuifan",
+      "link": "https://stackoverflow.com/users/1903880/zhihuifan"
+    },
+    "is_answered": true,
+    "view_count": 59,
+    "accepted_answer_id": 53080031,
+    "answer_count": 1,
+    "score": 0,
+    "last_activity_date": 1541036345,
+    "creation_date": 1540976242,
+    "last_edit_date": 1541036345,
+    "question_id": 53079620,
+    "link": "https://stackoverflow.com/questions/53079620/g-doesnt-warn-when-some-class-member-is-not-initialized",
+    "title": "g++ doesn&#39;t warn when some class member is not initialized",
+    "body": "<p>I have the following code and I hope gcc can warn at either line 6 or line 17, but gcc doesn't do that.</p>\n\n<pre><code>zhifandeMacBook-Pro:CppCodeExample zhifan$ cat -n main.cpp\n     1  #include &lt;iostream&gt;\n     2\n     3\n     4  class X {\n     5  public:\n     6      X() {}\n     7      int getA() const { return a;}\n     8      bool getB() const {return b;}\n     9  private:\n    10      int a;\n    11      bool b;\n    12  };\n    13\n    14\n    15  int main(int argc, char *argv[])\n    16  {\n    17      X x;\n    18      std::cout &lt;&lt; \"hello \" &lt;&lt; x.getA() &lt;&lt; std::endl;\n    19      return 0;\n    20  }\nzhifandeMacBook-Pro:CppCodeExample zhifan$ g++ main.cpp  -Wall -O2 -Wuninitialized \nzhifandeMacBook-Pro:CppCodeExample zhifan$\n</code></pre>\n\n<p>Can I get a warning for the class X's constructor doesn't initialize the members?</p>\n"
+  },
+  "53087201": {
+    "tags": [
+      "android",
+      "android-mediaplayer",
+      "fadein",
+      "fadeout",
+      "pause"
+    ],
+    "owner": {
+      "reputation": 1,
+      "user_id": 10477142,
+      "user_type": "registered",
+      "profile_image": "https://www.gravatar.com/avatar/62efa8df80e84d8c25069cd77a198597?s=128&d=identicon&r=PG&f=1",
+      "display_name": "Sachin Jagtap",
+      "link": "https://stackoverflow.com/users/10477142/sachin-jagtap"
+    },
+    "is_answered": false,
+    "view_count": 14,
+    "answer_count": 0,
+    "score": 0,
+    "last_activity_date": 1541052243,
+    "creation_date": 1541000445,
+    "last_edit_date": 1541052243,
+    "question_id": 53087201,
+    "link": "https://stackoverflow.com/questions/53087201/during-crossfading-mediaplayer-player-pauses-for-while-on-some-devices-mostly-on",
+    "title": "During crossfading MediaPlayer player pauses for while on some devices mostly on Oreo and Pie",
+    "body": "<p>I want crossfading effect when one song is about to end and other starts.I have used below code for crossFading between audio and it works fine on most of the devices but it is not working on some samsung devices running on Oreo and one plus 6. Their is very small pause as soon as second media player starts playing next song. Thanks in advance.</p>\n\n<pre><code>private void crossFade() {\n    fadeOut(musicPlayer, CROSSFADE_DURATION);\n    fadeIn(musicPlayer2, CROSSFADE_DURATION);\n}\n\npublic void fadeOut(final MediaPlayer _player, final int duration) {\n    final float deviceVolume = getDeviceVolume();\n    final Handler h = new Handler();\n    h.postDelayed(new Runnable() {\n        private float time = duration;\n        private float volume = 0.0f;\n\n        @Override\n        public void run() {               \n            // can call h again after work!\n            time -= 100;\n            volume = (deviceVolume * time) / duration;\n            _player.setVolume(volume, volume);\n            if (time &gt; 0)\n                h.postDelayed(this, 100);\n            else {\n                _player.stop();\n                _player.release();\n            }\n        }\n    }, 100); // delay (takes millis)\n\n\n}\n\npublic void fadeIn(final MediaPlayer _player, final int duration) {\n    final float deviceVolume = getDeviceVolume();\n    final Handler h = new Handler();\n    h.postDelayed(new Runnable() {\n        private float time = 0.0f;\n        private float volume = 0.0f;\n\n        @Override\n        public void run() {\n            if (!_player.isPlaying())\n                _player.start();\n            // can call h again after work!\n            time += 100;\n            volume = (deviceVolume * time) / duration;\n            _player.setVolume(volume, volume);\n            if (time &lt; duration)\n                h.postDelayed(this, 100);\n        }\n    }, 100); // delay (takes millis)\n\n}\n</code></pre>\n"
+  },
+  "53092005": {
+    "tags": [
+      "r",
+      "dplyr"
+    ],
+    "owner": {
+      "reputation": 101,
+      "user_id": 9605036,
+      "user_type": "registered",
+      "profile_image": "https://www.gravatar.com/avatar/d932cd515507f30cc4eed14da265bc8d?s=128&d=identicon&r=PG&f=1",
+      "display_name": "alfalfa",
+      "link": "https://stackoverflow.com/users/9605036/alfalfa"
+    },
+    "is_answered": false,
+    "view_count": 32,
+    "answer_count": 0,
+    "score": 0,
+    "last_activity_date": 1541021180,
+    "creation_date": 1541020208,
+    "last_edit_date": 1541021180,
+    "question_id": 53092005,
+    "link": "https://stackoverflow.com/questions/53092005/ungroup-some-but-not-all-variables-in-r-dplyr",
+    "title": "Ungroup some but not all variables in R + dplyr",
+    "body": "<p>In <code>dplyr</code> with R, if I've grouped by multiple variables can I then ungroup by a subset of those with <code>ungroup</code>? As far as I can tell, <code>ungroup</code> ignores any arguments provided and always ungroups everything.</p>\n\n<p>Example:</p>\n\n<pre><code>mtcars %&gt;%\n  group_by(cyl, vs, am) %&gt;%\n  # this removes 'am' but grouping by 'cyl' and 'vs' remain\n  summarize(n = n()) %&gt;%  \n  ungroup(vs)  # I want this to work but it ungroups everything, not just 'vs'\n</code></pre>\n\n<p>Is there a way to remove the grouping by <code>vs</code> while keeping the grouping by <code>cyl</code>? I can accomplish this via</p>\n\n<pre><code>mtcars %&gt;%\n  group_by(cyl, vs, am) %&gt;%\n  summarize(n = n()) %&gt;%  \n  ungroup() %&gt;%\n  group_by(cyl)\n</code></pre>\n\n<p>but I feel like there has to be a better way than removing both groupings and re-adding just the <code>cyl</code> grouping. </p>\n\n<p>I'm using the <code>summarize</code> in my examples because that's my particular context, but this behavior seems to be evident even in something as minimal as this:</p>\n\n<pre><code>mtcars %&gt;%\n  group_by(cyl, vs) %&gt;%\n  ungroup(vs)  # ungroups everything, not just 'vs'\n</code></pre>\n\n<hr>\n\n<p><strong>Update</strong>: Thanks everyone for the great suggestions and comments. I just tried this and it works with no fuss due to <code>add=FALSE</code> in <code>group_by</code>, and it's as clean as what I was hoping <code>ungroup</code> could do:</p>\n\n<pre><code>mtcars %&gt;%\n  group_by(cyl, vs, am) %&gt;%\n  summarize(n = n()) %&gt;%  \n  group_by(cyl)\n</code></pre>\n\n<p>Thanks to @camille and @julius-vainora I know that <code>ungroup</code> by itself cannot do this, so I'll have to do grouping rather than ungrouping. @RyanD's suggestions were also very helpful. </p>\n"
+  },
+  "53092262": {
+    "tags": [
+      "java",
+      "java-8"
+    ],
+    "owner": {
+      "reputation": 866,
+      "user_id": 440732,
+      "user_type": "registered",
+      "accept_rate": 61,
+      "profile_image": "https://www.gravatar.com/avatar/ec3c8b76a17c17cb8f9eafa5af50bfa0?s=128&d=identicon&r=PG",
+      "display_name": "nishant",
+      "link": "https://stackoverflow.com/users/440732/nishant"
+    },
+    "is_answered": true,
+    "view_count": 45,
+    "accepted_answer_id": 53092365,
+    "answer_count": 1,
+    "score": 1,
+    "last_activity_date": 1541022125,
+    "creation_date": 1541021701,
+    "question_id": 53092262,
+    "link": "https://stackoverflow.com/questions/53092262/kill-a-future-completely-after-some-time",
+    "title": "Kill a future completely after some time",
+    "body": "<p>I have a <code>future</code> that does some intensive task. I call that <code>future</code> with a timeout. If it times out, I throw an exception back to client as well as create another <code>scheduledfuture</code> to cancel first <code>future</code> eventually after a while. The idea is to give sometime after initial timeout for <code>future</code> to complete its task, but if it doesn't complete in that time, just kill it.</p>\n\n<p>My code looks like</p>\n\n<pre><code>try {\n    return future.get(5, TimeUnit.SECONDS);\n} catch (TimeoutException) {\n   //create a scheduledfuture here which waits for another 5s\n   // and kill the above future is it is still not done\n   //the callable of scheduledfuture looks like -\n   /*\n   if (!future.isDone()) {\n       future.cancel(true);\n   }\n   */\n}\n</code></pre>\n\n<p>Now two questions here -<br>\n1. The <code>future.cancel(true)</code> will just set the interrupt flag to true. It will not end the task as it is. How should I end the task? Is there a JVM process internally that checks threads for interrupted flag and terminates them if true?<br>\n2. As the interrupted flag is now set, after the task completes, is there a process that resets the flag? Else that thread managed through <code>ExecutorService</code> will fail with <code>InterruptedException</code> when it tries to take up next request which contains a blocking call.</p>\n"
+  },
+  "53092269": {
+    "tags": [
+      "delphi",
+      "indy"
+    ],
+    "owner": {
+      "reputation": 6,
+      "user_id": 10571649,
+      "user_type": "registered",
+      "profile_image": "https://graph.facebook.com/1103224653120268/picture?type=large",
+      "display_name": "P&#226;mella Douglas",
+      "link": "https://stackoverflow.com/users/10571649/p%c3%a2mella-douglas"
+    },
+    "is_answered": false,
+    "view_count": 26,
+    "answer_count": 0,
+    "score": 1,
+    "last_activity_date": 1541036064,
+    "creation_date": 1541021726,
+    "last_edit_date": 1541036064,
+    "question_id": 53092269,
+    "link": "https://stackoverflow.com/questions/53092269/tidtcpclient-thread-stop-answer-after-some-time",
+    "title": "TIdTcpClient Thread Stop Answer after some time",
+    "body": "<p>After some time my client thread stop receive/send commands from/to TIdTcpServer here is the client side threadi copied from an example from Remy:</p>\n\n<p>TESTED LOCAL AND IT DON'T HAPPEN, ONLY ON A RUNNING ENVIROMENT IT OCCOUR.</p>\n\n<pre><code>type\n  TDataEvent = procedure(const LBuffer: TIdBytes) of object;\n\n  TReadingThread = class(TThread)\n  private\n    FClient : TIdTCPClient;\n    FData   : TIdBytes;\n    FOnData : TDataEvent;\n    procedure DataReceived;\n  protected\n    procedure Execute; override;\n  public\n    constructor Create(AClient: TIdTCPClient); reintroduce;\n    property OnData: TDataEvent read FOnData write FOnData;\n  end;\n\nconstructor TReadingThread.Create(AClient: TIdTCPClient);\nbegin\n  inherited Create(True);\n  FClient := AClient;\nend;\n\nprocedure TReadingThread.Execute;\nbegin\n  while not Terminated do\n  begin\n    Form1.Cliente.IOHandler.ReadBytes(FData, szProtocol, False);\n\n    if (FData &lt;&gt; nil) and Assigned(FOnData) then Synchronize(DataReceived);\n  end;\nend;\n\nprocedure TReadingThread.DataReceived;\nbegin\n  if Assigned(FOnData) then FOnData(FData);\nend;\n\nprocedure TForm1.DataReceived(const LBuffer: TIdBytes);\ntype\n  PTBytes   = ^TBytes;\n  PTIdBytes = ^TIdBytes;\nvar\n  LDataSize   : Integer;\n  LProtocol   : TProtocol;\n\n  LBuffer2    : TBytes;\n  LProtocol2  : TProtocol;\nbegin\n  LProtocol := BytesToProtocol(PTBytes(@LBuffer)^);\n\n  case LProtocol.Command of\n    cmdHWID:\n    begin\n      HWID := LProtocol.Sender.HWID;\n     end;\n\n    cmdPing:\n    begin\n      InitProtocol(LProtocol2);\n      LProtocol2.Command      := cmdPing;\n      LProtocol2.Sender.PBack := GetTickCount;\n      LBuffer2                := ProtocolToBytes(LProtocol2);\n      Form1.Cliente.IOHandler.Write(PTIdBytes(@LBuffer2)^);\n      ClearBuffer(LBuffer2);\n    end;\n  end;\nend;\n</code></pre>\n\n<p>for a while all works perfectly, but after some time client side stop receive/send. connection still open to server, but appear he lose the connection.</p>\n\n<p>function to find connection by ip:</p>\n\n<pre><code>list := IdTCPServer1.Contexts.LockList;\n      try\n        for i := 0 to list.Count - 1 do\n        begin\n          ctx := TIdContext(list[i]);\n          if ctx.Binding.PeerIP = Edit9.Text then\n          begin\n            TLog.AddMsg('IP FOUND');\n\n            Achou := True;\n            Cliente := TClientContext(ctx);\n\n            SerialCn  := Cliente.Client.HWID;\n            IpCn      := Cliente.Client.IP;\n\n            break;\n          end;\n        end;\n      finally\n        IdTCPServer1.Contexts.UnlockList;\n      end;\n</code></pre>\n"
+  },
+  "53092342": {
+    "tags": [
+      "amazon-web-services"
+    ],
+    "owner": {
+      "reputation": 1,
+      "user_id": 10575401,
+      "user_type": "registered",
+      "profile_image": "https://lh3.googleusercontent.com/-6cLk9-hctzo/AAAAAAAAAAI/AAAAAAAAAAA/ABtNlbAtfwqtZd2KfY0m-EiwgAqG16h5-w/mo/photo.jpg?sz=128",
+      "display_name": "REWA",
+      "link": "https://stackoverflow.com/users/10575401/rewa"
+    },
+    "is_answered": false,
+    "view_count": 9,
+    "answer_count": 0,
+    "score": 0,
+    "last_activity_date": 1541022013,
+    "creation_date": 1541022013,
+    "question_id": 53092342,
+    "link": "https://stackoverflow.com/questions/53092342/aws-c9-your-environment-is-running-out-of-quota-please-make-some-free-space",
+    "title": "AWS C9 - Your environment is running out of quota. Please make some free space",
+    "body": "<p>Good evening guys! I don't understand why my C9 instance is says that is full. But my actual size is 437784 kb. When I type df I get:</p>\n\n<pre><code>Filesystem     1K-blocks    Used Available Use% Mounted on\ndevtmpfs         4073856      64   4073792   1% /dev\ntmpfs            4084416       0   4084416   0% /dev/shm\n/dev/xvda1       8123812 7868088    155476  99% /\n</code></pre>\n\n<p>And when I look at the folder where is my application, du ./ I get:</p>\n\n<pre><code>437784  ./\n</code></pre>\n\n<p>Looks very  odd for me as I used only (437784 kb = 437.784 mb) of ( 8123812 kb = 8123.812 mb ). I checked every folder but I can't get to that 8 GB</p>\n"
+  },
+  "53092380": {
+    "tags": [
+      "factorization"
+    ],
+    "owner": {
+      "reputation": 467,
+      "user_id": 2486570,
+      "user_type": "registered",
+      "accept_rate": 60,
+      "profile_image": "https://www.gravatar.com/avatar/9d7c31c919cc243c1691264ade95332c?s=128&d=identicon&r=PG",
+      "display_name": "user2486570",
+      "link": "https://stackoverflow.com/users/2486570/user2486570"
+    },
+    "is_answered": false,
+    "view_count": 9,
+    "answer_count": 0,
+    "score": 0,
+    "last_activity_date": 1541022203,
+    "creation_date": 1541022203,
+    "question_id": 53092380,
+    "link": "https://stackoverflow.com/questions/53092380/how-to-generate-primes-under-1e6-when-i-can-precompute-some-data-beforehand",
+    "title": "How to generate primes under 1e6 when I can precompute some data beforehand?",
+    "body": "<p>I'm writing a factoring algorithm for large numbers (~100 digits) composed out of small factors (all of them are under 1 million). I figured out the most efficient algorithm would be to generate a sieve for all primes under 1 million and then just test the factors.</p>\n\n<p>The interesting part is that I can precompute and store about 45 kB of data that I can use to speed up the sieve generation. I could precompute primes under 100000 and then go from that, but I feel like there must be a more efficient set of numbers to precompute. Am I right?</p>\n"
+  },
+  "53092606": {
+    "tags": [
+      "c",
+      "enums"
+    ],
+    "owner": {
+      "reputation": 152,
+      "user_id": 3269469,
+      "user_type": "registered",
+      "accept_rate": 38,
+      "profile_image": "https://i.stack.imgur.com/2WNMZ.jpg?s=128&g=1",
+      "display_name": "Ryan Mc",
+      "link": "https://stackoverflow.com/users/3269469/ryan-mc"
+    },
+    "is_answered": true,
+    "view_count": 43,
+    "answer_count": 2,
+    "score": 0,
+    "last_activity_date": 1541025315,
+    "creation_date": 1541023605,
+    "question_id": 53092606,
+    "link": "https://stackoverflow.com/questions/53092606/what-are-some-good-examples-of-using-enum-in-c",
+    "title": "What are some good examples of using enum in C",
+    "body": "<p>I wrote this simple code to test enum but it doesn't feel like anything that would ever be used in the real world. I'd like to know what some good example use cases of enum would be and why it's useful. </p>\n\n<pre><code>#include &lt;stdio.h&gt;\n\ntypedef enum {\n    BLUE,\n    GREEN,\n    BROWN\n} eye_color;\n\ntypedef struct {\n    char *name;\n    char *eyecolor;\n    int height;\n    int weight;\n    eye_color eyes;\n} person;\n\nvoid print_eye_color(person p)\n{\n    switch(p.eyes) {\n        case BLUE :\n            // I didn't know what else to say... \n            printf(\"%s eyes are made from diamonds\\n\", p.eyecolor);\n            break;\n        case GREEN : \n            printf(\"%s eyes are made from emeralds\\n\", p.eyecolor);\n            break;\n        case BROWN : \n            printf(\"%s eyes are made from amber\\n\", p.eyecolor);\n        default :\n            printf(\"What colour eyes do you have?\\n\");\n    }\n}\n\nint main()\n{\n    person ayla = {\"Ayla\", \"Blue\", 167, 42, BLUE};\n    print_eye_color(ayla);\n    return 0;\n}\n</code></pre>\n"
+  },
+  "53093579": {
+    "tags": [
+      "python",
+      "flask"
+    ],
+    "owner": {
+      "reputation": 14,
+      "user_id": 4755423,
+      "user_type": "registered",
+      "profile_image": "https://graph.facebook.com/735443543238768/picture?type=large",
+      "display_name": "Pablo Mujica",
+      "link": "https://stackoverflow.com/users/4755423/pablo-mujica"
+    },
+    "is_answered": false,
+    "view_count": 12,
+    "closed_date": 1541037250,
+    "answer_count": 0,
+    "score": 0,
+    "last_activity_date": 1541031215,
+    "creation_date": 1541031215,
+    "question_id": 53093579,
+    "link": "https://stackoverflow.com/questions/53093579/why-flask-ignores-some-config-values-in-config-class",
+    "closed_reason": "duplicate",
+    "title": "why flask ignores some Config Values in config class?",
+    "body": "<p>i'm having a problem with some parts of my config file for my app, the Secret_key works great, but my ENV and TESTING configuration values do not get recognized unless i set them via my bash console.</p>\n\n<p>This is my aplication structure</p>\n\n<pre><code>Project\\\n    main.py\n    config.py\n    app\\\n        __init__.py\n</code></pre>\n\n<p>the content of my main.py is just:</p>\n\n<pre><code>from app import app\n</code></pre>\n\n<p>the content of my config.py is:</p>\n\n<pre><code>class Config(object):\n    ENV = 'development'\n    TESTING = True\n    SECRET_KEY = 'MY_SECRET'\n</code></pre>\n\n<p>and the content of my app__init__.py is:</p>\n\n<pre><code>from flask import Flask\nfrom config import Config\n\n\napp = Flask(__name__)\napp.config.from_object(Config)\n\n\nfrom app import routes\n</code></pre>\n\n<p>This doesn't result in any errors and been running this for the past couple of months, but the only config value that works is my SECRET_KEY(test against old stored values with the same key), when I start the app all I get is:</p>\n\n<pre><code> * Environment: production\n   WARNING: Do not use the development server in a production environment.\n   Use a production WSGI server instead.\n * Debug mode: off\n * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)\n</code></pre>\n"
+  },
+  "53093660": {
+    "tags": [
+      "python",
+      "string",
+      "semicolon"
+    ],
+    "owner": {
+      "reputation": 317,
+      "user_id": 1298833,
+      "user_type": "registered",
+      "accept_rate": 48,
+      "profile_image": "https://www.gravatar.com/avatar/77bcef13f4903d7a438b57d5fd23474a?s=128&d=identicon&r=PG",
+      "display_name": "TJE",
+      "link": "https://stackoverflow.com/users/1298833/tje"
+    },
+    "is_answered": true,
+    "view_count": 26,
+    "accepted_answer_id": 53093744,
+    "answer_count": 2,
+    "score": 2,
+    "last_activity_date": 1541041924,
+    "creation_date": 1541031951,
+    "question_id": 53093660,
+    "link": "https://stackoverflow.com/questions/53093660/how-to-manage-a-problem-reading-a-csv-that-is-a-semicolon-separated-file-where-s",
+    "title": "How to manage a problem reading a csv that is a semicolon-separated file where some strings contain semi-colons?",
+    "body": "<p>The problem I have can be illustrated by showing a couple of sample rows in my csv (semicolon-separated) file, which look like this:</p>\n\n<pre><code>4;1;\"COFFEE; COMPANY\";4\n3;2;SALVATION ARMY;4\n</code></pre>\n\n<p>Notice that in one row, a string is in quotation marks and has a semi-colon inside of it (none of the columns have quotations marks around them in my input file except for the ones containing semicolons).</p>\n\n<p>These rows with the quotation marks and semicolons are causing a problem -- basically, my code apparently is counting the semicolon inside the one thinks that the row with the semicolon inside the string has an extra field/column.</p>\n\n<p>The desired output would look like this, with no quotation marks around \"coffee company\" and no semicolon between 'coffee' and 'company':</p>\n\n<pre><code>4;1;COFFEE COMPANY;4\n3;2;SALVATION ARMY;4\n</code></pre>\n\n<p>Actually, this column with \"coffee company\" is totally useless to me, so the final file could look like this too:</p>\n\n<pre><code>4;1;xxxxxxxxxxx;4\n3;2;xxxxxxxxxxx;4\n</code></pre>\n\n<p>How can I get rid of just the semi-colons inside of this one particular column, but without getting rid of all of the other semi-colons?</p>\n"
+  },
+  "53094331": {
+    "tags": [
+      "pdf-generation",
+      "doc"
+    ],
+    "owner": {
+      "reputation": 1,
+      "user_id": 9683893,
+      "user_type": "registered",
+      "profile_image": "https://graph.facebook.com/1400025356769762/picture?type=large",
+      "display_name": "Hari Krishna KJ",
+      "link": "https://stackoverflow.com/users/9683893/hari-krishna-kj"
+    },
+    "is_answered": false,
+    "view_count": 8,
+    "answer_count": 0,
+    "score": 0,
+    "last_activity_date": 1541038157,
+    "creation_date": 1541038157,
+    "question_id": 53094331,
+    "link": "https://stackoverflow.com/questions/53094331/how-does-certain-doc-file-converted-to-pdf-become-some-random-text",
+    "title": "How does certain doc file converted to pdf become some random text",
+    "body": "<p>When i converted a word file to pdf then the result file looks like a page full of random alphabets .is there some sort of blocking of conversion.how can we remove. It.</p>\n"
+  },
+  "53094696": {
+    "tags": [
+      "apache-kafka",
+      "kafka-consumer-api"
+    ],
+    "owner": {
+      "reputation": 22,
+      "user_id": 9970563,
+      "user_type": "registered",
+      "profile_image": "https://www.gravatar.com/avatar/2cc54163f4aa666ad8889d2cbf4a45b9?s=128&d=identicon&r=PG&f=1",
+      "display_name": "JunRzz",
+      "link": "https://stackoverflow.com/users/9970563/junrzz"
+    },
+    "is_answered": false,
+    "view_count": 15,
+    "answer_count": 0,
+    "score": 0,
+    "last_activity_date": 1541056146,
+    "creation_date": 1541041715,
+    "last_edit_date": 1541056146,
+    "question_id": 53094696,
+    "link": "https://stackoverflow.com/questions/53094696/kafka-consumer-cant-receive-some-messages",
+    "title": "Kafka Consumer Can&#39;t Receive Some Messages",
+    "body": "<p>Recently,I had some problems when using kafka consumer AIPs,and there is my code:</p>\n\n<pre><code>public class ConsumerClientDemo {\n\n    private static final String KAFKA_SERVERS = \"17.162.110.1:9292,17.162.112.1:9293,17.162.114.1:9294\";\n    private static final String GROUP = \"group-admin-test\";\n\n    public static void main(String[] args) {\n        Properties props = new Properties();\n        props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, KAFKA_SERVERS);\n        props.put(ConsumerConfig.GROUP_ID_CONFIG, GROUP);\n        props.put(ConsumerConfig.CLIENT_ID_CONFIG, \"mbGW4rH5\");\n        props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);\n        props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);\n        props.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, \"SASL_PLAINTEXT\");\n        props.put(SaslConfigs.SASL_MECHANISM, \"PLAIN\");\n\n        props.put(SaslConfigs.SASL_JAAS_CONFIG, String.format(\n                PlainLoginModule.class.getName() + \" required username=\\\"%s\\\" \" + \"password=\\\"%s\\\";\",\n                \"admin\",\n                \"admin\"\n        ));\n        final KafkaConsumer&lt;String, String&gt; consumer = new KafkaConsumer&lt;&gt;(props);\n        consumer.subscribe(Collections.singletonList(\"mbGW4rH5\"));\n        final AtomicBoolean isShuttingDown = new AtomicBoolean(false);\n        Runtime.getRuntime().addShutdownHook(new Thread(() -&gt; {\n            isShuttingDown.set(true);\n            synchronized (consumer) {\n                consumer.close();\n            }\n        }));\n        try {\n            while (!isShuttingDown.get()) {\n                ConsumerRecords&lt;String, String&gt; records = consumer.poll(Duration.ofMillis(100));\n                for (ConsumerRecord&lt;String, String&gt; record : records) {\n                        System.out.printf(\"topic=%s, partition=%s, offset = %d, key = %s, value = %s%n\",\n                                record.topic(), record.partition(),record.offset(), record.key(), deviceData.value());\n                    }\n                }\n        } catch (Exception e) {\n            System.exit(1);\n        }\n        System.exit(0);\n    }\n}\n</code></pre>\n\n<p>It didnt have any problems at first,but when successfully received 15 messages,the console printed:</p>\n\n<pre><code>10:42:40:446 INFO [FetchSessionHandler] [Consumer clientId=mbGW4rH5, groupId=group-mbGW4rH5] Node 2 sent an invalid full fetch response with extra=(mbGW4rH5-0, response=(\n10:43:10:499 INFO [FetchSessionHandler] [Consumer clientId=mbGW4rH5, groupId=group-admin-test] Error sending fetch request (sessionId=INVALID, epoch=INITIAL) to node 2: org.apache.kafka.common.errors.TimeoutException: Failed to send request after 30000 ms..\n</code></pre>\n\n<p>and then the client was suspended since then,it couldn't receive any messages,so I turned up DEBUG of the log.and there are the logs:</p>\n\n<pre><code>10:58:11:200 INFO [FetchSessionHandler] [Consumer clientId=mbGW4rH5, groupId=group-mbGW4rH5] Error sending fetch request (sessionId=INVALID, epoch=INITIAL) to node 2: org.apache.kafka.common.errors.TimeoutException: Failed to send request after 30000 ms..\n10:58:11:200 DEBUG [Fetcher] [Consumer clientId=mbGW4rH5, groupId=group-mbGW4rH5] Added READ_UNCOMMITTED fetch request for partition mbGW4rH5-0 at offset 15 to node 17.162.114.1:9294 (id: 2 rack: null)\n10:58:11:200 DEBUG [FetchSessionHandler$Builder] [Consumer clientId=mbGW4rH5, groupId=group-mbGW4rH5] Built full fetch (sessionId=INVALID, epoch=INITIAL) for node 2 with 1 partition(s).\n10:58:11:200 DEBUG [Fetcher] [Consumer clientId=mbGW4rH5, groupId=group-mbGW4rH5] Sending READ_UNCOMMITTED FullFetchRequest(mbGW4rH5-0) to broker 17.162.114.1:9294 (id: 2 rack: null)\n10:58:13:161 DEBUG [AbstractCoordinator] [Consumer clientId=mbGW4rH5, groupId=group-mbGW4rH5] Sending Heartbeat request to coordinator cloud-access.hanclouds.com:9292 (id: 2147483647 rack: null)\n10:58:13:207 DEBUG [AbstractCoordinator$HeartbeatResponseHandler] [Consumer clientId=mbGW4rH5, groupId=group-mbGW4rH5] Received successful Heartbeat response\n10:58:15:113 DEBUG [ConsumerCoordinator] [Consumer clientId=mbGW4rH5, groupId=group-mbGW4rH5] Sending asynchronous auto-commit of offsets {mbGW4rH5-0=OffsetAndMetadata{offset=15, metadata=''}}\n10:58:15:159 DEBUG [ConsumerCoordinator$OffsetCommitResponseHandler] [Consumer clientId=mbGW4rH5, groupId=group-mbGW4rH5] Committed offset 15 for partition mbGW4rH5-0\n10:58:15:159 DEBUG [ConsumerCoordinator$4] [Consumer clientId=mbGW4rH5, groupId=group-mbGW4rH5] Completed asynchronous auto-commit of offsets {mbGW4rH5-0=OffsetAndMetadata{offset=15, metadata=''}}\n10:58:16:162 DEBUG [AbstractCoordinator] [Consumer clientId=mbGW4rH5, groupId=group-mbGW4rH5] Sending Heartbeat request to coordinator 17.162.110.1:9292 (id: 2147483647 rack: null)\n10:58:16:217 DEBUG [AbstractCoordinator$HeartbeatResponseHandler] [Consumer clientId=mbGW4rH5, groupId=group-mbGW4rH5] Received successful Heartbeat response\n10:58:19:162 DEBUG [AbstractCoordinator] [Consumer clientId=mbGW4rH5, groupId=group-mbGW4rH5] Sending Heartbeat request to coordinator 17.162.110.1:9292 (id: 2147483647 rack: null)\n10:58:19:211 DEBUG [AbstractCoordinator$HeartbeatResponseHandler] [Consumer clientId=mbGW4rH5, groupId=group-mbGW4rH5] Received successful Heartbeat response\n10:58:20:114 DEBUG [ConsumerCoordinator] [Consumer clientId=mbGW4rH5, groupId=group-mbGW4rH5] Sending asynchronous auto-commit of offsets {mbGW4rH5-0=OffsetAndMetadata{offset=15, metadata=''}}\n10:58:20:165 DEBUG [ConsumerCoordinator$OffsetCommitResponseHandler] [Consumer clientId=mbGW4rH5, groupId=group-mbGW4rH5] Committed offset 15 for partition mbGW4rH5-0\n10:58:20:165 DEBUG [ConsumerCoordinator$4] [Consumer clientId=mbGW4rH5, groupId=group-mbGW4rH5] Completed asynchronous auto-commit of offsets {mbGW4rH5-0=OffsetAndMetadata{offset=15, metadata=''}}\n10:58:22:163 DEBUG [AbstractCoordinator] [Consumer clientId=mbGW4rH5, groupId=group-mbGW4rH5] Sending Heartbeat request to coordinator 17.162.110.1:9292 (id: 2147483647 rack: null)\n10:58:22:226 DEBUG [AbstractCoordinator$HeartbeatResponseHandler] [Consumer clientId=mbGW4rH5, groupId=group-mbGW4rH5] Received successful Heartbeat response\n</code></pre>\n\n<p>It seemed that the client couldn't receive the offset of 15,So I changed the group,and set the offset to the latest and it worked again.So I want to ask why the offset of 15 can't be received? and how to jump over the offset which cant not be received to avoid the client being hanged? By the way the Kafka version was 2.0.0 and so was the kafka-clients.</p>\n\n<p>Thanks.</p>\n"
+  },
+  "53095844": {
+    "tags": [
+      "charles"
+    ],
+    "owner": {
+      "reputation": 398,
+      "user_id": 1783046,
+      "user_type": "registered",
+      "accept_rate": 50,
+      "profile_image": "https://i.stack.imgur.com/XtVxU.jpg?s=128&g=1",
+      "display_name": "zephor",
+      "link": "https://stackoverflow.com/users/1783046/zephor"
+    },
+    "is_answered": false,
+    "view_count": 6,
+    "answer_count": 0,
+    "score": 0,
+    "last_activity_date": 1541051598,
+    "creation_date": 1541051598,
+    "question_id": 53095844,
+    "link": "https://stackoverflow.com/questions/53095844/why-part-of-https-requests-fail-on-charles-proxy-as-some-https-requests-are-ok",
+    "title": "Why part of https requests fail on Charles Proxy as some https requests are ok?",
+    "body": "<p>I set everything well and some https request did be proxied well, but some are still <code>unknown</code> , is there any new way I don't known to prevent being proxied ?</p>\n"
+  },
+  "53096166": {
+    "tags": [
+      "java",
+      "string",
+      "dynamic-programming"
+    ],
+    "owner": {
+      "reputation": 18,
+      "user_id": 9858820,
+      "user_type": "registered",
+      "profile_image": "https://lh5.googleusercontent.com/-zj74_w9K-Mw/AAAAAAAAAAI/AAAAAAAAAAc/gCjSq9K8T3E/photo.jpg?sz=128",
+      "display_name": "TISHANT CHANDRAKAR",
+      "link": "https://stackoverflow.com/users/9858820/tishant-chandrakar"
+    },
+    "is_answered": false,
+    "view_count": 29,
+    "closed_date": 1541063725,
+    "answer_count": 0,
+    "score": -1,
+    "last_activity_date": 1541063377,
+    "creation_date": 1541053536,
+    "last_edit_date": 1541063377,
+    "question_id": 53096166,
+    "link": "https://stackoverflow.com/questions/53096166/trying-to-optimize-the-palindrome-matrix-but-getting-wrong-answer-for-some-test",
+    "closed_reason": "duplicate",
+    "title": "Trying to optimize the palindrome matrix but getting wrong answer for some test cases?",
+    "body": "<p>I was trying to optimize the palindrome \"ispalindrome\" matrix but its giving wrong answer for this test case : String A = \"jMsT8UCM4x1KaeJ41yHq0qHBJMeFIqyNoXaNIzFtZaOTqXs8PmDpoLC07h41Vw5y0liYY0wzwrYLUve1\". </p>\n\n<p>My code answer = 74;\nexpected answer = 72</p>\n\n<p>But if I manually check for every pair of \"i\" and \"j\" by writing a new \"isPalindrome\" function, it gives correct answer. Where am I doing wrong? Any suggestions are welcome.       </p>\n\n<pre><code>public class Solution {\n    public int minCut(String A) {\n        int len = A.length();\n        int[][] dp = new int[len][len];\n        boolean[][] ispalindrome = new boolean[len][len];\n        for(int i = 0;i&lt;len;i++){\n            ispalindrome[i][i] = true;\n            if(i&lt;len-1 &amp;&amp; A.charAt(i)==A.charAt(i+1)){\n                ispalindrome[i][i+1] = true;\n            }\n        }\n        for(int i = 0;i&lt;len-2;i++){\n            for(int j = i+2;j&lt;len;j++){\n                if(A.charAt(i)==A.charAt(j)){\n                    ispalindrome[i][j] = ispalindrome[i+1][j-1];\n                }\n            }\n        }\n        for(int gap = 0;gap&lt;=len;gap++){\n            for(int i = 0,j=gap;j&lt;len;j++,i++){\n                dp[i][j] = Integer.MAX_VALUE;\n                if(ispalindrome[i][j]){\n                    dp[i][j] = 0;\n                }\n                else{\n                    for(int k = i;k&lt;j;k++){\n                        dp[i][j] = Math.min(dp[i][j],1+dp[i][k]+dp[k+1][j]);\n                    }\n                }\n            }\n        }\n        return dp[0][len-1];\n    }\n}\n</code></pre>\n"
+  },
+  "53096845": {
+    "tags": [
+      "python",
+      "python-3.x",
+      "opengl",
+      "rendering",
+      "pyopengl"
+    ],
+    "owner": {
+      "reputation": 778,
+      "user_id": 972014,
+      "user_type": "registered",
+      "accept_rate": 53,
+      "profile_image": "https://www.gravatar.com/avatar/7c636e5bf05e33414753115bb1d655c3?s=128&d=identicon&r=PG",
+      "display_name": "user972014",
+      "link": "https://stackoverflow.com/users/972014/user972014"
+    },
+    "is_answered": false,
+    "view_count": 21,
+    "answer_count": 2,
+    "score": 1,
+    "last_activity_date": 1541070865,
+    "creation_date": 1541057248,
+    "question_id": 53096845,
+    "link": "https://stackoverflow.com/questions/53096845/pyopengl-update-triangles-array-when-some-of-the-scene-elements-need-to-disapp",
+    "title": "PyOpenGL - update triangles array when some of the scene elements need to disappear",
+    "body": "<p>I have a scene that I need to render quickly. So I successfully generate the vertices of the triangles as numpy, upload to GPU and render it very fast. So far so good.</p>\n\n<p>The problem starts when some of the elements in the scene need to disappear from the scene. What I do is traverse the entire array and filter out the vertices the scene elements that no longer need to be drawn, upload it again to GPU and then render it. This obviously takes a few seconds which is unacceptable. I'm looking for a quick way to modify the array and redraw the scene.</p>\n\n<p>This a simplified version of the code I use: (Would also appreciate any comments about the code itself)</p>\n\n<pre><code>from OpenGL.GL import *\nfrom OpenGL.GLU import *\nimport numpy as np\nimport ctypes\n\nvertex_dtype = [(\"position\", np.float32, 3), (\"color\", np.float32, 4)]\nvertex_array_object = None\nvertex_buffer = None\nshader_program = .......\n\ndef upload_to_gpu(vertices_np):\n    global vertex_array_object, vertex_buffer\n    if vertex_array_object is None:\n        vertex_array_object = glGenVertexArrays(1)\n    if vertex_buffer is None:\n        vertex_buffer = glGenBuffers(1)\n    glBindVertexArray(vertex_array_object)\n    glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer)\n    glBufferData(GL_ARRAY_BUFFER, vertices_np.nbytes, vertices_np, GL_STATIC_DRAW)\n    stride = vertices_np.strides[0]\n    offset = ctypes.c_void_p(0)\n    position_location = glGetAttribLocation(shader_program, 'a_position')\n    glEnableVertexAttribArray(position_location)\n    glVertexAttribPointer(position_location, 3, GL_FLOAT, False, stride, offset)\n\n    offset = ctypes.c_void_p(vertices_np.dtype[\"position\"].itemsize)\n    color_location = glGetAttribLocation(shader_program, \"a_color\")\n    glEnableVertexAttribArray(color_location)\n    glVertexAttribPointer(color_location, 4, GL_FLOAT, False, stride, offset)\n\n    glBindVertexArray(0)\n    glBindBuffer(GL_ARRAY_BUFFER, 0)\n\ndef create_np_array(all_vertices):\n    vertices_np = np.zeros(len(all_vertices), dtype=vertex_dtype)\n    cur_idx = 0\n    for vertex in all_vertices:        \n        if ....should_ignore_triangle....:\n            continue\n        vertices_np[cur_idx][\"position\"] = [vertex[0], vertex[1], vertex[2]]\n        vertices_np[cur_idx][\"color\"] = ......\n        cur_idx += 1\n\n    vertices_np = vertices_np[:cur_idx]\n    return vertices_np\n\ndef draw_scene(vertices_np):\n    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)\n    glUseProgram(shader_program)\n    # Set view and projection matrix    \n    glBindVertexArray(vertex_array_object)\n    glDrawArrays(GL_TRIANGLES, 0, vertices_np.shape[0])\n\ndef main():\n    all_vertices = [[0, 0, 0], [1, 0, 0], [0, 1, 0], ......]   # long list of ~million vertices\n    vertices_np = create_np_array(all_vertices)\n    upload_to_gpu(vertices_np)\n\n    # Now we are ready to start rendering\n    draw_scene(vertices_np) # works fine\n\n    # Now something changes and we need to regenerate the vertices_np and upload it again\n    vertices_np = create_np_array(all_vertices)   # &lt;-- THIS TAKES TOO MUCH TIME\n    upload_to_gpu(vertices_np)\n    draw_scene(vertices_np) # works fine\n</code></pre>\n"
+  },
+  "53096909": {
+    "tags": [
+      "google-maps",
+      "google-maps-api-3",
+      "google-maps-api-2"
+    ],
+    "owner": {
+      "reputation": 1,
+      "user_id": 10172514,
+      "user_type": "registered",
+      "profile_image": "https://lh6.googleusercontent.com/-5tOcOzDXxBI/AAAAAAAAAAI/AAAAAAAAAJs/dd2aecVsty8/photo.jpg?sz=128",
+      "display_name": "Vinay Vini",
+      "link": "https://stackoverflow.com/users/10172514/vinay-vini"
+    },
+    "is_answered": false,
+    "view_count": 13,
+    "answer_count": 0,
+    "score": -1,
+    "last_activity_date": 1541062646,
+    "creation_date": 1541057528,
+    "last_edit_date": 1541062646,
+    "question_id": 53096909,
+    "link": "https://stackoverflow.com/questions/53096909/google-maps-latlng-at-some-distance-on-the-road",
+    "title": "Google Maps: LatLng at some distance on the road",
+    "body": "<p>Can someone please help me with finding LatLng at a distance d(along the road), from a given LatLng.</p>\n\n<p>e.g., Suppose I have LatLng A, I need to find a LatLng(B) at a distance d from A. The distance should be measured along the road, not a displacement. My need here is to divide the road into chunks, where each size is of 256km, and I have to do some operations on each fragment. </p>\n"
+  },
+  "53097610": {
+    "tags": [
+      "reactjs",
+      "react-router-v4"
+    ],
+    "owner": {
+      "reputation": 3,
+      "user_id": 10574713,
+      "user_type": "registered",
+      "profile_image": "https://lh5.googleusercontent.com/-TgofOq14MTg/AAAAAAAAAAI/AAAAAAAAAAA/ABtNlbAh_Hpsts1lEA6k9TMSbwWx7kjU7Q/mo/photo.jpg?sz=128",
+      "display_name": "Akashdeep Samantra",
+      "link": "https://stackoverflow.com/users/10574713/akashdeep-samantra"
+    },
+    "is_answered": true,
+    "view_count": 21,
+    "accepted_answer_id": 53097677,
+    "answer_count": 2,
+    "score": 0,
+    "last_activity_date": 1541065562,
+    "creation_date": 1541061089,
+    "question_id": 53097610,
+    "link": "https://stackoverflow.com/questions/53097610/how-to-hide-nav-bar-in-some-react-components",
+    "title": "How to hide Nav bar in some react components",
+    "body": "<p>I am trying to make a login flow using react. Routes are working as expected. But when I try to introduce nav bar, it is visible on all routes. I want to show nav bar only on selected components (only on profile and home route). </p>\n\n<p>Any suggestions would be appreciated. </p>\n\n<p>This is the Routes.js:\n<div class=\"snippet\" data-lang=\"js\" data-hide=\"false\" data-console=\"true\" data-babel=\"false\">\r\n<div class=\"snippet-code\">\r\n<pre class=\"snippet-code-js lang-js prettyprint-override\"><code>export default class Routes extends Component {\r\n  render() {\r\n    return (\r\n      &lt;Switch&gt;\r\n        &lt;Route\r\n          exact\r\n          path='/*/home'\r\n          component={Home}\r\n        /&gt;\r\n        &lt;Route\r\n          exact\r\n          path='/*/login'\r\n          component={Login}\r\n        /&gt;\r\n        &lt;Route\r\n          exact\r\n          path='/*/profile'\r\n          component={Profile}\r\n        /&gt;\r\n        &lt;Route\r\n          exact\r\n          path='/'\r\n          component={Main}\r\n        /&gt;\r\n        &lt;Route\r\n          exact\r\n          path='/*/'\r\n          component={Org}\r\n        /&gt;\r\n      &lt;/Switch&gt;\r\n    );\r\n  }\r\n}</code></pre>\r\n<pre class=\"snippet-code-html lang-html prettyprint-override\"><code>&lt;script src=\"https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react.min.js\"&gt;&lt;/script&gt;\r\n&lt;script src=\"https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.min.js\"&gt;&lt;/script&gt;</code></pre>\r\n</div>\r\n</div>\r\n</p>\n\n<p>This is the App.js:</p>\n\n<p><div class=\"snippet\" data-lang=\"js\" data-hide=\"false\" data-console=\"true\" data-babel=\"false\">\r\n<div class=\"snippet-code\">\r\n<pre class=\"snippet-code-js lang-js prettyprint-override\"><code>&lt;div className=\"App\"&gt;\r\n  &lt;Nav /&gt;\r\n  &lt;Routes /&gt;\r\n&lt;/div&gt;</code></pre>\r\n</div>\r\n</div>\r\n</p>\n"
+  },
+  "53097629": {
+    "tags": [
+      "javascript",
+      "jquery",
+      "html",
+      "css",
+      "coldfusion"
+    ],
+    "owner": {
+      "reputation": 137,
+      "user_id": 6459412,
+      "user_type": "registered",
+      "profile_image": "https://i.stack.imgur.com/xsEHU.jpg?s=128&g=1",
+      "display_name": "Kannan.P",
+      "link": "https://stackoverflow.com/users/6459412/kannan-p"
+    },
+    "is_answered": false,
+    "view_count": 31,
+    "answer_count": 0,
+    "score": 1,
+    "last_activity_date": 1541068395,
+    "creation_date": 1541061214,
+    "last_edit_date": 1541068395,
+    "question_id": 53097629,
+    "link": "https://stackoverflow.com/questions/53097629/login-form-save-password-data-is-reflect-in-some-other-form-password-type",
+    "title": "Login form save password data is reflect in some other form password type",
+    "body": "<p>I'm facing the issue as \" If I'm saving username and password while login in my browser It's will reflect in some other pages UI those are having password type.</p>\n\n<p>For example, I'm having login.cfm while login with that page I'm saving the authentication details in my browser.  While I'm hitting my stripe.cfm page it's having a login username and password details in stripe username and password form fields. For your reference, I've attached screenshot ( login.PNG &amp; stirpeReflect.png ) about login and stripe form you can see the details.</p>\n\n<p><strong>Login page :</strong>\n<a href=\"https://i.stack.imgur.com/S3IgY.png\" rel=\"nofollow noreferrer\"><img src=\"https://i.stack.imgur.com/S3IgY.png\" alt=\"enter image description here\"></a></p>\n\n<p><strong>Stripe page :</strong> \n<a href=\"https://i.stack.imgur.com/oxdxo.png\" rel=\"nofollow noreferrer\"><img src=\"https://i.stack.imgur.com/oxdxo.png\" alt=\"enter image description here\"></a></p>\n\n<p>Note: I've tried to use autocompleted=\"off\" in login form &amp; stripe form. But it's not helped me to escape from this issue.</p>\n\n<p>I've tested it in both Firefox and Chrome also...</p>\n\n<p>Thanks in advance for your help. </p>\n"
+  },
+  "53097816": {
+    "tags": [
+      "git",
+      "git-submodules"
+    ],
+    "owner": {
+      "reputation": 1770,
+      "user_id": 287238,
+      "user_type": "registered",
+      "accept_rate": 75,
+      "profile_image": "https://www.gravatar.com/avatar/4a2acaa53f994eddb928ea4c9bd45acb?s=128&d=identicon&r=PG",
+      "display_name": "mathtick",
+      "link": "https://stackoverflow.com/users/287238/mathtick"
+    },
+    "is_answered": false,
+    "view_count": 10,
+    "answer_count": 1,
+    "score": 0,
+    "last_activity_date": 1541064532,
+    "creation_date": 1541062065,
+    "question_id": 53097816,
+    "link": "https://stackoverflow.com/questions/53097816/how-to-clone-git-repo-with-many-git-submodules-some-of-which-are-broken-missing",
+    "title": "How to clone git repo with many git submodules, some of which are broken/missing?",
+    "body": "<p>For example,</p>\n\n<pre><code>git clone --depth 1 --recursive https://github.com/gohugoio/hugoThemes.git themes\n</code></pre>\n\n<p>You can try:</p>\n\n<pre><code>git submodule update --init\n</code></pre>\n\n<p>But basically this stops on the first errors. When you don't own the repo, you probably just want to skip the broken or private repos but I don't think git has a skip-errors option yet. A foreach command might solve but haven't discovered yet. </p>\n"
+  },
+  "53098472": {
+    "tags": [
+      "java",
+      "build",
+      "ant"
+    ],
+    "owner": {
+      "reputation": 10,
+      "user_id": 2539361,
+      "user_type": "registered",
+      "profile_image": "https://www.gravatar.com/avatar/f65c0014d9cf1dff122b086b18a97bfb?s=128&d=identicon&r=PG",
+      "display_name": "user2539361",
+      "link": "https://stackoverflow.com/users/2539361/user2539361"
+    },
+    "is_answered": false,
+    "view_count": 11,
+    "answer_count": 0,
+    "score": -1,
+    "last_activity_date": 1541064715,
+    "creation_date": 1541064715,
+    "question_id": 53098472,
+    "link": "https://stackoverflow.com/questions/53098472/execute-some-action-or-target-on-build-failure",
+    "title": "Execute some action or target on build failure",
+    "body": "<p>I have a build with many targets. This build upon initialization time create some temp folders, which i can delete in the end of build. The question is: how to delete this folders, when the build has failed due to some reasons? Is this possible at all?</p>\n\n<p>Thank you!</p>\n"
+  },
+  "53098482": {
+    "tags": [
+      "python",
+      "python-3.x",
+      "ascii"
+    ],
+    "owner": {
+      "reputation": 1,
+      "user_id": 10590256,
+      "user_type": "registered",
+      "profile_image": "https://www.gravatar.com/avatar/a190b0915e3efe5d423c5cdea9c57a36?s=128&d=identicon&r=PG&f=1",
+      "display_name": "j.dough",
+      "link": "https://stackoverflow.com/users/10590256/j-dough"
+    },
+    "is_answered": false,
+    "view_count": 37,
+    "closed_date": 1541064972,
+    "answer_count": 0,
+    "score": -8,
+    "last_activity_date": 1541064757,
+    "creation_date": 1541064757,
+    "question_id": 53098482,
+    "link": "https://stackoverflow.com/questions/53098482/can-some-one-help-me-with-this-but-explain-it-simply-in-python",
+    "closed_reason": "too broad",
+    "title": "Can some one help me with this but explain it simply in python",
+    "body": "<p>Word Subtraction Create a program that takes two strings/words. Then then converts this to an ASCII value and subtracts the values from each other.</p>\n"
+  },
+  "53098731": {
+    "tags": [
+      "python",
+      "opencv",
+      "macos-mojave"
+    ],
+    "owner": {
+      "reputation": 1,
+      "user_id": 10590149,
+      "user_type": "registered",
+      "profile_image": "https://www.gravatar.com/avatar/23c0ce5eca27d2fb50223c162caf25ae?s=128&d=identicon&r=PG&f=1",
+      "display_name": "m3ackie",
+      "link": "https://stackoverflow.com/users/10590149/m3ackie"
+    },
+    "is_answered": false,
+    "view_count": 9,
+    "answer_count": 0,
+    "score": 0,
+    "last_activity_date": 1541073019,
+    "creation_date": 1541065678,
+    "last_edit_date": 1541073019,
+    "question_id": 53098731,
+    "link": "https://stackoverflow.com/questions/53098731/after-upgrading-to-mac-os-mojave-my-script-coded-with-pycharm-got-some-weird-re",
+    "title": "After upgrading to Mac os Mojave, my script coded with Pycharm got some weird result, the demo had imported OPENCV",
+    "body": "<pre><code>import cv2\n\ncap = cv2.VideoCapture('./open.mp4')\n\nwhile True:\n\n    ret, frame = cap.read()\n\n    fps = cap.get(cv2.CAP_PROP_FPS)\n\n    print(repr(fps))\n\n    cv2.imshow('frame', frame)\n\n    if(cv2.waitKey(30) &amp; 0xFF == ord('q')):\n        break\n\n\ncap.release()\n\ncv2.destroyAllWindows()\n</code></pre>\n\n<p>the problem was that the video I opened by OPENCV looked slower than it opened  by QucikTime Player, and i had checked fps, it remains unchanged. i try to change the parameter in waitKey, but useless, when i make the parameter high ,the show will be slower.while i make it lower, the show can't be smooth or faster. what should i do ? maybe system had limited the speed of loading list? by the way, the same code running on Windows10 got the result i expected.</p>\n"
+  },
+  "53099223": {
+    "tags": [
+      "ruby",
+      "pdf",
+      "rspec",
+      "pdf-generation"
+    ],
+    "owner": {
+      "reputation": 851,
+      "user_id": 3676469,
+      "user_type": "registered",
+      "accept_rate": 17,
+      "profile_image": "https://graph.facebook.com/100003443544248/picture?type=large",
+      "display_name": "Hirurg103",
+      "link": "https://stackoverflow.com/users/3676469/hirurg103"
+    },
+    "is_answered": false,
+    "view_count": 11,
+    "answer_count": 0,
+    "score": 1,
+    "last_activity_date": 1541067510,
+    "creation_date": 1541067510,
+    "question_id": 53099223,
+    "link": "https://stackoverflow.com/questions/53099223/how-to-check-that-a-pdf-file-has-some-link-with-ruby-rspec",
+    "title": "How to check that a PDF file has some link with Ruby/Rspec?",
+    "body": "<p>I am using <a href=\"https://github.com/prawnpdf/pdf-inspector\" rel=\"nofollow noreferrer\">prawnpdf/pdf-inspector</a> to test that content of a PDF generated in my Rails app is correct. </p>\n\n<p>I would want to check that the PDF file contains a link with certain URL. I looked at <a href=\"https://github.com/yob/pdf-reader\" rel=\"nofollow noreferrer\">yob/pdf-reader</a> but haven't found any useful information related to this topic</p>\n\n<p>Is it possible to test URLs within PDF with Ruby/RSpec?</p>\n\n<p>I would want the following:</p>\n\n<pre><code>expect(urls_in_pdf(pdf)).to include 'https://example.com/users/1'\n</code></pre>\n"
+  },
+  "53099882": {
+    "tags": [
+      "javascript",
+      "debugging",
+      "operators"
+    ],
+    "owner": {
+      "reputation": 1,
+      "user_id": 10590499,
+      "user_type": "registered",
+      "profile_image": "https://www.gravatar.com/avatar/c58f3c9f66ea6e2d14e5c7d98966513b?s=128&d=identicon&r=PG&f=1",
+      "display_name": "Mika",
+      "link": "https://stackoverflow.com/users/10590499/mika"
+    },
+    "is_answered": false,
+    "view_count": 4,
+    "answer_count": 0,
+    "score": 0,
+    "last_activity_date": 1541069906,
+    "creation_date": 1541069906,
+    "question_id": 53099882,
+    "link": "https://stackoverflow.com/questions/53099882/subtracting-qty-in-js-not-working-only-some-times",
+    "title": "subtracting qty in JS not working only some times",
+    "body": "<p>So i'm new to JS and am working on a project to receive products based on tracking info and then with the UPC code, i get the package contents from a AJAX call to php then add the items to a array in js object format, when a UPC is scanned from a item in the package it should subtract one from the package content, the issue the function i made to subtract only works on some item objects not all and i can't seem to figure out why, there is no differences between the objects, what am i doing wrong</p>\n\n<p>heres my code</p>\n\n<pre><code>//define array\n`var packageContent = [];\n\n//create item objects\nvar Item = function(name, upc, weight, qty) {\n    this.name = name\n    this.upc = upc\n    this.weight = weight\n    this.qty = qty\n}\n\n//with php info add items with the tracking to the package content\nfunction addItemToPackage(name, upc, weight, qty) {\n    for (var i in packageContent) {\n        if (packageContent[i].upc == upc) {\n            packageContent[i].qty += qty;\n            return;\n        }\n    }\n    item = new Item(name, upc, weight, qty);\n    packageContent.push(item);\n}`\n\n//Package Content Lookup\nfunction initialInboundScan(tracking) {\n    //define tracking var\n    var tracking = tracking;\n    //AJAX request to PHP to find items assosiated with tracking #\n    $.ajax({\n    url : \"./includes/process.php\",\n    method : \"post\",\n    data : {inbound_tracking_scan:1,tracking:tracking},\n    success : function(data)\n        {\n        var items = JSON.parse(data);\n        //Loop the respone call addItemToPackage()\n        for(var i in items){\n        addItemToPackage(items[i].product_name, items[i].UPC, items[i].SKU, parseInt(items[i].qty)) \n        } \n        return packageContent;\n        }\n    });\n}\n\n// remove item from package\nfunction remove(upc) {\n    var upc = upc;\n    for (var i in packageContent) {\n        if (packageContent[i].upc == upc) {\n            packageContent[i].qty --;\n        if (packageContent[i].qty == 0) {\n        packageContent.splice(i , 1);   \n        }     \n        }\n    }\n}\n</code></pre>\n\n<p>the remove() function wont work on items made with the initialInboundScan(); only items made directly with the addItemToPackage() and i cant seem to figure out why the remove() function wouldn't subtract from the qty  </p>\n"
+  },
+  "53100205": {
+    "tags": [
+      "javascript",
+      "html",
+      "forms"
+    ],
+    "owner": {
+      "reputation": 1,
+      "user_id": 10588015,
+      "user_type": "registered",
+      "profile_image": "https://lh4.googleusercontent.com/-esrOsQBQBdQ/AAAAAAAAAAI/AAAAAAAAAAA/ABtNlbDGh2wqaaInoz7zcuZ_6HGkHtlfxQ/mo/photo.jpg?sz=128",
+      "display_name": "lflfl flflf",
+      "link": "https://stackoverflow.com/users/10588015/lflfl-flflf"
+    },
+    "is_answered": false,
+    "view_count": 12,
+    "answer_count": 0,
+    "score": 0,
+    "last_activity_date": 1541071041,
+    "creation_date": 1541071041,
+    "question_id": 53100205,
+    "link": "https://stackoverflow.com/questions/53100205/html-google-form-not-works-in-some-mobile",
+    "title": "HTML-Google Form not works in some mobile",
+    "body": "<p>This is weird, I created a link between my test web page and my Google sheet to save emails. With other phones it works fine, but with mine it does not work, I do not know why, it executes the code (I know it because it redirects me to the same page) but the mail is not sent.</p>\n\n<p><div class=\"snippet\" data-lang=\"js\" data-hide=\"false\" data-console=\"true\" data-babel=\"false\">\r\n<div class=\"snippet-code\">\r\n<pre class=\"snippet-code-html lang-html prettyprint-override\"><code>&lt;!DOCTYPE html&gt;\r\n&lt;html&gt;\r\n&lt;head&gt;\r\n&lt;script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js\"&gt;\r\n&lt;/script&gt;\r\n\r\n&lt;script&gt;\r\nfunction postContactToGoogle() {\r\nvar emailAddress=$('#emailAddress').val();\r\n$.ajax({\r\nurl:\"URL OF THE SHEET\",data:{\"entry_459023970\":emailAddress},type:\"POST\",dataType:\"xml\",statusCode: {0:function() { window.location.replace(\"index.html\");},200:function(){window.location.replace(\"index.html\");}}\r\n});\r\n}\r\n&lt;/script&gt;\r\n\r\n&lt;/head&gt;\r\n&lt;body&gt;\r\n&lt;form id=\"formRequest\" action=\"javascript:postContactToGoogle()\"&gt;\r\n\r\n&lt;label for=\"comfort\"&gt;Email&lt;/label&gt;\r\n  &lt;input name=\"emailAddress\" type=\"text\" id=\"emailAddress\"/&gt;\r\n\r\n\r\n&lt;input class=\"button\" type=\"button\" onclick=\"postContactToGoogle()\" value=\"Submit\"&gt;\r\n&lt;/form&gt;\r\n&lt;/body&gt;\r\n&lt;/html&gt;</code></pre>\r\n</div>\r\n</div>\r\n</p>\n"
+  },
+  "53100211": {
+    "tags": [
+      "graph-theory",
+      "business-intelligence"
+    ],
+    "owner": {
+      "reputation": 1,
+      "user_id": 8924475,
+      "user_type": "registered",
+      "profile_image": "https://www.gravatar.com/avatar/0509251099d8c6423d191a507484645b?s=128&d=identicon&r=PG&f=1",
+      "display_name": "ToriTompkins",
+      "link": "https://stackoverflow.com/users/8924475/toritompkins"
+    },
+    "is_answered": false,
+    "view_count": 9,
+    "answer_count": 0,
+    "score": -3,
+    "last_activity_date": 1541071067,
+    "creation_date": 1541071067,
+    "question_id": 53100211,
+    "link": "https://stackoverflow.com/questions/53100211/does-anyone-have-some-great-examples-of-using-graph-theory-network-science-in-th",
+    "title": "Does anyone have some great examples of using graph theory/network science in the field of Business Intelligence?",
+    "body": "<p>A lot of examples for the use of graph theory revolve around either social networks (which I understand are useful for business intelligence) or scientific/biological application. I am exploring the application of graph theory and algorithms on business data. The current applications I have identified are:</p>\n\n<ul>\n<li>Airport connections</li>\n<li>Delivery logistics - like the one eBay implemented</li>\n<li>Co-purchasing networks</li>\n<li>Website navigation</li>\n<li>Bank transfers</li>\n</ul>\n\n<p>Bonus points if you can provide links to studies or companies already using graph theory in this field.</p>\n\n<p>Thanks all!</p>\n"
+  },
+  "53100362": {
+    "tags": [
+      "php",
+      "wordpress",
+      "email",
+      "woocommerce",
+      "hook"
+    ],
+    "owner": {
+      "reputation": 145,
+      "user_id": 4083675,
+      "user_type": "registered",
+      "accept_rate": 80,
+      "profile_image": "https://www.gravatar.com/avatar/92e975abcedfb481ab614d0d9b8da9ed?s=128&d=identicon&r=PG&f=1",
+      "display_name": "J4G",
+      "link": "https://stackoverflow.com/users/4083675/j4g"
+    },
+    "is_answered": false,
+    "view_count": 13,
+    "answer_count": 0,
+    "score": 0,
+    "last_activity_date": 1541073225,
+    "creation_date": 1541071642,
+    "last_edit_date": 1541073225,
+    "question_id": 53100362,
+    "link": "https://stackoverflow.com/questions/53100362/woocommerce-email-templates-how-to-add-some-custom-text-to-a-single-file-that",
+    "title": "WooCommerce email templates - how to add some custom text to a single file that hooks into",
+    "body": "<p>I am making changes to the WooCommerce email templates and need to add some plain html (about the company's return policy, opening hours, etc.) across a number of files.  I don't want to hard code these into every template but would rather use hooks (if that is the right term?)</p>\n\n<p>If I create a new file called informative-text.php in the same folder as the modified email template files how do I add it in to the admin-new-order.php file?</p>\n"
+  },
+  "53100417": {
+    "tags": [
+      "swift"
+    ],
+    "owner": {
+      "reputation": 1,
+      "user_id": 10590734,
+      "user_type": "registered",
+      "profile_image": "https://www.gravatar.com/avatar/e7963f12289040255cdf87502b7fffea?s=128&d=identicon&r=PG&f=1",
+      "display_name": "bobby_anthrax",
+      "link": "https://stackoverflow.com/users/10590734/bobby-anthrax"
+    },
+    "is_answered": false,
+    "view_count": 27,
+    "closed_date": 1541072442,
+    "answer_count": 1,
+    "score": -9,
+    "last_activity_date": 1541072331,
+    "creation_date": 1541071885,
+    "question_id": 53100417,
+    "link": "https://stackoverflow.com/questions/53100417/beginner-with-swift-enlight-me-some-stuff-please",
+    "closed_reason": "too broad",
+    "title": "Beginner with Swift, enlight me some stuff please",
+    "body": "<p>I’m a new here, just started learning some Swift and i have some amateur questions, because to be honest I don’t understand so many stuff. \nOk, so could you please tell me how really programming works, I mean when i read the documentations i get it, but all i see there is some mathematical stuff which i’m not really sure how it works irl when building stuff. \nCan i see the source code of an famous app or something that can actually show me what’s happening in a program, because hey, i’m reading all day about variables and constants and other stuff which i am not really sure how can i apply. So yeah, my main question is, help me understand how something is build and works, because currently all i can is to print “hello world”... btw, im not a computer newbie, just the programming that don’t really get...\nBtw, is Swift a nice language to start with? I choose it, because it looks kind of fun and intuitive without writing too much cr*p. </p>\n"
+  },
+  "53100594": {
+    "tags": [
+      "python"
+    ],
+    "owner": {
+      "reputation": 1,
+      "user_id": 10590758,
+      "user_type": "registered",
+      "profile_image": "https://www.gravatar.com/avatar/b85e7556ac73d2c36dd767654bc9806a?s=128&d=identicon&r=PG&f=1",
+      "display_name": "Sander",
+      "link": "https://stackoverflow.com/users/10590758/sander"
+    },
+    "is_answered": false,
+    "view_count": 22,
+    "answer_count": 0,
+    "score": -3,
+    "last_activity_date": 1541072514,
+    "creation_date": 1541072514,
+    "question_id": 53100594,
+    "link": "https://stackoverflow.com/questions/53100594/filename-read-and-filename-writesome-text-wont-work",
+    "title": "&lt;filename&gt;.read() and &lt;filename&gt;.write(&#39;some text&#39;) won&#39;t work",
+    "body": "<p>I have just started learning python using Atom and version 3.7. \nI can't get the read and write functions to work. \ni have created \"testfile.txt\" typed in a single sentence. \nand i'm trying to read it using this code in atom\nsaved as \"scriptname.py\" in the same folder as testfile.txt</p>\n\n<pre><code>path = '/Users/default/documents/python/testfile.txt'\nthefile = open(path,'r')\nthefile.read()\n</code></pre>\n\n<p>I'm running the script in Command prompt (win 10). by running : \nC:\\Users\\default\\documents\\python\\scriptname.py</p>\n"
+  },
+  "53100713": {
+    "tags": [
+      "arrays",
+      "json",
+      "lua"
+    ],
+    "owner": {
+      "reputation": 6,
+      "user_id": 10311181,
+      "user_type": "registered",
+      "profile_image": "https://www.gravatar.com/avatar/b279b18f90255d6cc2988be4fcf26433?s=128&d=identicon&r=PG&f=1",
+      "display_name": "user308204",
+      "link": "https://stackoverflow.com/users/10311181/user308204"
+    },
+    "is_answered": false,
+    "view_count": 7,
+    "answer_count": 0,
+    "score": 0,
+    "last_activity_date": 1541072936,
+    "creation_date": 1541072936,
+    "question_id": 53100713,
+    "link": "https://stackoverflow.com/questions/53100713/how-to-write-some-lua-tables-in-one-json-field",
+    "title": "How to write some Lua tables in one JSON-field?",
+    "body": "<p>I have main Lua-table which contains some subtables, for example:</p>\n\n<pre><code>p = { {1,2}, {3,4}}\n</code></pre>\n\n<p>I need to go through these tables and write the result to the JSON-file as follows:</p>\n\n<pre><code>    {\n      \"numbers\":[\n{\n        \"my\" :[\n        { \"n1\" = 1,\n          \"n2\" = 2\n        },\n        { \"n1\" = 3,\n          \"n2\" = 4\n        }\n    ]\n}\n]\n}\n</code></pre>\n\n<p>My code(doesn't work) :</p>\n\n<pre><code>json = require('json')\nlocal res = {}\nlocal p = { {1,2}, {3,4} }\nfor i = 1, #p do\n  table.insert(res, { my = {\n    n1 = p[i][1],\n    n2 = p[i][2]\n}})\nend\njson.encode({numbers = res})\n</code></pre>\n\n<p>At the exit, I have about the following :</p>\n\n<pre><code>    {\n      \"numbers\":[\n     {\n      \"my\":{\n        { \"n1\" = 1,\n          \"n2\" = 2\n        }\n    },\n      \"my\":{\n        { \"n1\" = 3,\n          \"n2\" = 4\n        }\n    }\n}\n]\n    }\n</code></pre>\n\n<p>Help me please!</p>\n"
+  }
+}

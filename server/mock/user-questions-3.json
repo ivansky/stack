@@ -1,0 +1,248 @@
+{
+  "items": [
+    {
+      "tags": [
+        "gwt",
+        "tomcat",
+        "https"
+      ],
+      "owner": {
+        "reputation": 5490,
+        "user_id": 10592,
+        "user_type": "registered",
+        "accept_rate": 79,
+        "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+        "display_name": "Tim Cooper",
+        "link": "https://stackoverflow.com/users/10592/tim-cooper"
+      },
+      "is_answered": true,
+      "view_count": 647,
+      "accepted_answer_id": 18091838,
+      "answer_count": 1,
+      "score": 1,
+      "last_activity_date": 1375829351,
+      "creation_date": 1375147188,
+      "last_edit_date": 1375573167,
+      "question_id": 17936866,
+      "link": "https://stackoverflow.com/questions/17936866/tomcat-6-https-times-out-but-http-works-maybe-gwt-issue",
+      "title": "Tomcat 6: HTTPS times out but HTTP works (Maybe GWT issue?)",
+      "body": "<p>We have a Linux server running tomcat6  (6.0.36).  We have a GWT-based web-app.  It has been running fine for 2 years, until twice in 5 days it developed a problem:  HTTPS ceased to work even though HTTP works fine.  Both times, a simple restart solved the problem.  </p>\n\n<ul>\n<li>The certificates are not close to expiry and indeed are fine after the restart</li>\n<li>There was no significant load on the server at the time of the fault, CPU and %MEM were fine</li>\n<li>HTTP responds instantly</li>\n<li>HTTPS just times out without giving us any clues</li>\n<li>There's nothing in the 'catalina.out' file but there are SocketTimeoutException's in the localhost.*log file, see below</li>\n<li>A thread dump (kill -3) shows nothing out of the ordinary</li>\n</ul>\n\n<p>Any ideas, anyone?</p>\n\n<pre><code>SEVERE: Exception while dispatching incoming RPC call\njava.net.SocketTimeoutException\n    at org.apache.coyote.http11.InternalAprInputBuffer.fill(InternalAprInputBuffer.java:796)\n    at org.apache.coyote.http11.InternalAprInputBuffer$SocketInputBuffer.doRead(InternalAprInputBuffer.java:830)\n    at org.apache.coyote.http11.filters.IdentityInputFilter.doRead(IdentityInputFilter.java:116)\n    at org.apache.coyote.http11.InternalAprInputBuffer.doRead(InternalAprInputBuffer.java:738)\n    at org.apache.coyote.Request.doRead(Request.java:427)\n    at org.apache.catalina.connector.InputBuffer.realReadBytes(InputBuffer.java:304)\n    at org.apache.tomcat.util.buf.ByteChunk.substract(ByteChunk.java:419)\n    at org.apache.catalina.connector.InputBuffer.read(InputBuffer.java:327)\n    at org.apache.catalina.connector.CoyoteInputStream.read(CoyoteInputStream.java:162)\n    at com.google.gwt.user.server.rpc.RPCServletUtils.readContent(RPCServletUtils.java:222)\n    at com.google.gwt.user.server.rpc.RPCServletUtils.readContentAsGwtRpc(RPCServletUtils.java:250)\n    at com.google.gwt.user.server.rpc.AbstractRemoteServiceServlet.readContent(AbstractRemoteServiceServlet.java:182)\n    at com.google.gwt.user.server.rpc.RemoteServiceServlet.processPost(RemoteServiceServlet.java:239)\n    at com.google.gwt.user.server.rpc.AbstractRemoteServiceServlet.doPost(AbstractRemoteServiceServlet.java:62)\n    at javax.servlet.http.HttpServlet.service(HttpServlet.java:637)\n    at javax.servlet.http.HttpServlet.service(HttpServlet.java:717)\n    at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)\n    at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)\n    at au.com.edval.timetable.server.filter.LoginFilter.doFilter(LoginFilter.java:27)\n    at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)\n    at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)\n    at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)\n    at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)\n    at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:127)\n    at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:103)\n    at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:615)\n    at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)\n    at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:293)\n    at org.apache.coyote.http11.Http11AprProcessor.process(Http11AprProcessor.java:879)\n    at org.apache.coyote.http11.Http11AprProtocol$Http11ConnectionHandler.process(Http11AprProtocol.java:600)\n    at org.apache.tomcat.util.net.AprEndpoint$Worker.run(AprEndpoint.java:1703)\n    at java.lang.Thread.run(Thread.java:679)\nJul 30, 2013 10:27:31 AM org.apache.catalina.core.ApplicationContext log\n</code></pre>\n\n<p>Note that a couple of years ago I had a similar problem - HTTPS was working but was very slow.  It turns out there was a configuration option that says that HTTPS should do reverse DNS lookups on each page request.  And this naturally slowed everything down heaps. But this is still disabled now so it can't be the cause, I don't think.</p>\n"
+    },
+    {
+      "tags": [
+        "c++",
+        "windows",
+        "stack-trace"
+      ],
+      "owner": {
+        "reputation": 5490,
+        "user_id": 10592,
+        "user_type": "registered",
+        "accept_rate": 79,
+        "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+        "display_name": "Tim Cooper",
+        "link": "https://stackoverflow.com/users/10592/tim-cooper"
+      },
+      "is_answered": true,
+      "view_count": 298,
+      "accepted_answer_id": 28892952,
+      "answer_count": 1,
+      "score": 1,
+      "last_activity_date": 1425620327,
+      "creation_date": 1424408369,
+      "last_edit_date": 1495540250,
+      "question_id": 28621905,
+      "link": "https://stackoverflow.com/questions/28621905/dumping-a-stack-trace-from-c-windows-fails-to-find-symbols",
+      "title": "Dumping a stack trace from C++ (Windows) - fails to find symbols",
+      "body": "<p>I'm a developer of Windows desktop software, and from time to time our app crashes.  In rare cases I'd like to get a customer to run a debug version of the app to send me a stack trace so I know where it crashed.  I followed the instructions in here:</p>\n\n<p><a href=\"https://stackoverflow.com/questions/6205981/windows-c-stack-trace-from-a-running-app/28276227\">Windows C++ stack trace from a running app</a></p>\n\n<p>...but while it works on my development machine, it doesn't work on any client machine or those of my colleagues, who don't have Visual Studio installed.  So I presume that there's some .dll or something they need before it'll work. They're using the same .exe I'm using, i.e. the one I compiled in VC++ in debug mode.</p>\n\n<p>After some painstaking \"message window\" debugging, I learnt it's failing in SymGetSymFromAddr64() - this returns FALSE. But when I walk the stack, this always returns FALSE or it returns garbage that doesn't make sense (random unrelated method names), as if it's the PC values which are invalid, not the mapping process.  To reiterate, it's a debug mode .exe that produces a perfect symbolic stack trace on my development machine. </p>\n\n<p>I did some research and found some mentions of \"dbghelp.dll\" and \"imagehlp.dll\" but I just ended up confused.  \"dbghelp.dll\" ships with all versions of Windows, but with reduced functionality. There's some other things I could install, but it's a little scary to be installing some Windows \"WDK\" or \"debug kits\" which might overwrite important system .dll's or do god-knows-what to your computer.</p>\n\n<p>So what I need to know is:  \"what's the simplest set of instructions I can give to these helper customers e.g. the minimum set of .dll's and where to stick them so that we can get proper symbolic information out of the stack traces when our program crashes?\"</p>\n"
+    },
+    {
+      "tags": [
+        "bing-maps"
+      ],
+      "owner": {
+        "reputation": 5490,
+        "user_id": 10592,
+        "user_type": "registered",
+        "accept_rate": 79,
+        "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+        "display_name": "Tim Cooper",
+        "link": "https://stackoverflow.com/users/10592/tim-cooper"
+      },
+      "is_answered": true,
+      "view_count": 333,
+      "accepted_answer_id": 29380751,
+      "answer_count": 3,
+      "score": 1,
+      "last_activity_date": 1427930936,
+      "creation_date": 1427240789,
+      "question_id": 29244995,
+      "link": "https://stackoverflow.com/questions/29244995/bing-maps-transit-api-am-i-formatting-the-query-datetime-incorrectly-or-parsing",
+      "title": "Bing Maps transit API: Am I formatting the query datetime incorrectly or parsing output datetime incorrectly?",
+      "body": "<p>I'm failing to get the Bing Maps API working.  I'm inputting a query \"How do I get from Annandale to Eastwood (Sydney) using public transport?\" and getting results that have completely different times to what I queried.</p>\n\n<p>The API is documented here:</p>\n\n<p><a href=\"https://msdn.microsoft.com/en-us/library/ff701717.aspx\" rel=\"nofollow\">https://msdn.microsoft.com/en-us/library/ff701717.aspx</a></p>\n\n<p>and here:</p>\n\n<p><a href=\"https://msdn.microsoft.com/en-us/library/ff701718.aspx\" rel=\"nofollow\">https://msdn.microsoft.com/en-us/library/ff701718.aspx</a></p>\n\n<p>The documentation fails to specify what date format the responses are in, but I presume this is correct:</p>\n\n<p><a href=\"http://weblogs.asp.net/bleroy/dates-and-json\" rel=\"nofollow\">http://weblogs.asp.net/bleroy/dates-and-json</a></p>\n\n<p>So here's my query:\n<a href=\"http://dev.virtualearth.net/REST/V1/Routes/Transit?wp.0=-33.886620,151.171720&amp;wp.1=-33.785780,151.075740&amp;timeType=Departure&amp;dateTime=11:43:00&amp;maxSolns=3&amp;output=json&amp;key=(redacted)\" rel=\"nofollow\">http://dev.virtualearth.net/REST/V1/Routes/Transit?wp.0=-33.886620,151.171720&amp;wp.1=-33.785780,151.075740&amp;timeType=Departure&amp;dateTime=11:43:00&amp;maxSolns=3&amp;output=json&amp;key=(redacted)</a></p>\n\n<p>Note that I redacted our API key, for obvious reasons.  </p>\n\n<p>Note that I'm requesting a bus at 11:43am.  I've tried this in conjunction with a date and without a date, it makes no difference.</p>\n\n<p>I get a response which looks quite valid at first glance, but it's giving me times like this:\n\"time\":\"/Date(1427222880000-0700)/\"</p>\n\n<p>...which would be reasonable if my query time was 5:43, but it's not. That date format clearly indicates \"milliseconds since 1970, UTC\" (in desperation I tried adding &amp; subtracting 7 hrs, but got nothing meaningful). The documentation clearly says my time of 11:43 should be specified in the local timezone, i.e. just as \"11:43\".  </p>\n\n<p>Proceeding on the assumption that the Bing documentation is wrong or that the implementation is wrong, I tried arbitrarily adding 6 hrs or subtracting 18 hrs from my query time (that necessitated adding the date into the URL), but I got nothing that made sense.  I can't get any correspondence between my API results and the public Bing browser app.</p>\n\n<p>I couldn't find out who to ask from Microsoft either.</p>\n\n<p>Any ideas?</p>\n"
+    },
+    {
+      "tags": [
+        "email",
+        "sms"
+      ],
+      "owner": {
+        "reputation": 5490,
+        "user_id": 10592,
+        "user_type": "registered",
+        "accept_rate": 79,
+        "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+        "display_name": "Tim Cooper",
+        "link": "https://stackoverflow.com/users/10592/tim-cooper"
+      },
+      "is_answered": false,
+      "view_count": 81,
+      "answer_count": 1,
+      "score": 0,
+      "last_activity_date": 1345296562,
+      "creation_date": 1335800542,
+      "question_id": 10386454,
+      "link": "https://stackoverflow.com/questions/10386454/best-practice-for-handling-sms-email-convergence",
+      "title": "Best practice for handling SMS/email convergence",
+      "body": "<p>I'm writing a school administration software package, but it strikes me that many developers will face this same issue: when communicating with users, should you use email or SMS or try to combine them?</p>\n\n<p>A previous version of this question was closed for being too subjective. The answers will be somewhat subjective but I do think this is a good question, topical and not yet debated widely.  I'll try to narrow it down as much as I can:</p>\n\n<ol>\n<li>Is it feasible to give users the choice of email versus SMS, and have the same business logic apply to both, with the help of a long form and short form message template?</li>\n<li>Do users get annoyed when receiving the same message over SMS and email?</li>\n<li>Is it common to present administrators with a single report listing message delivery failures combining both SMS and email?</li>\n<li>Are there significant numbers of users who prefer to be contacted via facebook rather than SMS or email?</li>\n<li>Is there a best practice for all this stuff?</li>\n<li>Is there a place on the web where this stuff has been debated?</li>\n<li>Are there any reputable commentators who have made predictions about the future of all this stuff?</li>\n</ol>\n\n<p>I'm particularly interested in hearing from developers who have already grappled with these questions.</p>\n"
+    },
+    {
+      "tags": [
+        "google-maps",
+        "google-places-api"
+      ],
+      "owner": {
+        "reputation": 5490,
+        "user_id": 10592,
+        "user_type": "registered",
+        "accept_rate": 79,
+        "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+        "display_name": "Tim Cooper",
+        "link": "https://stackoverflow.com/users/10592/tim-cooper"
+      },
+      "is_answered": true,
+      "view_count": 1079,
+      "accepted_answer_id": 11382759,
+      "answer_count": 2,
+      "score": 0,
+      "last_activity_date": 1341797486,
+      "creation_date": 1341544981,
+      "question_id": 11355393,
+      "link": "https://stackoverflow.com/questions/11355393/google-maps-gives-results-not-returned-by-google-places-api-or-google-maps-api",
+      "title": "google maps gives results not returned by google places API or google maps API",
+      "body": "<p>I'm trying to find the lat/long of the Sydney Opera House using either the Google maps API or the Google Places API.  But neither return anything like it, despite the fact that Google Maps from the browser instantly finds the correct result.</p>\n\n<p>I'm using these URL's:</p>\n\n<p><a href=\"http://maps.googleapis.com/maps/api/geocode/json?sensor=false&amp;bounds=-28.729,153.984|-36.102,142.470&amp;address=OPERA%20HOUSE\" rel=\"nofollow\">http://maps.googleapis.com/maps/api/geocode/json?sensor=false&amp;bounds=-28.729,153.984|-36.102,142.470&amp;address=OPERA%20HOUSE</a></p>\n\n<p>and </p>\n\n<p><a href=\"https://maps.googleapis.com/maps/api/place/search/json?location=-33.9179,151.2333&amp;radius=5000&amp;sensor=false&amp;name=opera%20house&amp;key=\" rel=\"nofollow\">https://maps.googleapis.com/maps/api/place/search/json?location=-33.9179,151.2333&amp;radius=5000&amp;sensor=false&amp;name=opera%20house&amp;key=</a>{secret}</p>\n\n<p>Google Maps API returns 3 places in China &amp; USA, and Google Places API returns \"ZERO_RESULTS\". You'll excuse me for not including my Google Places key.  The lat/long are for central Sydney.  </p>\n\n<p>Am I doing something wrong, or does Google Maps use a private database which is more complete than the database the API's use?</p>\n"
+    },
+    {
+      "tags": [
+        "c++",
+        "url-encoding",
+        "wininet"
+      ],
+      "owner": {
+        "reputation": 5490,
+        "user_id": 10592,
+        "user_type": "registered",
+        "accept_rate": 79,
+        "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+        "display_name": "Tim Cooper",
+        "link": "https://stackoverflow.com/users/10592/tim-cooper"
+      },
+      "is_answered": false,
+      "view_count": 49,
+      "answer_count": 1,
+      "score": 0,
+      "last_activity_date": 1502984416,
+      "creation_date": 1502422457,
+      "last_edit_date": 1502422953,
+      "question_id": 45626556,
+      "link": "https://stackoverflow.com/questions/45626556/what-characters-are-automatically-url-escaped-by-c-windows-httpopenrequest",
+      "title": "What characters are automatically url-escaped by C++ Windows HttpOpenRequest()?",
+      "body": "<p>I'm using Visual Studio 2015 on Windows, C++ and Win32.  I have a URL which contains spaces and other unsafe characters.  If I paste the un-escaped URL into Postman, Postman correctly escapes them and the request works.  But if I put the un-escaped URL into HttpOpenRequest(), some characters but not all are escaped as detected in the receiving system.</p>\n\n<p>Original:\n    <a href=\"https://nsw.redacted.com/ScheduledActivitys;zoneId=urn:www.dec.nsw.gov.au:school:8481;contextId=current?where=[(//ScheduledActivitys/ScheduledActivity/ActivityDate\" rel=\"nofollow noreferrer\">https://nsw.redacted.com/ScheduledActivitys;zoneId=urn:www.dec.nsw.gov.au:school:8481;contextId=current?where=[(//ScheduledActivitys/ScheduledActivity/ActivityDate</a>>=\"2017-08-11\") and (//ScheduledActivitys/ScheduledActivity/ActivityDate&lt;=\"2017-08-11\")]</p>\n\n<p>Postman:  <a href=\"https://nsw.redacted.com/ScheduledActivitys;zoneId=urn:www.dec.nsw.gov.au:school:8481;contextId=current?where=[(//ScheduledActivitys/ScheduledActivity/ActivityDate%3E=%222017-08-10%22)%20and%20(//ScheduledActivitys/ScheduledActivity/ActivityDate%3C=%222017-08-10%22)]\" rel=\"nofollow noreferrer\">https://nsw.redacted.com/ScheduledActivitys;zoneId=urn:www.dec.nsw.gov.au:school:8481;contextId=current?where=[(//ScheduledActivitys/ScheduledActivity/ActivityDate%3E=%222017-08-10%22)%20and%20(//ScheduledActivitys/ScheduledActivity/ActivityDate%3C=%222017-08-10%22)]</a></p>\n\n<p>Wininet:<br>\n  <a href=\"https://nsw.redacted.com/ScheduledActivitys;zoneId=urn:www.dec.nsw.gov.au:school:8481;contextId=current?where=[(//ScheduledActivitys/ScheduledActivity/ActivityDate\" rel=\"nofollow noreferrer\">https://nsw.redacted.com/ScheduledActivitys;zoneId=urn:www.dec.nsw.gov.au:school:8481;contextId=current?where=[(//ScheduledActivitys/ScheduledActivity/ActivityDate</a>>=\"2017-08-11\")%20and%20(//ScheduledActivitys/ScheduledActivity/ActivityDate&lt;=\"2017-08-11\")]</p>\n\n<p>So my question is: what am I supposed to do - escape the characters myself, or rely on the Win32 library to escape them, or try to work around an incomplete implementation in the Win32 Wininet library?  Is there a danger it'll be URL-encoded twice?  And in other reading it looks like you're not  supposed to escape the \"query\" part of a URL (the piece after the '?') - is that advice not correct?  (And what characters are escaped and why do Microsoft escape some and not others?)</p>\n"
+    },
+    {
+      "tags": [
+        "android",
+        "multithreading",
+        "camera"
+      ],
+      "owner": {
+        "reputation": 5490,
+        "user_id": 10592,
+        "user_type": "registered",
+        "accept_rate": 79,
+        "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+        "display_name": "Tim Cooper",
+        "link": "https://stackoverflow.com/users/10592/tim-cooper"
+      },
+      "is_answered": true,
+      "view_count": 73,
+      "accepted_answer_id": 48747901,
+      "answer_count": 1,
+      "score": 0,
+      "last_activity_date": 1518442919,
+      "creation_date": 1518442678,
+      "question_id": 48747828,
+      "link": "https://stackoverflow.com/questions/48747828/android-camera-classic-api-writing-a-blocking-synchronous-takepicture",
+      "title": "android camera classic API: writing a blocking (synchronous) &#39;takePicture()&#39;",
+      "body": "<p>I'm writing an Android app and I need to take photos.  I got it mostly working very quickly using the standard tutorial.  But I need to write a blocking version of \"takePicture()\".  I've trying reworking my design so that everything is done asynchronously, but the code just ends up as spaghetti code because so many tasks are dependent on the previous task completing.  And I had expected that taking a photo would take less than a second.  So I think it's a reasonable goal to have a blocking (synchronous) \"takePicture()\".</p>\n\n<p>So I created a camera in the UI thread (I'm an Android newbie but I presume that 'onCreate()' et al are called in the UI thread).  I also open the camera and release it in the UI thread.  I also call \"takePicture()\" in the UI thread.  I tried polling for a \"volatile byte[] jpeg;\" field to become non-null, with a \"while (jpeg != null) sleep(1000);\" but it never gets assigned.  To my surprise, my callback doesn't get called until I pass out of the \"onClick()\" function - 'takePicture()' doesn't seem to trigger anything, it merely queues something, as far as I can figure out.</p>\n\n<p>My next attempt involved doing all the camera work (open, takePicture, release) in a \"ExecutorService.newSingleThreadExecutor()\" but that was also unsuccessful.  Even when I did it this way (see below), the callback wasn't called until the app finished the 'onClick()'.</p>\n\n<pre><code>public byte[] takePhoto()\n{\n    if (camera == null)\n        return null;\n    cameraThreadService.submit(new Runnable() {\n        @Override\n        public void run() {\n            Camera.PictureCallback mPicture = new Camera.PictureCallback() {\n\n                @Override\n                public void onPictureTaken(byte[] data, Camera camera) {\n                    jpeg = data;\n                }\n            };\n            camera.takePicture(null, null, mPicture);\n        }\n    });\n    int n = 0;\n    while (jpeg == null) {\n        sleep(1000);\n        if (n++ &gt; 5)\n            break;\n    }\n    return jpeg;\n}\n</code></pre>\n\n<p>Can anyone tell me how to write a blocking (synchronous) 'camera.takePicture()'?</p>\n"
+    },
+    {
+      "tags": [
+        "android",
+        "android-camera",
+        "jpeg",
+        "orientation"
+      ],
+      "owner": {
+        "reputation": 5490,
+        "user_id": 10592,
+        "user_type": "registered",
+        "accept_rate": 79,
+        "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+        "display_name": "Tim Cooper",
+        "link": "https://stackoverflow.com/users/10592/tim-cooper"
+      },
+      "is_answered": false,
+      "view_count": 76,
+      "answer_count": 0,
+      "score": 0,
+      "last_activity_date": 1527226979,
+      "creation_date": 1527054128,
+      "last_edit_date": 1527226979,
+      "question_id": 50480597,
+      "link": "https://stackoverflow.com/questions/50480597/exifinterface-returns-wrong-orientation-because-it-stores-multiple-conflicting",
+      "title": "ExifInterface returns wrong orientation (because it stores multiple conflicting attributes)",
+      "body": "<p>I'm writing an Android app which pulls photos from the gallery.  I discovered that some photos, e.g. a panorama taken in a left direction by a Galaxy S7, are output by the built-in camera app as a \"non-normalised jpeg\" file, meaning that the image is upside down (or even vertical for a landscape panorama on a Galaxy S5), but it contains instructions in the EXIF data that the viewer should fix it up.</p>\n\n<p>So I read up on ExifInterface and I implemented code to normalise the images:</p>\n\n<pre><code>                ExifInterface exif = new ExifInterface(file.toString());\n                int orig = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, -1);\n                if (orig != -1 &amp;&amp; orig != ExifInterface.ORIENTATION_NORMAL) {\n                    orientation = orig;\n                    exif.setAttribute(ExifInterface.TAG_ORIENTATION, String.valueOf(ExifInterface.ORIENTATION_NORMAL));\n                    exif.saveAttributes();\n                }\n</code></pre>\n\n<p>...</p>\n\n<pre><code>        Matrix matrix = null;\n        if (orientation != ExifInterface.ORIENTATION_NORMAL) {\n            matrix = new Matrix();\n            switch (orientation) {\n                case ExifInterface.ORIENTATION_ROTATE_90:   matrix.postRotate(90); break;\n                case ExifInterface.ORIENTATION_ROTATE_180:  matrix.postRotate(180); break;\n                case ExifInterface.ORIENTATION_ROTATE_270:  matrix.postRotate(-90); break;\n            }\n        }\n</code></pre>\n\n<p>...\netc</p>\n\n<p>However, on a Galaxy S7, my code fails to work.  After some debugging and delving into system source-code, I discovered that the ExifInterface object stores multiple conflicting values for the \"Orientation\" attribute, and it was returning the wrong one.  The correct value (i.e. 3) is stored in exif.mAttributes[4] (does this correspond to IFD_THUMBNAIL_TAGS group?) and the incorrect value (i.e. 1) is stored in exif.mAttributes[0] (does this correspond to IFD_TIFF_TAGS?).  So 'exif' reported that it's ORIENTATION_NORMAL but the image loads upside-down, and my matrix code is not called.</p>\n\n<p>What is the recommended solution, or any solution to this problem?</p>\n"
+    },
+    {
+      "tags": [
+        "html5",
+        "canvas",
+        "coords"
+      ],
+      "owner": {
+        "reputation": 5490,
+        "user_id": 10592,
+        "user_type": "registered",
+        "accept_rate": 79,
+        "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+        "display_name": "Tim Cooper",
+        "link": "https://stackoverflow.com/users/10592/tim-cooper"
+      },
+      "is_answered": false,
+      "view_count": 16,
+      "answer_count": 1,
+      "score": 0,
+      "last_activity_date": 1534376803,
+      "creation_date": 1534226282,
+      "last_edit_date": 1534376803,
+      "question_id": 51834577,
+      "link": "https://stackoverflow.com/questions/51834577/html5-canvas-how-do-i-query-or-modify-the-underlying-bitmap-dimensions-as-oppos",
+      "title": "HTML5 canvas: how do I query or modify the underlying bitmap dimensions as opposed to the DOM element dimensions?",
+      "body": "<p>I'm using an HTML5 canvas element:</p>\n\n<pre><code>&lt;style&gt;\n    #myCanvas {\n        width: 100%;\n        height: 100%;\n        object-fit: contain;\n    }\n&lt;/style&gt;\n\n &lt;canvas id=\"myCanvas\" ontouchstart=\"...\" /&gt;\n</code></pre>\n\n<p>I understand that there is an underlying bitmap, and then there is a DOM element that this bitmap is boxed in, and the 2 objects have different dimensions, so e.g. the bitmap is scaled/squished to fit into the DOM element.  It would be easier for me to understand if the bitmap dimensions always equalled the DOM element dimensions, but that's not how it works.</p>\n\n<p>How do I query the respective dimensions? \nHow do I set the respective dimensions?\nHow do I see the 2 sets of dimensions in the Chrome developer tool?\nHow do I keep the 2 sets of dimensions in sync?</p>\n\n<p>This is important because mouse-clicks and finger touches are delivered in DOM coords but we'd usually need to interpret them in canvas coords.</p>\n\n<p>(And a related question:  have I done it correctly, to set the DOM element to expand to the maximum dimensions allowed by the parent?).</p>\n"
+    }
+  ],
+  "has_more": false,
+  "quota_max": 10000,
+  "quota_remaining": 9646
+}

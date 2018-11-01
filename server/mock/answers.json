@@ -1,0 +1,78 @@
+{
+  "items": [
+    {
+      "owner": {
+        "reputation": 13,
+        "user_id": 8376837,
+        "user_type": "registered",
+        "profile_image": "https://i.stack.imgur.com/i6BrC.jpg?s=128&g=1",
+        "display_name": "sunil chayagol",
+        "link": "https://stackoverflow.com/users/8376837/sunil-chayagol"
+      },
+      "is_accepted": false,
+      "score": 1,
+      "last_activity_date": 1541060472,
+      "last_edit_date": 1541060472,
+      "creation_date": 1541059287,
+      "answer_id": 53097237,
+      "question_id": 39077661,
+      "body": "<p>This worked for me.</p>\n\n<pre><code>sheet.column_dimensions[\"A\"].width = 30\nsheet.cell(row=1, column=1).hyperlink = \"http://www.espn.com\"\nbook.save('links.xlsx')\n</code></pre>\n"
+    },
+    {
+      "owner": {
+        "reputation": 11,
+        "user_id": 10287414,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/9e25ebeba56c8c1214b79b7859c0728a?s=128&d=identicon&r=PG",
+        "display_name": "JohnFromWV",
+        "link": "https://stackoverflow.com/users/10287414/johnfromwv"
+      },
+      "is_accepted": false,
+      "score": 1,
+      "last_activity_date": 1541060456,
+      "last_edit_date": 1541060456,
+      "creation_date": 1535505995,
+      "answer_id": 52068260,
+      "question_id": 39077661,
+      "body": "<p>This works for me:</p>\n\n<pre><code>wbook.active['A8'].hyperlink = \"http://www.espn.com\"\nwbook.active['A8'].value = 'ESPN'\nwbook.actibe['A8'].style = \"Hyperlink\"\n</code></pre>\n"
+    },
+    {
+      "owner": {
+        "reputation": 230,
+        "user_id": 4386557,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/597d4307e1f0ce79f46f6b88a129d5f6?s=128&d=identicon&r=PG&f=1",
+        "display_name": "Stephen Boston",
+        "link": "https://stackoverflow.com/users/4386557/stephen-boston"
+      },
+      "is_accepted": false,
+      "score": 4,
+      "last_activity_date": 1504651816,
+      "creation_date": 1504651816,
+      "answer_id": 46064365,
+      "question_id": 39077661,
+      "body": "<p>Try this :   </p>\n\n<pre><code>sheet['A1'].hyperlink = \"http://stackoverflow.com\"\nsheet['A1'].value=\"StackOverflow\"\n</code></pre>\n\n<p>In my try this does not add the formatting that Excel puts with a hyperlink but the cell contents are more like the Excel hyperlink cell than I get with the HYPERLINK tag.</p>\n"
+    },
+    {
+      "owner": {
+        "reputation": 1304,
+        "user_id": 4907496,
+        "user_type": "registered",
+        "accept_rate": 71,
+        "profile_image": "https://i.stack.imgur.com/lz1fz.png?s=128&g=1",
+        "display_name": "Phillip",
+        "link": "https://stackoverflow.com/users/4907496/phillip"
+      },
+      "is_accepted": false,
+      "score": 6,
+      "last_activity_date": 1488790703,
+      "creation_date": 1488790703,
+      "answer_id": 42621323,
+      "question_id": 39077661,
+      "body": "<p>If wanting to use excel's built in hyperlink function directly, you can use the following to format as a link:</p>\n\n<p><code>'=HYPERLINK(\"{}\", \"{}\")'.format(link, \"Link Name\")</code> </p>\n\n<p>e.g. <code>ws.cell(row=1, column=1).value = '=HYPERLINK(\"{}\", \"{}\")'.format(link, \"Link Name\")</code></p>\n"
+    }
+  ],
+  "has_more": false,
+  "quota_max": 10000,
+  "quota_remaining": 9638
+}

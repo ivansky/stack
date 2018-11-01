@@ -1,0 +1,262 @@
+{
+  "items": [
+    {
+      "tags": [
+        "c++",
+        "gcc"
+      ],
+      "owner": {
+        "reputation": 331,
+        "user_id": 1903880,
+        "user_type": "registered",
+        "accept_rate": 60,
+        "profile_image": "https://www.gravatar.com/avatar/3a7f0353e763f3e86ca839f199ebc6dd?s=128&d=identicon&r=PG",
+        "display_name": "zhihuifan",
+        "link": "https://stackoverflow.com/users/1903880/zhihuifan"
+      },
+      "is_answered": true,
+      "view_count": 59,
+      "accepted_answer_id": 53080031,
+      "answer_count": 1,
+      "score": 0,
+      "last_activity_date": 1541036345,
+      "creation_date": 1540976242,
+      "last_edit_date": 1541036345,
+      "question_id": 53079620,
+      "link": "https://stackoverflow.com/questions/53079620/g-doesnt-warn-when-some-class-member-is-not-initialized",
+      "title": "g++ doesn&#39;t warn when some class member is not initialized",
+      "body": "<p>I have the following code and I hope gcc can warn at either line 6 or line 17, but gcc doesn't do that.</p>\n\n<pre><code>zhifandeMacBook-Pro:CppCodeExample zhifan$ cat -n main.cpp\n     1  #include &lt;iostream&gt;\n     2\n     3\n     4  class X {\n     5  public:\n     6      X() {}\n     7      int getA() const { return a;}\n     8      bool getB() const {return b;}\n     9  private:\n    10      int a;\n    11      bool b;\n    12  };\n    13\n    14\n    15  int main(int argc, char *argv[])\n    16  {\n    17      X x;\n    18      std::cout &lt;&lt; \"hello \" &lt;&lt; x.getA() &lt;&lt; std::endl;\n    19      return 0;\n    20  }\nzhifandeMacBook-Pro:CppCodeExample zhifan$ g++ main.cpp  -Wall -O2 -Wuninitialized \nzhifandeMacBook-Pro:CppCodeExample zhifan$\n</code></pre>\n\n<p>Can I get a warning for the class X's constructor doesn't initialize the members?</p>\n"
+    },
+    {
+      "tags": [
+        "delphi",
+        "indy"
+      ],
+      "owner": {
+        "reputation": 6,
+        "user_id": 10571649,
+        "user_type": "registered",
+        "profile_image": "https://graph.facebook.com/1103224653120268/picture?type=large",
+        "display_name": "P&#226;mella Douglas",
+        "link": "https://stackoverflow.com/users/10571649/p%c3%a2mella-douglas"
+      },
+      "is_answered": false,
+      "view_count": 26,
+      "answer_count": 0,
+      "score": 1,
+      "last_activity_date": 1541036064,
+      "creation_date": 1541021726,
+      "last_edit_date": 1541036064,
+      "question_id": 53092269,
+      "link": "https://stackoverflow.com/questions/53092269/tidtcpclient-thread-stop-answer-after-some-time",
+      "title": "TIdTcpClient Thread Stop Answer after some time",
+      "body": "<p>After some time my client thread stop receive/send commands from/to TIdTcpServer here is the client side threadi copied from an example from Remy:</p>\n\n<p>TESTED LOCAL AND IT DON'T HAPPEN, ONLY ON A RUNNING ENVIROMENT IT OCCOUR.</p>\n\n<pre><code>type\n  TDataEvent = procedure(const LBuffer: TIdBytes) of object;\n\n  TReadingThread = class(TThread)\n  private\n    FClient : TIdTCPClient;\n    FData   : TIdBytes;\n    FOnData : TDataEvent;\n    procedure DataReceived;\n  protected\n    procedure Execute; override;\n  public\n    constructor Create(AClient: TIdTCPClient); reintroduce;\n    property OnData: TDataEvent read FOnData write FOnData;\n  end;\n\nconstructor TReadingThread.Create(AClient: TIdTCPClient);\nbegin\n  inherited Create(True);\n  FClient := AClient;\nend;\n\nprocedure TReadingThread.Execute;\nbegin\n  while not Terminated do\n  begin\n    Form1.Cliente.IOHandler.ReadBytes(FData, szProtocol, False);\n\n    if (FData &lt;&gt; nil) and Assigned(FOnData) then Synchronize(DataReceived);\n  end;\nend;\n\nprocedure TReadingThread.DataReceived;\nbegin\n  if Assigned(FOnData) then FOnData(FData);\nend;\n\nprocedure TForm1.DataReceived(const LBuffer: TIdBytes);\ntype\n  PTBytes   = ^TBytes;\n  PTIdBytes = ^TIdBytes;\nvar\n  LDataSize   : Integer;\n  LProtocol   : TProtocol;\n\n  LBuffer2    : TBytes;\n  LProtocol2  : TProtocol;\nbegin\n  LProtocol := BytesToProtocol(PTBytes(@LBuffer)^);\n\n  case LProtocol.Command of\n    cmdHWID:\n    begin\n      HWID := LProtocol.Sender.HWID;\n     end;\n\n    cmdPing:\n    begin\n      InitProtocol(LProtocol2);\n      LProtocol2.Command      := cmdPing;\n      LProtocol2.Sender.PBack := GetTickCount;\n      LBuffer2                := ProtocolToBytes(LProtocol2);\n      Form1.Cliente.IOHandler.Write(PTIdBytes(@LBuffer2)^);\n      ClearBuffer(LBuffer2);\n    end;\n  end;\nend;\n</code></pre>\n\n<p>for a while all works perfectly, but after some time client side stop receive/send. connection still open to server, but appear he lose the connection.</p>\n\n<p>function to find connection by ip:</p>\n\n<pre><code>list := IdTCPServer1.Contexts.LockList;\n      try\n        for i := 0 to list.Count - 1 do\n        begin\n          ctx := TIdContext(list[i]);\n          if ctx.Binding.PeerIP = Edit9.Text then\n          begin\n            TLog.AddMsg('IP FOUND');\n\n            Achou := True;\n            Cliente := TClientContext(ctx);\n\n            SerialCn  := Cliente.Client.HWID;\n            IpCn      := Cliente.Client.IP;\n\n            break;\n          end;\n        end;\n      finally\n        IdTCPServer1.Contexts.UnlockList;\n      end;\n</code></pre>\n"
+    },
+    {
+      "tags": [
+        "compilation",
+        "linker",
+        "autotools",
+        "configure"
+      ],
+      "owner": {
+        "reputation": 27,
+        "user_id": 5201079,
+        "user_type": "registered",
+        "accept_rate": 20,
+        "profile_image": "https://lh5.googleusercontent.com/-PcykN1eSfrQ/AAAAAAAAAAI/AAAAAAAAAEM/5UO63fMvsQM/photo.jpg?sz=128",
+        "display_name": "Khasan Khafizov",
+        "link": "https://stackoverflow.com/users/5201079/khasan-khafizov"
+      },
+      "is_answered": false,
+      "view_count": 21,
+      "answer_count": 1,
+      "score": 0,
+      "last_activity_date": 1541035654,
+      "creation_date": 1540922146,
+      "last_edit_date": 1540931787,
+      "question_id": 53070185,
+      "link": "https://stackoverflow.com/questions/53070185/why-some-symbols-are-not-found-in-the-library-when-i-run-configure",
+      "title": "Why some symbols are not found in the library when I run ./configure?",
+      "body": "<p>I'm trying to install <a href=\"http://i8086emu.sourceforge.net/\" rel=\"nofollow noreferrer\">8086 emulator</a> from sources. \nI run <code>./configure</code> and see the following warnings in the output:</p>\n\n<pre><code>checking for g_signal_emit in -lgtk-x11-2.0... no\nconfigure: WARNING: Without GTK there will be no GTK-GUI of i8086emu!\nchecking for XkbGetMap in -lgdk-x11-2.0... no\nconfigure: WARNING: Without GTK there will be no GTK-GUI of i8086emu!\nchecking for g_malloc in -latk-1.0... no\nconfigure: WARNING: Without ATK there will be no GTK-GUI of i8086emu!\nchecking for g_log in -lgdk_pixbuf-2.0... no\nconfigure: WARNING: Without GTK there will be no GTK-GUI of i8086emu!\n</code></pre>\n\n<p>What can cause it? Does it mean that I have the wrong version of library? Or maybe the library should be recompiled with other configuration? What should I do if I face that kind of problem?</p>\n\n<p><strong>UPD:</strong>\n<code>g_signal_emit</code> symbol belongs not to the <code>-lgtk-x11-2.0</code> but to the <code>-lgobject-2.0</code>. If I run:</p>\n\n<pre><code>env LIBS='-lgobject-2.0' ./configure\n</code></pre>\n\n<p>then I have</p>\n\n<pre><code>checking for g_signal_emit in -lgtk-x11-2.0... yes\n</code></pre>\n\n<p>The situation becomes even more confusing. </p>\n"
+    },
+    {
+      "tags": [
+        "oracle",
+        "dump"
+      ],
+      "owner": {
+        "reputation": 143,
+        "user_id": 2380168,
+        "user_type": "registered",
+        "accept_rate": 52,
+        "profile_image": "https://i.stack.imgur.com/dkVxj.jpg?s=128&g=1",
+        "display_name": "flyingbird013",
+        "link": "https://stackoverflow.com/users/2380168/flyingbird013"
+      },
+      "is_answered": true,
+      "view_count": 2439,
+      "accepted_answer_id": 42359078,
+      "answer_count": 3,
+      "score": 1,
+      "last_activity_date": 1541033858,
+      "creation_date": 1487651130,
+      "question_id": 42358681,
+      "link": "https://stackoverflow.com/questions/42358681/how-to-backup-view-and-some-tables-in-oracle",
+      "title": "How to backup view and some tables in oracle?",
+      "body": "<p>I have an Oracle database. On the database There are three tables (a,b,c tables) and a view (union of a and b tables). </p>\n\n<p>I want to backup of a dan b tables and also the view. I used this syntax <code>exp user/psw file=backup.dmp tables=(a,b)</code> ,but it doesnt backup the view,only the table.\nHow can i include the view to be backed up?</p>\n"
+    },
+    {
+      "tags": [
+        "python",
+        "flask"
+      ],
+      "owner": {
+        "reputation": 14,
+        "user_id": 4755423,
+        "user_type": "registered",
+        "profile_image": "https://graph.facebook.com/735443543238768/picture?type=large",
+        "display_name": "Pablo Mujica",
+        "link": "https://stackoverflow.com/users/4755423/pablo-mujica"
+      },
+      "is_answered": false,
+      "view_count": 12,
+      "closed_date": 1541037250,
+      "answer_count": 0,
+      "score": 0,
+      "last_activity_date": 1541031215,
+      "creation_date": 1541031215,
+      "question_id": 53093579,
+      "link": "https://stackoverflow.com/questions/53093579/why-flask-ignores-some-config-values-in-config-class",
+      "closed_reason": "duplicate",
+      "title": "why flask ignores some Config Values in config class?",
+      "body": "<p>i'm having a problem with some parts of my config file for my app, the Secret_key works great, but my ENV and TESTING configuration values do not get recognized unless i set them via my bash console.</p>\n\n<p>This is my aplication structure</p>\n\n<pre><code>Project\\\n    main.py\n    config.py\n    app\\\n        __init__.py\n</code></pre>\n\n<p>the content of my main.py is just:</p>\n\n<pre><code>from app import app\n</code></pre>\n\n<p>the content of my config.py is:</p>\n\n<pre><code>class Config(object):\n    ENV = 'development'\n    TESTING = True\n    SECRET_KEY = 'MY_SECRET'\n</code></pre>\n\n<p>and the content of my app__init__.py is:</p>\n\n<pre><code>from flask import Flask\nfrom config import Config\n\n\napp = Flask(__name__)\napp.config.from_object(Config)\n\n\nfrom app import routes\n</code></pre>\n\n<p>This doesn't result in any errors and been running this for the past couple of months, but the only config value that works is my SECRET_KEY(test against old stored values with the same key), when I start the app all I get is:</p>\n\n<pre><code> * Environment: production\n   WARNING: Do not use the development server in a production environment.\n   Use a production WSGI server instead.\n * Debug mode: off\n * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)\n</code></pre>\n"
+    },
+    {
+      "tags": [
+        "c",
+        "enums"
+      ],
+      "owner": {
+        "reputation": 152,
+        "user_id": 3269469,
+        "user_type": "registered",
+        "accept_rate": 38,
+        "profile_image": "https://i.stack.imgur.com/2WNMZ.jpg?s=128&g=1",
+        "display_name": "Ryan Mc",
+        "link": "https://stackoverflow.com/users/3269469/ryan-mc"
+      },
+      "is_answered": true,
+      "view_count": 43,
+      "answer_count": 2,
+      "score": 0,
+      "last_activity_date": 1541025315,
+      "creation_date": 1541023605,
+      "question_id": 53092606,
+      "link": "https://stackoverflow.com/questions/53092606/what-are-some-good-examples-of-using-enum-in-c",
+      "title": "What are some good examples of using enum in C",
+      "body": "<p>I wrote this simple code to test enum but it doesn't feel like anything that would ever be used in the real world. I'd like to know what some good example use cases of enum would be and why it's useful. </p>\n\n<pre><code>#include &lt;stdio.h&gt;\n\ntypedef enum {\n    BLUE,\n    GREEN,\n    BROWN\n} eye_color;\n\ntypedef struct {\n    char *name;\n    char *eyecolor;\n    int height;\n    int weight;\n    eye_color eyes;\n} person;\n\nvoid print_eye_color(person p)\n{\n    switch(p.eyes) {\n        case BLUE :\n            // I didn't know what else to say... \n            printf(\"%s eyes are made from diamonds\\n\", p.eyecolor);\n            break;\n        case GREEN : \n            printf(\"%s eyes are made from emeralds\\n\", p.eyecolor);\n            break;\n        case BROWN : \n            printf(\"%s eyes are made from amber\\n\", p.eyecolor);\n        default :\n            printf(\"What colour eyes do you have?\\n\");\n    }\n}\n\nint main()\n{\n    person ayla = {\"Ayla\", \"Blue\", 167, 42, BLUE};\n    print_eye_color(ayla);\n    return 0;\n}\n</code></pre>\n"
+    },
+    {
+      "tags": [
+        "factorization"
+      ],
+      "owner": {
+        "reputation": 467,
+        "user_id": 2486570,
+        "user_type": "registered",
+        "accept_rate": 60,
+        "profile_image": "https://www.gravatar.com/avatar/9d7c31c919cc243c1691264ade95332c?s=128&d=identicon&r=PG",
+        "display_name": "user2486570",
+        "link": "https://stackoverflow.com/users/2486570/user2486570"
+      },
+      "is_answered": false,
+      "view_count": 9,
+      "answer_count": 0,
+      "score": 0,
+      "last_activity_date": 1541022203,
+      "creation_date": 1541022203,
+      "question_id": 53092380,
+      "link": "https://stackoverflow.com/questions/53092380/how-to-generate-primes-under-1e6-when-i-can-precompute-some-data-beforehand",
+      "title": "How to generate primes under 1e6 when I can precompute some data beforehand?",
+      "body": "<p>I'm writing a factoring algorithm for large numbers (~100 digits) composed out of small factors (all of them are under 1 million). I figured out the most efficient algorithm would be to generate a sieve for all primes under 1 million and then just test the factors.</p>\n\n<p>The interesting part is that I can precompute and store about 45 kB of data that I can use to speed up the sieve generation. I could precompute primes under 100000 and then go from that, but I feel like there must be a more efficient set of numbers to precompute. Am I right?</p>\n"
+    },
+    {
+      "tags": [
+        "java",
+        "java-8"
+      ],
+      "owner": {
+        "reputation": 866,
+        "user_id": 440732,
+        "user_type": "registered",
+        "accept_rate": 61,
+        "profile_image": "https://www.gravatar.com/avatar/ec3c8b76a17c17cb8f9eafa5af50bfa0?s=128&d=identicon&r=PG",
+        "display_name": "nishant",
+        "link": "https://stackoverflow.com/users/440732/nishant"
+      },
+      "is_answered": true,
+      "view_count": 45,
+      "accepted_answer_id": 53092365,
+      "answer_count": 1,
+      "score": 1,
+      "last_activity_date": 1541022125,
+      "creation_date": 1541021701,
+      "question_id": 53092262,
+      "link": "https://stackoverflow.com/questions/53092262/kill-a-future-completely-after-some-time",
+      "title": "Kill a future completely after some time",
+      "body": "<p>I have a <code>future</code> that does some intensive task. I call that <code>future</code> with a timeout. If it times out, I throw an exception back to client as well as create another <code>scheduledfuture</code> to cancel first <code>future</code> eventually after a while. The idea is to give sometime after initial timeout for <code>future</code> to complete its task, but if it doesn't complete in that time, just kill it.</p>\n\n<p>My code looks like</p>\n\n<pre><code>try {\n    return future.get(5, TimeUnit.SECONDS);\n} catch (TimeoutException) {\n   //create a scheduledfuture here which waits for another 5s\n   // and kill the above future is it is still not done\n   //the callable of scheduledfuture looks like -\n   /*\n   if (!future.isDone()) {\n       future.cancel(true);\n   }\n   */\n}\n</code></pre>\n\n<p>Now two questions here -<br>\n1. The <code>future.cancel(true)</code> will just set the interrupt flag to true. It will not end the task as it is. How should I end the task? Is there a JVM process internally that checks threads for interrupted flag and terminates them if true?<br>\n2. As the interrupted flag is now set, after the task completes, is there a process that resets the flag? Else that thread managed through <code>ExecutorService</code> will fail with <code>InterruptedException</code> when it tries to take up next request which contains a blocking call.</p>\n"
+    },
+    {
+      "tags": [
+        "amazon-web-services"
+      ],
+      "owner": {
+        "reputation": 1,
+        "user_id": 10575401,
+        "user_type": "registered",
+        "profile_image": "https://lh3.googleusercontent.com/-6cLk9-hctzo/AAAAAAAAAAI/AAAAAAAAAAA/ABtNlbAtfwqtZd2KfY0m-EiwgAqG16h5-w/mo/photo.jpg?sz=128",
+        "display_name": "REWA",
+        "link": "https://stackoverflow.com/users/10575401/rewa"
+      },
+      "is_answered": false,
+      "view_count": 9,
+      "answer_count": 0,
+      "score": 0,
+      "last_activity_date": 1541022013,
+      "creation_date": 1541022013,
+      "question_id": 53092342,
+      "link": "https://stackoverflow.com/questions/53092342/aws-c9-your-environment-is-running-out-of-quota-please-make-some-free-space",
+      "title": "AWS C9 - Your environment is running out of quota. Please make some free space",
+      "body": "<p>Good evening guys! I don't understand why my C9 instance is says that is full. But my actual size is 437784 kb. When I type df I get:</p>\n\n<pre><code>Filesystem     1K-blocks    Used Available Use% Mounted on\ndevtmpfs         4073856      64   4073792   1% /dev\ntmpfs            4084416       0   4084416   0% /dev/shm\n/dev/xvda1       8123812 7868088    155476  99% /\n</code></pre>\n\n<p>And when I look at the folder where is my application, du ./ I get:</p>\n\n<pre><code>437784  ./\n</code></pre>\n\n<p>Looks very  odd for me as I used only (437784 kb = 437.784 mb) of ( 8123812 kb = 8123.812 mb ). I checked every folder but I can't get to that 8 GB</p>\n"
+    },
+    {
+      "tags": [
+        "r",
+        "dplyr"
+      ],
+      "owner": {
+        "reputation": 101,
+        "user_id": 9605036,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/d932cd515507f30cc4eed14da265bc8d?s=128&d=identicon&r=PG&f=1",
+        "display_name": "alfalfa",
+        "link": "https://stackoverflow.com/users/9605036/alfalfa"
+      },
+      "is_answered": false,
+      "view_count": 32,
+      "answer_count": 0,
+      "score": 0,
+      "last_activity_date": 1541021180,
+      "creation_date": 1541020208,
+      "last_edit_date": 1541021180,
+      "question_id": 53092005,
+      "link": "https://stackoverflow.com/questions/53092005/ungroup-some-but-not-all-variables-in-r-dplyr",
+      "title": "Ungroup some but not all variables in R + dplyr",
+      "body": "<p>In <code>dplyr</code> with R, if I've grouped by multiple variables can I then ungroup by a subset of those with <code>ungroup</code>? As far as I can tell, <code>ungroup</code> ignores any arguments provided and always ungroups everything.</p>\n\n<p>Example:</p>\n\n<pre><code>mtcars %&gt;%\n  group_by(cyl, vs, am) %&gt;%\n  # this removes 'am' but grouping by 'cyl' and 'vs' remain\n  summarize(n = n()) %&gt;%  \n  ungroup(vs)  # I want this to work but it ungroups everything, not just 'vs'\n</code></pre>\n\n<p>Is there a way to remove the grouping by <code>vs</code> while keeping the grouping by <code>cyl</code>? I can accomplish this via</p>\n\n<pre><code>mtcars %&gt;%\n  group_by(cyl, vs, am) %&gt;%\n  summarize(n = n()) %&gt;%  \n  ungroup() %&gt;%\n  group_by(cyl)\n</code></pre>\n\n<p>but I feel like there has to be a better way than removing both groupings and re-adding just the <code>cyl</code> grouping. </p>\n\n<p>I'm using the <code>summarize</code> in my examples because that's my particular context, but this behavior seems to be evident even in something as minimal as this:</p>\n\n<pre><code>mtcars %&gt;%\n  group_by(cyl, vs) %&gt;%\n  ungroup(vs)  # ungroups everything, not just 'vs'\n</code></pre>\n\n<hr>\n\n<p><strong>Update</strong>: Thanks everyone for the great suggestions and comments. I just tried this and it works with no fuss due to <code>add=FALSE</code> in <code>group_by</code>, and it's as clean as what I was hoping <code>ungroup</code> could do:</p>\n\n<pre><code>mtcars %&gt;%\n  group_by(cyl, vs, am) %&gt;%\n  summarize(n = n()) %&gt;%  \n  group_by(cyl)\n</code></pre>\n\n<p>Thanks to @camille and @julius-vainora I know that <code>ungroup</code> by itself cannot do this, so I'll have to do grouping rather than ungrouping. @RyanD's suggestions were also very helpful. </p>\n"
+    }
+  ],
+  "has_more": true,
+  "quota_max": 10000,
+  "quota_remaining": 9669
+}

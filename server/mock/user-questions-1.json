@@ -1,0 +1,284 @@
+{
+  "items": [
+    {
+      "tags": [
+        "c++",
+        "winapi",
+        "windows-vista",
+        "registry",
+        "wow64"
+      ],
+      "owner": {
+        "reputation": 5490,
+        "user_id": 10592,
+        "user_type": "registered",
+        "accept_rate": 79,
+        "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+        "display_name": "Tim Cooper",
+        "link": "https://stackoverflow.com/users/10592/tim-cooper"
+      },
+      "is_answered": true,
+      "view_count": 47744,
+      "accepted_answer_id": 252302,
+      "answer_count": 5,
+      "score": 26,
+      "last_activity_date": 1496586173,
+      "creation_date": 1225414704,
+      "last_edit_date": 1311961445,
+      "question_id": 252297,
+      "link": "https://stackoverflow.com/questions/252297/why-is-regopenkeyex-returning-error-code-2-on-vista-64bit",
+      "title": "Why is RegOpenKeyEx() returning error code 2 on Vista 64bit?",
+      "body": "<p>I was making the following call:</p>\n\n<pre><code>result = RegOpenKeyEx(key, s, 0, KEY_READ, &amp;key);\n</code></pre>\n\n<p>(C++, Visual Studio 5, Vista 64bit).</p>\n\n<p>It is failing with error code 2 (\"File not found\") even though \"<code>regedit</code>\" shows that the key exists.  This code has always worked on 32bit XP.  Why is it \"file not found\" when it clearly is there?</p>\n"
+    },
+    {
+      "tags": [
+        "gdi+",
+        "drawstring"
+      ],
+      "owner": {
+        "reputation": 5490,
+        "user_id": 10592,
+        "user_type": "registered",
+        "accept_rate": 79,
+        "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+        "display_name": "Tim Cooper",
+        "link": "https://stackoverflow.com/users/10592/tim-cooper"
+      },
+      "is_answered": true,
+      "view_count": 12812,
+      "accepted_answer_id": 118764,
+      "answer_count": 5,
+      "score": 16,
+      "last_activity_date": 1393799416,
+      "creation_date": 1222134315,
+      "last_edit_date": 1363794823,
+      "question_id": 118686,
+      "link": "https://stackoverflow.com/questions/118686/measurestring-pads-the-text-on-the-left-and-the-right",
+      "title": "MeasureString() pads the text on the left and the right",
+      "body": "<p>I'm using GDI+ in C++.  (This issue might exist in C# too). </p>\n\n<p>I notice that whenever I call Graphics::MeasureString() or Graphics::DrawString(), the string is padded with blank space on the left and right.</p>\n\n<p>For example, if I am using a Courier font, (not italic!) and I measure \"P\" I get 90, but \"PP\" gives me 150.  I would expect a monospace font to give exactly double the width for \"PP\".</p>\n\n<p>My question is:  is this intended or documented behaviour, and how do I disable this?  </p>\n\n<pre><code>RectF Rect(0,0,32767,32767);\nRectF Bounds1, Bounds2;\ngraphics-&gt;MeasureString(L\"PP\", 1, font, Rect, &amp;Bounds1);\ngraphics-&gt;MeasureString(L\"PP\", 2, font, Rect, &amp;Bounds2);\nmargin = Bounds1.Width * 2 - Bounds2.Width;\n</code></pre>\n"
+    },
+    {
+      "tags": [
+        "xml",
+        "xml-rpc"
+      ],
+      "owner": {
+        "reputation": 5490,
+        "user_id": 10592,
+        "user_type": "registered",
+        "accept_rate": 79,
+        "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+        "display_name": "Tim Cooper",
+        "link": "https://stackoverflow.com/users/10592/tim-cooper"
+      },
+      "is_answered": true,
+      "view_count": 7055,
+      "accepted_answer_id": 1733163,
+      "answer_count": 5,
+      "score": 15,
+      "last_activity_date": 1311289698,
+      "creation_date": 1252024339,
+      "last_edit_date": 1289595083,
+      "question_id": 1376688,
+      "link": "https://stackoverflow.com/questions/1376688/what-is-the-benefit-of-xml-rpc-over-plain-xml",
+      "title": "What is the benefit of XML-RPC over plain XML?",
+      "body": "<p>My company has been using <a href=\"http://en.wikipedia.org/wiki/XML-RPC\" rel=\"noreferrer\">XML-RPC</a> for a while, but lately I'm wondering what the benefit is of XML-RPC compared to plain XML. Firstly, it's horrible \"obese\", consider:</p>\n\n<pre><code>&lt;struct&gt;\n    &lt;member&gt;\n        &lt;name&gt;ROOM_ID&lt;/name&gt;\n        &lt;value&gt;\n            &lt;int&gt;1&lt;/int&gt;\n        &lt;/value&gt;\n    &lt;/member&gt;\n\n    &lt;member&gt;\n        &lt;name&gt;CODE&lt;/name&gt;\n        &lt;value&gt;\n            &lt;string&gt;MR-101&lt;/string&gt;\n        &lt;/value&gt;\n    &lt;/member&gt;\n\n    &lt;member&gt;\n        &lt;name&gt;NAME&lt;/name&gt;\n        &lt;value&gt;\n            &lt;string&gt;Math Room&lt;/string&gt;\n        &lt;/value&gt;\n    &lt;/member&gt;\n\n    &lt;member&gt;\n        &lt;name&gt;CAPACITY&lt;/name&gt;\n        &lt;value&gt;\n            &lt;int&gt;30&lt;/int&gt;\n        &lt;/value&gt;\n    &lt;/member&gt;\n&lt;/struct&gt;\n</code></pre>\n\n<p>Compared to this:</p>\n\n<pre><code>&lt;room&gt;&lt;ROOM_ID&gt;1&lt;/ROOM_ID&gt;&lt;CODE&gt;MR-101&lt;/CODE&gt;\n&lt;NAME&gt;Math Room&lt;/NAME&gt;&lt;CAPACITY&gt;30&lt;/CAPACITY&gt;&lt;/room&gt;\n</code></pre>\n\n<p>Or even this:</p>\n\n<pre><code>&lt;room ROOM_ID=1 CODE=MR-101 NAME=”Math Room” CAPACITY=30 /&gt;\n</code></pre>\n\n<p>Secondly, XML-RPC seems fairly widespread but not quite ubiquitous and I'm not that impressed with the support for it in C++ and PHP. I've had problems with all the libraries that I tried in both languages.</p>\n\n<p>Thirdly, it seems to me that I could make remote procedure calls with plain XML as easily as  with XML-RPC.  {(9/9/2009): Every language has libraries for serialising language-level objects into XML. Both XML and XML-RPC require application-level schemas to be defined, for example, how the fields should be spelt, but neither needs any additional schema to be defined. Many people make RPC calls with plain XML.}</p>\n\n<p>So what is the value-add of XML-RPC?</p>\n"
+    },
+    {
+      "tags": [
+        "c++",
+        "stl",
+        "performance"
+      ],
+      "owner": {
+        "reputation": 5490,
+        "user_id": 10592,
+        "user_type": "registered",
+        "accept_rate": 79,
+        "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+        "display_name": "Tim Cooper",
+        "link": "https://stackoverflow.com/users/10592/tim-cooper"
+      },
+      "is_answered": true,
+      "view_count": 16334,
+      "accepted_answer_id": 637737,
+      "answer_count": 14,
+      "score": 13,
+      "last_activity_date": 1456047970,
+      "creation_date": 1236845351,
+      "last_edit_date": 1456047970,
+      "question_id": 637695,
+      "link": "https://stackoverflow.com/questions/637695/how-efficient-is-stdstring-compared-to-null-terminated-strings",
+      "title": "How efficient is std::string compared to null-terminated strings?",
+      "body": "<p>I've discovered that <code>std::string</code>s are very slow compared to old-fashioned null-terminated strings, so much slow that they significantly slow down my overall program by a factor of 2.</p>\n\n<p>I expected STL to be slower, I didn't realise it was going to be this much slower.  </p>\n\n<p>I'm using Visual Studio 2008, release mode. It shows assignment of a string to be 100-1000 times slower than <code>char*</code> assignment (it's very difficult to test the run-time of a <code>char*</code> assignment).  I know it's not a fair comparison, a pointer assignment versus string copy, but my program has lots of string assignments and I'm not sure I could use the \"<em>const reference</em>\" trick in all places.  With a reference counting implementation my program would have been fine, but these implementations don't seem to exist anymore.</p>\n\n<p>My real question is:  why don't people use reference counting implementations anymore, and does this mean we all need to be much more careful about avoiding common performance pitfalls of std::string?</p>\n\n<p>My full code is below.  </p>\n\n<pre><code>#include &lt;string&gt;\n#include &lt;iostream&gt;\n#include &lt;time.h&gt;\n\nusing std::cout;\n\nvoid stop()\n{\n}\n\nint main(int argc, char* argv[])\n{\n    #define LIMIT 100000000\n    clock_t start;\n    std::string foo1 = \"Hello there buddy\";\n    std::string foo2 = \"Hello there buddy, yeah you too\";\n    std::string f;\n    start = clock();\n    for (int i=0; i &lt; LIMIT; i++) {\n        stop();\n        f = foo1;\n        foo1 = foo2;\n        foo2 = f;\n    }\n    double stl = double(clock() - start) / CLOCKS\\_PER\\_SEC;\n\n    start = clock();\n    for (int i=0; i &lt; LIMIT; i++) {\n        stop();\n    }\n    double emptyLoop = double(clock() - start) / CLOCKS_PER_SEC;\n\n    char* goo1 = \"Hello there buddy\";\n    char* goo2 = \"Hello there buddy, yeah you too\";\n    char *g;\n    start = clock();\n    for (int i=0; i &lt; LIMIT; i++) {\n        stop();\n        g = goo1;\n        goo1 = goo2;\n        goo2 = g;\n    }\n    double charLoop = double(clock() - start) / CLOCKS_PER_SEC;\n    cout &lt;&lt; \"Empty loop = \" &lt;&lt; emptyLoop &lt;&lt; \"\\n\";\n    cout &lt;&lt; \"char* loop = \" &lt;&lt; charLoop &lt;&lt; \"\\n\";\n    cout &lt;&lt; \"std::string = \" &lt;&lt; stl &lt;&lt; \"\\n\";\n    cout &lt;&lt; \"slowdown = \" &lt;&lt; (stl - emptyLoop) / (charLoop - emptyLoop) &lt;&lt; \"\\n\";\n    std::string wait;\n    std::cin &gt;&gt; wait;\n    return 0;\n}\n</code></pre>\n"
+    },
+    {
+      "tags": [
+        "java",
+        "google-app-engine"
+      ],
+      "owner": {
+        "reputation": 5490,
+        "user_id": 10592,
+        "user_type": "registered",
+        "accept_rate": 79,
+        "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+        "display_name": "Tim Cooper",
+        "link": "https://stackoverflow.com/users/10592/tim-cooper"
+      },
+      "is_answered": true,
+      "view_count": 7956,
+      "accepted_answer_id": 1532336,
+      "answer_count": 3,
+      "score": 12,
+      "last_activity_date": 1427113437,
+      "creation_date": 1252560676,
+      "last_edit_date": 1256899143,
+      "question_id": 1403515,
+      "link": "https://stackoverflow.com/questions/1403515/appengine-datastore-object-with-id-is-managed-by-a-different-object-manage",
+      "title": "AppEngine datastore: &quot;Object with id ... is managed by a different Object Manager&quot;",
+      "body": "<p>I'm using the Google AppEngine, with Java.  When I use some datastore features, I'm getting an error message:  </p>\n\n<pre><code>Object with id \"edvaltt.Teacher@64064b\" is managed by a different Object Manager\n</code></pre>\n\n<p>I don't know what this means or how to fix it or where to look for documentation on this error. Can anyone help me?  The code I'm using is:</p>\n\n<pre><code>@PersistenceCapable(identityType = IdentityType.APPLICATION)\npublic class School {\n@PrimaryKey\n@Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)\nprivate String shortname;\n\n@Persistent\nprivate String fullname;\n\n@Persistent\n@Order(extensions = @Extension(vendorName=\"datanucleus\", key=\"list-ordering\", value=\"code asc\"))\nprivate List&lt;Teacher&gt; Teachers;\n\n...\n\npublic Teacher FindOrCreateTeacher(String code)\n{\n    // Can we find the teacher without any database code?\n    Teacher newTeacher = FindTeacher(code);\n    if (newTeacher != null)\n        return newTeacher;\n\n    // Create the teacher:\n    PersistenceManager pm = PMF.get().getPersistenceManager();\n    Transaction tx = pm.currentTransaction();\n    try {\n        tx.begin();\n        for (Teacher teacher : Teachers) {\n            if (teacher.getCode() == code) {\n                tx.rollback();\n                return teacher;\n            }\n        }\n        newTeacher = new Teacher(code);\n        Teachers.add(newTeacher);\n        pm.makePersistent(newTeacher);\n        pm.makePersistent(Teachers);\n        tx.commit();\n    } finally {\n        tx.commit();\n    }\n    return newTeacher;\n}\n</code></pre>\n\n<p>I believe that \"<code>private List&lt;Teacher&gt; Teachers;</code>\" refers to an \"owned, one to many\" relationship.</p>\n"
+    },
+    {
+      "tags": [
+        "gwt",
+        "intellij-idea",
+        "gwt-compiler"
+      ],
+      "owner": {
+        "reputation": 5490,
+        "user_id": 10592,
+        "user_type": "registered",
+        "accept_rate": 79,
+        "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+        "display_name": "Tim Cooper",
+        "link": "https://stackoverflow.com/users/10592/tim-cooper"
+      },
+      "is_answered": true,
+      "view_count": 7722,
+      "accepted_answer_id": 9080101,
+      "answer_count": 5,
+      "score": 12,
+      "last_activity_date": 1389263415,
+      "creation_date": 1328014133,
+      "question_id": 9079781,
+      "link": "https://stackoverflow.com/questions/9079781/gwt-compiler-is-running-out-of-memory-how-do-i-configure-it-within-intellij",
+      "title": "GWT compiler is running out of memory. How do I configure it within IntelliJ?",
+      "body": "<p>I'm running GWT from within IntelliJ.  (Plain GWT, IntelliJ v9).  I'm able to run my application via my \"GWT development mode\" configuration, but when I try to run it through my \"local tomcat\" configuration, I get a bunch of incomprehensible error messages referring to Oracle and all sorts of weird stuff that I don't use, followed by this error which is sorted to the bottom of all the others:</p>\n\n<p>Error: Out of memory; to increase the amount of memory, use the -Xmx flag at startup (java -Xmx128M ...)</p>\n\n<p>I'm guessing that this error is the root cause.</p>\n\n<p>According to my understanding, there is a GWT compilation step which runs in a JVM separate to both IntelliJ and tomcat, and so I'm unsure where to set the -Xmx parameter. </p>\n\n<p>My question is:  where do I find this -Xmx parameter?  (And:  am I on the right track, taking this error message at face value, or is it a symptom of deeper problems?)</p>\n"
+    },
+    {
+      "tags": [
+        "linux",
+        "tomcat",
+        "tomcat7"
+      ],
+      "owner": {
+        "reputation": 5490,
+        "user_id": 10592,
+        "user_type": "registered",
+        "accept_rate": 79,
+        "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+        "display_name": "Tim Cooper",
+        "link": "https://stackoverflow.com/users/10592/tim-cooper"
+      },
+      "is_answered": true,
+      "view_count": 1856,
+      "accepted_answer_id": 26009334,
+      "answer_count": 5,
+      "score": 10,
+      "last_activity_date": 1423399619,
+      "creation_date": 1410354329,
+      "last_edit_date": 1411156213,
+      "question_id": 25766228,
+      "link": "https://stackoverflow.com/questions/25766228/weird-tomcat-outage-possibly-related-to-maxconnections",
+      "title": "Weird Tomcat outage, possibly related to maxConnections",
+      "body": "<p>In my company we experienced a serious problem today: our production server went down.  Most people accessing our software via a browser were unable to get a connection, however people who had already been using the software were able to continue using it. Even our hot standby server was unable to communicate with the production server, which it does using HTTP, not even going out to the broader internet. The whole time the server was accessible via ping and ssh, and in fact was quite underloaded - it's normally running at 5% CPU load and it was even lower at this time. We do almost no disk i/o.</p>\n\n<p>A few days after the problem started we have a new variation:  port 443 (HTTPS) is responding but port 80 stopped responding. The server load is very low. Immediately after restarting tomcat, port 80 started responding again.</p>\n\n<p>We're using tomcat7, with maxThreads=\"200\", and using maxConnections=10000. We serve all data out of main memory, so each HTTP request completes very quickly, but we have a large number of users doing very simple interactions (this is high school subject selection). But it seems very unlikely we would have 10,000 users all with their browser open on our page at the same time.</p>\n\n<p>My question has several parts:</p>\n\n<ul>\n<li>Is it likely that the \"maxConnections\" parameter is the cause of our woes?</li>\n<li>Is there any reason not to set \"maxConnections\" to a ridiculously high value e.g. 100,000?  (i.e. what's the cost of doing so?)</li>\n<li>Does tomcat output a warning message anywhere once it hits the \"maxConnections\" message?  (We didn't notice anything).</li>\n<li>Is it possible there's an OS limit we're hitting?  We're using CentOS 6.4 (Linux) and \"ulimit -f\" says \"unlimited\".  (Do firewalls understand the concept of Tcp/Ip connections? Could there be a limit elsewhere?)</li>\n<li>What happens when tomcat hits the \"maxConnections\" limit? Does it try to close down some inactive connections?  If not, why not?  I don't like the idea that our server can be held to ransom by people having their browsers on it, sending the keep-alive's to keep the connection open.</li>\n</ul>\n\n<p>But the main question is, \"How do we fix our server?\"</p>\n\n<p>More info as requested by Stefan and Sharpy:</p>\n\n<ul>\n<li>Our clients communicate directly with this server</li>\n<li>TCP connections were in some cases immediately refused and in other cases timed out</li>\n<li>The problem is evident even connecting my browser to the server within the network, or with the hot standby server - also in the same network - unable to do database replication messages which normally happens over HTTP</li>\n<li>IPTables - yes, IPTables6 - I don't think so. Anyway, there's nothing between my browser and the server when I test after noticing the problem.</li>\n</ul>\n\n<p>More info:\nIt really looked like we had solved the problem when we realised we were using the default Tomcat7 setting of BIO, which has one thread per connection, and we had maxThreads=200. In fact 'netstat -an' showed about 297 connections, which matches 200 + queue of 100. So we changed this to NIO and restarted tomcat. Unfortunately the same problem occurred the following day.  It's possible we misconfigured the server.xml.</p>\n\n<p>The server.xml and extract from catalina.out is available here:\n<a href=\"https://www.dropbox.com/sh/sxgd0fbzyvuldy7/AACZWoBKXNKfXjsSmkgkVgW_a?dl=0\" rel=\"noreferrer\">https://www.dropbox.com/sh/sxgd0fbzyvuldy7/AACZWoBKXNKfXjsSmkgkVgW_a?dl=0</a></p>\n\n<p>More info:\nI did a load test.  I'm able to create 500 connections from my development laptop, and do an HTTP GET 3 times on each, without any problem. Unless my load test is invalid (the Java class is also in the above link).</p>\n"
+    },
+    {
+      "tags": [
+        "java",
+        "flush"
+      ],
+      "owner": {
+        "reputation": 5490,
+        "user_id": 10592,
+        "user_type": "registered",
+        "accept_rate": 79,
+        "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+        "display_name": "Tim Cooper",
+        "link": "https://stackoverflow.com/users/10592/tim-cooper"
+      },
+      "is_answered": true,
+      "view_count": 6346,
+      "accepted_answer_id": 7550233,
+      "answer_count": 6,
+      "score": 9,
+      "last_activity_date": 1453546993,
+      "creation_date": 1317004789,
+      "last_edit_date": 1453546993,
+      "question_id": 7550190,
+      "link": "https://stackoverflow.com/questions/7550190/how-do-i-flush-a-randomaccessfile-java",
+      "title": "How do I flush a &#39;RandomAccessFile&#39; (java)?",
+      "body": "<p>I'm using RandomAccessFile in java:</p>\n\n<pre><code>file = new RandomAccessFile(filename, \"rw\");\n...\nfile.writeBytes(...);\n</code></pre>\n\n<p>How can I ensure that this data is flushed to the Operating System?  There is no file.flush() method.  (Note that I don't actually expect it to be physically written, I'm content with it being flushed to the operating system, so that the data will survive a tomcat crash but not necessarily an unexpected server power loss).</p>\n\n<p>I'm using tomcat6 on Linux.</p>\n"
+    },
+    {
+      "tags": [
+        "java",
+        "opencv",
+        "opencv-stitching"
+      ],
+      "owner": {
+        "reputation": 5490,
+        "user_id": 10592,
+        "user_type": "registered",
+        "accept_rate": 79,
+        "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+        "display_name": "Tim Cooper",
+        "link": "https://stackoverflow.com/users/10592/tim-cooper"
+      },
+      "is_answered": false,
+      "view_count": 387,
+      "answer_count": 0,
+      "score": 9,
+      "last_activity_date": 1534494949,
+      "creation_date": 1521443232,
+      "last_edit_date": 1534494949,
+      "question_id": 49357458,
+      "link": "https://stackoverflow.com/questions/49357458/opencv-in-java-descriptorextractor-is-deprecated-what-do-i-use-instead",
+      "title": "OpenCv in Java: DescriptorExtractor is deprecated. What do I use instead?",
+      "body": "<p>I have some sample code which uses OpenCV (Java wrapper) to stitch 2 images together.  It refers to a class \"DescriptorExtractor\" which is deprecated.  I can't find any information in the official web documentation or the source-code  about what I should use instead.  I always get annoyed when something is deprecated and it doesn't tell you what you should use instead.</p>\n\n<p>Can anyone help me?</p>\n\n<p>I'm using OpenCV 3.4.1 with pre-built Windows libraries. </p>\n\n<p>The official documentation for the class seems to be <a href=\"https://docs.opencv.org/3.4/javadoc/org/opencv/features2d/DescriptorExtractor.html\" rel=\"nofollow noreferrer\">here</a>.</p>\n\n<p>The \"FeatureDetector\" class is likewise deprecated, likewise without any hint about what to use instead.</p>\n"
+    },
+    {
+      "tags": [
+        "c++",
+        "windows",
+        "ssl",
+        "xml-rpc"
+      ],
+      "owner": {
+        "reputation": 5490,
+        "user_id": 10592,
+        "user_type": "registered",
+        "accept_rate": 79,
+        "profile_image": "https://www.gravatar.com/avatar/400efafaef6727a69e8c34d1f85a9842?s=128&d=identicon&r=PG",
+        "display_name": "Tim Cooper",
+        "link": "https://stackoverflow.com/users/10592/tim-cooper"
+      },
+      "is_answered": true,
+      "view_count": 8018,
+      "accepted_answer_id": 999308,
+      "answer_count": 5,
+      "score": 7,
+      "last_activity_date": 1380848219,
+      "creation_date": 1221523934,
+      "last_edit_date": 1226267232,
+      "question_id": 68144,
+      "link": "https://stackoverflow.com/questions/68144/using-xmlrpc-in-c-and-windows",
+      "title": "Using XmlRpc in C++ and Windows",
+      "body": "<p>I need to use XmlRpc in C++ on a Windows platform.  Despite the fact that my friends assure me that XmlRpc is a \"widely available standard technology\", there are not many libraries available for it.  In fact I only found one library to do this on Windows, (plus another one that claims \"you'll have to do a lot of work to get this to compile on Windows).  The library I found was Chris Morley's \"XmlRpc++\".  However, it doesn't have support for SSL.</p>\n\n<p>My question therefore is:  what library should I be using?  </p>\n"
+    }
+  ],
+  "has_more": true,
+  "quota_max": 10000,
+  "quota_remaining": 9648
+}

@@ -1,0 +1,265 @@
+{
+  "items": [
+    {
+      "tags": [
+        "php",
+        "wordpress",
+        "email",
+        "woocommerce",
+        "hook"
+      ],
+      "owner": {
+        "reputation": 145,
+        "user_id": 4083675,
+        "user_type": "registered",
+        "accept_rate": 80,
+        "profile_image": "https://www.gravatar.com/avatar/92e975abcedfb481ab614d0d9b8da9ed?s=128&d=identicon&r=PG&f=1",
+        "display_name": "J4G",
+        "link": "https://stackoverflow.com/users/4083675/j4g"
+      },
+      "is_answered": false,
+      "view_count": 13,
+      "answer_count": 0,
+      "score": 0,
+      "last_activity_date": 1541073225,
+      "creation_date": 1541071642,
+      "last_edit_date": 1541073225,
+      "question_id": 53100362,
+      "link": "https://stackoverflow.com/questions/53100362/woocommerce-email-templates-how-to-add-some-custom-text-to-a-single-file-that",
+      "title": "WooCommerce email templates - how to add some custom text to a single file that hooks into",
+      "body": "<p>I am making changes to the WooCommerce email templates and need to add some plain html (about the company's return policy, opening hours, etc.) across a number of files.  I don't want to hard code these into every template but would rather use hooks (if that is the right term?)</p>\n\n<p>If I create a new file called informative-text.php in the same folder as the modified email template files how do I add it in to the admin-new-order.php file?</p>\n"
+    },
+    {
+      "tags": [
+        "python",
+        "opencv",
+        "macos-mojave"
+      ],
+      "owner": {
+        "reputation": 1,
+        "user_id": 10590149,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/23c0ce5eca27d2fb50223c162caf25ae?s=128&d=identicon&r=PG&f=1",
+        "display_name": "m3ackie",
+        "link": "https://stackoverflow.com/users/10590149/m3ackie"
+      },
+      "is_answered": false,
+      "view_count": 9,
+      "answer_count": 0,
+      "score": 0,
+      "last_activity_date": 1541073019,
+      "creation_date": 1541065678,
+      "last_edit_date": 1541073019,
+      "question_id": 53098731,
+      "link": "https://stackoverflow.com/questions/53098731/after-upgrading-to-mac-os-mojave-my-script-coded-with-pycharm-got-some-weird-re",
+      "title": "After upgrading to Mac os Mojave, my script coded with Pycharm got some weird result, the demo had imported OPENCV",
+      "body": "<pre><code>import cv2\n\ncap = cv2.VideoCapture('./open.mp4')\n\nwhile True:\n\n    ret, frame = cap.read()\n\n    fps = cap.get(cv2.CAP_PROP_FPS)\n\n    print(repr(fps))\n\n    cv2.imshow('frame', frame)\n\n    if(cv2.waitKey(30) &amp; 0xFF == ord('q')):\n        break\n\n\ncap.release()\n\ncv2.destroyAllWindows()\n</code></pre>\n\n<p>the problem was that the video I opened by OPENCV looked slower than it opened  by QucikTime Player, and i had checked fps, it remains unchanged. i try to change the parameter in waitKey, but useless, when i make the parameter high ,the show will be slower.while i make it lower, the show can't be smooth or faster. what should i do ? maybe system had limited the speed of loading list? by the way, the same code running on Windows10 got the result i expected.</p>\n"
+    },
+    {
+      "tags": [
+        "arrays",
+        "json",
+        "lua"
+      ],
+      "owner": {
+        "reputation": 6,
+        "user_id": 10311181,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/b279b18f90255d6cc2988be4fcf26433?s=128&d=identicon&r=PG&f=1",
+        "display_name": "user308204",
+        "link": "https://stackoverflow.com/users/10311181/user308204"
+      },
+      "is_answered": false,
+      "view_count": 7,
+      "answer_count": 0,
+      "score": 0,
+      "last_activity_date": 1541072936,
+      "creation_date": 1541072936,
+      "question_id": 53100713,
+      "link": "https://stackoverflow.com/questions/53100713/how-to-write-some-lua-tables-in-one-json-field",
+      "title": "How to write some Lua tables in one JSON-field?",
+      "body": "<p>I have main Lua-table which contains some subtables, for example:</p>\n\n<pre><code>p = { {1,2}, {3,4}}\n</code></pre>\n\n<p>I need to go through these tables and write the result to the JSON-file as follows:</p>\n\n<pre><code>    {\n      \"numbers\":[\n{\n        \"my\" :[\n        { \"n1\" = 1,\n          \"n2\" = 2\n        },\n        { \"n1\" = 3,\n          \"n2\" = 4\n        }\n    ]\n}\n]\n}\n</code></pre>\n\n<p>My code(doesn't work) :</p>\n\n<pre><code>json = require('json')\nlocal res = {}\nlocal p = { {1,2}, {3,4} }\nfor i = 1, #p do\n  table.insert(res, { my = {\n    n1 = p[i][1],\n    n2 = p[i][2]\n}})\nend\njson.encode({numbers = res})\n</code></pre>\n\n<p>At the exit, I have about the following :</p>\n\n<pre><code>    {\n      \"numbers\":[\n     {\n      \"my\":{\n        { \"n1\" = 1,\n          \"n2\" = 2\n        }\n    },\n      \"my\":{\n        { \"n1\" = 3,\n          \"n2\" = 4\n        }\n    }\n}\n]\n    }\n</code></pre>\n\n<p>Help me please!</p>\n"
+    },
+    {
+      "tags": [
+        "python"
+      ],
+      "owner": {
+        "reputation": 1,
+        "user_id": 10590758,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/b85e7556ac73d2c36dd767654bc9806a?s=128&d=identicon&r=PG&f=1",
+        "display_name": "Sander",
+        "link": "https://stackoverflow.com/users/10590758/sander"
+      },
+      "is_answered": false,
+      "view_count": 22,
+      "answer_count": 0,
+      "score": -3,
+      "last_activity_date": 1541072514,
+      "creation_date": 1541072514,
+      "question_id": 53100594,
+      "link": "https://stackoverflow.com/questions/53100594/filename-read-and-filename-writesome-text-wont-work",
+      "title": "&lt;filename&gt;.read() and &lt;filename&gt;.write(&#39;some text&#39;) won&#39;t work",
+      "body": "<p>I have just started learning python using Atom and version 3.7. \nI can't get the read and write functions to work. \ni have created \"testfile.txt\" typed in a single sentence. \nand i'm trying to read it using this code in atom\nsaved as \"scriptname.py\" in the same folder as testfile.txt</p>\n\n<pre><code>path = '/Users/default/documents/python/testfile.txt'\nthefile = open(path,'r')\nthefile.read()\n</code></pre>\n\n<p>I'm running the script in Command prompt (win 10). by running : \nC:\\Users\\default\\documents\\python\\scriptname.py</p>\n"
+    },
+    {
+      "tags": [
+        "swift"
+      ],
+      "owner": {
+        "reputation": 1,
+        "user_id": 10590734,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/e7963f12289040255cdf87502b7fffea?s=128&d=identicon&r=PG&f=1",
+        "display_name": "bobby_anthrax",
+        "link": "https://stackoverflow.com/users/10590734/bobby-anthrax"
+      },
+      "is_answered": false,
+      "view_count": 27,
+      "closed_date": 1541072442,
+      "answer_count": 1,
+      "score": -9,
+      "last_activity_date": 1541072331,
+      "creation_date": 1541071885,
+      "question_id": 53100417,
+      "link": "https://stackoverflow.com/questions/53100417/beginner-with-swift-enlight-me-some-stuff-please",
+      "closed_reason": "too broad",
+      "title": "Beginner with Swift, enlight me some stuff please",
+      "body": "<p>I’m a new here, just started learning some Swift and i have some amateur questions, because to be honest I don’t understand so many stuff. \nOk, so could you please tell me how really programming works, I mean when i read the documentations i get it, but all i see there is some mathematical stuff which i’m not really sure how it works irl when building stuff. \nCan i see the source code of an famous app or something that can actually show me what’s happening in a program, because hey, i’m reading all day about variables and constants and other stuff which i am not really sure how can i apply. So yeah, my main question is, help me understand how something is build and works, because currently all i can is to print “hello world”... btw, im not a computer newbie, just the programming that don’t really get...\nBtw, is Swift a nice language to start with? I choose it, because it looks kind of fun and intuitive without writing too much cr*p. </p>\n"
+    },
+    {
+      "tags": [
+        "graph-theory",
+        "business-intelligence"
+      ],
+      "owner": {
+        "reputation": 1,
+        "user_id": 8924475,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/0509251099d8c6423d191a507484645b?s=128&d=identicon&r=PG&f=1",
+        "display_name": "ToriTompkins",
+        "link": "https://stackoverflow.com/users/8924475/toritompkins"
+      },
+      "is_answered": false,
+      "view_count": 9,
+      "answer_count": 0,
+      "score": -3,
+      "last_activity_date": 1541071067,
+      "creation_date": 1541071067,
+      "question_id": 53100211,
+      "link": "https://stackoverflow.com/questions/53100211/does-anyone-have-some-great-examples-of-using-graph-theory-network-science-in-th",
+      "title": "Does anyone have some great examples of using graph theory/network science in the field of Business Intelligence?",
+      "body": "<p>A lot of examples for the use of graph theory revolve around either social networks (which I understand are useful for business intelligence) or scientific/biological application. I am exploring the application of graph theory and algorithms on business data. The current applications I have identified are:</p>\n\n<ul>\n<li>Airport connections</li>\n<li>Delivery logistics - like the one eBay implemented</li>\n<li>Co-purchasing networks</li>\n<li>Website navigation</li>\n<li>Bank transfers</li>\n</ul>\n\n<p>Bonus points if you can provide links to studies or companies already using graph theory in this field.</p>\n\n<p>Thanks all!</p>\n"
+    },
+    {
+      "tags": [
+        "javascript",
+        "html",
+        "forms"
+      ],
+      "owner": {
+        "reputation": 1,
+        "user_id": 10588015,
+        "user_type": "registered",
+        "profile_image": "https://lh4.googleusercontent.com/-esrOsQBQBdQ/AAAAAAAAAAI/AAAAAAAAAAA/ABtNlbDGh2wqaaInoz7zcuZ_6HGkHtlfxQ/mo/photo.jpg?sz=128",
+        "display_name": "lflfl flflf",
+        "link": "https://stackoverflow.com/users/10588015/lflfl-flflf"
+      },
+      "is_answered": false,
+      "view_count": 12,
+      "answer_count": 0,
+      "score": 0,
+      "last_activity_date": 1541071041,
+      "creation_date": 1541071041,
+      "question_id": 53100205,
+      "link": "https://stackoverflow.com/questions/53100205/html-google-form-not-works-in-some-mobile",
+      "title": "HTML-Google Form not works in some mobile",
+      "body": "<p>This is weird, I created a link between my test web page and my Google sheet to save emails. With other phones it works fine, but with mine it does not work, I do not know why, it executes the code (I know it because it redirects me to the same page) but the mail is not sent.</p>\n\n<p><div class=\"snippet\" data-lang=\"js\" data-hide=\"false\" data-console=\"true\" data-babel=\"false\">\r\n<div class=\"snippet-code\">\r\n<pre class=\"snippet-code-html lang-html prettyprint-override\"><code>&lt;!DOCTYPE html&gt;\r\n&lt;html&gt;\r\n&lt;head&gt;\r\n&lt;script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js\"&gt;\r\n&lt;/script&gt;\r\n\r\n&lt;script&gt;\r\nfunction postContactToGoogle() {\r\nvar emailAddress=$('#emailAddress').val();\r\n$.ajax({\r\nurl:\"URL OF THE SHEET\",data:{\"entry_459023970\":emailAddress},type:\"POST\",dataType:\"xml\",statusCode: {0:function() { window.location.replace(\"index.html\");},200:function(){window.location.replace(\"index.html\");}}\r\n});\r\n}\r\n&lt;/script&gt;\r\n\r\n&lt;/head&gt;\r\n&lt;body&gt;\r\n&lt;form id=\"formRequest\" action=\"javascript:postContactToGoogle()\"&gt;\r\n\r\n&lt;label for=\"comfort\"&gt;Email&lt;/label&gt;\r\n  &lt;input name=\"emailAddress\" type=\"text\" id=\"emailAddress\"/&gt;\r\n\r\n\r\n&lt;input class=\"button\" type=\"button\" onclick=\"postContactToGoogle()\" value=\"Submit\"&gt;\r\n&lt;/form&gt;\r\n&lt;/body&gt;\r\n&lt;/html&gt;</code></pre>\r\n</div>\r\n</div>\r\n</p>\n"
+    },
+    {
+      "tags": [
+        "python",
+        "python-3.x",
+        "opengl",
+        "rendering",
+        "pyopengl"
+      ],
+      "owner": {
+        "reputation": 778,
+        "user_id": 972014,
+        "user_type": "registered",
+        "accept_rate": 53,
+        "profile_image": "https://www.gravatar.com/avatar/7c636e5bf05e33414753115bb1d655c3?s=128&d=identicon&r=PG",
+        "display_name": "user972014",
+        "link": "https://stackoverflow.com/users/972014/user972014"
+      },
+      "is_answered": false,
+      "view_count": 21,
+      "answer_count": 2,
+      "score": 1,
+      "last_activity_date": 1541070865,
+      "creation_date": 1541057248,
+      "question_id": 53096845,
+      "link": "https://stackoverflow.com/questions/53096845/pyopengl-update-triangles-array-when-some-of-the-scene-elements-need-to-disapp",
+      "title": "PyOpenGL - update triangles array when some of the scene elements need to disappear",
+      "body": "<p>I have a scene that I need to render quickly. So I successfully generate the vertices of the triangles as numpy, upload to GPU and render it very fast. So far so good.</p>\n\n<p>The problem starts when some of the elements in the scene need to disappear from the scene. What I do is traverse the entire array and filter out the vertices the scene elements that no longer need to be drawn, upload it again to GPU and then render it. This obviously takes a few seconds which is unacceptable. I'm looking for a quick way to modify the array and redraw the scene.</p>\n\n<p>This a simplified version of the code I use: (Would also appreciate any comments about the code itself)</p>\n\n<pre><code>from OpenGL.GL import *\nfrom OpenGL.GLU import *\nimport numpy as np\nimport ctypes\n\nvertex_dtype = [(\"position\", np.float32, 3), (\"color\", np.float32, 4)]\nvertex_array_object = None\nvertex_buffer = None\nshader_program = .......\n\ndef upload_to_gpu(vertices_np):\n    global vertex_array_object, vertex_buffer\n    if vertex_array_object is None:\n        vertex_array_object = glGenVertexArrays(1)\n    if vertex_buffer is None:\n        vertex_buffer = glGenBuffers(1)\n    glBindVertexArray(vertex_array_object)\n    glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer)\n    glBufferData(GL_ARRAY_BUFFER, vertices_np.nbytes, vertices_np, GL_STATIC_DRAW)\n    stride = vertices_np.strides[0]\n    offset = ctypes.c_void_p(0)\n    position_location = glGetAttribLocation(shader_program, 'a_position')\n    glEnableVertexAttribArray(position_location)\n    glVertexAttribPointer(position_location, 3, GL_FLOAT, False, stride, offset)\n\n    offset = ctypes.c_void_p(vertices_np.dtype[\"position\"].itemsize)\n    color_location = glGetAttribLocation(shader_program, \"a_color\")\n    glEnableVertexAttribArray(color_location)\n    glVertexAttribPointer(color_location, 4, GL_FLOAT, False, stride, offset)\n\n    glBindVertexArray(0)\n    glBindBuffer(GL_ARRAY_BUFFER, 0)\n\ndef create_np_array(all_vertices):\n    vertices_np = np.zeros(len(all_vertices), dtype=vertex_dtype)\n    cur_idx = 0\n    for vertex in all_vertices:        \n        if ....should_ignore_triangle....:\n            continue\n        vertices_np[cur_idx][\"position\"] = [vertex[0], vertex[1], vertex[2]]\n        vertices_np[cur_idx][\"color\"] = ......\n        cur_idx += 1\n\n    vertices_np = vertices_np[:cur_idx]\n    return vertices_np\n\ndef draw_scene(vertices_np):\n    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)\n    glUseProgram(shader_program)\n    # Set view and projection matrix    \n    glBindVertexArray(vertex_array_object)\n    glDrawArrays(GL_TRIANGLES, 0, vertices_np.shape[0])\n\ndef main():\n    all_vertices = [[0, 0, 0], [1, 0, 0], [0, 1, 0], ......]   # long list of ~million vertices\n    vertices_np = create_np_array(all_vertices)\n    upload_to_gpu(vertices_np)\n\n    # Now we are ready to start rendering\n    draw_scene(vertices_np) # works fine\n\n    # Now something changes and we need to regenerate the vertices_np and upload it again\n    vertices_np = create_np_array(all_vertices)   # &lt;-- THIS TAKES TOO MUCH TIME\n    upload_to_gpu(vertices_np)\n    draw_scene(vertices_np) # works fine\n</code></pre>\n"
+    },
+    {
+      "tags": [
+        "javascript",
+        "debugging",
+        "operators"
+      ],
+      "owner": {
+        "reputation": 1,
+        "user_id": 10590499,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/c58f3c9f66ea6e2d14e5c7d98966513b?s=128&d=identicon&r=PG&f=1",
+        "display_name": "Mika",
+        "link": "https://stackoverflow.com/users/10590499/mika"
+      },
+      "is_answered": false,
+      "view_count": 4,
+      "answer_count": 0,
+      "score": 0,
+      "last_activity_date": 1541069906,
+      "creation_date": 1541069906,
+      "question_id": 53099882,
+      "link": "https://stackoverflow.com/questions/53099882/subtracting-qty-in-js-not-working-only-some-times",
+      "title": "subtracting qty in JS not working only some times",
+      "body": "<p>So i'm new to JS and am working on a project to receive products based on tracking info and then with the UPC code, i get the package contents from a AJAX call to php then add the items to a array in js object format, when a UPC is scanned from a item in the package it should subtract one from the package content, the issue the function i made to subtract only works on some item objects not all and i can't seem to figure out why, there is no differences between the objects, what am i doing wrong</p>\n\n<p>heres my code</p>\n\n<pre><code>//define array\n`var packageContent = [];\n\n//create item objects\nvar Item = function(name, upc, weight, qty) {\n    this.name = name\n    this.upc = upc\n    this.weight = weight\n    this.qty = qty\n}\n\n//with php info add items with the tracking to the package content\nfunction addItemToPackage(name, upc, weight, qty) {\n    for (var i in packageContent) {\n        if (packageContent[i].upc == upc) {\n            packageContent[i].qty += qty;\n            return;\n        }\n    }\n    item = new Item(name, upc, weight, qty);\n    packageContent.push(item);\n}`\n\n//Package Content Lookup\nfunction initialInboundScan(tracking) {\n    //define tracking var\n    var tracking = tracking;\n    //AJAX request to PHP to find items assosiated with tracking #\n    $.ajax({\n    url : \"./includes/process.php\",\n    method : \"post\",\n    data : {inbound_tracking_scan:1,tracking:tracking},\n    success : function(data)\n        {\n        var items = JSON.parse(data);\n        //Loop the respone call addItemToPackage()\n        for(var i in items){\n        addItemToPackage(items[i].product_name, items[i].UPC, items[i].SKU, parseInt(items[i].qty)) \n        } \n        return packageContent;\n        }\n    });\n}\n\n// remove item from package\nfunction remove(upc) {\n    var upc = upc;\n    for (var i in packageContent) {\n        if (packageContent[i].upc == upc) {\n            packageContent[i].qty --;\n        if (packageContent[i].qty == 0) {\n        packageContent.splice(i , 1);   \n        }     \n        }\n    }\n}\n</code></pre>\n\n<p>the remove() function wont work on items made with the initialInboundScan(); only items made directly with the addItemToPackage() and i cant seem to figure out why the remove() function wouldn't subtract from the qty  </p>\n"
+    },
+    {
+      "tags": [
+        "javascript",
+        "jquery",
+        "html",
+        "css",
+        "coldfusion"
+      ],
+      "owner": {
+        "reputation": 137,
+        "user_id": 6459412,
+        "user_type": "registered",
+        "profile_image": "https://i.stack.imgur.com/xsEHU.jpg?s=128&g=1",
+        "display_name": "Kannan.P",
+        "link": "https://stackoverflow.com/users/6459412/kannan-p"
+      },
+      "is_answered": false,
+      "view_count": 31,
+      "answer_count": 0,
+      "score": 1,
+      "last_activity_date": 1541068395,
+      "creation_date": 1541061214,
+      "last_edit_date": 1541068395,
+      "question_id": 53097629,
+      "link": "https://stackoverflow.com/questions/53097629/login-form-save-password-data-is-reflect-in-some-other-form-password-type",
+      "title": "Login form save password data is reflect in some other form password type",
+      "body": "<p>I'm facing the issue as \" If I'm saving username and password while login in my browser It's will reflect in some other pages UI those are having password type.</p>\n\n<p>For example, I'm having login.cfm while login with that page I'm saving the authentication details in my browser.  While I'm hitting my stripe.cfm page it's having a login username and password details in stripe username and password form fields. For your reference, I've attached screenshot ( login.PNG &amp; stirpeReflect.png ) about login and stripe form you can see the details.</p>\n\n<p><strong>Login page :</strong>\n<a href=\"https://i.stack.imgur.com/S3IgY.png\" rel=\"nofollow noreferrer\"><img src=\"https://i.stack.imgur.com/S3IgY.png\" alt=\"enter image description here\"></a></p>\n\n<p><strong>Stripe page :</strong> \n<a href=\"https://i.stack.imgur.com/oxdxo.png\" rel=\"nofollow noreferrer\"><img src=\"https://i.stack.imgur.com/oxdxo.png\" alt=\"enter image description here\"></a></p>\n\n<p>Note: I've tried to use autocompleted=\"off\" in login form &amp; stripe form. But it's not helped me to escape from this issue.</p>\n\n<p>I've tested it in both Firefox and Chrome also...</p>\n\n<p>Thanks in advance for your help. </p>\n"
+    }
+  ],
+  "has_more": true,
+  "quota_max": 10000,
+  "quota_remaining": 9672
+}

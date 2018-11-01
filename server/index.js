@@ -3,6 +3,7 @@ require('dotenv').config();
 const EMAIL_REGEXP = /^(?=.{1,254}$)(?=.{1,64}@)[-!#$%&'*+/0-9=?A-Z^_`a-z{|}~]+(\.[-!#$%&'*+/0-9=?A-Z^_`a-z{|}~]+)*@[A-Za-z0-9]([A-Za-z0-9-]{0,61}[A-Za-z0-9])?(\.[A-Za-z0-9]([A-Za-z0-9-]{0,61}[A-Za-z0-9])?)*$/;
 
 const proxyMiddleware = require('http-proxy-middleware');
+const fs = require('fs');
 const crypto = require('crypto');
 const express = require('express');
 const passport = require('passport');
@@ -12,6 +13,7 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const StackExchangeStrategy = require('passport-stack-exchange');
 const LocalStrategy = require('passport-local').Strategy;
+const MongoStore = require('connect-mongo')(session);
 
 const NODE_ENV = process.env.NODE_ENV;
 const SERVER_PROTOCOL = process.env.SERVER_PROTOCOL || 'http';
@@ -21,12 +23,34 @@ const SERVER_SESSION_SECRET = process.env.SERVER_SESSION_SECRET || 'some_sesssio
 
 const API_SERVER_URL = process.env.API_SERVER_URL || 'http://api.stackexchange.com/2.2';
 const STATIC_SERVER_URL = process.env.STATIC_SERVER_URL || 'http://front:3031';
+const MOCK = process.env.MOCK;
 
 const STACKEXCHANGE_CLIENT_ID = process.env.STACKEXCHANGE_CLIENT_ID;
 const STACKEXCHANGE_CLIENT_SECRET = process.env.STACKEXCHANGE_CLIENT_SECRET;
 const STACKEXCHANGE_APPS_KEY = process.env.STACKEXCHANGE_APPS_KEY;
 
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://db/stack';
+
+const file_exists = (filename) => {
+  return new Promise((resolve) => {
+    fs.exists(filename, (exists) => {
+      resolve(exists);
+    })
+  })
+};
+
+const get_file_content = (filename) => {
+  return new Promise(async (resolve, reject) => {
+    fs.readFile(filename, (err, data) => {
+      if (err) {
+        reject(err);
+        return;
+      }
+
+      resolve(data.toString());
+    });
+  })
+};
 
 mongoose.connect(MONGODB_URI);
 
@@ -115,7 +139,13 @@ const app = express();
 
 app.use(cookieParser());
 app.use(bodyParser.json());
-app.use(session({ secret: SERVER_SESSION_SECRET }));
+app.use(session({
+  cookie : {
+    maxAge: 3600000 // see below
+  },
+  secret: SERVER_SESSION_SECRET,
+  store: new MongoStore({ mongooseConnection: mongoose.connection }),
+}));
 app.use(passport.initialize());
 app.use(passport.session({ secret: SERVER_SESSION_SECRET }));
 
@@ -180,7 +210,7 @@ authRouter
     }
   })
   .get('/stack', passport.authenticate('stack-exchange'))
-  .get('/stack/callback', passport.authenticate('stack-exchange', { failureRedirect: '/login' }), (req, res) => {
+  .get('/stack/callback', passport.authenticate('stack-exchange', { failureRedirect: '/auth/login' }), (req, res) => {
     // Successful authentication, redirect home.
     res.redirect('/');
   })
@@ -199,6 +229,75 @@ authRouter
   });
 
 app.use('/api/auth', authRouter);
+
+if (MOCK) {
+  app.get('/api/search', async (req, res) => {
+    const page = req.query.page;
+    const filename = `${__dirname}/mock/questions-${page}.json`;
+
+    const isExists = await file_exists(filename);
+
+    if (!isExists) {
+      res.status(404).send('Not found');
+      return;
+    }
+
+    res.json(require(filename));
+  });
+
+  app.get('/api/users/:user_id/questions', async (req, res) => {
+    const page = req.query.page;
+    const filename = `${__dirname}/mock/user-questions-${page}.json`;
+
+    const isExists = await file_exists(filename);
+
+    if (!isExists) {
+      res.status(404).send('Not found');
+      return;
+    }
+
+    try {
+      res.json(JSON.parse(await get_file_content(filename)));
+    } catch (e) {
+      res.status(500).json(e);
+    }
+  });
+
+  app.get('/api/questions/:question_id', async (req, res) => {
+    try {
+      const questionId = parseInt(req.params.question_id);
+      const map = JSON.parse(await get_file_content(`${__dirname}/mock/questions-map.json`));
+      const question = map[`${questionId}`];
+
+      if (question) {
+        const responseBody = {
+          items: [ question ],
+        }
+        res.json(responseBody);
+      } else {
+        res.status(404).send('Not found');
+      }
+    } catch (e) {
+      res.status(500).json(e);
+    }
+  });
+
+  app.get('/api/questions/:question_id/answers', async (req, res) => {
+    const filename = `${__dirname}/mock/answers.json`;
+    const isExists = await file_exists(filename);
+
+    if (!isExists) {
+      res.status(404).send('Not found');
+      return;
+    }
+
+    try {
+      res.json(JSON.parse(await get_file_content(filename)));
+    } catch (e) {
+      res.status(500).json(e);
+    }
+  });
+}
 
 if (API_SERVER_URL) {
   app.use('/api', proxyMiddleware({

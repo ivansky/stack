@@ -1,0 +1,272 @@
+{
+  "items": [
+    {
+      "tags": [
+        "ruby",
+        "pdf",
+        "rspec",
+        "pdf-generation"
+      ],
+      "owner": {
+        "reputation": 851,
+        "user_id": 3676469,
+        "user_type": "registered",
+        "accept_rate": 17,
+        "profile_image": "https://graph.facebook.com/100003443544248/picture?type=large",
+        "display_name": "Hirurg103",
+        "link": "https://stackoverflow.com/users/3676469/hirurg103"
+      },
+      "is_answered": false,
+      "view_count": 11,
+      "answer_count": 0,
+      "score": 1,
+      "last_activity_date": 1541067510,
+      "creation_date": 1541067510,
+      "question_id": 53099223,
+      "link": "https://stackoverflow.com/questions/53099223/how-to-check-that-a-pdf-file-has-some-link-with-ruby-rspec",
+      "title": "How to check that a PDF file has some link with Ruby/Rspec?",
+      "body": "<p>I am using <a href=\"https://github.com/prawnpdf/pdf-inspector\" rel=\"nofollow noreferrer\">prawnpdf/pdf-inspector</a> to test that content of a PDF generated in my Rails app is correct. </p>\n\n<p>I would want to check that the PDF file contains a link with certain URL. I looked at <a href=\"https://github.com/yob/pdf-reader\" rel=\"nofollow noreferrer\">yob/pdf-reader</a> but haven't found any useful information related to this topic</p>\n\n<p>Is it possible to test URLs within PDF with Ruby/RSpec?</p>\n\n<p>I would want the following:</p>\n\n<pre><code>expect(urls_in_pdf(pdf)).to include 'https://example.com/users/1'\n</code></pre>\n"
+    },
+    {
+      "tags": [
+        "reactjs",
+        "react-router-v4"
+      ],
+      "owner": {
+        "reputation": 3,
+        "user_id": 10574713,
+        "user_type": "registered",
+        "profile_image": "https://lh5.googleusercontent.com/-TgofOq14MTg/AAAAAAAAAAI/AAAAAAAAAAA/ABtNlbAh_Hpsts1lEA6k9TMSbwWx7kjU7Q/mo/photo.jpg?sz=128",
+        "display_name": "Akashdeep Samantra",
+        "link": "https://stackoverflow.com/users/10574713/akashdeep-samantra"
+      },
+      "is_answered": true,
+      "view_count": 21,
+      "accepted_answer_id": 53097677,
+      "answer_count": 2,
+      "score": 0,
+      "last_activity_date": 1541065562,
+      "creation_date": 1541061089,
+      "question_id": 53097610,
+      "link": "https://stackoverflow.com/questions/53097610/how-to-hide-nav-bar-in-some-react-components",
+      "title": "How to hide Nav bar in some react components",
+      "body": "<p>I am trying to make a login flow using react. Routes are working as expected. But when I try to introduce nav bar, it is visible on all routes. I want to show nav bar only on selected components (only on profile and home route). </p>\n\n<p>Any suggestions would be appreciated. </p>\n\n<p>This is the Routes.js:\n<div class=\"snippet\" data-lang=\"js\" data-hide=\"false\" data-console=\"true\" data-babel=\"false\">\r\n<div class=\"snippet-code\">\r\n<pre class=\"snippet-code-js lang-js prettyprint-override\"><code>export default class Routes extends Component {\r\n  render() {\r\n    return (\r\n      &lt;Switch&gt;\r\n        &lt;Route\r\n          exact\r\n          path='/*/home'\r\n          component={Home}\r\n        /&gt;\r\n        &lt;Route\r\n          exact\r\n          path='/*/login'\r\n          component={Login}\r\n        /&gt;\r\n        &lt;Route\r\n          exact\r\n          path='/*/profile'\r\n          component={Profile}\r\n        /&gt;\r\n        &lt;Route\r\n          exact\r\n          path='/'\r\n          component={Main}\r\n        /&gt;\r\n        &lt;Route\r\n          exact\r\n          path='/*/'\r\n          component={Org}\r\n        /&gt;\r\n      &lt;/Switch&gt;\r\n    );\r\n  }\r\n}</code></pre>\r\n<pre class=\"snippet-code-html lang-html prettyprint-override\"><code>&lt;script src=\"https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react.min.js\"&gt;&lt;/script&gt;\r\n&lt;script src=\"https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.min.js\"&gt;&lt;/script&gt;</code></pre>\r\n</div>\r\n</div>\r\n</p>\n\n<p>This is the App.js:</p>\n\n<p><div class=\"snippet\" data-lang=\"js\" data-hide=\"false\" data-console=\"true\" data-babel=\"false\">\r\n<div class=\"snippet-code\">\r\n<pre class=\"snippet-code-js lang-js prettyprint-override\"><code>&lt;div className=\"App\"&gt;\r\n  &lt;Nav /&gt;\r\n  &lt;Routes /&gt;\r\n&lt;/div&gt;</code></pre>\r\n</div>\r\n</div>\r\n</p>\n"
+    },
+    {
+      "tags": [
+        "python",
+        "python-3.x",
+        "ascii"
+      ],
+      "owner": {
+        "reputation": 1,
+        "user_id": 10590256,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/a190b0915e3efe5d423c5cdea9c57a36?s=128&d=identicon&r=PG&f=1",
+        "display_name": "j.dough",
+        "link": "https://stackoverflow.com/users/10590256/j-dough"
+      },
+      "is_answered": false,
+      "view_count": 37,
+      "closed_date": 1541064972,
+      "answer_count": 0,
+      "score": -8,
+      "last_activity_date": 1541064757,
+      "creation_date": 1541064757,
+      "question_id": 53098482,
+      "link": "https://stackoverflow.com/questions/53098482/can-some-one-help-me-with-this-but-explain-it-simply-in-python",
+      "closed_reason": "too broad",
+      "title": "Can some one help me with this but explain it simply in python",
+      "body": "<p>Word Subtraction Create a program that takes two strings/words. Then then converts this to an ASCII value and subtracts the values from each other.</p>\n"
+    },
+    {
+      "tags": [
+        "java",
+        "build",
+        "ant"
+      ],
+      "owner": {
+        "reputation": 10,
+        "user_id": 2539361,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/f65c0014d9cf1dff122b086b18a97bfb?s=128&d=identicon&r=PG",
+        "display_name": "user2539361",
+        "link": "https://stackoverflow.com/users/2539361/user2539361"
+      },
+      "is_answered": false,
+      "view_count": 11,
+      "answer_count": 0,
+      "score": -1,
+      "last_activity_date": 1541064715,
+      "creation_date": 1541064715,
+      "question_id": 53098472,
+      "link": "https://stackoverflow.com/questions/53098472/execute-some-action-or-target-on-build-failure",
+      "title": "Execute some action or target on build failure",
+      "body": "<p>I have a build with many targets. This build upon initialization time create some temp folders, which i can delete in the end of build. The question is: how to delete this folders, when the build has failed due to some reasons? Is this possible at all?</p>\n\n<p>Thank you!</p>\n"
+    },
+    {
+      "tags": [
+        "git",
+        "git-submodules"
+      ],
+      "owner": {
+        "reputation": 1770,
+        "user_id": 287238,
+        "user_type": "registered",
+        "accept_rate": 75,
+        "profile_image": "https://www.gravatar.com/avatar/4a2acaa53f994eddb928ea4c9bd45acb?s=128&d=identicon&r=PG",
+        "display_name": "mathtick",
+        "link": "https://stackoverflow.com/users/287238/mathtick"
+      },
+      "is_answered": false,
+      "view_count": 10,
+      "answer_count": 1,
+      "score": 0,
+      "last_activity_date": 1541064532,
+      "creation_date": 1541062065,
+      "question_id": 53097816,
+      "link": "https://stackoverflow.com/questions/53097816/how-to-clone-git-repo-with-many-git-submodules-some-of-which-are-broken-missing",
+      "title": "How to clone git repo with many git submodules, some of which are broken/missing?",
+      "body": "<p>For example,</p>\n\n<pre><code>git clone --depth 1 --recursive https://github.com/gohugoio/hugoThemes.git themes\n</code></pre>\n\n<p>You can try:</p>\n\n<pre><code>git submodule update --init\n</code></pre>\n\n<p>But basically this stops on the first errors. When you don't own the repo, you probably just want to skip the broken or private repos but I don't think git has a skip-errors option yet. A foreach command might solve but haven't discovered yet. </p>\n"
+    },
+    {
+      "tags": [
+        "php",
+        "api",
+        "twitter",
+        "twitter-oauth"
+      ],
+      "owner": {
+        "reputation": 64,
+        "user_id": 5223227,
+        "user_type": "registered",
+        "accept_rate": 80,
+        "profile_image": "https://graph.facebook.com/748111485315164/picture?type=large",
+        "display_name": "James",
+        "link": "https://stackoverflow.com/users/5223227/james"
+      },
+      "is_answered": false,
+      "view_count": 22,
+      "answer_count": 1,
+      "score": 0,
+      "last_activity_date": 1541064525,
+      "creation_date": 1540937330,
+      "question_id": 53073586,
+      "link": "https://stackoverflow.com/questions/53073586/embedding-tweets-using-url-received-from-twitter-api-some-are-returning-errors",
+      "title": "Embedding tweets using URL received from Twitter API: some are returning errors",
+      "body": "<p>I am using the TwitteroAuth API.</p>\n\n<p>I am searching for Tweets using the search API: <a href=\"https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets.html\" rel=\"nofollow noreferrer\">https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets.html</a></p>\n\n<p>Embedding via this method (as you will see from code): <a href=\"https://developer.twitter.com/en/docs/twitter-for-websites/embedded-tweets/guides/embedded-tweet-parameter-reference\" rel=\"nofollow noreferrer\">https://developer.twitter.com/en/docs/twitter-for-websites/embedded-tweets/guides/embedded-tweet-parameter-reference</a></p>\n\n<p>Here is my PHP (having already gotten the json object from twitter):</p>\n\n<pre><code>&lt;?php\n$tweet_array = json_decode(json_encode($tweets), true);\n  // Turn each item into tweet\n  foreach ($tweet_array['statuses'] as $tweet ) {\n    // Variables\n    $tweet_text = $tweet['text'];\n    $twitter_username = $tweet['user']['name'];\n    $twitter_handle = $tweet['user']['screen_name'];\n    $output = \"\";\n    // Blockquote wrapper\n    $output .= \"&lt;blockquote class='twitter-tweet' data-lang='en'&gt;\";\n    // Text\n    $output .= \"&lt;p lang='en' dir='ltr'&gt;$tweet_text&lt;/p&gt;\";\n    // User name and Handle\n    $output .= \"&amp;mdash; $twitter_username (@$twitter_handle)\";\n    // Link to tweet\n    foreach ($tweet['entities'] as $key) {\n      // So don't break search\n      if (empty($key)) {\n        // Do nothing\n      } else {\n        // Check for extended_url key\n        if (array_key_exists(\"expanded_url\",($key[0]))) {\n          // Boolean to confirm retrieval of URL\n          $url = true;\n          // URL output\n          $url_string = $key[0]['expanded_url'];\n          $output .= \"&lt;a href='$url_string'&gt;$url_string&lt;/a&gt;\";\n        }\n      }\n    }\n    $output .= \"&lt;/blockquote&gt;\";\n    // if URL present, output code\n    if ($url == true) {\n      echo $output;\n    }\n  }\n</code></pre>\n\n<p>That code outputs this, a mix of working and not working tweets:</p>\n\n<p><a href=\"https://i.stack.imgur.com/9M9uw.png\" rel=\"nofollow noreferrer\"><img src=\"https://i.stack.imgur.com/9M9uw.png\" alt=\"enter image description here\"></a></p>\n\n<p>The code being output looks like this (working and not working examples):</p>\n\n<p>Working!</p>\n\n<pre><code>&lt;twitterwidget class=\"twitter-tweet twitter-tweet-rendered\" id=\"twitter-widget-1\" style=\"position: static; visibility: visible; display: block; transform: rotate(0deg); max-width: 100%; width: 500px; min-width: 220px; margin-top: 10px; margin-bottom: 10px;\" data-tweet-id=\"1057283419007143936\"&gt;&lt;/twitterwidget&gt;\n</code></pre>\n\n<p>Not working!</p>\n\n<pre><code>&lt;blockquote class=\"twitter-tweet twitter-tweet-error\" data-lang=\"en\" data-twitter-extracted-i1540936951520207597=\"true\"&gt;&lt;p lang=\"en\" dir=\"ltr\"&gt;He’ll say anything before the election. Don’t take the bait. Focus on ending the hate. Hug a kid. Be nice to someon… &lt;!-- SHORTENED LINK TAKEN OUT FOR STACK OVERFLOW --&gt;&lt;/p&gt;— Amy Klobuchar (@amyklobuchar)&lt;a href=\"https://twitter.com/i/web/status/1057234049587167232\"&gt;https://twitter.com/i/web/status/1057234049587167232&lt;/a&gt;&lt;/blockquote&gt;\n</code></pre>\n\n<p>Any help would be appreciated immensely</p>\n"
+    },
+    {
+      "tags": [
+        "java",
+        "string",
+        "dynamic-programming"
+      ],
+      "owner": {
+        "reputation": 18,
+        "user_id": 9858820,
+        "user_type": "registered",
+        "profile_image": "https://lh5.googleusercontent.com/-zj74_w9K-Mw/AAAAAAAAAAI/AAAAAAAAAAc/gCjSq9K8T3E/photo.jpg?sz=128",
+        "display_name": "TISHANT CHANDRAKAR",
+        "link": "https://stackoverflow.com/users/9858820/tishant-chandrakar"
+      },
+      "is_answered": false,
+      "view_count": 29,
+      "closed_date": 1541063725,
+      "answer_count": 0,
+      "score": -1,
+      "last_activity_date": 1541063377,
+      "creation_date": 1541053536,
+      "last_edit_date": 1541063377,
+      "question_id": 53096166,
+      "link": "https://stackoverflow.com/questions/53096166/trying-to-optimize-the-palindrome-matrix-but-getting-wrong-answer-for-some-test",
+      "closed_reason": "duplicate",
+      "title": "Trying to optimize the palindrome matrix but getting wrong answer for some test cases?",
+      "body": "<p>I was trying to optimize the palindrome \"ispalindrome\" matrix but its giving wrong answer for this test case : String A = \"jMsT8UCM4x1KaeJ41yHq0qHBJMeFIqyNoXaNIzFtZaOTqXs8PmDpoLC07h41Vw5y0liYY0wzwrYLUve1\". </p>\n\n<p>My code answer = 74;\nexpected answer = 72</p>\n\n<p>But if I manually check for every pair of \"i\" and \"j\" by writing a new \"isPalindrome\" function, it gives correct answer. Where am I doing wrong? Any suggestions are welcome.       </p>\n\n<pre><code>public class Solution {\n    public int minCut(String A) {\n        int len = A.length();\n        int[][] dp = new int[len][len];\n        boolean[][] ispalindrome = new boolean[len][len];\n        for(int i = 0;i&lt;len;i++){\n            ispalindrome[i][i] = true;\n            if(i&lt;len-1 &amp;&amp; A.charAt(i)==A.charAt(i+1)){\n                ispalindrome[i][i+1] = true;\n            }\n        }\n        for(int i = 0;i&lt;len-2;i++){\n            for(int j = i+2;j&lt;len;j++){\n                if(A.charAt(i)==A.charAt(j)){\n                    ispalindrome[i][j] = ispalindrome[i+1][j-1];\n                }\n            }\n        }\n        for(int gap = 0;gap&lt;=len;gap++){\n            for(int i = 0,j=gap;j&lt;len;j++,i++){\n                dp[i][j] = Integer.MAX_VALUE;\n                if(ispalindrome[i][j]){\n                    dp[i][j] = 0;\n                }\n                else{\n                    for(int k = i;k&lt;j;k++){\n                        dp[i][j] = Math.min(dp[i][j],1+dp[i][k]+dp[k+1][j]);\n                    }\n                }\n            }\n        }\n        return dp[0][len-1];\n    }\n}\n</code></pre>\n"
+    },
+    {
+      "tags": [
+        "google-maps",
+        "google-maps-api-3",
+        "google-maps-api-2"
+      ],
+      "owner": {
+        "reputation": 1,
+        "user_id": 10172514,
+        "user_type": "registered",
+        "profile_image": "https://lh6.googleusercontent.com/-5tOcOzDXxBI/AAAAAAAAAAI/AAAAAAAAAJs/dd2aecVsty8/photo.jpg?sz=128",
+        "display_name": "Vinay Vini",
+        "link": "https://stackoverflow.com/users/10172514/vinay-vini"
+      },
+      "is_answered": false,
+      "view_count": 13,
+      "answer_count": 0,
+      "score": -1,
+      "last_activity_date": 1541062646,
+      "creation_date": 1541057528,
+      "last_edit_date": 1541062646,
+      "question_id": 53096909,
+      "link": "https://stackoverflow.com/questions/53096909/google-maps-latlng-at-some-distance-on-the-road",
+      "title": "Google Maps: LatLng at some distance on the road",
+      "body": "<p>Can someone please help me with finding LatLng at a distance d(along the road), from a given LatLng.</p>\n\n<p>e.g., Suppose I have LatLng A, I need to find a LatLng(B) at a distance d from A. The distance should be measured along the road, not a displacement. My need here is to divide the road into chunks, where each size is of 256km, and I have to do some operations on each fragment. </p>\n"
+    },
+    {
+      "tags": [
+        "python",
+        "excel",
+        "hyperlink",
+        "openpyxl"
+      ],
+      "owner": {
+        "reputation": 351,
+        "user_id": 5080612,
+        "user_type": "registered",
+        "accept_rate": 3,
+        "profile_image": "https://www.gravatar.com/avatar/511db5baa147e6a23d63c80fa76001eb?s=128&d=identicon&r=PG&f=1",
+        "display_name": "gis20",
+        "link": "https://stackoverflow.com/users/5080612/gis20"
+      },
+      "is_answered": true,
+      "view_count": 4209,
+      "answer_count": 4,
+      "score": 5,
+      "last_activity_date": 1541060472,
+      "creation_date": 1471863150,
+      "last_edit_date": 1471880109,
+      "question_id": 39077661,
+      "link": "https://stackoverflow.com/questions/39077661/adding-hyperlinks-in-some-cells-openpyxl",
+      "title": "adding hyperlinks in some cells openpyxl",
+      "body": "<p>I have to generate an excel with summary results. The results are included in a list. Some of the elements are values and some links.</p>\n\n<p>I managed to generate the excel with the right format but not generate the hyperlink in some of the cells</p>\n\n<p>My try:\nfrom openpyxl import Workbook</p>\n\n<pre><code>from openpyxl.styles import PatternFill, Border, Side, Alignment, Protection, Font, Fill\nfrom openpyxl.cell import get_column_letter\n\ndef summaryMCP(self,result):\n\n            c1=Column('Name',[result[0]])\n            c2=Column('R2 check',[result[1]])\n            c3=Column('Dir Diff.',[result[2]])\n\n            c4=Column('CHI2 Sm-Sc',[result[3]])#Lets say this one is a hyperlink to one image png\n            c5=Column('Rose Sm-Sc',[result[4]])\n\n            s=Sheet(\"MCP main results\", [c1,c2,c3,c4,c5]\n            excelMCP([s],\"/results.xlsx\") \n\ndef excelMCP(self, sheets,foname):\n            wb = Workbook()\n            ws = wb.active\n            #from here format options (a bit long)\n</code></pre>\n\n<p>My question is can I define that the value is a hyperlink when defining the Column in def summaryMCP and then in excelMCP the format of the link?? And in case, how ? I could not find it so far</p>\n"
+    },
+    {
+      "tags": [
+        "javascript",
+        "python",
+        "user-interface",
+        "rpa"
+      ],
+      "owner": {
+        "reputation": 7,
+        "user_id": 10252288,
+        "user_type": "registered",
+        "profile_image": "https://lh3.googleusercontent.com/-bg9YIUhBz7w/AAAAAAAAAAI/AAAAAAAAAAA/APUIFaP-S89IF9eOS46Te4foDrKnB0EMQg/mo/photo.jpg?sz=128",
+        "display_name": "Im Hun Jung",
+        "link": "https://stackoverflow.com/users/10252288/im-hun-jung"
+      },
+      "is_answered": false,
+      "view_count": 207,
+      "answer_count": 2,
+      "score": 0,
+      "last_activity_date": 1541058648,
+      "creation_date": 1534810494,
+      "last_edit_date": 1534945665,
+      "question_id": 51940010,
+      "link": "https://stackoverflow.com/questions/51940010/could-anyone-give-me-some-solutions-to-open-chrome-with-an-automated-rpa-solutio",
+      "title": "Could anyone give me some solutions to open Chrome with an automated RPA solution tool?",
+      "body": "<p>I am using a RPA Solution tool people are not familiar with.\nBut the thing is, I tried to open Chrome through the RPA Solution tool or program but is receiving this message: Chrome is being controlled by automated test software.</p>\n\n<p>cmd shows a message of : </p>\n\n<pre><code>Starting ChromeDriver 2.36.540470 (e522d04694c7ebea4ba8821272dbef4f9b818c91) on port 62023\nOnly local connections are allowed.\n[6036:12108:0821/085345.853:ERROR:install_util.cc(603)] Failed to read HKLM\\SOFTWARE\\Policies\\Google\\Chrome\\MachineLevelUserCloudPolicyEnrollmentToken: The system cannot find the file specified. (0x2)\n[6036:12108:0821/085345.853:ERROR:configuration_policy_handler_list.cc(91)] Unknown policy: AlwaysAuthorizePlugins\n[6036:12108:0821/085345.853:ERROR:configuration_policy_handler_list.cc(91)] Unknown policy: DisablePluginFinder\n[6036:12108:0821/085345.853:ERROR:configuration_policy_handler_list.cc(91)] Unknown policy: PasswordManagerAllowShowPasswords\n[6036:12108:0821/085345.994:ERROR:configuration_policy_handler_list.cc(91)] Unknown policy: AlwaysAuthorizePlugins\n[6036:12108:0821/085345.994:ERROR:configuration_policy_handler_list.cc(91)] Unknown policy: DisablePluginFinder\n[6036:12108:0821/085345.994:ERROR:configuration_policy_handler_list.cc(91)] Unknown policy: PasswordManagerAllowShowPasswords\n\nDevTools listening on ws://127.0.0.1:12172/devtools/browser/31ad3913-bdcd-4095-9113-b8b95f710c1c\n[6036:17560:0821/085346.865:ERROR:browser_gpu_channel_host_factory.cc(119)] Failed to launch GPU process.\n[6036:12108:0821/085346.865:ERROR:gpu_process_transport_factory.cc(1016)] Lost UI shared context.\n[1534809826.362][SEVERE]: Timed out receiving message from renderer: 600.000\n</code></pre>\n\n<p>could any developers give me some solution?</p>\n\n<p>ps. it is not common solution tools such as blueprism.</p>\n"
+    }
+  ],
+  "has_more": true,
+  "quota_max": 10000,
+  "quota_remaining": 9671
+}
