@@ -40,7 +40,7 @@ const file_exists = (filename) => {
 };
 
 const get_file_content = (filename) => {
-  return new Promise(async (resolve, reject) => {
+  return new Promise((resolve, reject) => {
     fs.readFile(filename, (err, data) => {
       if (err) {
         reject(err);
