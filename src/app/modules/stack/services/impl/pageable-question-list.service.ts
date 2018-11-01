@@ -1,15 +1,9 @@
-import { PageableItemsListService } from '../pageable-items-list.service';
+import { PageableItemsListService, PageableItemsListServiceOptions } from '../pageable-items-list.service';
 import { Question } from '../../stack.models';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Action, select, Store } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { filter, take } from 'rxjs/operators';
 import { StackState } from '../../stack.reducer';
-
-interface PageableItemsListServiceOptions<T, State = StackState> {
-  limit?: number;
-  itemsSelectProject: (page: number) => (source$: Observable<State>) => Observable<T[]>;
-  nextPageActionCreator: (nextPage: number) => Action;
-}
 
 const defaultOptions = {
   limit: 10,

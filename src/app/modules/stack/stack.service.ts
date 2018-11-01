@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from '../../services/api.service';
-import { SearchData } from './stack.models';
+import { SearchData, UserQuestionsRequestData } from './stack.models';
 
 function fixedEncodeURI (str) {
   return encodeURI(str).replace(/%5B/g, '[').replace(/%5D/g, ']');
@@ -15,15 +15,15 @@ export class StackService {
     private router: Router,
   ) {}
 
-  search(searchData: SearchData) {
+  search({ query, page, pageSize = 10 }: SearchData) {
     return this.api.get(`/search`, {
       params: {
         order: 'desc',
         sort: 'creation',
         site: 'stackoverflow',
-        pagesize: 10,
-        page: searchData.page,
-        intitle: searchData.query,
+        pagesize: pageSize,
+        page,
+        intitle: query,
       }
     });
   }
@@ -46,6 +46,18 @@ export class StackService {
         sort: 'activity',
         site: 'stackoverflow',
         filter: '!9Z(-wzu0T',
+      }
+    });
+  }
+
+  getUserQuestions({ userId, page, pageSize = 10 }: UserQuestionsRequestData) {
+    return this.api.get(`/users/${userId}/questions`, {
+      params: {
+        order: 'desc',
+        sort: 'votes',
+        site: 'stackoverflow',
+        page,
+        pagesize: pageSize,
       }
     });
   }

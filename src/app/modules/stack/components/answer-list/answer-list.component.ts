@@ -5,7 +5,9 @@ import { Answer } from '../../stack.models';
   selector: 'app-answer-list',
   template: `
     <mat-list class="answer-list" *ngIf="answers">
-      <h3 mat-subheader class="answer-list__title">Answers</h3>
+      <h3 mat-subheader class="answer-list__title">
+        <span [matBadge]="answers.length" matBadgeOverlap="false">Answers</span>
+      </h3>
       <mat-card class="answer-detail" *ngFor="let answer of answers">
         <mat-card-header>
           <div class="answer-detail__avatar" mat-card-avatar>

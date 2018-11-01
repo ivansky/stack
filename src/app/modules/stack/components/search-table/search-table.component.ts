@@ -1,4 +1,14 @@
-import { Component, EventEmitter, Inject, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { fromEvent, Observable, Subscription } from 'rxjs';
+import { throttleTime } from 'rxjs/operators';
+
+const wheelEvt = 'onwheel' in document.createElement('div')
+  ? 'wheel' //     Modern browsers support 'wheel'
+  : (
+    document.onmousewheel !== undefined
+      ? 'mousewheel' // Webkit and IE support at least 'mousewheel'
+      : 'DOMMouseScroll' // let's assume that remaining browsers are older Firefox
+  );
 
 @Component({
   selector: 'app-search-table',
@@ -6,11 +16,11 @@ import { Component, EventEmitter, Inject, Input, OnDestroy, OnInit, Output } fro
     <div class="search-table" *ngIf="questions">
       <mat-card class="search-table__item" *ngFor="let question of questions">
         <mat-card-title>
-          <a routerLink="/stack/question/{{ question.question_id }}"
+          <a (click)="onOpenQuestion(question.question_id)" routerLink="/stack/question/{{ question.question_id }}"
              [innerHTML]="question.title | hl: query"></a>
         </mat-card-title>
         <mat-card-actions class="search-table__item-buttons">
-          <button routerLink="/stack/question/{{ question.question_id }}"
+          <button (click)="onOpenQuestion(question.question_id)" routerLink="/stack/question/{{ question.question_id }}"
                   mat-button color="primary">{{ question.answer_count }} answers</button>
           <span class="buttons-spacer"></span>
           <button (click)="onOpenUserQuestions(question.owner.user_id)"
@@ -27,7 +37,7 @@ import { Component, EventEmitter, Inject, Input, OnDestroy, OnInit, Output } fro
   `,
   styleUrls: ['./search-table.component.css'],
 })
-export class SearchTableComponent implements OnInit, OnDestroy {
+export class SearchTableComponent implements AfterViewInit, OnDestroy {
   @Input()
   query;
 
@@ -44,7 +54,7 @@ export class SearchTableComponent implements OnInit, OnDestroy {
   questions;
 
   @Input()
-  scrollingElement: Node;
+  scrollingElement: Element;
 
   @Output()
   reachedEnd = new EventEmitter<void>();
@@ -52,12 +62,17 @@ export class SearchTableComponent implements OnInit, OnDestroy {
   @Output()
   openUserQuestions = new EventEmitter<number>();
 
+  @Output()
+  openQuestion = new EventEmitter<number>();
+
+  scrollSubscription: Subscription;
+
   onScroll = (event) => {
     const {
       scrollTop,
       scrollHeight,
       clientHeight,
-    } = event.target.scrollingElement;
+    } = this.scrollingElement;
 
     if (!this.pending && scrollTop + clientHeight === scrollHeight) {
       this.reachedEnd.emit();
@@ -65,14 +80,24 @@ export class SearchTableComponent implements OnInit, OnDestroy {
   }
 
   onOpenUserQuestions(userId: number): void {
-    this.openUserQuestions.emit(userId);
+    if (this.openUserQuestions) {
+      this.openUserQuestions.emit(userId);
+    }
   }
 
-  ngOnInit(): void {
-    this.scrollingElement.addEventListener('scroll', this.onScroll);
+  onOpenQuestion(questionId: number): void {
+    if (this.openQuestion) {
+      this.openQuestion.emit(questionId);
+    }
+  }
+
+  ngAfterViewInit(): void {
+    this.scrollSubscription = fromEvent(this.scrollingElement, wheelEvt)
+      .pipe(throttleTime(200))
+      .subscribe(this.onScroll);
   }
 
   ngOnDestroy(): void {
-    this.scrollingElement.removeEventListener('scroll', this.onScroll);
+    this.scrollSubscription.unsubscribe();
   }
 }

@@ -1,14 +1,12 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatBottomSheet } from '@angular/material';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { filter, take } from 'rxjs/operators';
 import * as stackActions from '../stack.actions';
 import * as stackSelectors from '../stack.selectors';
 import { Question} from '../stack.models';
 import { StackState } from '../stack.reducer';
-import { SearchTableQuickComponent } from '../components/search-table-quick/search-table-quick.component';
+import { PopularUserQuestionsComponent } from '../components/popular-user-questions/popular-user-questions.component';
 import { PageableQuestionListService } from '../services/impl/pageable-question-list.service';
 import { PageableItemsListService } from '../services/pageable-items-list.service';
 
@@ -21,11 +19,12 @@ const QUESTIONS_PER_PAGE = 10;
     <app-search-table
       (reachedEnd)="onReachedEnd($event)"
       (openUserQuestions)="onOpenUsersQuestions($event)"
+      (openQuestion)="onOpenQuestion($event)"
       [query]="query"
       [pending]="pending$ | async"
       [errorMessage]="error$ | async"
       [questions]="itemsListService.items$ | async"
-      [scrollingElement]="window"
+      [scrollingElement]="window.document.scrollingElement"
     ></app-search-table>
   `,
   styles: [
@@ -44,6 +43,7 @@ export class SearchResultsComponent implements OnInit {
   public itemsListService: PageableItemsListService<Question>;
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private store: Store<StackState>,
     private bottomSheet: MatBottomSheet,
@@ -57,13 +57,14 @@ export class SearchResultsComponent implements OnInit {
       this.store,
       {
         limit: QUESTIONS_PER_PAGE,
-        itemsSelectProject: (page: number) => select(stackSelectors.selectSearchedPageQuestions, {
+        itemsSelectProject: (page: number) => select(stackSelectors.selectSearchedQuestions, {
           query: this.query,
           page,
         }),
         nextPageActionCreator: (page: number) => new stackActions.SearchAction({
           query: this.query,
           page,
+          pageSize: QUESTIONS_PER_PAGE,
         }),
       },
     );
@@ -75,12 +76,15 @@ export class SearchResultsComponent implements OnInit {
     this.itemsListService.nextPage();
   }
 
-  onOpenUsersQuestions(userId) {
-    this.bottomSheet.open(SearchTableQuickComponent, {
+  onOpenUsersQuestions(userId): void {
+    this.bottomSheet.open(PopularUserQuestionsComponent, {
       data: {
         userId,
       }
     });
   }
 
+  onOpenQuestion(questionId: number): void {
+    this.router.navigate(['stack/question', questionId]);
+  }
 }

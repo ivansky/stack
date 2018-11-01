@@ -1,5 +1,5 @@
 import * as stackActions from './stack.actions';
-import { QuestionId, Question, SearchData, ResponseList, Answer } from './stack.models';
+import { QuestionId, Question, SearchData, ResponseList, Answer, UserId, UserQuestionsRequestData } from './stack.models';
 
 interface QuestionsEntities { [id: number]: Question; }
 
@@ -11,6 +11,10 @@ interface QuestionAnswersMap {
   [questionId: number]: Answer[];
 }
 
+interface UserQuestionsMap {
+  [userId: number]: { [page: number]: QuestionId[] };
+}
+
 export interface StackReducerState {
   query: string;
   isSearchPending: boolean;
@@ -19,6 +23,7 @@ export interface StackReducerState {
   questionsEntities: QuestionsEntities;
   answersMap: QuestionAnswersMap;
   searchResultsMap: SearchResultsMap;
+  userQuestionsMap: UserQuestionsMap;
 }
 
 const initialStackState: StackReducerState = {
@@ -29,6 +34,7 @@ const initialStackState: StackReducerState = {
   questionsEntities: {},
   answersMap: {},
   searchResultsMap: {},
+  userQuestionsMap: {},
 };
 
 const searchSuccessReducer = (state, { items }: ResponseList<Question>, { query, page }: SearchData) => {
@@ -84,6 +90,29 @@ const getAnswersSuccessReducer = (state, { items }: ResponseList<Answer>, questi
   };
 };
 
+const getUserQuestionsSuccessReducer = (state, { items }: ResponseList<Question>, { userId, page }: UserQuestionsRequestData) => {
+  const questionsEntities = items.reduce((entities: QuestionsEntities, question: Question) => ({
+    ...entities,
+    [question.question_id]: question,
+  }), state.questionsEntities);
+
+  const userQuestionsIds: QuestionId[] = items.map((question) => question.question_id);
+
+  const userQuestionsMap = {
+    ...state.userQuestionsMap,
+    [userId]: {
+      ...(state.userQuestionsMap[userId] || {}),
+      [page]: userQuestionsIds,
+    }
+  };
+
+  return {
+    ...state,
+    questionsEntities,
+    userQuestionsMap
+  };
+};
+
 export const stackReducer = (state = initialStackState, action: stackActions.StackActionUnion) => {
   switch (action.type) {
     case stackActions.SEARCH:
@@ -109,6 +138,12 @@ export const stackReducer = (state = initialStackState, action: stackActions.Sta
       };
     case stackActions.GET_ANSWERS_SUCCESS:
       return getAnswersSuccessReducer(state, action.payload as ResponseList<Answer>, action.parentPayload as QuestionId);
+    case stackActions.GET_USER_QUESTIONS_SUCCESS:
+      return getUserQuestionsSuccessReducer(
+        state,
+        action.payload as ResponseList<Question>,
+        action.parentPayload as UserQuestionsRequestData
+      );
   }
 
   return state;

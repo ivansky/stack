@@ -1,6 +1,18 @@
+export type UserId = number;
+export type QuestionId = number;
+export type AnswerId = number;
+export type HTMLString = string;
+
 export interface SearchData {
   query: string;
   page: number;
+  pageSize?: number;
+}
+
+export interface UserQuestionsRequestData {
+  userId: UserId;
+  page: number;
+  pageSize?: number;
 }
 
 export interface StackUser {
@@ -9,10 +21,6 @@ export interface StackUser {
   profile_image: string;
   link: string;
 }
-
-export type QuestionId = number;
-export type AnswerId = number;
-export type HTMLString = string;
 
 export interface Question {
   question_id: QuestionId;
