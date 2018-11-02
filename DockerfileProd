@@ -8,6 +8,8 @@ ENV NODE_ENV production
 COPY package.json package-lock.json ./
 RUN npm install
 
+RUN ls -la ./node_modules
+
 COPY angular.json tsconfig.json tslint.json ./
 COPY src /app/front/src
 RUN npm run build
