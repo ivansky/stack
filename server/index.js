@@ -263,7 +263,7 @@ if (MOCK) {
     }
   });
 
-  app.get('/api/tags/:tag/questions', async (req, res) => {
+  app.get('/api/tags/:tag/faq', async (req, res) => {
     const page = req.query.page;
     const filename = `${__dirname}/mock/tag-questions-${page}.json`;
 
