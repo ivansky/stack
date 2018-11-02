@@ -8,9 +8,9 @@ import { QuestionPageComponent } from './containers/question-page.component';
 @NgModule({
   imports: [RouterModule.forChild([
     { path: '', redirectTo: 'search', pathMatch: 'full' },
-    { path: 'search', component: SearchPageComponent },
-    { path: 'search/:query', component: SearchResultsComponent },
-    { path: 'question/:question_id', component: QuestionPageComponent },
+    { path: 'search', component: SearchPageComponent, data: { animation: 'SearchForm' } },
+    { path: 'search/:query', component: SearchResultsComponent, data: { animation: 'SearchResults' } },
+    { path: 'question/:question_id', component: QuestionPageComponent, data: { animation: 'QuestionPage' } },
     { path: '**', component: NotFoundComponent }
   ])],
   exports: [RouterModule],

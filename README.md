@@ -54,7 +54,7 @@ Use the `--prod` flag for a production build.
 
 ## <a name="todo"></a> TODO
 - Tags
-- Page transitions (animations)
+- ~~Page transitions (animations)~~
 - ~~Accessibility~~
 - Profile
 - Change password

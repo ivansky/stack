@@ -5,8 +5,8 @@ import { NotFoundComponent } from '../shared/components/not-found/not-found.comp
 
 @NgModule({
   imports: [RouterModule.forRoot([
-    { path: 'auth', loadChildren: '../auth/auth.module#AuthModule' },
-    { path: 'stack', loadChildren: '../stack/stack.module#StackModule', canActivate: [AuthCheckGuard] },
+    { path: 'auth', loadChildren: '../auth/auth.module#AuthModule', data: { animation: 'AuthPage' } },
+    { path: 'stack', loadChildren: '../stack/stack.module#StackModule', data: { animation: 'StackPage' }, canActivate: [AuthCheckGuard] },
     { path: '', redirectTo: 'stack', canActivate: [AuthCheckGuard], pathMatch: 'full' },
     { path: '**', component: NotFoundComponent },
   ])],
