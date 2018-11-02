@@ -1,0 +1,303 @@
+{
+  "items": [
+    {
+      "tags": [
+        "php",
+        "arrays",
+        "class",
+        "object",
+        "properties"
+      ],
+      "owner": {
+        "reputation": 536,
+        "user_id": 4476788,
+        "user_type": "registered",
+        "accept_rate": 70,
+        "profile_image": "https://graph.facebook.com/100000129818719/picture?type=large",
+        "display_name": "Muhamad Yulianto",
+        "link": "https://stackoverflow.com/users/4476788/muhamad-yulianto"
+      },
+      "is_answered": true,
+      "view_count": 29118,
+      "accepted_answer_id": 30681087,
+      "answer_count": 4,
+      "score": 45,
+      "last_activity_date": 1520995310,
+      "creation_date": 1433581447,
+      "last_edit_date": 1433585491,
+      "question_id": 30680938,
+      "link": "https://stackoverflow.com/questions/30680938/how-can-i-access-an-array-object",
+      "title": "How can I access an array/object?",
+      "body": "<p>I have the following array and when I do <code>print_r(array_values($get_user));</code>, I get:</p>\n\n<pre><code>Array (\n          [0] =&gt; 10499478683521864\n          [1] =&gt; 07/22/1983\n          [2] =&gt; email@saya.com\n          [3] =&gt; Alan [4] =&gt; male\n          [5] =&gt; Malmsteen\n          [6] =&gt; https://www.facebook.com  app_scoped_user_id/1049213468352864/\n          [7] =&gt; stdClass Object (\n                   [id] =&gt; 102173722491792\n                   [name] =&gt; Jakarta, Indonesia\n          )\n          [8] =&gt; id_ID\n          [9] =&gt; El-nino\n          [10] =&gt; Alan El-nino Malmsteen\n          [11] =&gt; 7\n          [12] =&gt; 2015-05-28T04:09:50+0000\n          [13] =&gt; 1\n        ) \n</code></pre>\n\n<p>I tried to access the array as followed:</p>\n\n<pre><code>echo $get_user[0];\n</code></pre>\n\n<p>But this displays me:</p>\n\n<blockquote>\n  <p>undefined 0</p>\n</blockquote>\n\n<p><strong>Note:</strong></p>\n\n<p>I get this array from the <strong>Facebook SDK 4</strong>, so I don't know the original array strucutre.</p>\n\n<p>How can I access as an example the value <code>email@saya.com</code> from the array?</p>\n"
+    },
+    {
+      "tags": [
+        "php",
+        "pdo"
+      ],
+      "owner": {
+        "reputation": 13063,
+        "user_id": 6681,
+        "user_type": "registered",
+        "accept_rate": 90,
+        "profile_image": "https://www.gravatar.com/avatar/b57be2c7d4dc1fe290e0fc9589c53e54?s=128&d=identicon&r=PG",
+        "display_name": "Jrgns",
+        "link": "https://stackoverflow.com/users/6681/jrgns"
+      },
+      "is_answered": true,
+      "view_count": 62615,
+      "protected_date": 1444035687,
+      "accepted_answer_id": 182353,
+      "answer_count": 6,
+      "score": 207,
+      "last_activity_date": 1521616871,
+      "creation_date": 1223465997,
+      "last_edit_date": 1442592821,
+      "question_id": 182287,
+      "link": "https://stackoverflow.com/questions/182287/can-php-pdo-statements-accept-the-table-or-column-name-as-parameter",
+      "title": "Can PHP PDO Statements accept the table or column name as parameter?",
+      "body": "<p>Why can't I pass the table name to a prepared PDO statement?</p>\n\n<pre><code>$stmt = $dbh-&gt;prepare('SELECT * FROM :table WHERE 1');\nif ($stmt-&gt;execute(array(':table' =&gt; 'users'))) {\n    var_dump($stmt-&gt;fetchAll());\n}\n</code></pre>\n\n<p>Is there another safe way to insert a table name into a SQL query? With safe I mean that I don't want to do</p>\n\n<pre><code>$sql = \"SELECT * FROM $table WHERE 1\"\n</code></pre>\n"
+    },
+    {
+      "tags": [
+        "php",
+        "mysql",
+        "pdo"
+      ],
+      "owner": {
+        "reputation": 131,
+        "user_id": 3821713,
+        "user_type": "registered",
+        "accept_rate": 25,
+        "profile_image": "https://www.gravatar.com/avatar/eb573d129d0b8a1161af554a7092fea4?s=128&d=identicon&r=PG&f=1",
+        "display_name": "Rifthy",
+        "link": "https://stackoverflow.com/users/3821713/rifthy"
+      },
+      "is_answered": true,
+      "view_count": 4360,
+      "protected_date": 1444117343,
+      "accepted_answer_id": 32648423,
+      "answer_count": 1,
+      "score": 24,
+      "last_activity_date": 1490200042,
+      "creation_date": 1442568028,
+      "last_edit_date": 1490200042,
+      "question_id": 32648371,
+      "link": "https://stackoverflow.com/questions/32648371/my-pdo-statement-doesnt-work",
+      "title": "My PDO Statement doesn&#39;t work",
+      "body": "<p>This is my PHP sql statement and it's returning false while var dumping</p>\n\n<pre><code>$password_md5 = md5($_GET['password']);\n$sql = $dbh-&gt;prepare('INSERT INTO users(full_name, e_mail, username, password, password_plain) VALUES (:fullname, :email, :username, :password, :password_plain)');\n$result = $sql-&gt;execute(array(\n                    ':fullname' =&gt; $_GET['fullname'], \n                    ':email' =&gt; $_GET['email'], \n                    ':username' =&gt; $_GET['username'],\n                    ':password' =&gt; $password_md5,\n                    ':password_plain' =&gt; $_GET['password']));\n</code></pre>\n"
+    },
+    {
+      "tags": [
+        "php",
+        "arrays",
+        "sorting",
+        "multidimensional-array"
+      ],
+      "owner": {
+        "reputation": 9525,
+        "user_id": 149664,
+        "user_type": "registered",
+        "accept_rate": 73,
+        "profile_image": "https://www.gravatar.com/avatar/1272b33501c452d53ef55c5113a51b80?s=128&d=identicon&r=PG",
+        "display_name": "stef",
+        "link": "https://stackoverflow.com/users/149664/stef"
+      },
+      "is_answered": true,
+      "view_count": 635454,
+      "protected_date": 1520933375,
+      "accepted_answer_id": 2699159,
+      "answer_count": 9,
+      "score": 921,
+      "last_activity_date": 1536971762,
+      "creation_date": 1272030866,
+      "last_edit_date": 1515946748,
+      "question_id": 2699086,
+      "link": "https://stackoverflow.com/questions/2699086/sort-multi-dimensional-array-by-value",
+      "title": "Sort Multi-dimensional Array by Value",
+      "body": "<p>How can I sort this array by the value of the \"order\" key? Even though the values are currently sequential, they will not always be.</p>\n\n<pre><code>Array\n(\n    [0] =&gt; Array\n        (\n            [hashtag] =&gt; a7e87329b5eab8578f4f1098a152d6f4\n            [title] =&gt; Flower\n            [order] =&gt; 3\n        )\n\n    [1] =&gt; Array\n        (\n            [hashtag] =&gt; b24ce0cd392a5b0b8dedc66c25213594\n            [title] =&gt; Free\n            [order] =&gt; 2\n        )\n\n    [2] =&gt; Array\n        (\n            [hashtag] =&gt; e7d31fc0602fb2ede144d18cdffd816b\n            [title] =&gt; Ready\n            [order] =&gt; 1\n        )\n)\n</code></pre>\n"
+    },
+    {
+      "tags": [
+        "php",
+        "passwords",
+        "cryptography",
+        "password-protection",
+        "bcrypt"
+      ],
+      "owner": {
+        "reputation": 59801,
+        "user_id": 41360,
+        "user_type": "registered",
+        "accept_rate": 59,
+        "profile_image": "https://www.gravatar.com/avatar/7bd2e50770e937761cfc3811a332bccc?s=128&d=identicon&r=PG",
+        "display_name": "Vilx-",
+        "link": "https://stackoverflow.com/users/41360/vilx"
+      },
+      "is_answered": true,
+      "view_count": 341592,
+      "protected_date": 1336063583,
+      "accepted_answer_id": 6337021,
+      "answer_count": 9,
+      "score": 1172,
+      "last_activity_date": 1524165000,
+      "creation_date": 1295969644,
+      "last_edit_date": 1397408510,
+      "question_id": 4795385,
+      "link": "https://stackoverflow.com/questions/4795385/how-do-you-use-bcrypt-for-hashing-passwords-in-php",
+      "title": "How do you use bcrypt for hashing passwords in PHP?",
+      "body": "<p>Every now and then I hear the advice \"Use bcrypt for storing passwords in PHP, bcrypt rules\".</p>\n\n<p>But what is <code>bcrypt</code>? PHP doesn't offer any such functions, Wikipedia babbles about a file-encryption utility and Web searches just reveal a few implementations of <a href=\"http://en.wikipedia.org/wiki/Blowfish_%28cipher%29\" rel=\"noreferrer\">Blowfish</a> in different languages. Now Blowfish is also available in PHP via <code>mcrypt</code>, but how does that help with storing passwords? Blowfish is a general purpose cipher, it works two ways. If it could be encrypted, it can be decrypted. Passwords need a one-way hashing function.</p>\n\n<p>What is the explanation?</p>\n"
+    },
+    {
+      "tags": [
+        "php",
+        "require",
+        "fopen",
+        "include-path"
+      ],
+      "owner": {
+        "reputation": 4851,
+        "user_id": 2873507,
+        "user_type": "registered",
+        "accept_rate": 70,
+        "profile_image": "https://i.stack.imgur.com/Wc1lw.png?s=128&g=1",
+        "display_name": "Vic Seedoubleyew",
+        "link": "https://stackoverflow.com/users/2873507/vic-seedoubleyew"
+      },
+      "is_answered": true,
+      "view_count": 258315,
+      "accepted_answer_id": 36577021,
+      "answer_count": 5,
+      "score": 110,
+      "last_activity_date": 1536315086,
+      "creation_date": 1460473120,
+      "last_edit_date": 1503137612,
+      "question_id": 36577020,
+      "link": "https://stackoverflow.com/questions/36577020/php-failed-to-open-stream-no-such-file-or-directory",
+      "title": "PHP - Failed to open stream : No such file or directory",
+      "body": "<p>In PHP scripts, whether calling <code>include()</code>, <code>require()</code>, <code>fopen()</code>, or their derivatives such as <code>include_once</code>, <code>require_once</code>, or even, <code>move_uploaded_file()</code>, one often runs into an error or warning: </p>\n\n<blockquote>\n  <p>Failed to open stream : No such file or directory.</p>\n</blockquote>\n\n<p>What is a good process to quickly find the root cause of the problem?</p>\n"
+    },
+    {
+      "tags": [
+        "php",
+        "security",
+        "xss",
+        "sql-injection",
+        "user-input"
+      ],
+      "owner": {
+        "reputation": 11064,
+        "user_id": 10680,
+        "user_type": "registered",
+        "accept_rate": 100,
+        "profile_image": "https://i.stack.imgur.com/d0jeW.png?s=128&g=1",
+        "display_name": "Brent",
+        "link": "https://stackoverflow.com/users/10680/brent"
+      },
+      "is_answered": true,
+      "view_count": 449524,
+      "protected_date": 1389760080,
+      "accepted_answer_id": 130323,
+      "answer_count": 18,
+      "score": 994,
+      "last_activity_date": 1539590686,
+      "creation_date": 1222287639,
+      "last_edit_date": 1452177227,
+      "question_id": 129677,
+      "link": "https://stackoverflow.com/questions/129677/whats-the-best-method-for-sanitizing-user-input-with-php",
+      "title": "What&#39;s the best method for sanitizing user input with PHP?",
+      "body": "<p>Is there a catchall function somewhere that works well for sanitizing user input for SQL injection and XSS attacks, while still allowing certain types of html tags?</p>\n"
+    },
+    {
+      "tags": [
+        "php",
+        "session",
+        "cookies"
+      ],
+      "owner": {
+        "reputation": 12112,
+        "user_id": 45350,
+        "user_type": "registered",
+        "accept_rate": 98,
+        "profile_image": "https://graph.facebook.com/653210314/picture?type=large",
+        "display_name": "Tom",
+        "link": "https://stackoverflow.com/users/45350/tom"
+      },
+      "is_answered": true,
+      "view_count": 835238,
+      "protected_date": 1515781647,
+      "accepted_answer_id": 1270960,
+      "answer_count": 11,
+      "score": 948,
+      "last_activity_date": 1535114692,
+      "creation_date": 1233926054,
+      "last_edit_date": 1318491525,
+      "question_id": 520237,
+      "link": "https://stackoverflow.com/questions/520237/how-do-i-expire-a-php-session-after-30-minutes",
+      "title": "How do I expire a PHP session after 30 minutes?",
+      "body": "<p>I need to keep a session alive for 30 minutes and then destroy it. </p>\n"
+    },
+    {
+      "tags": [
+        "php",
+        "json"
+      ],
+      "owner": {
+        "reputation": 3044,
+        "user_id": 439621,
+        "user_type": "registered",
+        "accept_rate": 76,
+        "profile_image": "https://i.stack.imgur.com/61WqW.png?s=128&g=1",
+        "display_name": "John Doe",
+        "link": "https://stackoverflow.com/users/439621/john-doe"
+      },
+      "is_answered": true,
+      "view_count": 619917,
+      "protected_date": 1516075133,
+      "accepted_answer_id": 4343691,
+      "answer_count": 15,
+      "score": 329,
+      "last_activity_date": 1522750201,
+      "creation_date": 1291363892,
+      "last_edit_date": 1504789501,
+      "question_id": 4343596,
+      "link": "https://stackoverflow.com/questions/4343596/how-can-i-parse-a-json-file-with-php",
+      "title": "How can I parse a JSON file with PHP?",
+      "body": "<p>I tried to parse a JSON file using PHP. But I am stuck now.</p>\n\n<p>This is the content of my JSON file:</p>\n\n<pre><code>{\n    \"John\": {\n        \"status\":\"Wait\"\n    },\n    \"Jennifer\": {\n        \"status\":\"Active\"\n    },\n    \"James\": {\n        \"status\":\"Active\",\n        \"age\":56,\n        \"count\":10,\n        \"progress\":0.0029857,\n        \"bad\":0\n    }\n}\n</code></pre>\n\n<p>And this is what I have tried so far:</p>\n\n<pre><code>&lt;?php\n\n$string = file_get_contents(\"/home/michael/test.json\");\n$json_a = json_decode($string, true);\n\necho $json_a['John'][status];\necho $json_a['Jennifer'][status];\n</code></pre>\n\n<p>But because I don't know the names (like <code>'John'</code>, <code>'Jennifer'</code>) and all available keys and values (like <code>'age'</code>, <code>'count'</code>) beforehand, I think I need to create some foreach loop.</p>\n\n<p>I would appreciate an example for this.</p>\n"
+    },
+    {
+      "tags": [
+        "php",
+        "oop",
+        "model-view-controller",
+        "architecture",
+        "model"
+      ],
+      "owner": {
+        "reputation": 4550,
+        "user_id": 734587,
+        "user_type": "registered",
+        "accept_rate": 100,
+        "profile_image": "https://www.gravatar.com/avatar/98273b7b565f14cf4bd44c0ed8327357?s=128&d=identicon&r=PG",
+        "display_name": "Dietpixel",
+        "link": "https://stackoverflow.com/users/734587/dietpixel"
+      },
+      "is_answered": true,
+      "view_count": 157014,
+      "protected_date": 1379461742,
+      "accepted_answer_id": 5864000,
+      "answer_count": 5,
+      "score": 521,
+      "last_activity_date": 1508313273,
+      "creation_date": 1304382522,
+      "last_edit_date": 1408817320,
+      "question_id": 5863870,
+      "link": "https://stackoverflow.com/questions/5863870/how-should-a-model-be-structured-in-mvc",
+      "title": "How should a model be structured in MVC?",
+      "body": "<p>I am just getting a grasp on the MVC framework and I often wonder how much code should go in the model. I tend to have a data access class that has methods like this:</p>\n\n<pre><code>public function CheckUsername($connection, $username)\n{\n    try\n    {\n        $data = array();\n        $data['Username'] = $username;\n\n        //// SQL\n        $sql = \"SELECT Username FROM\" . $this-&gt;usersTableName . \" WHERE Username = :Username\";\n\n        //// Execute statement\n        return $this-&gt;ExecuteObject($connection, $sql, $data);\n    }\n    catch(Exception $e)\n    {\n        throw $e;\n    }\n}\n</code></pre>\n\n<p>My models tend to be an entity class that is mapped to the database table.</p>\n\n<p>Should the model object have all the database mapped properties as well as the code above or is it OK to separate that code out that actually does the database work?</p>\n\n<p>Will I end up having four layers?</p>\n"
+    }
+  ],
+  "has_more": true,
+  "quota_max": 10000,
+  "quota_remaining": 9985
+}

@@ -1,0 +1,309 @@
+{
+  "items": [
+    {
+      "tags": [
+        "php",
+        "mysql",
+        "sql",
+        "security",
+        "sql-injection"
+      ],
+      "owner": {
+        "reputation": 13330,
+        "user_id": 428190,
+        "user_type": "registered",
+        "accept_rate": 49,
+        "profile_image": "https://www.gravatar.com/avatar/980fe8340a6d455c77c13ed357851476?s=128&d=identicon&r=PG",
+        "display_name": "Andrew G. Johnson",
+        "link": "https://stackoverflow.com/users/428190/andrew-g-johnson"
+      },
+      "is_answered": true,
+      "view_count": 1469618,
+      "protected_date": 1338976740,
+      "accepted_answer_id": 60496,
+      "answer_count": 28,
+      "community_owned_date": 1352132329,
+      "score": 2780,
+      "locked_date": 1400621423,
+      "last_activity_date": 1525193502,
+      "creation_date": 1221263700,
+      "last_edit_date": 1475309307,
+      "question_id": 60174,
+      "link": "https://stackoverflow.com/questions/60174/how-can-i-prevent-sql-injection-in-php",
+      "title": "How can I prevent SQL injection in PHP?",
+      "body": "<p>If user input is inserted without modification into an SQL query, then the application becomes vulnerable to <a href=\"https://stackoverflow.com/a/332367/\">SQL injection</a>, like in the following example:</p>\n\n<pre class=\"lang-php prettyprint-override\"><code>$unsafe_variable = $_POST['user_input']; \n\nmysql_query(\"INSERT INTO `table` (`column`) VALUES ('$unsafe_variable')\");\n</code></pre>\n\n<p>That's because the user can input something like <code>value'); DROP TABLE table;--</code>, and the query becomes:</p>\n\n<pre><code>INSERT INTO `table` (`column`) VALUES('value'); DROP TABLE table;--')\n</code></pre>\n\n<p>What can be done to prevent this from happening?</p>\n"
+    },
+    {
+      "tags": [
+        "php",
+        "arrays",
+        "variables",
+        "warnings",
+        "undefined-index"
+      ],
+      "owner": {
+        "reputation": 351879,
+        "user_id": 187606,
+        "user_type": "registered",
+        "accept_rate": 90,
+        "profile_image": "https://i.stack.imgur.com/zzxoB.jpg?s=128&g=1",
+        "display_name": "Pekka 웃",
+        "link": "https://stackoverflow.com/users/187606/pekka-%ec%9b%83"
+      },
+      "is_answered": true,
+      "view_count": 1397211,
+      "protected_date": 1355054451,
+      "accepted_answer_id": 4261200,
+      "answer_count": 27,
+      "community_owned_date": 1290549165,
+      "score": 993,
+      "last_activity_date": 1540843354,
+      "creation_date": 1290547614,
+      "last_edit_date": 1540843354,
+      "question_id": 4261133,
+      "link": "https://stackoverflow.com/questions/4261133/notice-undefined-variable-notice-undefined-index-and-notice-undefined",
+      "title": "&quot;Notice: Undefined variable&quot;, &quot;Notice: Undefined index&quot;, and &quot;Notice: Undefined offset&quot; using PHP",
+      "body": "<p>I'm running a PHP script, and continue to receive errors like:</p>\n\n<blockquote>\n  <p>Notice: Undefined variable: my_variable_name in C:\\wamp\\www\\mypath\\index.php on line 10</p>\n  \n  <p>Notice: Undefined index: my_index C:\\wamp\\www\\mypath\\index.php on line 11</p>\n</blockquote>\n\n<p>Line 10 and 11 looks like this:</p>\n\n<pre><code>echo \"My variable value is: \" . $my_variable_name;\necho \"My index value is: \" . $my_array[\"my_index\"];\n</code></pre>\n\n<p>What is the meaning of these error messages?</p>\n\n<p>Why do they appear all of a sudden? I used to use this script for years and I've never had any problem.</p>\n\n<p>How do I fix them? </p>\n\n<blockquote>\n  <p><strong>This is a General Reference question</strong> for people to link to as duplicate, instead of having to explain the issue over and over again. I feel this is necessary because most  real-world answers on this issue are very specific. </p>\n  \n  <p>Related Meta discussion:</p>\n  \n  <ul>\n  <li><a href=\"https://meta.stackexchange.com/questions/62258/what-can-be-done-about-repetitive-questions\">What can be done about repetitive questions?</a></li>\n  <li><a href=\"https://meta.stackexchange.com/questions/63762/do-reference-questions-make-sense\">Do “reference questions” make sense?</a></li>\n  </ul>\n</blockquote>\n"
+    },
+    {
+      "tags": [
+        "php",
+        "mysql",
+        "database"
+      ],
+      "owner": {
+        "reputation": 113370,
+        "user_id": 871050,
+        "user_type": "moderator",
+        "accept_rate": 93,
+        "profile_image": "https://www.gravatar.com/avatar/a7a50a9492be737b0c012a839338272a?s=128&d=identicon&r=PG",
+        "display_name": "Madara Uchiha",
+        "link": "https://stackoverflow.com/users/871050/madara-uchiha"
+      },
+      "is_answered": true,
+      "view_count": 187745,
+      "protected_date": 1350250348,
+      "accepted_answer_id": 12860046,
+      "answer_count": 14,
+      "score": 2257,
+      "last_activity_date": 1535094173,
+      "creation_date": 1350047919,
+      "last_edit_date": 1513181492,
+      "question_id": 12859942,
+      "link": "https://stackoverflow.com/questions/12859942/why-shouldnt-i-use-mysql-functions-in-php",
+      "title": "Why shouldn&#39;t I use mysql_* functions in PHP?",
+      "body": "<p>What are the technical reasons for why one shouldn't use <code>mysql_*</code> functions? (e.g. <code>mysql_query()</code>, <code>mysql_connect()</code> or <code>mysql_real_escape_string()</code>)?</p>\n\n<p>Why should I use something else even if they work on my site?</p>\n\n<p>If they don't work on my site, why do I get errors like </p>\n\n<blockquote>\n  <p>Warning: mysql_connect(): No such file or directory</p>\n</blockquote>\n"
+    },
+    {
+      "tags": [
+        "php",
+        "parsing",
+        "debugging",
+        "syntax-error"
+      ],
+      "owner": {
+        "reputation": 123024,
+        "user_id": 345031,
+        "user_type": "registered",
+        "accept_rate": 78,
+        "profile_image": "https://www.gravatar.com/avatar/b7ec7f22d50ea13c796815c13075b08f?s=128&d=identicon&r=PG",
+        "display_name": "mario",
+        "link": "https://stackoverflow.com/users/345031/mario"
+      },
+      "is_answered": true,
+      "view_count": 404471,
+      "protected_date": 1423566924,
+      "accepted_answer_id": 18050072,
+      "answer_count": 15,
+      "community_owned_date": 1377213079,
+      "score": 536,
+      "last_activity_date": 1540785916,
+      "creation_date": 1375672275,
+      "last_edit_date": 1540779882,
+      "question_id": 18050071,
+      "link": "https://stackoverflow.com/questions/18050071/php-parse-syntax-errors-and-how-to-solve-them",
+      "title": "PHP parse/syntax errors; and how to solve them?",
+      "body": "<p>Everyone runs into syntax errors. Even experienced programmers make typos. For newcomers it's just part of the learning process. However, it's often easy to interpret error messages such as:</p>\n\n<blockquote>\n  <p>PHP Parse error: syntax error, unexpected '{' in index.php on line 20</p>\n</blockquote>\n\n<p>The unexpected symbol isn't always the real culprit. But the line number gives a rough idea where to start looking.</p>\n\n<blockquote>\n  <p>Always look at the <strong>code context</strong>. The syntax mistake often hides in the mentioned <em>or</em> in <strong>previous code lines</strong>. Compare your code against syntax examples from the manual.</p>\n</blockquote>\n\n<p>While not every case matches the other. Yet there are some <a href=\"https://stackoverflow.com/a/18050072\">general steps to <strong>solve syntax mistakes</strong></a>.\nThis references summarized the common pitfalls:</p>\n\n<ul>\n<li><p><a href=\"https://stackoverflow.com/a/18092277\">Unexpected T_STRING</a></p></li>\n<li><p><a href=\"https://stackoverflow.com/a/18092267\">Unexpected T_VARIABLE <br> Unexpected '$varname' (T_VARIABLE)</a></p></li>\n<li><p><a href=\"https://stackoverflow.com/a/18092288\">Unexpected T_CONSTANT_ENCAPSED_STRING <br> Unexpected T_ENCAPSED_AND_WHITESPACE</a></p></li>\n<li><p><a href=\"https://stackoverflow.com/questions/18050071/php-parse-syntax-errors-and-how-to-solve-them#29500670\">Unexpected $end</a></p></li>\n<li><p><a href=\"https://stackoverflow.com/questions/3723748/php-version-5-2-14-parse-error-syntax-error-unexpected-t-function-expecting\">Unexpected T_FUNCTION</a>…</p></li>\n<li><p><a href=\"https://stackoverflow.com/a/18092308\">Unexpected <code>{</code><br>Unexpected <code>}</code><br>Unexpected <code>(</code><br>Unexpected <code>)</code></a></p></li>\n<li><p><a href=\"https://stackoverflow.com/a/29505827\">Unexpected <code>[</code><br>Unexpected <code>]</code></a></p></li>\n<li><p><a href=\"https://stackoverflow.com/a/18092318\">Unexpected T_IF <br> Unexpected T_FOREACH <br> Unexpected T_FOR <br> Unexpected T_WHILE <br> Unexpected T_DO <br> Unexpected T_PRINT <br> Unexpected T_ECHO</a></p></li>\n<li><p><a href=\"//stackoverflow.com/a/47202089\">Unexpected T_LNUMBER</a></p></li>\n<li><p><a href=\"//stackoverflow.com/a/48670368\">Unexpected ?</a></p></li>\n<li><p><a href=\"//stackoverflow.com/a/51786865\">Unexpected continue (T_CONTINUE)<br>Unexpected continue (T_BREAK)<br>Unexpected continue (T_RETURN)</a></p></li>\n<li><p><a href=\"//stackoverflow.com/a/53037930\">Unexpected '='</a></p></li>\n<li><p><a href=\"https://stackoverflow.com/questions/4934754/t-inline-html-whats-wrong-with-this\">Unexpected T_INLINE_HTML</a>…</p></li>\n<li><p><a href=\"https://stackoverflow.com/questions/1966010/what-does-this-mean-parse-error-syntax-error-unexpected-t-paamayim-nekudotay\">Unexpected T_PAAMAYIM_NEKUDOTAYIM</a>…</p></li>\n<li><p><a href=\"https://stackoverflow.com/questions/3990212/help-with-this-error-message-unexpected-t-object-operator\">Unexpected T_OBJECT_OPERATOR</a>…</p></li>\n<li><p><a href=\"https://stackoverflow.com/questions/2622624/parse-error-syntax-error-unexpected-t-double-arrow-php\">Unexpected T_DOUBLE_ARROW</a>…\n</p></li>\n<li><p><a href=\"https://stackoverflow.com/questions/11208725/parse-error-syntax-error-unexpected-t-sl-php-heredoc\">Unexpected T_SL</a>…\n</p></li>\n<li><p><a href=\"https://stackoverflow.com/questions/4419095/syntax-error-unexpected-t-boolean-or\">Unexpected T_BOOLEAN_OR</a>…\n<br>\n<a href=\"https://stackoverflow.com/questions/11500935/parse-error-syntax-error-unexpected-t-boolean-and-expecting-in\">Unexpected T_BOOLEAN_AND</a>…\n</p></li>\n<li><p><a href=\"https://stackoverflow.com/a/30142092/345031\">Unexpected T_IS_EQUAL <br>\nUnexpected T_IS_GREATER_OR_EQUAL <br>\nUnexpected T_IS_IDENTICAL <br>\nUnexpected T_IS_NOT_EQUAL <br>\nUnexpected T_IS_NOT_IDENTICAL <br>\nUnexpected T_IS_SMALLER_OR_EQUAL <br>\nUnexpected <code>&lt;</code> <br>\nUnexpected <code>&gt;</code></a></p></li>\n<li><p><a href=\"https://stackoverflow.com/questions/6263105/parsing-error-syntax-error-unexpected-t-ns-separator\">Unexpected T_NS_SEPARATOR</a>…\n</p></li>\n<li><p><a href=\"https://stackoverflow.com/questions/17156251/unexpected-character-in-input-ascii-92-state-1\">Unexpected character in input: '<code>\\</code>' (ASCII=92) state=1</a></p></li>\n<li><p><a href=\"https://stackoverflow.com/questions/13341378/php-parse-error-syntax-error-unexpected-t-public\">Unexpected 'public' (T_PUBLIC) <br> Unexpected 'private' (T_PRIVATE) <br> Unexpected 'protected' (T_PROTECTED) <br> Unexpected 'final' (T_FINAL)</a>…</p></li>\n<li><p><a href=\"https://stackoverflow.com/questions/4668557/parse-error-syntax-error-unexpected-t-static\">Unexpected T_STATIC</a>…\n</p></li>\n<li><p><a href=\"https://stackoverflow.com/questions/32205590/laravel-parse-error-syntax-error-unexpected-t-class-expecting-t-string-or-t-v\">Unexpected T_CLASS</a>…</p></li>\n<li><p><a href=\"https://stackoverflow.com/questions/27783613/parse-error-syntax-error-unexpected-t-dnumber-in-home-a3206525-public-html-ea\">Unexpected T_DNUMBER</a></p></li>\n<li><p><a href=\"https://stackoverflow.com/questions/29241208/php-parse-error-syntax-error-unexpected-in\">Unexpected <code>,</code></a> <em>(comma)</em>\n</p></li>\n<li><p><a href=\"https://stackoverflow.com/questions/10969342/parse-error-syntax-error-unexpected-expecting-or\">Unpexected <code>.</code></a> <em>(period)</em>\n</p></li>\n<li><p><a href=\"https://stackoverflow.com/questions/12961248/php-string-parse-error-with-necessary-semicolon-after-variable\">Unexpected <code>;</code></a> <em>(semicolon)</em></p></li>\n<li><p><a href=\"https://stackoverflow.com/q/32905365/3933332\">Unexpected <code>*</code></a> <em>(asterisk)</em></p></li>\n<li><p><a href=\"https://stackoverflow.com/questions/33178974/parse-error-unexpected-works-fine-in-localhost\">Unexpected <code>:</code></a> <em>(colon)</em></p></li>\n</ul>\n\n<p>Closely related references:</p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php\">What does this error mean in PHP? (runtime errors)</a>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/12770089/#12770089\">Parse error: syntax error, unexpected T_XXX</a></li>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/13935532#13935532\">Parse error: syntax error, unexpected T_ENCAPSED_AND_WHITESPACE</a></li>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/15539535#15539535\">Parse error: syntax error, unexpected T_VARIABLE</a></li>\n</ul></li>\n<li><a href=\"https://stackoverflow.com/questions/3737139/reference-what-does-this-symbol-mean-in-php\">What does this symbol mean in PHP? (language tokens)</a></li>\n<li><a href=\"https://stackoverflow.com/questions/14303353/double-quotes-are-not-copied-normally-how-can-i-edit-them\">Those <code>“”</code> smart  <code>‘’</code> quotes mean nothing to PHP</a></li>\n</ul>\n\n<p>And:</p>\n\n<ul>\n<li>The <a href=\"http://www.php.net/manual/en/\" rel=\"nofollow noreferrer\">PHP manual on php.net</a> and its various <a href=\"http://php.net/tokens\" rel=\"nofollow noreferrer\">language tokens</a></li>\n<li>Or Wikipedia's <a href=\"http://en.wikipedia.org/wiki/PHP_syntax_and_semantics\" rel=\"nofollow noreferrer\">syntax introduction on PHP</a>.</li>\n<li>And lastly our <a href=\"https://stackoverflow.com/tags/php/info\"><strong>php</strong> tag-wiki</a> of course.</li>\n</ul>\n\n<p>While Stack Overflow is also welcoming rookie coders, it's mostly targetted at professional programming questions.</p>\n\n<ul>\n<li>Answering everyone's coding mistakes and narrow typos is considered mostly off-topic.</li>\n<li>So please take the time to follow the <a href=\"https://stackoverflow.com/a/18050072\">basic steps</a>, before posting syntax fixing requests.</li>\n<li>If you still have to, please show your own solving initiative, attempted fixes, and your thought process on what looks or might be wrong.</li>\n</ul>\n\n<p>If your <em>browser</em> displays error messages such as \"SyntaxError: illegal character\", then it's not actually <a href=\"/questions/tagged/php\" class=\"post-tag\" title=\"show questions tagged &#39;php&#39;\" rel=\"tag\">php</a>-related, but a <a href=\"/questions/tagged/javascript\" class=\"post-tag\" title=\"show questions tagged &#39;javascript&#39;\" rel=\"tag\">javascript</a>-<a href=\"https://stackoverflow.com/questions/2120093/how-to-find-javascript-syntax-errors\">syntax error</a>.</p>\n\n<hr>\n\n<p><strong>Syntax errors raised on vendor code:</strong> Finally, consider that if the syntax error was not raised by editing your codebase, but after an external vendor package install or upgrade, it could be due to PHP version incompatibility, so check vendor's requirements against your platform setup.</p>\n"
+    },
+    {
+      "tags": [
+        "php",
+        "mysql"
+      ],
+      "owner": {
+        "reputation": 10137,
+        "user_id": 299871,
+        "user_type": "registered",
+        "accept_rate": 75,
+        "profile_image": "https://www.gravatar.com/avatar/867eaa9dd8d8c71f8182c78a701fbb68?s=128&d=identicon&r=PG",
+        "display_name": "iamjonesy",
+        "link": "https://stackoverflow.com/users/299871/iamjonesy"
+      },
+      "is_answered": true,
+      "view_count": 701470,
+      "protected_date": 1395525438,
+      "accepted_answer_id": 2973209,
+      "answer_count": 31,
+      "score": 890,
+      "last_activity_date": 1528671790,
+      "creation_date": 1275646688,
+      "last_edit_date": 1524564925,
+      "question_id": 2973202,
+      "link": "https://stackoverflow.com/questions/2973202/mysql-fetch-array-mysql-fetch-assoc-mysql-fetch-row-mysql-num-rows-etc",
+      "title": "mysql_fetch_array()/mysql_fetch_assoc()/mysql_fetch_row()/mysql_num_rows etc... expects parameter 1 to be resource",
+      "body": "<p>I am trying to select data from a MySQL table, but I get one of the following error messages:</p>\n\n<blockquote>\n  <p>mysql_fetch_array() expects parameter 1 to be resource, boolean given</p>\n</blockquote>\n\n<p>or</p>\n\n<blockquote>\n  <p>mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given</p>\n</blockquote>\n\n<p>or</p>\n\n<blockquote>\n  <p>Call to a member function fetch_array() on boolean / non-object</p>\n</blockquote>\n\n<p>This is my code:</p>\n\n<pre><code>$username = $_POST['username'];\n$password = $_POST['password'];\n\n$result = mysql_query('SELECT * FROM Users WHERE UserName LIKE $username');\n\nwhile($row = mysql_fetch_array($result)) {\n    echo $row['FirstName'];\n}\n</code></pre>\n\n<p>The same applies to code like </p>\n\n<pre><code>$result = mysqli_query($mysqli, 'SELECT ...');\n// mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given\nwhile( $row=mysqli_fetch_array($result) ) {\n    ...\n</code></pre>\n\n<p>and</p>\n\n<pre><code>$result = $mysqli-&gt;query($mysqli, 'SELECT ...');\n// Call to a member function fetch_assoc() on a non-object\nwhile( $row=$result-&gt;fetch_assoc($result) ) {\n    ...\n</code></pre>\n\n<p>and </p>\n\n<pre><code>$result = $pdo-&gt;query('SELECT ...', PDO::FETCH_ASSOC);\n// Invalid argument supplied for foreach()\nforeach( $result as $row ) {\n    ...\n</code></pre>\n\n<p>and </p>\n\n<pre><code>$stmt = $mysqli-&gt;prepare('SELECT ...');\n// Call to a member function bind_param() on a non-object\n$stmt-&gt;bind_param(...);\n</code></pre>\n\n<p>and</p>\n\n<pre><code>$stmt = $pdo-&gt;prepare('SELECT ...');\n// Call to a member function bindParam() on a non-object\n$stmt-&gt;bindParam(...);\n</code></pre>\n"
+    },
+    {
+      "tags": [
+        "php",
+        "mysql",
+        "debugging",
+        "warnings"
+      ],
+      "owner": {
+        "reputation": 156549,
+        "user_id": 367456,
+        "user_type": "registered",
+        "accept_rate": 71,
+        "profile_image": "https://i.stack.imgur.com/MGhY2.png?s=128&g=1",
+        "display_name": "hakre",
+        "link": "https://stackoverflow.com/users/367456/hakre"
+      },
+      "is_answered": true,
+      "view_count": 160974,
+      "protected_date": 1444035548,
+      "answer_count": 31,
+      "community_owned_date": 1349631133,
+      "score": 947,
+      "last_activity_date": 1539310312,
+      "creation_date": 1349622660,
+      "last_edit_date": 1539310312,
+      "question_id": 12769982,
+      "link": "https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php",
+      "title": "Reference - What does this error mean in PHP?",
+      "body": "<h3>What is this?</h3>\n\n<p>This is a number of answers about warnings, errors and notices you might encounter while programming PHP and have no clue how to fix. This is also a Community Wiki, so everyone is invited to participate in adding to and maintaining this list. </p>\n\n<h3>Why is this?</h3>\n\n<p>Questions like <a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/12770075#12770075\">\"Headers already sent\"</a> or <a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/12769983#12769983\">\"Calling a member of a non-object\"</a> pop up frequently on Stack&nbsp;Overflow. The root cause of those questions is always the same. So the answers to those questions typically repeat them and then show the OP which line to change in his/her particular case. These answers do not add any value to the site because they only apply to the OP's particular code. Other users having the same error can not easily read the solution out of it because they are too localized. That is sad, because once you understood the root cause, fixing the error is trivial. Hence, this list tries to explain the solution in a general way to apply.</p>\n\n<h3>What should I do here?</h3>\n\n<p>If your question has been marked as a duplicate of this, please find your error message below and apply the fix to your code. The answers usually contain further links to investigate in case it shouldn't be clear from the general answer alone.</p>\n\n<p>If you want to contribute, please add your \"favorite\" error message, warning or notice, one per answer, a short description what it means (even if it is only highlighting terms to their manual page), a possible solution or debugging approach and a listing of existing Q&amp;A that are of value. Also, feel free to improve any existing answers.</p>\n\n<h2>The List</h2>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/12772851#12772851\">Nothing is seen. The page is empty and white.</a> (also known as <em>White Page/Screen Of Death</em>)</li>\n<li><a href=\"https://stackoverflow.com/a/24423272/476\">Code doesn't run/what looks like parts of my PHP code are output</a></li>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/12770075#12770075\">Warning: Cannot modify header information - headers already sent</a></li>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/12770072#12770072\">Warning: mysql_fetch_array() expects parameter 1 to be resource, boolean given</a> a.k.a.<br>\n<a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/12770072#12770072\">Warning: mysql_fetch_array(): supplied argument is not a valid MySQL result resource</a> a.k.a.<br>\n<a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/12770072#12770072\">Warning: mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given</a> (or similar variations)</li>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/14067623#14067623\">Warning: <em>[function]</em> expects parameter 1 to be resource, boolean given</a></li>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/12820243#12820243\">Warning: <em>[function]</em>: failed to open stream: <em>[reason]</em></a></li>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/12772244#12772244\">Warning: open_basedir restriction in effect</a></li>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/12770089/#21507314\">Warning: Division by zero</a></li>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/12770089/#27678436\">Warning: Illegal string offset 'XXX'</a></li>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/22316776#22316776\">Parse error: syntax error, unexpected '['</a></li>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/12770089/#12770089\">Parse error: syntax error, unexpected T_XXX</a></li>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/13935532#13935532\">Parse error:  syntax error, unexpected T_ENCAPSED_AND_WHITESPACE</a></li>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/12770129#12770129\">Parse error: syntax error, unexpected T_PAAMAYIM_NEKUDOTAYIM</a></li>\n<li><a href=\"https://stackoverflow.com/questions/23726288/php-error-unexpected-require-once-expecting-function\">Parse error: syntax error, unexpected 'require_once' (T_REQUIRE_ONCE), expecting function (T_FUNCTION)</a></li>\n<li><a href=\"https://stackoverflow.com/a/15539535/1723893\">Parse error: syntax error, unexpected T_VARIABLE</a></li>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/12770179#12770179\">Fatal error: Allowed memory size of XXX bytes exhausted (tried to allocate XXX bytes)</a></li>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/12769983#12769983\">Fatal error: Call to a member function ... on a non-object</a></li>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/12784048#12784048\">Fatal Error: Call to Undefined function XXX</a></li>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/13879461#13879461\">Fatal Error: Cannot redeclare XXX</a></li>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/12770530#12770530\">Fatal error: Can't use function return value in write context</a></li>\n<li><a href=\"https://stackoverflow.com/questions/1885302/php-what-does-this-error-mean-abstract-method-must-be-compatible\">Fatal error: Declaration of AAA::BBB() must be compatible with that of CCC::BBB()</a> '</li>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/12770317#12770317\">Fatal error: Using $this when not in object context</a></li>\n<li><a href=\"https://stackoverflow.com/a/24507107/476\">Notice: Array to string conversion</a></li>\n<li><a href=\"https://stackoverflow.com/a/26572398/367456\">Notice: Trying to get property of non-object error</a></li>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/12778634#12778634\">Notice: Undefined variable</a></li>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/12770836#12770836\">Notice: Undefined Index</a></li>\n<li><a href=\"https://stackoverflow.com/a/21793407/3933332\">Notice: Undefined offset XXX</a> [Reference]</li>\n<li><a href=\"https://stackoverflow.com/a/17630869/367456\">Notice: Uninitialized string offset: XXX</a></li>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/12773272#12773272\">Notice: Use of undefined constant XXX - assumed 'XXX'</a></li>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/12771239#12771239\">MySQL: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ... at line ...</a></li>\n<li><a href=\"https://stackoverflow.com/a/21942832/367456\">Strict Standards: Non-static method <em>[&lt;class>::&lt;method>]</em> should not be called statically</a></li>\n<li><a href=\"https://stackoverflow.com/a/52771226/1255289\">Warning: function expects parameter X to be boolean/string/integer</a></li>\n</ul>\n\n<p>Also see </p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/3737139/reference-what-does-this-symbol-mean-in-php\">Reference - What does this symbol mean in PHP?</a></li>\n</ul>\n"
+    },
+    {
+      "tags": [
+        "php",
+        "header"
+      ],
+      "owner": {
+        "reputation": 2192,
+        "user_id": 1031807,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/3b46f93d34a6184fd34721d95671ba78?s=128&d=identicon&r=PG",
+        "display_name": "Moses89",
+        "link": "https://stackoverflow.com/users/1031807/moses89"
+      },
+      "is_answered": true,
+      "view_count": 1127494,
+      "protected_date": 1343945015,
+      "accepted_answer_id": 8028987,
+      "answer_count": 11,
+      "community_owned_date": 1389894098,
+      "score": 836,
+      "locked_date": 1435146033,
+      "last_activity_date": 1534932403,
+      "creation_date": 1320601282,
+      "last_edit_date": 1389894098,
+      "question_id": 8028957,
+      "link": "https://stackoverflow.com/questions/8028957/how-to-fix-headers-already-sent-error-in-php",
+      "title": "How to fix &quot;Headers already sent&quot; error in PHP",
+      "body": "<p>When running my script, I am getting several errors like this:</p>\n\n<blockquote>\n  <p>Warning: Cannot modify header information - headers already sent by (<strong>output started at /some/file.php:12</strong>) in <strong>/some/file.php</strong> on <strong>line 23</strong></p>\n</blockquote>\n\n<p>The lines mentioned in the error messages contain <a href=\"http://php.net/header\" rel=\"noreferrer\"><code>header()</code></a> and <a href=\"http://php.net/setcookie\" rel=\"noreferrer\"><code>setcookie()</code></a> calls.</p>\n\n<p>What could be the reason for this? And how to fix it?</p>\n"
+    },
+    {
+      "tags": [
+        "php",
+        "html",
+        "email"
+      ],
+      "owner": {
+        "reputation": 1999,
+        "user_id": 3818620,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/8827d814004cf2bf25800b2c8d8f2830?s=128&d=identicon&r=PG&f=1",
+        "display_name": "user3818620",
+        "link": "https://stackoverflow.com/users/3818620/user3818620"
+      },
+      "is_answered": true,
+      "view_count": 253193,
+      "protected_date": 1444035537,
+      "answer_count": 24,
+      "score": 398,
+      "last_activity_date": 1541063665,
+      "creation_date": 1404872335,
+      "last_edit_date": 1501849048,
+      "question_id": 24644436,
+      "link": "https://stackoverflow.com/questions/24644436/php-mail-function-doesnt-complete-sending-of-e-mail",
+      "title": "PHP mail function doesn&#39;t complete sending of e-mail",
+      "body": "<pre><code>&lt;?php\n    $name = $_POST['name'];\n    $email = $_POST['email'];\n    $message = $_POST['message'];\n    $from = 'From: yoursite.com'; \n    $to = 'contact@yoursite.com'; \n    $subject = 'Customer Inquiry';\n    $body = \"From: $name\\n E-Mail: $email\\n Message:\\n $message\";\n\n    if ($_POST['submit']) {\n        if (mail ($to, $subject, $body, $from)) { \n            echo '&lt;p&gt;Your message has been sent!&lt;/p&gt;';\n        } else { \n            echo '&lt;p&gt;Something went wrong, go back and try again!&lt;/p&gt;'; \n        }\n    }\n?&gt;\n</code></pre>\n\n<p>I've tried creating a simple mail form. The form itself is on my <code>index.html</code> page, but submits to a separate \"thank you for your submission\" page, <code>thankyou.php</code>, where the above php code is embedded.\nThe code submits perfectly, but never sends an email. please help.</p>\n"
+    },
+    {
+      "tags": [
+        "php",
+        "mysql",
+        "linux",
+        "apache",
+        "utf-8"
+      ],
+      "owner": {
+        "reputation": 11788,
+        "user_id": 1951,
+        "user_type": "registered",
+        "accept_rate": 100,
+        "profile_image": "https://www.gravatar.com/avatar/e4eab71558df1d87fecfa2b64f6f709a?s=128&d=identicon&r=PG",
+        "display_name": "mercutio",
+        "link": "https://stackoverflow.com/users/1951/mercutio"
+      },
+      "is_answered": true,
+      "view_count": 127281,
+      "protected_date": 1389013050,
+      "accepted_answer_id": 279279,
+      "answer_count": 13,
+      "score": 1029,
+      "last_activity_date": 1515512940,
+      "creation_date": 1226351096,
+      "last_edit_date": 1515512940,
+      "question_id": 279170,
+      "link": "https://stackoverflow.com/questions/279170/utf-8-all-the-way-through",
+      "title": "UTF-8 all the way through",
+      "body": "<p>\nI'm setting up a new server, and want to support UTF-8 fully in my web application. I have tried in the past on existing servers and always seem to end up having to fall back to ISO-8859-1.</p>\n\n<p>Where exactly do I need to set the encoding/charsets? I'm aware that I need to configure Apache, MySQL and PHP to do this - is there some standard checklist I can follow, or perhaps troubleshoot where the mismatches occur?</p>\n\n<p>This is for a new Linux server, running MySQL 5, PHP 5 and Apache 2.</p>\n"
+    },
+    {
+      "tags": [
+        "php",
+        "xml",
+        "parsing",
+        "xml-parsing",
+        "html-parsing"
+      ],
+      "owner": {
+        "reputation": 44459,
+        "user_id": 353790,
+        "user_type": "registered",
+        "accept_rate": 71,
+        "profile_image": "https://www.gravatar.com/avatar/081db2e34f4bb15f7a390806fe939258?s=128&d=identicon&r=PG",
+        "display_name": "RobertPitt",
+        "link": "https://stackoverflow.com/users/353790/robertpitt"
+      },
+      "is_answered": true,
+      "view_count": 368592,
+      "protected_date": 1370841224,
+      "accepted_answer_id": 3577662,
+      "answer_count": 29,
+      "community_owned_date": 1365387712,
+      "score": 1936,
+      "last_activity_date": 1540738292,
+      "creation_date": 1282843039,
+      "last_edit_date": 1525170797,
+      "question_id": 3577641,
+      "link": "https://stackoverflow.com/questions/3577641/how-do-you-parse-and-process-html-xml-in-php",
+      "title": "How do you parse and process HTML/XML in PHP?",
+      "body": "<p>How can one parse HTML/XML and extract information from it?</p>\n"
+    }
+  ],
+  "has_more": true,
+  "quota_max": 10000,
+  "quota_remaining": 9988
+}

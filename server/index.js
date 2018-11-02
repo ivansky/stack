@@ -263,6 +263,24 @@ if (MOCK) {
     }
   });
 
+  app.get('/api/tags/:tag/questions', async (req, res) => {
+    const page = req.query.page;
+    const filename = `${__dirname}/mock/tag-questions-${page}.json`;
+
+    const isExists = await file_exists(filename);
+
+    if (!isExists) {
+      res.status(404).send('Not found');
+      return;
+    }
+
+    try {
+      res.json(JSON.parse(await get_file_content(filename)));
+    } catch (e) {
+      res.status(500).json(e);
+    }
+  });
+
   app.get('/api/questions/:question_id', async (req, res) => {
     try {
       const questionId = parseInt(req.params.question_id);

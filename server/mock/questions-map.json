@@ -1,4 +1,37 @@
 {
+  "60174": {
+    "tags": [
+      "php",
+      "mysql",
+      "sql",
+      "security",
+      "sql-injection"
+    ],
+    "owner": {
+      "reputation": 13330,
+      "user_id": 428190,
+      "user_type": "registered",
+      "accept_rate": 49,
+      "profile_image": "https://www.gravatar.com/avatar/980fe8340a6d455c77c13ed357851476?s=128&d=identicon&r=PG",
+      "display_name": "Andrew G. Johnson",
+      "link": "https://stackoverflow.com/users/428190/andrew-g-johnson"
+    },
+    "is_answered": true,
+    "view_count": 1469618,
+    "protected_date": 1338976740,
+    "accepted_answer_id": 60496,
+    "answer_count": 28,
+    "community_owned_date": 1352132329,
+    "score": 2780,
+    "locked_date": 1400621423,
+    "last_activity_date": 1525193502,
+    "creation_date": 1221263700,
+    "last_edit_date": 1475309307,
+    "question_id": 60174,
+    "link": "https://stackoverflow.com/questions/60174/how-can-i-prevent-sql-injection-in-php",
+    "title": "How can I prevent SQL injection in PHP?",
+    "body": "<p>If user input is inserted without modification into an SQL query, then the application becomes vulnerable to <a href=\"https://stackoverflow.com/a/332367/\">SQL injection</a>, like in the following example:</p>\n\n<pre class=\"lang-php prettyprint-override\"><code>$unsafe_variable = $_POST['user_input']; \n\nmysql_query(\"INSERT INTO `table` (`column`) VALUES ('$unsafe_variable')\");\n</code></pre>\n\n<p>That's because the user can input something like <code>value'); DROP TABLE table;--</code>, and the query becomes:</p>\n\n<pre><code>INSERT INTO `table` (`column`) VALUES('value'); DROP TABLE table;--')\n</code></pre>\n\n<p>What can be done to prevent this from happening?</p>\n"
+  },
   "68144": {
     "tags": [
       "c++",
@@ -55,6 +88,65 @@
     "title": "MeasureString() pads the text on the left and the right",
     "body": "<p>I'm using GDI+ in C++.  (This issue might exist in C# too). </p>\n\n<p>I notice that whenever I call Graphics::MeasureString() or Graphics::DrawString(), the string is padded with blank space on the left and right.</p>\n\n<p>For example, if I am using a Courier font, (not italic!) and I measure \"P\" I get 90, but \"PP\" gives me 150.  I would expect a monospace font to give exactly double the width for \"PP\".</p>\n\n<p>My question is:  is this intended or documented behaviour, and how do I disable this?  </p>\n\n<pre><code>RectF Rect(0,0,32767,32767);\nRectF Bounds1, Bounds2;\ngraphics-&gt;MeasureString(L\"PP\", 1, font, Rect, &amp;Bounds1);\ngraphics-&gt;MeasureString(L\"PP\", 2, font, Rect, &amp;Bounds2);\nmargin = Bounds1.Width * 2 - Bounds2.Width;\n</code></pre>\n"
   },
+  "129677": {
+    "tags": [
+      "php",
+      "security",
+      "xss",
+      "sql-injection",
+      "user-input"
+    ],
+    "owner": {
+      "reputation": 11064,
+      "user_id": 10680,
+      "user_type": "registered",
+      "accept_rate": 100,
+      "profile_image": "https://i.stack.imgur.com/d0jeW.png?s=128&g=1",
+      "display_name": "Brent",
+      "link": "https://stackoverflow.com/users/10680/brent"
+    },
+    "is_answered": true,
+    "view_count": 449524,
+    "protected_date": 1389760080,
+    "accepted_answer_id": 130323,
+    "answer_count": 18,
+    "score": 994,
+    "last_activity_date": 1539590686,
+    "creation_date": 1222287639,
+    "last_edit_date": 1452177227,
+    "question_id": 129677,
+    "link": "https://stackoverflow.com/questions/129677/whats-the-best-method-for-sanitizing-user-input-with-php",
+    "title": "What&#39;s the best method for sanitizing user input with PHP?",
+    "body": "<p>Is there a catchall function somewhere that works well for sanitizing user input for SQL injection and XSS attacks, while still allowing certain types of html tags?</p>\n"
+  },
+  "182287": {
+    "tags": [
+      "php",
+      "pdo"
+    ],
+    "owner": {
+      "reputation": 13063,
+      "user_id": 6681,
+      "user_type": "registered",
+      "accept_rate": 90,
+      "profile_image": "https://www.gravatar.com/avatar/b57be2c7d4dc1fe290e0fc9589c53e54?s=128&d=identicon&r=PG",
+      "display_name": "Jrgns",
+      "link": "https://stackoverflow.com/users/6681/jrgns"
+    },
+    "is_answered": true,
+    "view_count": 62615,
+    "protected_date": 1444035687,
+    "accepted_answer_id": 182353,
+    "answer_count": 6,
+    "score": 207,
+    "last_activity_date": 1521616871,
+    "creation_date": 1223465997,
+    "last_edit_date": 1442592821,
+    "question_id": 182287,
+    "link": "https://stackoverflow.com/questions/182287/can-php-pdo-statements-accept-the-table-or-column-name-as-parameter",
+    "title": "Can PHP PDO Statements accept the table or column name as parameter?",
+    "body": "<p>Why can't I pass the table name to a prepared PDO statement?</p>\n\n<pre><code>$stmt = $dbh-&gt;prepare('SELECT * FROM :table WHERE 1');\nif ($stmt-&gt;execute(array(':table' =&gt; 'users'))) {\n    var_dump($stmt-&gt;fetchAll());\n}\n</code></pre>\n\n<p>Is there another safe way to insert a table name into a SQL query? With safe I mean that I don't want to do</p>\n\n<pre><code>$sql = \"SELECT * FROM $table WHERE 1\"\n</code></pre>\n"
+  },
   "252297": {
     "tags": [
       "c++",
@@ -84,6 +176,97 @@
     "link": "https://stackoverflow.com/questions/252297/why-is-regopenkeyex-returning-error-code-2-on-vista-64bit",
     "title": "Why is RegOpenKeyEx() returning error code 2 on Vista 64bit?",
     "body": "<p>I was making the following call:</p>\n\n<pre><code>result = RegOpenKeyEx(key, s, 0, KEY_READ, &amp;key);\n</code></pre>\n\n<p>(C++, Visual Studio 5, Vista 64bit).</p>\n\n<p>It is failing with error code 2 (\"File not found\") even though \"<code>regedit</code>\" shows that the key exists.  This code has always worked on 32bit XP.  Why is it \"file not found\" when it clearly is there?</p>\n"
+  },
+  "279170": {
+    "tags": [
+      "php",
+      "mysql",
+      "linux",
+      "apache",
+      "utf-8"
+    ],
+    "owner": {
+      "reputation": 11788,
+      "user_id": 1951,
+      "user_type": "registered",
+      "accept_rate": 100,
+      "profile_image": "https://www.gravatar.com/avatar/e4eab71558df1d87fecfa2b64f6f709a?s=128&d=identicon&r=PG",
+      "display_name": "mercutio",
+      "link": "https://stackoverflow.com/users/1951/mercutio"
+    },
+    "is_answered": true,
+    "view_count": 127281,
+    "protected_date": 1389013050,
+    "accepted_answer_id": 279279,
+    "answer_count": 13,
+    "score": 1029,
+    "last_activity_date": 1515512940,
+    "creation_date": 1226351096,
+    "last_edit_date": 1515512940,
+    "question_id": 279170,
+    "link": "https://stackoverflow.com/questions/279170/utf-8-all-the-way-through",
+    "title": "UTF-8 all the way through",
+    "body": "<p>\nI'm setting up a new server, and want to support UTF-8 fully in my web application. I have tried in the past on existing servers and always seem to end up having to fall back to ISO-8859-1.</p>\n\n<p>Where exactly do I need to set the encoding/charsets? I'm aware that I need to configure Apache, MySQL and PHP to do this - is there some standard checklist I can follow, or perhaps troubleshoot where the mismatches occur?</p>\n\n<p>This is for a new Linux server, running MySQL 5, PHP 5 and Apache 2.</p>\n"
+  },
+  "401656": {
+    "tags": [
+      "php",
+      "security",
+      "passwords",
+      "hash",
+      "protection"
+    ],
+    "owner": {
+      "reputation": 14623,
+      "user_id": 32775,
+      "user_type": "registered",
+      "accept_rate": 89,
+      "profile_image": "https://www.gravatar.com/avatar/853ea0ee58ffef56c0b32e34d0a935c2?s=128&d=identicon&r=PG",
+      "display_name": "luiscubal",
+      "link": "https://stackoverflow.com/users/32775/luiscubal"
+    },
+    "is_answered": true,
+    "view_count": 191716,
+    "protected_date": 1340666196,
+    "accepted_answer_id": 401684,
+    "answer_count": 14,
+    "score": 1070,
+    "last_activity_date": 1521539323,
+    "creation_date": 1230674565,
+    "last_edit_date": 1495541905,
+    "question_id": 401656,
+    "link": "https://stackoverflow.com/questions/401656/secure-hash-and-salt-for-php-passwords",
+    "title": "Secure hash and salt for PHP passwords",
+    "body": "<p>It is currently said that MD5 is partially unsafe. Taking this into consideration, I'd like to know which mechanism to use for password protection.</p>\n\n<p>This question, <a href=\"https://stackoverflow.com/questions/348109/is-double-hashing-a-password-less-secure-than-just-hashing-it-once\">Is “double hashing” a password less secure than just hashing it once?</a> \nsuggests that hashing multiple times may be a good idea, whereas <a href=\"https://stackoverflow.com/questions/55862/how-to-implement-password-protection-for-individual-files#55904\">How to implement password protection for individual files?</a> suggests using salt.</p>\n\n<p>I'm using PHP. I want a safe and fast password encryption system. Hashing a password a million times may be safer, but also slower. How to achieve a good balance between speed and safety? Also, I'd prefer the result to have a constant number of characters.</p>\n\n<ol>\n<li>The hashing mechanism must be available in PHP</li>\n<li>It must be safe</li>\n<li>It can use salt (in this case, are all salts equally good? Is there any way to generate good salts?)</li>\n</ol>\n\n<p>Also, should I store two fields in the database (one using MD5 and another one using SHA, for example)? Would it make it safer or unsafer?</p>\n\n<p>In case I wasn't clear enough, I want to know which hashing function(s) to use and how to pick a good salt in order to have a safe and fast password protection mechanism.</p>\n\n<p><em>Related questions that don't quite cover my question:</em></p>\n\n<p><a href=\"https://stackoverflow.com/questions/157998/whats-the-difference-between-sha-and-md5-in-php\">What's the difference between SHA and MD5 in PHP</a><br>\n<a href=\"https://stackoverflow.com/questions/30946/simple-password-encryption\">Simple Password Encryption</a><br>\n<a href=\"https://stackoverflow.com/questions/198803/secure-methods-of-storing-keys-passwords-for-asp-net\">Secure methods of storing keys, passwords for asp.net</a><br>\n<a href=\"https://stackoverflow.com/questions/205153/how-would-you-implement-salted-passwords-in-tomcat-5-5\">How would you implement salted passwords in Tomcat 5.5</a></p>\n"
+  },
+  "520237": {
+    "tags": [
+      "php",
+      "session",
+      "cookies"
+    ],
+    "owner": {
+      "reputation": 12112,
+      "user_id": 45350,
+      "user_type": "registered",
+      "accept_rate": 98,
+      "profile_image": "https://graph.facebook.com/653210314/picture?type=large",
+      "display_name": "Tom",
+      "link": "https://stackoverflow.com/users/45350/tom"
+    },
+    "is_answered": true,
+    "view_count": 835238,
+    "protected_date": 1515781647,
+    "accepted_answer_id": 1270960,
+    "answer_count": 11,
+    "score": 948,
+    "last_activity_date": 1535114692,
+    "creation_date": 1233926054,
+    "last_edit_date": 1318491525,
+    "question_id": 520237,
+    "link": "https://stackoverflow.com/questions/520237/how-do-i-expire-a-php-session-after-30-minutes",
+    "title": "How do I expire a PHP session after 30 minutes?",
+    "body": "<p>I need to keep a session alive for 30 minutes and then destroy it. </p>\n"
   },
   "637695": {
     "tags": [
@@ -140,6 +323,86 @@
     "title": "std::vector on VisualStudio2008 appears to be suboptimally implemented - too many copy constructor calls",
     "body": "<p>I've been comparing a STL implementation of a popular XmlRpc library with an implementation that mostly avoids STL.  The STL implementation is much slower - I got 47s down to 4.5s.  I've diagnosed some of the reasons: it's partly due to std::string being mis-used (e.g. the author should have used \"const std::string&amp;\" wherever possible - don't just use std::string's as if they were Java strings), but it's also because copy constructors were being constantly called each time the vector outgrew its bounds, which was exceedingly often. The copy constructors were very slow because they did deep-copies of trees (of XmlRpc values).</p>\n\n<p>I was told by someone else on StackOverflow that std::vector implementations typically double the size of the buffer each time they outgrow.  This does not seem to be the case on VisualStudio 2008:  to add 50 items to a std::vector took 177 calls of the copy constructor.  Doubling each time should call the copy constructor 64 times.  If you were very concerned about keeping memory usage low, then increasing by 50% each time should call the copy constructor 121 times.  So where does the 177 come from?</p>\n\n<p>My question is: (a) why is the copy constructor called so often?  (b) is there any way to avoid using the copy constructor if you're just <em>moving</em> an object from one location to another?  (In this case and indeed most cases a memcpy() would have sufficed - and this makes a BIG difference).</p>\n\n<p>(NB: I know about vector::reserve(), I'm just a bit disappointed that application programmers would need to implement the doubling trick when something like this is already part of any good STL implementation.)</p>\n\n<p>My test program:</p>\n\n<pre><code>#include &lt;string&gt;\n#include &lt;iostream&gt;\n#include &lt;vector&gt;\n\n\n\nusing namespace std;\n\n\nint constructorCalls;\nint assignmentCalls;\nint copyCalls;\n\n\nclass C {\n    int n;\n\npublic:\n    C(int _n) { n = _n; constructorCalls++; }\n    C(const C&amp; orig) { copyCalls++; n = orig.n; }\n    void operator=(const C &amp;orig) { assignmentCalls++; n = orig.n; }\n};\n\n\n\nint main(int argc, char* argv[])\n{\n    std::vector&lt;C&gt; A;\n\n    //A.reserve(50);\n    for (int i=0; i &lt; 50; i++)\n        A.push_back(i);\n    cout &lt;&lt; \"constructor calls = \" &lt;&lt; constructorCalls &lt;&lt; \"\\n\";\n    cout &lt;&lt; \"assignment calls = \" &lt;&lt; assignmentCalls &lt;&lt; \"\\n\";\n    cout &lt;&lt; \"copy calls = \" &lt;&lt; copyCalls &lt;&lt; \"\\n\";\n    return 0;\n}\n</code></pre>\n"
   },
+  "676824": {
+    "tags": [
+      "php",
+      "datetime",
+      "datediff"
+    ],
+    "owner": {
+      "user_type": "does_not_exist",
+      "display_name": "gnanesh"
+    },
+    "is_answered": true,
+    "view_count": 698814,
+    "protected_date": 1312550893,
+    "accepted_answer_id": 676828,
+    "answer_count": 31,
+    "score": 654,
+    "last_activity_date": 1539862644,
+    "creation_date": 1237890787,
+    "last_edit_date": 1490199824,
+    "question_id": 676824,
+    "link": "https://stackoverflow.com/questions/676824/how-to-calculate-the-difference-between-two-dates-using-php",
+    "title": "How to calculate the difference between two dates using PHP?",
+    "body": "<p>I have two dates of the form:</p>\n\n<pre><code>Start Date: 2007-03-24 \nEnd Date: 2009-06-26\n</code></pre>\n\n<p>Now I need to find the difference between these two in the following form:</p>\n\n<pre><code>2 years, 3 months and 2 days\n</code></pre>\n\n<p>How can I do this in PHP?</p>\n"
+  },
+  "768431": {
+    "tags": [
+      "php",
+      "redirect"
+    ],
+    "owner": {
+      "reputation": 6218,
+      "user_id": 93181,
+      "user_type": "registered",
+      "accept_rate": 11,
+      "profile_image": "https://www.gravatar.com/avatar/780d030718366775f205259d68aa012a?s=128&d=identicon&r=PG",
+      "display_name": "Sam",
+      "link": "https://stackoverflow.com/users/93181/sam"
+    },
+    "is_answered": true,
+    "view_count": 2267635,
+    "protected_date": 1300174842,
+    "answer_count": 28,
+    "score": 1031,
+    "last_activity_date": 1534163664,
+    "creation_date": 1240236802,
+    "last_edit_date": 1418671547,
+    "question_id": 768431,
+    "link": "https://stackoverflow.com/questions/768431/how-to-make-a-redirect-in-php",
+    "title": "How to make a redirect in PHP?",
+    "body": "<p>Is it possible to redirect a user to a different page through the use of PHP?</p>\n\n<p>Say the user goes to <code>www.example.com/page.php</code> and I want to redirect them to <code>www.example.com/index.php</code>, how would I do so without the use of a meta refresh? Possible?</p>\n\n<p>This could even protect my pages from unauthorized users.</p>\n"
+  },
+  "845021": {
+    "tags": [
+      "php",
+      "debugging",
+      "error-handling"
+    ],
+    "owner": {
+      "reputation": 3682,
+      "user_id": 5010,
+      "user_type": "registered",
+      "accept_rate": 75,
+      "profile_image": "https://www.gravatar.com/avatar/217a4e91ece4b8295c6c0894e2cda359?s=128&d=identicon&r=PG",
+      "display_name": "Candidasa",
+      "link": "https://stackoverflow.com/users/5010/candidasa"
+    },
+    "is_answered": true,
+    "view_count": 507302,
+    "protected_date": 1444035600,
+    "accepted_answer_id": 845025,
+    "answer_count": 29,
+    "score": 501,
+    "last_activity_date": 1536895915,
+    "creation_date": 1241948892,
+    "last_edit_date": 1490199136,
+    "question_id": 845021,
+    "link": "https://stackoverflow.com/questions/845021/how-to-get-useful-error-messages-in-php",
+    "title": "How to get useful error messages in PHP?",
+    "body": "<p>I find programming in PHP quite frustrating. Quite often I will try and run the script and just get a blank screen back. No error message, just empty screen. The cause might have been a simple syntax error (wrong bracket, missing semicolon), or a failed function call, or something else entirely.</p>\n\n<p>It is very difficult to figure out what went wrong. I end up commenting out code, entering \"echo\" statements everywhere, etc. trying to narrow down the problem. But there surely must be a better way, right?.</p>\n\n<p>So, is there a way to get PHP to produce useful error message like Java does?\nCan anyone recommend good PHP debugging tips, tools and techniques?</p>\n"
+  },
   "1042415": {
     "tags": [
       "c++",
@@ -167,6 +430,34 @@
     "link": "https://stackoverflow.com/questions/1042415/windows-xp-style-why-do-we-get-dark-grey-background-on-static-text-widgets",
     "title": "Windows XP Style: Why do we get dark grey background on static text widgets?",
     "body": "<p>We're writing Windows desktop apps using C++ and Win32.  Our dialog boxes have an ugly appearance with \"Windows XP style\":  the background to the static text is grey.  Where the dialog box background is also grey, this is not a problem, but inside a tab control, where the background is white, the grey background to the text is very noticeable.</p>\n\n<p>In the past we have done a lot of our own drawing of controls, but these days we are trying to use the standard look'n'feel as much as possible, and to avoid overriding standard behaviour as much as possible.  </p>\n\n<p>We are using the Win32 API, which is getting a bit dated, but I think the problem occurs even with ATL.   We are creating a DIALOGTEMPLATE. The text is in a \"static\" control (0x0082).  The only flag we set for the style is \"SS_LEFT\".  The text control is inside a tab control:  \"SysTabControl32\" with only one flag:  WS_CLIPSIBLINGS set on it.  I've experimented with SS_WHITERECT and WS_EX_TRANSPARENT and other settings, to no avail.</p>\n\n<p>All of this gets drawn with the standard Windows dialog box message handler.  My main question is \"what are we doing wrong?\" rather than \"how can I work around it?\", although I'll settle for the latter if no-one can help me with the first.</p>\n\n<p>Any ideas?</p>\n"
+  },
+  "1053424": {
+    "tags": [
+      "php",
+      "error-reporting"
+    ],
+    "owner": {
+      "reputation": 19239,
+      "user_id": 51649,
+      "user_type": "registered",
+      "accept_rate": 98,
+      "profile_image": "https://i.stack.imgur.com/ZPArK.jpg?s=128&g=1",
+      "display_name": "Abs",
+      "link": "https://stackoverflow.com/users/51649/abs"
+    },
+    "is_answered": true,
+    "view_count": 2403924,
+    "protected_date": 1465410158,
+    "accepted_answer_id": 21429652,
+    "answer_count": 24,
+    "score": 1382,
+    "last_activity_date": 1539009873,
+    "creation_date": 1246129799,
+    "last_edit_date": 1482852011,
+    "question_id": 1053424,
+    "link": "https://stackoverflow.com/questions/1053424/how-do-i-get-php-errors-to-display",
+    "title": "How do I get PHP errors to display?",
+    "body": "<p>I have checked my <code>PHP ini</code> file and display errors is set and also error reporting is <code>E_ALL</code>. I have restarted my Apache web server.</p>\n\n<p>I have even put these lines at the top of my script, and it doesn't even catch simple parse errors. For example, I declare variables with a <code>\"$\"</code> and I don't close statements<code>\";\"</code>. But all my scripts show a blank page on these errors, but I want to actually see the <strong>errors</strong> in my browser output. </p>\n\n<pre><code>error_reporting(E_ALL);\nini_set('display_errors', 1);\n</code></pre>\n\n<p>What is left to do?</p>\n"
   },
   "1376688": {
     "tags": [
@@ -222,6 +513,66 @@
     "title": "AppEngine datastore: &quot;Object with id ... is managed by a different Object Manager&quot;",
     "body": "<p>I'm using the Google AppEngine, with Java.  When I use some datastore features, I'm getting an error message:  </p>\n\n<pre><code>Object with id \"edvaltt.Teacher@64064b\" is managed by a different Object Manager\n</code></pre>\n\n<p>I don't know what this means or how to fix it or where to look for documentation on this error. Can anyone help me?  The code I'm using is:</p>\n\n<pre><code>@PersistenceCapable(identityType = IdentityType.APPLICATION)\npublic class School {\n@PrimaryKey\n@Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)\nprivate String shortname;\n\n@Persistent\nprivate String fullname;\n\n@Persistent\n@Order(extensions = @Extension(vendorName=\"datanucleus\", key=\"list-ordering\", value=\"code asc\"))\nprivate List&lt;Teacher&gt; Teachers;\n\n...\n\npublic Teacher FindOrCreateTeacher(String code)\n{\n    // Can we find the teacher without any database code?\n    Teacher newTeacher = FindTeacher(code);\n    if (newTeacher != null)\n        return newTeacher;\n\n    // Create the teacher:\n    PersistenceManager pm = PMF.get().getPersistenceManager();\n    Transaction tx = pm.currentTransaction();\n    try {\n        tx.begin();\n        for (Teacher teacher : Teachers) {\n            if (teacher.getCode() == code) {\n                tx.rollback();\n                return teacher;\n            }\n        }\n        newTeacher = new Teacher(code);\n        Teachers.add(newTeacher);\n        pm.makePersistent(newTeacher);\n        pm.makePersistent(Teachers);\n        tx.commit();\n    } finally {\n        tx.commit();\n    }\n    return newTeacher;\n}\n</code></pre>\n\n<p>I believe that \"<code>private List&lt;Teacher&gt; Teachers;</code>\" refers to an \"owned, one to many\" relationship.</p>\n"
   },
+  "2063480": {
+    "tags": [
+      "php",
+      "comparison",
+      "operators"
+    ],
+    "owner": {
+      "reputation": 22580,
+      "user_id": 170365,
+      "user_type": "registered",
+      "accept_rate": 77,
+      "profile_image": "https://www.gravatar.com/avatar/f28376004e72c08544276ed5a6833703?s=128&d=identicon&r=PG",
+      "display_name": "Strawberry",
+      "link": "https://stackoverflow.com/users/170365/strawberry"
+    },
+    "is_answered": true,
+    "view_count": 42645,
+    "protected_date": 1434646217,
+    "accepted_answer_id": 2063500,
+    "answer_count": 4,
+    "score": 126,
+    "last_activity_date": 1526453919,
+    "creation_date": 1263465537,
+    "last_edit_date": 1526453919,
+    "question_id": 2063480,
+    "link": "https://stackoverflow.com/questions/2063480/the-3-different-equals",
+    "title": "The 3 different equals",
+    "body": "<p>What is the difference between <code>=</code>, <code>==</code>, and <code>===</code>?</p>\n\n<p>I think using one equal sign is to declare a variable while two equal signs is for a comparison condition and lastly three equal signs is for comparing values of declared variables.</p>\n"
+  },
+  "2167916": {
+    "tags": [
+      "php",
+      "date",
+      "datetime",
+      "format",
+      "date-conversion"
+    ],
+    "owner": {
+      "reputation": 16280,
+      "user_id": 244932,
+      "user_type": "registered",
+      "accept_rate": 99,
+      "profile_image": "https://www.gravatar.com/avatar/01647fd568f49ef5f1b17203a51aa92c?s=128&d=identicon&r=PG",
+      "display_name": "Tom",
+      "link": "https://stackoverflow.com/users/244932/tom"
+    },
+    "is_answered": true,
+    "view_count": 377396,
+    "protected_date": 1391445097,
+    "accepted_answer_id": 2167925,
+    "answer_count": 14,
+    "score": 282,
+    "last_activity_date": 1522866895,
+    "creation_date": 1264856336,
+    "last_edit_date": 1507896573,
+    "question_id": 2167916,
+    "link": "https://stackoverflow.com/questions/2167916/convert-one-date-format-into-another-in-php",
+    "title": "Convert one date format into another in PHP",
+    "body": "<p>Is there a simple way to convert one date format into another date format in PHP?</p>\n\n<p>I have this:</p>\n\n<pre><code>$old_date = date('y-m-d-h-i-s');            // works\n\n$middle = strtotime($old_date);             // returns bool(false)\n\n$new_date = date('Y-m-d H:i:s', $middle);   // returns 1970-01-01 00:00:00\n</code></pre>\n\n<p>But I'd of course like it to return a current date rather than the crack 'o dawn. What am I doing wrong?</p>\n"
+  },
   "2590585": {
     "tags": [
       "java",
@@ -248,6 +599,93 @@
     "title": "How do I serialise a graph in Java without getting StackOverflowException?",
     "body": "<p>I have a graph structure in java, (\"graph\" as in \"edges and nodes\") and I'm attempting to serialise it.  However, I get \"StackOverflowException\", despite significantly increasing the JVM stack size.  I did some googling, and apparently this is a well known limitation of java serialisation:  that it doesn't work for deeply nested object graphs such as long linked lists - it uses a stack record for each link in the chain, and it doesn't do anything clever such as a breadth-first traversal, and therefore you very quickly get a stack overflow.</p>\n\n<p>The recommended solution is to customise the serialisation code by overriding readObject() and writeObject(), however this seems a little complex to me.</p>\n\n<p>(It may or may not be relevant, but I'm storing a bunch of fields on each edge in the graph so I have a class <code>JuNode</code> which contains a member <code>ArrayList&lt;JuEdge&gt; links;</code>, i.e. there are 2 classes involved, rather than plain object references from one node to another.  It shouldn't matter for the purposes of the question).</p>\n\n<p>My question is threefold:<br>\n(a) why don't the implementors of Java rectify this limitation or are they already working on it?  (I can't believe I'm the first person to ever want to serialise a graph in java)<br>\n(b) is there a better way?  Is there some drop-in alternative to the default serialisation classes that does it in a cleverer way?<br>\n(c) if my best option is to get my hands dirty with low-level code, does someone have an example of graph serialisation java source-code that can use to learn how to do it?  </p>\n"
   },
+  "2699086": {
+    "tags": [
+      "php",
+      "arrays",
+      "sorting",
+      "multidimensional-array"
+    ],
+    "owner": {
+      "reputation": 9525,
+      "user_id": 149664,
+      "user_type": "registered",
+      "accept_rate": 73,
+      "profile_image": "https://www.gravatar.com/avatar/1272b33501c452d53ef55c5113a51b80?s=128&d=identicon&r=PG",
+      "display_name": "stef",
+      "link": "https://stackoverflow.com/users/149664/stef"
+    },
+    "is_answered": true,
+    "view_count": 635454,
+    "protected_date": 1520933375,
+    "accepted_answer_id": 2699159,
+    "answer_count": 9,
+    "score": 921,
+    "last_activity_date": 1536971762,
+    "creation_date": 1272030866,
+    "last_edit_date": 1515946748,
+    "question_id": 2699086,
+    "link": "https://stackoverflow.com/questions/2699086/sort-multi-dimensional-array-by-value",
+    "title": "Sort Multi-dimensional Array by Value",
+    "body": "<p>How can I sort this array by the value of the \"order\" key? Even though the values are currently sequential, they will not always be.</p>\n\n<pre><code>Array\n(\n    [0] =&gt; Array\n        (\n            [hashtag] =&gt; a7e87329b5eab8578f4f1098a152d6f4\n            [title] =&gt; Flower\n            [order] =&gt; 3\n        )\n\n    [1] =&gt; Array\n        (\n            [hashtag] =&gt; b24ce0cd392a5b0b8dedc66c25213594\n            [title] =&gt; Free\n            [order] =&gt; 2\n        )\n\n    [2] =&gt; Array\n        (\n            [hashtag] =&gt; e7d31fc0602fb2ede144d18cdffd816b\n            [title] =&gt; Ready\n            [order] =&gt; 1\n        )\n)\n</code></pre>\n"
+  },
+  "2973202": {
+    "tags": [
+      "php",
+      "mysql"
+    ],
+    "owner": {
+      "reputation": 10137,
+      "user_id": 299871,
+      "user_type": "registered",
+      "accept_rate": 75,
+      "profile_image": "https://www.gravatar.com/avatar/867eaa9dd8d8c71f8182c78a701fbb68?s=128&d=identicon&r=PG",
+      "display_name": "iamjonesy",
+      "link": "https://stackoverflow.com/users/299871/iamjonesy"
+    },
+    "is_answered": true,
+    "view_count": 701470,
+    "protected_date": 1395525438,
+    "accepted_answer_id": 2973209,
+    "answer_count": 31,
+    "score": 890,
+    "last_activity_date": 1528671790,
+    "creation_date": 1275646688,
+    "last_edit_date": 1524564925,
+    "question_id": 2973202,
+    "link": "https://stackoverflow.com/questions/2973202/mysql-fetch-array-mysql-fetch-assoc-mysql-fetch-row-mysql-num-rows-etc",
+    "title": "mysql_fetch_array()/mysql_fetch_assoc()/mysql_fetch_row()/mysql_num_rows etc... expects parameter 1 to be resource",
+    "body": "<p>I am trying to select data from a MySQL table, but I get one of the following error messages:</p>\n\n<blockquote>\n  <p>mysql_fetch_array() expects parameter 1 to be resource, boolean given</p>\n</blockquote>\n\n<p>or</p>\n\n<blockquote>\n  <p>mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given</p>\n</blockquote>\n\n<p>or</p>\n\n<blockquote>\n  <p>Call to a member function fetch_array() on boolean / non-object</p>\n</blockquote>\n\n<p>This is my code:</p>\n\n<pre><code>$username = $_POST['username'];\n$password = $_POST['password'];\n\n$result = mysql_query('SELECT * FROM Users WHERE UserName LIKE $username');\n\nwhile($row = mysql_fetch_array($result)) {\n    echo $row['FirstName'];\n}\n</code></pre>\n\n<p>The same applies to code like </p>\n\n<pre><code>$result = mysqli_query($mysqli, 'SELECT ...');\n// mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given\nwhile( $row=mysqli_fetch_array($result) ) {\n    ...\n</code></pre>\n\n<p>and</p>\n\n<pre><code>$result = $mysqli-&gt;query($mysqli, 'SELECT ...');\n// Call to a member function fetch_assoc() on a non-object\nwhile( $row=$result-&gt;fetch_assoc($result) ) {\n    ...\n</code></pre>\n\n<p>and </p>\n\n<pre><code>$result = $pdo-&gt;query('SELECT ...', PDO::FETCH_ASSOC);\n// Invalid argument supplied for foreach()\nforeach( $result as $row ) {\n    ...\n</code></pre>\n\n<p>and </p>\n\n<pre><code>$stmt = $mysqli-&gt;prepare('SELECT ...');\n// Call to a member function bind_param() on a non-object\n$stmt-&gt;bind_param(...);\n</code></pre>\n\n<p>and</p>\n\n<pre><code>$stmt = $pdo-&gt;prepare('SELECT ...');\n// Call to a member function bindParam() on a non-object\n$stmt-&gt;bindParam(...);\n</code></pre>\n"
+  },
+  "3446216": {
+    "tags": [
+      "php",
+      "string",
+      "syntax"
+    ],
+    "owner": {
+      "reputation": 9284,
+      "user_id": 379800,
+      "user_type": "registered",
+      "accept_rate": 83,
+      "profile_image": "https://www.gravatar.com/avatar/4f68ffa7c457a0da70bbca813d054a40?s=128&d=identicon&r=PG",
+      "display_name": "rob waminal",
+      "link": "https://stackoverflow.com/users/379800/rob-waminal"
+    },
+    "is_answered": true,
+    "view_count": 303736,
+    "protected_date": 1391679488,
+    "accepted_answer_id": 3446286,
+    "answer_count": 11,
+    "score": 686,
+    "last_activity_date": 1523279920,
+    "creation_date": 1281417176,
+    "last_edit_date": 1520778868,
+    "question_id": 3446216,
+    "link": "https://stackoverflow.com/questions/3446216/what-is-the-difference-between-single-quoted-and-double-quoted-strings-in-php",
+    "title": "What is the difference between single-quoted and double-quoted strings in PHP?",
+    "body": "<p>I'm not an expert in PHP programming, but I'm a little confused why I see some code in PHP with string placed in single quotes and sometimes in double quotes.</p>\n\n<p>I just know in .NET, or the C language, if it is in single quote, that means it is a character, not a string.</p>\n"
+  },
   "3522031": {
     "tags": [
       "intellij-idea"
@@ -272,6 +710,281 @@
     "link": "https://stackoverflow.com/questions/3522031/intellij-after-hiding-my-output-sub-panel-within-the-debug-panel-how-do-i",
     "title": "IntelliJ: After hiding my &quot;Output&quot; sub-panel within the &quot;Debug&quot; panel, how do I get it back?",
     "body": "<p>I'm using IntelliJ 9.0.1.  I have the \"Debug\" panel open.  I previously had an \"Output\" sub-panel within the Debug panel showing the System.out text output of my program.  I clicked on the  ->|  button to hide it, and now I can't get it back.   I notice that with the Variables and Watches sub-panels, when I hide them I get an icon on the far right of the Debug toolbar.  But I have no icon for the Output panel.  I've tried restarting IntelliJ but it doesn't help, nor does closing and reopening the Debug panel.</p>\n\n<p>How can I get my \"Output\" sub-panel back?</p>\n"
+  },
+  "3577641": {
+    "tags": [
+      "php",
+      "xml",
+      "parsing",
+      "xml-parsing",
+      "html-parsing"
+    ],
+    "owner": {
+      "reputation": 44459,
+      "user_id": 353790,
+      "user_type": "registered",
+      "accept_rate": 71,
+      "profile_image": "https://www.gravatar.com/avatar/081db2e34f4bb15f7a390806fe939258?s=128&d=identicon&r=PG",
+      "display_name": "RobertPitt",
+      "link": "https://stackoverflow.com/users/353790/robertpitt"
+    },
+    "is_answered": true,
+    "view_count": 368592,
+    "protected_date": 1370841224,
+    "accepted_answer_id": 3577662,
+    "answer_count": 29,
+    "community_owned_date": 1365387712,
+    "score": 1936,
+    "last_activity_date": 1540738292,
+    "creation_date": 1282843039,
+    "last_edit_date": 1525170797,
+    "question_id": 3577641,
+    "link": "https://stackoverflow.com/questions/3577641/how-do-you-parse-and-process-html-xml-in-php",
+    "title": "How do you parse and process HTML/XML in PHP?",
+    "body": "<p>How can one parse HTML/XML and extract information from it?</p>\n"
+  },
+  "3737139": {
+    "tags": [
+      "php",
+      "operators",
+      "symbols",
+      "php-5.3"
+    ],
+    "owner": {
+      "reputation": 259231,
+      "user_id": 208809,
+      "user_type": "registered",
+      "accept_rate": 100,
+      "profile_image": "https://i.stack.imgur.com/LXDBV.png?s=128&g=1",
+      "display_name": "Gordon",
+      "link": "https://stackoverflow.com/users/208809/gordon"
+    },
+    "is_answered": true,
+    "view_count": 555498,
+    "protected_date": 1368947826,
+    "accepted_answer_id": 3737177,
+    "answer_count": 17,
+    "community_owned_date": 1284740647,
+    "score": 3919,
+    "last_activity_date": 1529020687,
+    "creation_date": 1284740647,
+    "last_edit_date": 1526905977,
+    "question_id": 3737139,
+    "link": "https://stackoverflow.com/questions/3737139/reference-what-does-this-symbol-mean-in-php",
+    "title": "Reference — What does this symbol mean in PHP?",
+    "body": "<h3>What is this?</h3>\n\n<p>This is a collection of questions that come up every now and then about syntax in PHP. This is also a Community Wiki, so everyone is invited to participate in maintaining this list. </p>\n\n<h3>Why is this?</h3>\n\n<p>It used to be hard to find questions about operators and other syntax tokens.¹<br>\nThe main idea is to have links to existing questions on Stack Overflow, so it's easier for us to reference them, not to copy over content from the PHP Manual.</p>\n\n<p>¹ Note: Since January 2013, Stack Overflow <a href=\"https://meta.stackexchange.com/questions/160100/a-new-search-engine-for-stack-exchange\">does support special characters</a>. Just surround the search terms by quotes, e.g. <a href=\"https://stackoverflow.com/search?q=%5Bphp%5D%20%22===%22%20vs%20%22==%22\"><code>[php] \"==\" vs \"===\"</code></a></p>\n\n<h3>What should I do here?</h3>\n\n<p>If you have been pointed here by someone because you have asked such a question, please find the particular syntax below. The linked pages to the <a href=\"http://php.net/manual/en/index.php\" rel=\"noreferrer\">PHP manual</a> along with the linked questions will likely answer your question then. If so, you are encouraged to upvote the answer. This list is not meant as a substitute to the help others provided.</p>\n\n<h2>The List</h2>\n\n<p>If your particular token is not listed below, you might find it in the <a href=\"http://secure.php.net/manual/en/tokens.php\" rel=\"noreferrer\">List of Parser Tokens</a>.</p>\n\n<hr>\n\n<p><code>&amp;</code> <a href=\"http://secure.php.net/manual/en/language.operators.bitwise.php\" rel=\"noreferrer\">Bitwise Operators</a> or <a href=\"http://secure.php.net/manual/en/language.references.php\" rel=\"noreferrer\">References</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/1676897\">What does it mean to start a PHP function with an ampersand?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/600202\">Understanding PHP &amp; (ampersand, bitwise and) operator</a></li>\n<li><a href=\"https://stackoverflow.com/questions/2209934/\">PHP &quot;&amp;&quot; operator</a></li>\n<li><a href=\"https://stackoverflow.com/questions/2376348\">Difference between &amp; and &amp;&amp; in PHP</a></li>\n<li><a href=\"https://stackoverflow.com/questions/1006652\">What does &quot;&amp;&quot; mean here in PHP?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/2297592\">What does &quot;&amp;&quot; mean in this case?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/2422907\">What does the &quot;&amp;&quot; sign mean in PHP?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/2478149\">What does this signature mean (&amp;) in PHP?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/3957584\">How does the &quot;&amp;&quot; operator work in a PHP function?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/4705262\">What does &amp; in &amp;2 mean in PHP?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/4705838\">When should I use a bitwise operator?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/21058439\">Is there ever a need to use ampersand in front of an object?</a> (&amp;$)</li>\n</ul>\n\n<hr>\n\n<p><code>=&amp;</code> <a href=\"http://secure.php.net/manual/en/language.references.php\" rel=\"noreferrer\">References</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/1768343\">Reference assignment operator in PHP, =&amp;</a></li>\n<li><a href=\"https://stackoverflow.com/questions/1367454\">What do the &quot;=&amp;&quot; and &quot;&amp;=&quot; operators in PHP mean?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/3177342\">What do the &#39;&amp;=&#39; and &#39;=&amp;&#39; operators do?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/2081806\">What does =&amp; mean in PHP?</a></li>\n</ul>\n\n<hr>\n\n<p><code>&amp;=</code> <a href=\"http://secure.php.net/manual/en/language.operators.bitwise.php\" rel=\"noreferrer\">Bitwise Operators</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/1367454\">What do the &quot;=&amp;&quot; and &quot;&amp;=&quot; operators in PHP mean?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/3177342\">What do the &#39;&amp;=&#39; and &#39;=&amp;&#39; operators do?</a></li>\n</ul>\n\n<hr>\n\n<p><code>&amp;&amp;</code> <a href=\"http://secure.php.net/manual/en/language.operators.logical.php\" rel=\"noreferrer\">Logical Operators</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/2803321\">&#39;AND&#39; vs &#39;&amp;&amp;&#39; as operator</a></li>\n<li><a href=\"https://stackoverflow.com/questions/2376348\">Difference between &amp; and &amp;&amp; in PHP</a></li>\n<li><a href=\"https://stackoverflow.com/questions/4746865\">Is there any difference between &quot;and&quot; and &quot;&amp;&amp;&quot; operators in PHP?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/4502092\">PHP - and / or keywords</a></li>\n</ul>\n\n<hr>\n\n<p><code>%</code> <a href=\"http://secure.php.net/manual/en/language.operators.arithmetic.php\" rel=\"noreferrer\">Arithmetic Operators</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/1934173\">What does the percent sign mean in PHP?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/3204919\">What is the PHP operator % and how do I use it in real-world examples?</a></li>\n</ul>\n\n<hr>\n\n<p><code>!!</code> <a href=\"http://secure.php.net/manual/en/language.operators.logical.php\" rel=\"noreferrer\">Logical Operators</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/2127260\">Double not (!!) operator in PHP</a></li>\n</ul>\n\n<hr>\n\n<p><code>@</code> <a href=\"http://secure.php.net/manual/en/language.operators.errorcontrol.php\" rel=\"noreferrer\">Error Control Operators</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/1032161\">What is the use of the @ symbol in PHP?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/3551527\">&#39;At&#39; symbol before variable name in PHP: @$_POST</a></li>\n<li><a href=\"https://stackoverflow.com/questions/3984864\">PHP functions and @functions</a></li>\n<li><a href=\"https://stackoverflow.com/questions/4872340\">Should I use @ in my PHP code?</a></li>\n</ul>\n\n<hr>\n\n<p><code>?:</code> <a href=\"http://php.net/manual/en/language.operators.comparison.php#language.operators.comparison.ternary\" rel=\"noreferrer\">Ternary Operator</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/1080247\">What are the PHP operators &quot;?&quot; and &quot;:&quot; called and what do they do?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/1993409\">?: operator (the &#39;Elvis operator&#39;) in PHP</a></li>\n<li><a href=\"https://stackoverflow.com/questions/4055355\">Where can I read about conditionals done with &quot;?&quot; and &quot;:&quot; (colon)?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/4210187\">Using PHP 5.3 ?: operator</a></li>\n</ul>\n\n<hr>\n\n<p><code>??</code> <a href=\"http://php.net/manual/en/migration70.new-features.php#migration70.new-features.null-coalesce-op\" rel=\"noreferrer\">Null Coalesce Operator</a> (since PHP 7)</p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/7278835\">C#&#39;s null coalescing operator (??) in PHP</a></li>\n</ul>\n\n<hr>\n\n<p><code>:</code> <a href=\"http://secure.php.net/manual/en/control-structures.alternative-syntax.php\" rel=\"noreferrer\">Alternative syntax for control structures</a>, <a href=\"http://php.net/manual/en/language.operators.comparison.php#language.operators.comparison.ternary\" rel=\"noreferrer\">Ternary Operator</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/2908095\">What is &quot;:&quot; in PHP?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/4747761\">What does &quot;:&quot; mean in PHP?</a></li>\n</ul>\n\n<hr>\n\n<p><code>::</code> <a href=\"http://secure.php.net/manual/en/language.oop5.paamayim-nekudotayim.php\" rel=\"noreferrer\">Scope Resolution Operator</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/2903564\">What do two colons mean in PHP?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/2588298\">What&#39;s the meaning of the PHP token name T_PAAMAYIM_NEKUDOTAYIM?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/3173501\">What&#39;s the difference between :: (double colon) and -&gt; (arrow) in PHP?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/1912902\">What exactly are late static bindings in PHP?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/4120755\">static::staticFunctionName()</a></li>\n<li><a href=\"https://stackoverflow.com/questions/8734823\">Unexpected T_PAAMAYIM_NEKUDOTAYIM, expecting T_NS_Separator</a></li>\n</ul>\n\n<hr>\n\n<p><code>\\</code> <a href=\"http://php.net/namespaces\" rel=\"noreferrer\">Namespaces</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/10788400\">Backslash in PHP -- what does it mean?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/4790020\">What does a \\ (backslash) do in PHP (5.3+)?</a></li>\n</ul>\n\n<hr>\n\n<p><code>-&gt;</code> <a href=\"http://secure.php.net/manual/en/language.oop5.php\" rel=\"noreferrer\">Classes And Objects</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/2588149\">What is the &quot;-&gt;&quot; PHP operator called and how do you say it when reading code out loud?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/3037526\">Where do we use the object operator &quot;-&gt;&quot; in PHP?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/3173501\">What&#39;s the difference between :: (double colon) and -&gt; (arrow) in PHP?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/2316370\">What does the PHP syntax $var1-&gt;$var2 mean?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/4502587\">What does &quot;-&gt;&quot; mean/refer to in PHP?</a></li>\n</ul>\n\n<hr>\n\n<p><code>=&gt;</code> <a href=\"http://secure.php.net/manual/en/language.types.array.php\" rel=\"noreferrer\">Arrays</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/1241819\">What does &quot;=&gt;&quot; mean in PHP?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/1655336\">Use of =&gt; in PHP</a></li>\n<li><a href=\"https://stackoverflow.com/questions/4758791\">What does $k =&gt; $v in foreach($ex as $k=&gt;$v) mean?</a></li>\n</ul>\n\n<hr>\n\n<p><code>^</code> <a href=\"http://secure.php.net/manual/en/language.operators.bitwise.php\" rel=\"noreferrer\">Bitwise Operators</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/2674920\">How does the bitwise operator XOR (&#39;^&#39;) work?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/2724936\">What does ^ mean in PHP?</a></li>\n</ul>\n\n<hr>\n\n<p><code>&gt;&gt;</code> <a href=\"http://secure.php.net/manual/en/language.operators.bitwise.php\" rel=\"noreferrer\">Bitwise Operators</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/2790329\">What does &gt;&gt; mean in PHP?</a></li>\n</ul>\n\n<hr>\n\n<p><code>&lt;&lt;</code> <a href=\"http://secure.php.net/manual/en/language.operators.bitwise.php\" rel=\"noreferrer\">Bitwise Operators</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/9718689/strange-print-behaviour-in-php\">Strange print behaviour in PHP?</a></li>\n</ul>\n\n<hr>\n\n<p><code>&lt;&lt;&lt;</code> <a href=\"http://php.net/manual/en/language.types.string.php#language.types.string.syntax.heredoc\" rel=\"noreferrer\">Heredoc or Nowdoc</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/5539669\">What does &lt;&lt;&lt;END mean in PHP?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/1048481\">PHP expression &lt;&lt;&lt;EOB</a></li>\n<li><a href=\"https://stackoverflow.com/questions/3700042\">In PHP, what does &quot;&lt;&lt;&lt;&quot; represent?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/2090081\">Using &lt;&lt;&lt;CON in PHP</a></li>\n<li><a href=\"https://stackoverflow.com/questions/2333779\">What&#39;s this kind of syntax in PHP?</a></li>\n</ul>\n\n<hr>\n\n<p><code>=</code> <a href=\"http://secure.php.net/manual/en/language.operators.assignment.php\" rel=\"noreferrer\">Assignment Operators</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/2063480\">The 3 different equals</a></li>\n</ul>\n\n<hr>\n\n<p><code>==</code> <a href=\"http://secure.php.net/manual/en/language.operators.comparison.php\" rel=\"noreferrer\">Comparison Operators</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/80646\">How do the PHP equality (== double equals) and identity (=== triple equals) comparison operators differ?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/1663451\">PHP != and == operators</a></li>\n<li><a href=\"https://stackoverflow.com/questions/2063480\">The 3 different equals</a></li>\n<li><a href=\"https://stackoverflow.com/questions/15813490/\">Type-juggling and (strict) greater/lesser-than comparisons in PHP</a></li>\n</ul>\n\n<hr>\n\n<p><code>===</code> <a href=\"http://secure.php.net/manual/en/language.operators.comparison.php\" rel=\"noreferrer\">Comparison Operators</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/1117967\">What does &quot;===&quot; mean?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/80646\">How do the PHP equality (== double equals) and identity (=== triple equals) comparison operators differ?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/2063480\">The 3 different equals</a></li>\n<li><a href=\"https://stackoverflow.com/questions/15813490/\">Type-juggling and (strict) greater/lesser-than comparisons in PHP</a></li>\n</ul>\n\n<hr>\n\n<p><code>!==</code> <a href=\"http://secure.php.net/manual/en/language.operators.comparison.php\" rel=\"noreferrer\">Comparison Operators</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/1298083\">What does !== comparison operator in PHP mean?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/1139154\">Is there a difference between !== and != in PHP?</a></li>\n</ul>\n\n<hr>\n\n<p><code>!=</code> <a href=\"http://secure.php.net/manual/en/language.operators.comparison.php\" rel=\"noreferrer\">Comparison Operators</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/1663451\">PHP != and == operators</a></li>\n<li><a href=\"https://stackoverflow.com/questions/1139154\">Is there a difference between !== and != in PHP?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/6356826\">comparing, !== versus !=</a></li>\n<li><a href=\"https://stackoverflow.com/questions/9671785/what-is-the-difference-between-and\">What is the difference between &lt;&gt; and !=</a></li>\n</ul>\n\n<hr>\n\n<p><code>&lt;&gt;</code> <a href=\"http://secure.php.net/manual/en/language.operators.comparison.php\" rel=\"noreferrer\">Comparison Operators</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/249312\">PHP operator &lt;&gt;</a></li>\n<li><a href=\"https://stackoverflow.com/questions/589391\">PHP&#39;s &lt;&gt; operator</a></li>\n<li><a href=\"https://stackoverflow.com/questions/9671785\">What is the difference between &lt;&gt; and !=</a></li>\n<li><a href=\"https://stackoverflow.com/questions/15813490/\">Type-juggling and (strict) greater/lesser-than comparisons in PHP</a></li>\n</ul>\n\n<hr>\n\n<p><code>&lt;=&gt;</code> <a href=\"http://secure.php.net/manual/en/language.operators.comparison.php\" rel=\"noreferrer\">Comparison Operators</a> (since PHP 7.0)</p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/a/31298778\">Spaceship (three way comparison) operator</a></li>\n</ul>\n\n<hr>\n\n<p><code>|</code> <a href=\"http://secure.php.net/manual/en/language.operators.bitwise.php\" rel=\"noreferrer\">Bitwise Operators</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/2233835\">What is the difference between the | and || operators?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/13811922\">What Does Using A Single Pipe &#39;|&#39; In A Function Argument Do?</a></li>\n</ul>\n\n<hr>\n\n<p><code>||</code> <a href=\"http://secure.php.net/manual/en/language.operators.logical.php\" rel=\"noreferrer\">Logical Operators</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/2233835\">What is the difference between the | and || operators?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/4502092\">PHP - and / or keywords</a></li>\n<li><a href=\"https://stackoverflow.com/questions/5666741\">What exactly does || mean?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/12213283\">The behaviour of the or operator in PHP</a></li>\n</ul>\n\n<hr>\n\n<p><code>~</code> <a href=\"http://secure.php.net/manual/en/language.operators.bitwise.php\" rel=\"noreferrer\">Bitwise Operators</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/1967360\">What does this ~ operator mean here?</a></li>\n</ul>\n\n<hr>\n\n<p><code>+</code> <a href=\"http://secure.php.net/manual/en/language.operators.arithmetic.php\" rel=\"noreferrer\">Arithmetic Operators</a>, <a href=\"http://secure.php.net/manual/en/language.operators.array.php\" rel=\"noreferrer\">Array Operators</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/2140090\">+ operator for array in PHP?</a></li>\n</ul>\n\n<hr>\n\n<p><code>+=</code> and <code>-=</code> <a href=\"http://secure.php.net/manual/en/language.operators.assignment.php\" rel=\"noreferrer\">Assignment Operators</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/542995\">What is += used for?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/7140158\">What does `$page -= 1` in my PHP document mean?</a></li>\n</ul>\n\n<hr>\n\n<p><code>++</code> and <code>--</code> <a href=\"http://secure.php.net/manual/en/language.operators.increment.php\" rel=\"noreferrer\">Incrementing/Decrementing Operators</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/1968371\">Understanding Incrementing</a></li>\n<li><a href=\"https://stackoverflow.com/a/3737177\">Answer below</a></li>\n</ul>\n\n<hr>\n\n<p><code>.=</code> <a href=\"http://secure.php.net/manual/en/language.operators.assignment.php\" rel=\"noreferrer\">Assignment Operators</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/2202331\">What is the difference between .= and += in PHP?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/1241432\">To understand a line of PHP</a></li>\n</ul>\n\n<hr>\n\n<p><code>.</code> <a href=\"http://secure.php.net/manual/en/language.operators.string.php\" rel=\"noreferrer\">String Operators</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/1466408\">Difference between period and comma when concatenating with echo versus return?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/6484968\">What does a . (dot) do in PHP?</a></li>\n</ul>\n\n<hr>\n\n<p><code>,</code> <a href=\"http://php.net/manual/en/functions.arguments.php\" rel=\"noreferrer\">Function Arguments</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/1466408\">Difference between period and comma when concatenating with echo versus return?</a></li>\n</ul>\n\n<p><code>,</code> <a href=\"http://php.net/manual/en/language.variables.scope.php\" rel=\"noreferrer\">Variable Declarations</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/41383218\">What do commas mean in a variable declaration?</a></li>\n</ul>\n\n<hr>\n\n<p><code>$$</code> <a href=\"http://php.net/manual/en/language.variables.variable.php\" rel=\"noreferrer\">Variable Variables</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/2715654\">What does $$ (dollar dollar or double dollar) mean in PHP?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/4169882\">what is &quot;$$&quot; in PHP</a></li>\n<li><a href=\"https://stackoverflow.com/questions/4891872\">$function() and $$variable</a></li>\n</ul>\n\n<hr>\n\n<p><code>`</code> <a href=\"http://php.net/manual/en/language.operators.execution.php\" rel=\"noreferrer\">Execution Operator</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/6002296\">What are the backticks `` called?</a></li>\n</ul>\n\n<hr>\n\n<p><code>&lt;?=</code> <a href=\"http://php.net/manual/en/ini.core.php#ini.short-open-tag\" rel=\"noreferrer\">Short Open Tags</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/1963901\">What does this symbol mean in PHP &lt;?=</a></li>\n<li><a href=\"https://stackoverflow.com/questions/2020445\">What does &#39;&lt;?=&#39; mean in PHP?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/1959256/what-does-mean\">What does &lt;?= mean?</a></li>\n</ul>\n\n<hr>\n\n<p><code>[]</code> <a href=\"http://secure.php.net/manual/en/language.types.array.php\" rel=\"noreferrer\">Arrays</a> (short syntax since PHP 5.4)</p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/q/20709055/2758197\">PHP arrays... What is/are the meaning(s) of an empty bracket?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/6933345\">What is the meaning of []</a></li>\n<li><a href=\"https://stackoverflow.com/questions/2431629\">Php array_push() vs myArray[]</a></li>\n<li><a href=\"https://stackoverflow.com/questions/3908576\">What does [] mean when reading from a PHP array?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/4271874\">Shorthand for arrays: literal <code>$var = []</code> empty array</a></li>\n</ul>\n\n<hr>\n\n<p><code>&lt;?</code> <a href=\"http://secure.php.net/manual/en/language.basic-syntax.php\" rel=\"noreferrer\">Opening and Closing tags</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/200640\">Are PHP short tags acceptable to use?</a></li>\n</ul>\n\n<hr>\n\n<p><code>...</code> <a href=\"http://php.net/manual/en/functions.arguments.php#functions.variable-arg-list\" rel=\"noreferrer\">Argument unpacking</a> (since PHP 5.6)</p>\n\n<hr>\n\n<p><code>**</code> <a href=\"http://secure.php.net/manual/en/migration56.new-features.php#migration56.new-features.exponentiation\" rel=\"noreferrer\">Exponentiation</a> (since PHP 5.6)</p>\n\n<hr>\n\n<p><code>#</code> <a href=\"http://php.net/manual/en/language.basic-syntax.comments.php\" rel=\"noreferrer\">One-line shell-style comment</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/9093609/can-i-use-hashes-for-comments-in-php\">Can I use hashes for comments in PHP?</a></li>\n</ul>\n\n<hr>\n"
+  },
+  "4261133": {
+    "tags": [
+      "php",
+      "arrays",
+      "variables",
+      "warnings",
+      "undefined-index"
+    ],
+    "owner": {
+      "reputation": 351879,
+      "user_id": 187606,
+      "user_type": "registered",
+      "accept_rate": 90,
+      "profile_image": "https://i.stack.imgur.com/zzxoB.jpg?s=128&g=1",
+      "display_name": "Pekka 웃",
+      "link": "https://stackoverflow.com/users/187606/pekka-%ec%9b%83"
+    },
+    "is_answered": true,
+    "view_count": 1397211,
+    "protected_date": 1355054451,
+    "accepted_answer_id": 4261200,
+    "answer_count": 27,
+    "community_owned_date": 1290549165,
+    "score": 993,
+    "last_activity_date": 1540843354,
+    "creation_date": 1290547614,
+    "last_edit_date": 1540843354,
+    "question_id": 4261133,
+    "link": "https://stackoverflow.com/questions/4261133/notice-undefined-variable-notice-undefined-index-and-notice-undefined",
+    "title": "&quot;Notice: Undefined variable&quot;, &quot;Notice: Undefined index&quot;, and &quot;Notice: Undefined offset&quot; using PHP",
+    "body": "<p>I'm running a PHP script, and continue to receive errors like:</p>\n\n<blockquote>\n  <p>Notice: Undefined variable: my_variable_name in C:\\wamp\\www\\mypath\\index.php on line 10</p>\n  \n  <p>Notice: Undefined index: my_index C:\\wamp\\www\\mypath\\index.php on line 11</p>\n</blockquote>\n\n<p>Line 10 and 11 looks like this:</p>\n\n<pre><code>echo \"My variable value is: \" . $my_variable_name;\necho \"My index value is: \" . $my_array[\"my_index\"];\n</code></pre>\n\n<p>What is the meaning of these error messages?</p>\n\n<p>Why do they appear all of a sudden? I used to use this script for years and I've never had any problem.</p>\n\n<p>How do I fix them? </p>\n\n<blockquote>\n  <p><strong>This is a General Reference question</strong> for people to link to as duplicate, instead of having to explain the issue over and over again. I feel this is necessary because most  real-world answers on this issue are very specific. </p>\n  \n  <p>Related Meta discussion:</p>\n  \n  <ul>\n  <li><a href=\"https://meta.stackexchange.com/questions/62258/what-can-be-done-about-repetitive-questions\">What can be done about repetitive questions?</a></li>\n  <li><a href=\"https://meta.stackexchange.com/questions/63762/do-reference-questions-make-sense\">Do “reference questions” make sense?</a></li>\n  </ul>\n</blockquote>\n"
+  },
+  "4343596": {
+    "tags": [
+      "php",
+      "json"
+    ],
+    "owner": {
+      "reputation": 3044,
+      "user_id": 439621,
+      "user_type": "registered",
+      "accept_rate": 76,
+      "profile_image": "https://i.stack.imgur.com/61WqW.png?s=128&g=1",
+      "display_name": "John Doe",
+      "link": "https://stackoverflow.com/users/439621/john-doe"
+    },
+    "is_answered": true,
+    "view_count": 619917,
+    "protected_date": 1516075133,
+    "accepted_answer_id": 4343691,
+    "answer_count": 15,
+    "score": 329,
+    "last_activity_date": 1522750201,
+    "creation_date": 1291363892,
+    "last_edit_date": 1504789501,
+    "question_id": 4343596,
+    "link": "https://stackoverflow.com/questions/4343596/how-can-i-parse-a-json-file-with-php",
+    "title": "How can I parse a JSON file with PHP?",
+    "body": "<p>I tried to parse a JSON file using PHP. But I am stuck now.</p>\n\n<p>This is the content of my JSON file:</p>\n\n<pre><code>{\n    \"John\": {\n        \"status\":\"Wait\"\n    },\n    \"Jennifer\": {\n        \"status\":\"Active\"\n    },\n    \"James\": {\n        \"status\":\"Active\",\n        \"age\":56,\n        \"count\":10,\n        \"progress\":0.0029857,\n        \"bad\":0\n    }\n}\n</code></pre>\n\n<p>And this is what I have tried so far:</p>\n\n<pre><code>&lt;?php\n\n$string = file_get_contents(\"/home/michael/test.json\");\n$json_a = json_decode($string, true);\n\necho $json_a['John'][status];\necho $json_a['Jennifer'][status];\n</code></pre>\n\n<p>But because I don't know the names (like <code>'John'</code>, <code>'Jennifer'</code>) and all available keys and values (like <code>'age'</code>, <code>'count'</code>) beforehand, I think I need to create some foreach loop.</p>\n\n<p>I would appreciate an example for this.</p>\n"
+  },
+  "4795385": {
+    "tags": [
+      "php",
+      "passwords",
+      "cryptography",
+      "password-protection",
+      "bcrypt"
+    ],
+    "owner": {
+      "reputation": 59801,
+      "user_id": 41360,
+      "user_type": "registered",
+      "accept_rate": 59,
+      "profile_image": "https://www.gravatar.com/avatar/7bd2e50770e937761cfc3811a332bccc?s=128&d=identicon&r=PG",
+      "display_name": "Vilx-",
+      "link": "https://stackoverflow.com/users/41360/vilx"
+    },
+    "is_answered": true,
+    "view_count": 341592,
+    "protected_date": 1336063583,
+    "accepted_answer_id": 6337021,
+    "answer_count": 9,
+    "score": 1172,
+    "last_activity_date": 1524165000,
+    "creation_date": 1295969644,
+    "last_edit_date": 1397408510,
+    "question_id": 4795385,
+    "link": "https://stackoverflow.com/questions/4795385/how-do-you-use-bcrypt-for-hashing-passwords-in-php",
+    "title": "How do you use bcrypt for hashing passwords in PHP?",
+    "body": "<p>Every now and then I hear the advice \"Use bcrypt for storing passwords in PHP, bcrypt rules\".</p>\n\n<p>But what is <code>bcrypt</code>? PHP doesn't offer any such functions, Wikipedia babbles about a file-encryption utility and Web searches just reveal a few implementations of <a href=\"http://en.wikipedia.org/wiki/Blowfish_%28cipher%29\" rel=\"noreferrer\">Blowfish</a> in different languages. Now Blowfish is also available in PHP via <code>mcrypt</code>, but how does that help with storing passwords? Blowfish is a general purpose cipher, it works two ways. If it could be encrypted, it can be decrypted. Passwords need a one-way hashing function.</p>\n\n<p>What is the explanation?</p>\n"
+  },
+  "5004233": {
+    "tags": [
+      "php",
+      "javascript",
+      "jquery",
+      "ajax",
+      "post"
+    ],
+    "owner": {
+      "reputation": 6486,
+      "user_id": 528370,
+      "user_type": "registered",
+      "accept_rate": 97,
+      "profile_image": "https://www.gravatar.com/avatar/03c51d4dacea73644b28b9ece8e84d63?s=128&d=identicon&r=PG",
+      "display_name": "Thew",
+      "link": "https://stackoverflow.com/users/528370/thew"
+    },
+    "is_answered": true,
+    "view_count": 1163758,
+    "protected_date": 1366905207,
+    "accepted_answer_id": 5004276,
+    "answer_count": 11,
+    "score": 586,
+    "last_activity_date": 1525158288,
+    "creation_date": 1297776537,
+    "last_edit_date": 1490199991,
+    "question_id": 5004233,
+    "link": "https://stackoverflow.com/questions/5004233/jquery-ajax-post-example-with-php",
+    "title": "jQuery Ajax POST example with PHP",
+    "body": "<p>I am trying to send data from a form to a database. Here is the form I am using:</p>\n\n<pre><code>&lt;form name=\"foo\" action=\"form.php\" method=\"POST\" id=\"foo\"&gt;\n    &lt;label for=\"bar\"&gt;A bar&lt;/label&gt;\n    &lt;input id=\"bar\" name=\"bar\" type=\"text\" value=\"\" /&gt;\n    &lt;input type=\"submit\" value=\"Send\" /&gt;\n&lt;/form&gt;\n</code></pre>\n\n<p>The typical approach would be to submit the form, but this causes the browser to redirect. Using jQuery and <a href=\"http://en.wikipedia.org/wiki/Ajax_%28programming%29\" rel=\"noreferrer\">Ajax</a>, is it possible to capture all of the form's data and submit it to a PHP script (in example, <em>form.php</em>)?</p>\n"
+  },
+  "5121495": {
+    "tags": [
+      "php",
+      "apache"
+    ],
+    "owner": {
+      "reputation": 3438,
+      "user_id": 365383,
+      "user_type": "registered",
+      "accept_rate": 96,
+      "profile_image": "https://i.stack.imgur.com/g3LgJ.jpg?s=128&g=1",
+      "display_name": "Gui",
+      "link": "https://stackoverflow.com/users/365383/gui"
+    },
+    "is_answered": true,
+    "view_count": 446243,
+    "protected_date": 1433898071,
+    "accepted_answer_id": 5121589,
+    "answer_count": 24,
+    "score": 248,
+    "last_activity_date": 1538542187,
+    "creation_date": 1298660811,
+    "last_edit_date": 1490199382,
+    "question_id": 5121495,
+    "link": "https://stackoverflow.com/questions/5121495/php-code-is-not-being-executed-instead-code-shows-on-the-page",
+    "title": "PHP code is not being executed, instead code shows on the page",
+    "body": "<p>I'm trying to execute some PHP code on a project (using Dreamweaver) but the code isn't being run.</p>\n\n<p>When I check the source code, the PHP code appears as HTML tags (I can see it in the source code). Apache is running properly (I'm working with XAMPP), the PHP pages are being opened properly but the PHP code isn't being executed.</p>\n\n<p>Does someone have a suggestion about what is happening?</p>\n\n<p><strong>Note:</strong> The file is already named as <code>filename.php</code></p>\n\n<p><strong>Edit:</strong>\nThe Code..:</p>\n\n<pre><code>&lt;?\ninclude_once(\"/code/configs.php\");\n?&gt;\n</code></pre>\n\n<p><img src=\"https://i.stack.imgur.com/FVVLX.png\" alt=\"The print\"></p>\n"
+  },
+  "5741187": {
+    "tags": [
+      "php",
+      "mysql",
+      "sql",
+      "security",
+      "sql-injection"
+    ],
+    "owner": {
+      "reputation": 32188,
+      "user_id": 95944,
+      "user_type": "registered",
+      "accept_rate": 91,
+      "profile_image": "https://i.stack.imgur.com/dEHGM.jpg?s=128&g=1",
+      "display_name": "Richard Knop",
+      "link": "https://stackoverflow.com/users/95944/richard-knop"
+    },
+    "is_answered": true,
+    "view_count": 195937,
+    "protected_date": 1444036903,
+    "accepted_answer_id": 5741264,
+    "answer_count": 4,
+    "score": 521,
+    "last_activity_date": 1514965366,
+    "creation_date": 1303372571,
+    "last_edit_date": 1513785166,
+    "question_id": 5741187,
+    "link": "https://stackoverflow.com/questions/5741187/sql-injection-that-gets-around-mysql-real-escape-string",
+    "title": "SQL injection that gets around mysql_real_escape_string()",
+    "body": "<p>Is there an SQL injection possibility even when using <code>mysql_real_escape_string()</code> function?</p>\n\n<p>Consider this sample situation. SQL is constructed in PHP like this:</p>\n\n<pre><code>$login = mysql_real_escape_string(GetFromPost('login'));\n$password = mysql_real_escape_string(GetFromPost('password'));\n\n$sql = \"SELECT * FROM table WHERE login='$login' AND password='$password'\";\n</code></pre>\n\n<p>I have heard numerous people say to me that a code like that is still dangerous and possible to hack even with <code>mysql_real_escape_string()</code> function used. But I cannot think of any possible exploit?</p>\n\n<p>Classic injections like this:</p>\n\n<pre><code>aaa' OR 1=1 --\n</code></pre>\n\n<p>do not work.</p>\n\n<p>Do you know of any possible injection that would get through the PHP code above?</p>\n"
+  },
+  "5863870": {
+    "tags": [
+      "php",
+      "oop",
+      "model-view-controller",
+      "architecture",
+      "model"
+    ],
+    "owner": {
+      "reputation": 4550,
+      "user_id": 734587,
+      "user_type": "registered",
+      "accept_rate": 100,
+      "profile_image": "https://www.gravatar.com/avatar/98273b7b565f14cf4bd44c0ed8327357?s=128&d=identicon&r=PG",
+      "display_name": "Dietpixel",
+      "link": "https://stackoverflow.com/users/734587/dietpixel"
+    },
+    "is_answered": true,
+    "view_count": 157014,
+    "protected_date": 1379461742,
+    "accepted_answer_id": 5864000,
+    "answer_count": 5,
+    "score": 521,
+    "last_activity_date": 1508313273,
+    "creation_date": 1304382522,
+    "last_edit_date": 1408817320,
+    "question_id": 5863870,
+    "link": "https://stackoverflow.com/questions/5863870/how-should-a-model-be-structured-in-mvc",
+    "title": "How should a model be structured in MVC?",
+    "body": "<p>I am just getting a grasp on the MVC framework and I often wonder how much code should go in the model. I tend to have a data access class that has methods like this:</p>\n\n<pre><code>public function CheckUsername($connection, $username)\n{\n    try\n    {\n        $data = array();\n        $data['Username'] = $username;\n\n        //// SQL\n        $sql = \"SELECT Username FROM\" . $this-&gt;usersTableName . \" WHERE Username = :Username\";\n\n        //// Execute statement\n        return $this-&gt;ExecuteObject($connection, $sql, $data);\n    }\n    catch(Exception $e)\n    {\n        throw $e;\n    }\n}\n</code></pre>\n\n<p>My models tend to be an entity class that is mapped to the database table.</p>\n\n<p>Should the model object have all the database mapped properties as well as the code above or is it OK to separate that code out that actually does the database work?</p>\n\n<p>Will I end up having four layers?</p>\n"
   },
   "7550190": {
     "tags": [
@@ -326,6 +1039,35 @@
     "link": "https://stackoverflow.com/questions/7897628/does-a-typical-acid-rdbms-sync-to-disk-every-commit",
     "title": "Does a typical ACID RDBMS sync to disk every commit?",
     "body": "<p>The 'D' in ACID means \"Durability\" which is defined by Wikipedia as: \"every committed transaction is protected against power loss/crash/errors and cannot be lost by the system and can thus be guaranteed to be completed\".</p>\n\n<p>However, this would mean that every transaction must be sync'd to disk before being reported as successful, not just flushed.  ('flush'=sent to the operating system level, 'sync'=sent to the physical disk platter).  This would make it impossible to implement a high transaction rate RDBMS.</p>\n\n<p>Do popular RDBMS's really sync every transaction?</p>\n"
+  },
+  "8028957": {
+    "tags": [
+      "php",
+      "header"
+    ],
+    "owner": {
+      "reputation": 2192,
+      "user_id": 1031807,
+      "user_type": "registered",
+      "profile_image": "https://www.gravatar.com/avatar/3b46f93d34a6184fd34721d95671ba78?s=128&d=identicon&r=PG",
+      "display_name": "Moses89",
+      "link": "https://stackoverflow.com/users/1031807/moses89"
+    },
+    "is_answered": true,
+    "view_count": 1127494,
+    "protected_date": 1343945015,
+    "accepted_answer_id": 8028987,
+    "answer_count": 11,
+    "community_owned_date": 1389894098,
+    "score": 836,
+    "locked_date": 1435146033,
+    "last_activity_date": 1534932403,
+    "creation_date": 1320601282,
+    "last_edit_date": 1389894098,
+    "question_id": 8028957,
+    "link": "https://stackoverflow.com/questions/8028957/how-to-fix-headers-already-sent-error-in-php",
+    "title": "How to fix &quot;Headers already sent&quot; error in PHP",
+    "body": "<p>When running my script, I am getting several errors like this:</p>\n\n<blockquote>\n  <p>Warning: Cannot modify header information - headers already sent by (<strong>output started at /some/file.php:12</strong>) in <strong>/some/file.php</strong> on <strong>line 23</strong></p>\n</blockquote>\n\n<p>The lines mentioned in the error messages contain <a href=\"http://php.net/header\" rel=\"noreferrer\"><code>header()</code></a> and <a href=\"http://php.net/setcookie\" rel=\"noreferrer\"><code>setcookie()</code></a> calls.</p>\n\n<p>What could be the reason for this? And how to fix it?</p>\n"
   },
   "9079781": {
     "tags": [
@@ -458,6 +1200,65 @@
     "title": "Why are my Opteron cores running at only 75% capacity each? (25% CPU idle)",
     "body": "<p>We've just taken delivery of a powerful 32-core AMD Opteron server with 128Gb.  We have 2 x 6272 CPU's with 16 cores each. We are running a big long-running java task on 30 threads. We have the NUMA optimisations for Linux and java turned on.  Our Java threads are mainly using objects that are private to that thread, sometimes reading memory that other threads will be reading, and very very occasionally writing or locking shared objects.</p>\n\n<p>We can't explain why the CPU cores are 25% idle. Below is a dump of \"top\":</p>\n\n<pre>\ntop - 23:06:38 up 1 day, 23 min,  3 users,  load average: 10.84, 10.27, 9.62\nTasks: 676 total,   1 running, 675 sleeping,   0 stopped,   0 zombie\nCpu(s): 64.5%us,  1.3%sy,  0.0%ni, 32.9%id,  1.3%wa,  0.0%hi,  0.0%si,  0.0%st\nMem:  132138168k total, 131652664k used,   485504k free,    92340k buffers\nSwap:  5701624k total,   230252k used,  5471372k free, 13444344k cached\n...\ntop - 22:37:39 up 23:54,  3 users,  load average: 7.83, 8.70, 9.27\nTasks: 678 total,   1 running, 677 sleeping,   0 stopped,   0 zombie\nCpu0  : 75.8%us,  2.0%sy,  0.0%ni, 22.2%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu1  : 77.2%us,  1.3%sy,  0.0%ni, 21.5%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu2  : 77.3%us,  1.0%sy,  0.0%ni, 21.7%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu3  : 77.8%us,  1.0%sy,  0.0%ni, 21.2%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu4  : 76.9%us,  2.0%sy,  0.0%ni, 21.1%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu5  : 76.3%us,  2.0%sy,  0.0%ni, 21.7%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu6  : 12.6%us,  3.0%sy,  0.0%ni, 84.4%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu7  :  8.6%us,  2.0%sy,  0.0%ni, 89.4%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu8  : 77.0%us,  2.0%sy,  0.0%ni, 21.1%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu9  : 77.0%us,  2.0%sy,  0.0%ni, 21.1%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu10 : 77.6%us,  1.7%sy,  0.0%ni, 20.8%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu11 : 75.7%us,  2.0%sy,  0.0%ni, 21.4%id,  1.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu12 : 76.6%us,  2.3%sy,  0.0%ni, 21.1%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu13 : 76.6%us,  2.3%sy,  0.0%ni, 21.1%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu14 : 76.2%us,  2.6%sy,  0.0%ni, 15.9%id,  5.3%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu15 : 76.6%us,  2.0%sy,  0.0%ni, 21.5%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu16 : 73.6%us,  2.6%sy,  0.0%ni, 23.8%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu17 : 74.5%us,  2.3%sy,  0.0%ni, 23.2%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu18 : 73.9%us,  2.3%sy,  0.0%ni, 23.8%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu19 : 72.9%us,  2.6%sy,  0.0%ni, 24.4%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu20 : 72.8%us,  2.6%sy,  0.0%ni, 24.5%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu21 : 72.7%us,  2.3%sy,  0.0%ni, 25.0%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu22 : 72.5%us,  2.6%sy,  0.0%ni, 24.8%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu23 : 73.0%us,  2.3%sy,  0.0%ni, 24.7%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu24 : 74.7%us,  2.7%sy,  0.0%ni, 22.7%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu25 : 74.5%us,  2.6%sy,  0.0%ni, 22.8%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu26 : 73.7%us,  2.0%sy,  0.0%ni, 24.3%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu27 : 74.1%us,  2.3%sy,  0.0%ni, 23.6%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu28 : 74.1%us,  2.3%sy,  0.0%ni, 23.6%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu29 : 74.0%us,  2.0%sy,  0.0%ni, 24.0%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu30 : 73.2%us,  2.3%sy,  0.0%ni, 24.5%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nCpu31 : 73.1%us,  2.0%sy,  0.0%ni, 24.9%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st\nMem:  132138168k total, 131711704k used,   426464k free,    88336k buffers\nSwap:  5701624k total,   229572k used,  5472052k free, 13745596k cached\n\n  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND\n13865 root      20   0  122g 112g 3.1g S 2334.3 89.6  20726:49 java\n27139 jayen     20   0 15428 1728  952 S  2.6  0.0   0:04.21 top\n27161 sysadmin  20   0 15428 1712  940 R  1.0  0.0   0:00.28 top\n   33 root      20   0     0    0    0 S  0.3  0.0   0:06.24 ksoftirqd/7\n  131 root      20   0     0    0    0 S  0.3  0.0   0:09.52 events/0\n 1858 root      20   0     0    0    0 S  0.3  0.0   1:35.14 kondemand/0\n</pre>\n\n<p>A dump of the java stack confirms that none of the threads are anywhere near the few places where locks are used, nor are they anywhere near any disk or network i/o.</p>\n\n<p>I had trouble finding a clear explanation of what 'top' means by \"idle\" versus \"wait\", but I get the impression that \"idle\" means \"no more threads that need to be run\" but this doesn't make sense in our case.  We're using a \"Executors.newFixedThreadPool(30)\".  There are a large number of tasks pending and each task lasts for 10 seconds or so.</p>\n\n<p>I suspect that the explanation requires a good understanding of NUMA. Is the \"idle\" state what you see when a CPU is waiting for a non-local access?  If not, then what is the explanation?</p>\n"
   },
+  "12769982": {
+    "tags": [
+      "php",
+      "mysql",
+      "debugging",
+      "warnings"
+    ],
+    "owner": {
+      "reputation": 156549,
+      "user_id": 367456,
+      "user_type": "registered",
+      "accept_rate": 71,
+      "profile_image": "https://i.stack.imgur.com/MGhY2.png?s=128&g=1",
+      "display_name": "hakre",
+      "link": "https://stackoverflow.com/users/367456/hakre"
+    },
+    "is_answered": true,
+    "view_count": 160974,
+    "protected_date": 1444035548,
+    "answer_count": 31,
+    "community_owned_date": 1349631133,
+    "score": 947,
+    "last_activity_date": 1539310312,
+    "creation_date": 1349622660,
+    "last_edit_date": 1539310312,
+    "question_id": 12769982,
+    "link": "https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php",
+    "title": "Reference - What does this error mean in PHP?",
+    "body": "<h3>What is this?</h3>\n\n<p>This is a number of answers about warnings, errors and notices you might encounter while programming PHP and have no clue how to fix. This is also a Community Wiki, so everyone is invited to participate in adding to and maintaining this list. </p>\n\n<h3>Why is this?</h3>\n\n<p>Questions like <a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/12770075#12770075\">\"Headers already sent\"</a> or <a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/12769983#12769983\">\"Calling a member of a non-object\"</a> pop up frequently on Stack&nbsp;Overflow. The root cause of those questions is always the same. So the answers to those questions typically repeat them and then show the OP which line to change in his/her particular case. These answers do not add any value to the site because they only apply to the OP's particular code. Other users having the same error can not easily read the solution out of it because they are too localized. That is sad, because once you understood the root cause, fixing the error is trivial. Hence, this list tries to explain the solution in a general way to apply.</p>\n\n<h3>What should I do here?</h3>\n\n<p>If your question has been marked as a duplicate of this, please find your error message below and apply the fix to your code. The answers usually contain further links to investigate in case it shouldn't be clear from the general answer alone.</p>\n\n<p>If you want to contribute, please add your \"favorite\" error message, warning or notice, one per answer, a short description what it means (even if it is only highlighting terms to their manual page), a possible solution or debugging approach and a listing of existing Q&amp;A that are of value. Also, feel free to improve any existing answers.</p>\n\n<h2>The List</h2>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/12772851#12772851\">Nothing is seen. The page is empty and white.</a> (also known as <em>White Page/Screen Of Death</em>)</li>\n<li><a href=\"https://stackoverflow.com/a/24423272/476\">Code doesn't run/what looks like parts of my PHP code are output</a></li>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/12770075#12770075\">Warning: Cannot modify header information - headers already sent</a></li>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/12770072#12770072\">Warning: mysql_fetch_array() expects parameter 1 to be resource, boolean given</a> a.k.a.<br>\n<a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/12770072#12770072\">Warning: mysql_fetch_array(): supplied argument is not a valid MySQL result resource</a> a.k.a.<br>\n<a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/12770072#12770072\">Warning: mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given</a> (or similar variations)</li>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/14067623#14067623\">Warning: <em>[function]</em> expects parameter 1 to be resource, boolean given</a></li>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/12820243#12820243\">Warning: <em>[function]</em>: failed to open stream: <em>[reason]</em></a></li>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/12772244#12772244\">Warning: open_basedir restriction in effect</a></li>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/12770089/#21507314\">Warning: Division by zero</a></li>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/12770089/#27678436\">Warning: Illegal string offset 'XXX'</a></li>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/22316776#22316776\">Parse error: syntax error, unexpected '['</a></li>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/12770089/#12770089\">Parse error: syntax error, unexpected T_XXX</a></li>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/13935532#13935532\">Parse error:  syntax error, unexpected T_ENCAPSED_AND_WHITESPACE</a></li>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/12770129#12770129\">Parse error: syntax error, unexpected T_PAAMAYIM_NEKUDOTAYIM</a></li>\n<li><a href=\"https://stackoverflow.com/questions/23726288/php-error-unexpected-require-once-expecting-function\">Parse error: syntax error, unexpected 'require_once' (T_REQUIRE_ONCE), expecting function (T_FUNCTION)</a></li>\n<li><a href=\"https://stackoverflow.com/a/15539535/1723893\">Parse error: syntax error, unexpected T_VARIABLE</a></li>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/12770179#12770179\">Fatal error: Allowed memory size of XXX bytes exhausted (tried to allocate XXX bytes)</a></li>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/12769983#12769983\">Fatal error: Call to a member function ... on a non-object</a></li>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/12784048#12784048\">Fatal Error: Call to Undefined function XXX</a></li>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/13879461#13879461\">Fatal Error: Cannot redeclare XXX</a></li>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/12770530#12770530\">Fatal error: Can't use function return value in write context</a></li>\n<li><a href=\"https://stackoverflow.com/questions/1885302/php-what-does-this-error-mean-abstract-method-must-be-compatible\">Fatal error: Declaration of AAA::BBB() must be compatible with that of CCC::BBB()</a> '</li>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/12770317#12770317\">Fatal error: Using $this when not in object context</a></li>\n<li><a href=\"https://stackoverflow.com/a/24507107/476\">Notice: Array to string conversion</a></li>\n<li><a href=\"https://stackoverflow.com/a/26572398/367456\">Notice: Trying to get property of non-object error</a></li>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/12778634#12778634\">Notice: Undefined variable</a></li>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/12770836#12770836\">Notice: Undefined Index</a></li>\n<li><a href=\"https://stackoverflow.com/a/21793407/3933332\">Notice: Undefined offset XXX</a> [Reference]</li>\n<li><a href=\"https://stackoverflow.com/a/17630869/367456\">Notice: Uninitialized string offset: XXX</a></li>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/12773272#12773272\">Notice: Use of undefined constant XXX - assumed 'XXX'</a></li>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/12771239#12771239\">MySQL: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ... at line ...</a></li>\n<li><a href=\"https://stackoverflow.com/a/21942832/367456\">Strict Standards: Non-static method <em>[&lt;class>::&lt;method>]</em> should not be called statically</a></li>\n<li><a href=\"https://stackoverflow.com/a/52771226/1255289\">Warning: function expects parameter X to be boolean/string/integer</a></li>\n</ul>\n\n<p>Also see </p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/3737139/reference-what-does-this-symbol-mean-in-php\">Reference - What does this symbol mean in PHP?</a></li>\n</ul>\n"
+  },
+  "12859942": {
+    "tags": [
+      "php",
+      "mysql",
+      "database"
+    ],
+    "owner": {
+      "reputation": 113370,
+      "user_id": 871050,
+      "user_type": "moderator",
+      "accept_rate": 93,
+      "profile_image": "https://www.gravatar.com/avatar/a7a50a9492be737b0c012a839338272a?s=128&d=identicon&r=PG",
+      "display_name": "Madara Uchiha",
+      "link": "https://stackoverflow.com/users/871050/madara-uchiha"
+    },
+    "is_answered": true,
+    "view_count": 187745,
+    "protected_date": 1350250348,
+    "accepted_answer_id": 12860046,
+    "answer_count": 14,
+    "score": 2257,
+    "last_activity_date": 1535094173,
+    "creation_date": 1350047919,
+    "last_edit_date": 1513181492,
+    "question_id": 12859942,
+    "link": "https://stackoverflow.com/questions/12859942/why-shouldnt-i-use-mysql-functions-in-php",
+    "title": "Why shouldn&#39;t I use mysql_* functions in PHP?",
+    "body": "<p>What are the technical reasons for why one shouldn't use <code>mysql_*</code> functions? (e.g. <code>mysql_query()</code>, <code>mysql_connect()</code> or <code>mysql_real_escape_string()</code>)?</p>\n\n<p>Why should I use something else even if they work on my site?</p>\n\n<p>If they don't work on my site, why do I get errors like </p>\n\n<blockquote>\n  <p>Warning: mysql_connect(): No such file or directory</p>\n</blockquote>\n"
+  },
   "13465425": {
     "tags": [
       "parallel-processing",
@@ -485,6 +1286,64 @@
     "link": "https://stackoverflow.com/questions/13465425/many-core-cpus-programming-techniques-to-avoid-disappointing-scalability",
     "title": "many-core CPU&#39;s: Programming techniques to avoid disappointing scalability",
     "body": "<p>We've just bought a 32-core Opteron machine, and the speedups we get are a little disappointing:  beyond about 24 threads we see no speedup at all (actually gets slower overall) and after about 6 threads it becomes significantly sub-linear.</p>\n\n<p>Our application is very thread-friendly:  our job breaks down into about 170,000 little tasks which can each be executed separately, each taking 5-10 seconds.  They all read from the same memory-mapped file of size about 4Gb. They make occasional writes to it, but it might be 10,000 reads to each write - we just write a little bit of data at the end of each of the 170,000 tasks. The writes are lock-protected.  Profiling shows that the locks are not a problem. The threads use a lot of JVM memory each in non-shared objects and they make very little access to shared JVM objects and of that, only a small percentage of accesses involve writes.</p>\n\n<p>We're programming in Java, on Linux, with NUMA enabled. We have 128Gb RAM. We have 2 Opteron CPU's (model 6274) of 16 cores each. Each CPU has 2 NUMA nodes. The same job running on an Intel quad-core (i.e. 8 cores) scaled nearly linearly up to 8 threads.</p>\n\n<p>We've tried replicating the read-only data to have one-per-thread, in the hope that most lookups can be local to a NUMA node, but we observed no speedup from this.</p>\n\n<p>With 32 threads, 'top' shows the CPU's 74% \"us\" (user) and about 23% \"id\" (idle). But there are no sleeps and almost no disk i/o.  With 24 threads we get 83% CPU usage.  I'm not sure how to interpret 'idle' state - does this mean 'waiting for memory controller'?  </p>\n\n<p>We tried turning NUMA on and off (I'm referring to the Linux-level setting that requires a reboot) and saw no difference. When NUMA was enabled, 'numastat' showed only about 5% of 'allocation and access misses' (95% of cache misses were local to the NUMA node).  [Edit:] But adding \"-XX:+useNUMA\" as a java commandline flag gave us a 10% boost.</p>\n\n<p>One theory we have is that we're maxing out the memory controllers, because our application uses a lot of RAM and we think there are a lot of cache misses.</p>\n\n<p><strong>What can we do to either (a) speed up our program to approach linear scalability, or (b) diagnose what's happening?</strong></p>\n\n<p>Also: (c) how do I interpret the 'top' result - does 'idle' mean 'blocked on memory controllers'?  and (d) is there any difference in the characteristics of Opteron vs Xeon's?</p>\n"
+  },
+  "13840429": {
+    "tags": [
+      "javascript",
+      "php",
+      "client-side",
+      "server-side"
+    ],
+    "owner": {
+      "reputation": 386257,
+      "user_id": 476,
+      "user_type": "moderator",
+      "accept_rate": 70,
+      "profile_image": "https://www.gravatar.com/avatar/a235706e3d81b614acaec3368edfea4b?s=128&d=identicon&r=PG",
+      "display_name": "deceze",
+      "link": "https://stackoverflow.com/users/476/deceze"
+    },
+    "is_answered": true,
+    "view_count": 31356,
+    "protected_date": 1407750116,
+    "accepted_answer_id": 13840431,
+    "answer_count": 5,
+    "score": 411,
+    "last_activity_date": 1534958246,
+    "creation_date": 1355317380,
+    "last_edit_date": 1502799448,
+    "question_id": 13840429,
+    "link": "https://stackoverflow.com/questions/13840429/what-is-the-difference-between-client-side-and-server-side-programming",
+    "title": "What is the difference between client-side and server-side programming?",
+    "body": "<p>I have this code:</p>\n\n<pre><code>&lt;script type=\"text/javascript\"&gt;\n    var foo = 'bar';\n    &lt;?php\n        file_put_contents('foo.txt', ' + foo + ');\n    ?&gt;\n\n    var baz = &lt;?php echo 42; ?&gt;;\n    alert(baz);\n&lt;/script&gt;\n</code></pre>\n\n<p>Why does this not write \"bar\" into my text file, but alerts \"42\"?</p>\n\n<hr>\n\n<p>NB: Earlier revisions of this question were explicitly about PHP on the server and JavaScript on the client. The essential nature of the problem and solutions is the same for <em>any</em> pair of languages when one is running on the client and the other on the server. Please take this in to account when you see answers talking about specific languages.</p>\n"
+  },
+  "16959576": {
+    "tags": [
+      "php",
+      "scope"
+    ],
+    "owner": {
+      "reputation": 386257,
+      "user_id": 476,
+      "user_type": "moderator",
+      "accept_rate": 70,
+      "profile_image": "https://www.gravatar.com/avatar/a235706e3d81b614acaec3368edfea4b?s=128&d=identicon&r=PG",
+      "display_name": "deceze",
+      "link": "https://stackoverflow.com/users/476/deceze"
+    },
+    "is_answered": true,
+    "view_count": 38313,
+    "protected_date": 1444035641,
+    "accepted_answer_id": 16959577,
+    "answer_count": 3,
+    "score": 142,
+    "last_activity_date": 1519886440,
+    "creation_date": 1370514035,
+    "last_edit_date": 1490199388,
+    "question_id": 16959576,
+    "link": "https://stackoverflow.com/questions/16959576/reference-what-is-variable-scope-which-variables-are-accessible-from-where-and",
+    "title": "Reference: What is variable scope, which variables are accessible from where and what are &quot;undefined variable&quot; errors?",
+    "body": "<blockquote>\n  <p>Note: This is a reference question for dealing with variable scope in PHP. Please close any of the many questions fitting this pattern as duplicate of this one.</p>\n</blockquote>\n\n<p>What is \"variable scope\" in PHP? Are variables from one .php file accessible in another? Why do I sometimes get <em>\"undefined variable\"</em> errors?</p>\n"
   },
   "17112228": {
     "tags": [
@@ -542,6 +1401,67 @@
     "closed_reason": "not a real question",
     "title": "Article trimmed anchors",
     "body": "<p>Hi,<br>\nI'm creating redaction system and I want to cut the article (article summary page) when its length exceeds 80 words (or some amount of characters). </p>\n\n<p>Problem is that if I cut it in the middle of anchor (so it will look like this: a       href=\"blahblah\"> Text of anchor [closing tag gets erased]), any following text is then    inserted into anchor and it messes up other articles and coding. Any tips how to avoid this? I was thinking about setting up cut mark (for example <code>&lt;end&gt;</code> tag) and cut post on that mark, but still if I forget to put mark there, I don't want to have filled whole article summary with one article.</p>\n"
+  },
+  "17364127": {
+    "tags": [
+      "php",
+      "arrays",
+      "sorting",
+      "object",
+      "spl"
+    ],
+    "owner": {
+      "reputation": 386257,
+      "user_id": 476,
+      "user_type": "moderator",
+      "accept_rate": 70,
+      "profile_image": "https://www.gravatar.com/avatar/a235706e3d81b614acaec3368edfea4b?s=128&d=identicon&r=PG",
+      "display_name": "deceze",
+      "link": "https://stackoverflow.com/users/476/deceze"
+    },
+    "is_answered": true,
+    "view_count": 50506,
+    "protected_date": 1414476674,
+    "accepted_answer_id": 17364128,
+    "answer_count": 9,
+    "score": 257,
+    "last_activity_date": 1535292844,
+    "creation_date": 1372420436,
+    "last_edit_date": 1528113001,
+    "question_id": 17364127,
+    "link": "https://stackoverflow.com/questions/17364127/how-can-i-sort-arrays-and-data-in-php",
+    "title": "How can I sort arrays and data in PHP?",
+    "body": "<blockquote>\n  <p>This question is intended as a reference for questions about sorting arrays in PHP. It is easy to think that your particular case is unique, and worthy of a new question, but most are actually minor variations of one of the solutions on this page.</p>\n  \n  <p>If your question is closed as a duplicate of this one, please ask for your question to be reopened only if you can explain why it differs markedly from all of the below.</p>\n</blockquote>\n\n<p>How do I sort an array in PHP?<br>\nHow do I sort a <em>complex</em> array in PHP?<br>\nHow do I sort an array of objects in PHP?</p>\n\n<hr>\n\n<ol>\n<li><p><a href=\"https://stackoverflow.com/a/17364128/476\">Basic one dimensional arrays; Incl. Multi dimensional arrays, incl. arrays of objects; Incl. Sorting one array based on another</a></p></li>\n<li><p><a href=\"https://stackoverflow.com/a/17364468/476\">Sorting with SPL</a></p></li>\n<li><p><a href=\"https://stackoverflow.com/a/17365409\">Stable sort</a></p></li>\n</ol>\n\n<p>For the practical answer using PHP's existing functions see 1., for the academic in-detail answer on sorting algorithms (which PHP's functions implement and which you <em>may</em> need for really, really complex cases), see 2.</p>\n"
+  },
+  "17498216": {
+    "tags": [
+      "php",
+      "mysql",
+      "pdo",
+      "mysqli"
+    ],
+    "owner": {
+      "reputation": 585,
+      "user_id": 2544399,
+      "user_type": "registered",
+      "accept_rate": 100,
+      "profile_image": "https://i.stack.imgur.com/kpiAq.png?s=128&g=1",
+      "display_name": "N3mo",
+      "link": "https://stackoverflow.com/users/2544399/n3mo"
+    },
+    "is_answered": true,
+    "view_count": 9447,
+    "protected_date": 1444035671,
+    "accepted_answer_id": 17498248,
+    "answer_count": 4,
+    "score": 88,
+    "last_activity_date": 1522868369,
+    "creation_date": 1373068116,
+    "last_edit_date": 1490198920,
+    "question_id": 17498216,
+    "link": "https://stackoverflow.com/questions/17498216/can-i-mix-mysql-apis-in-php",
+    "title": "Can I mix MySQL APIs in PHP?",
+    "body": "<p>I have searched the net and so far what I have seen is that you can use <code>mysql_</code> and <code>mysqli_</code> together meaning:</p>\n\n<pre><code>&lt;?php\n$con=mysqli_connect(\"localhost\", \"root\" ,\"\" ,\"mysql\");\n\nif( mysqli_connect_errno( $con ) ) {\n    echo \"failed to connect\";\n}else{\n    echo \"connected\";\n}\nmysql_close($con);\necho \"Done\";\n?&gt;\n</code></pre>\n\n<p>or </p>\n\n<pre><code>&lt;?php\n$con=mysql_connect(\"localhost\", \"root\" ,\"\" ,\"mysql\");\nif( mysqli_connect_errno( $con ) ) {\n    echo \"failed to connect\";\n}else{\n    echo \"connected\";\n}\nmysqli_close($con);\necho \"Done\";\n?&gt;\n</code></pre>\n\n<p>Are valid but when I use this code what I get is:</p>\n\n<pre><code>Connected\nWarning: mysql_close() expects parameter 1 to be resource, object given in D:\\************.php on line 9\nDone\n</code></pre>\n\n<p>For the first and the same except with <code>mysqli_close()</code>. For the second one.</p>\n\n<p>What is the problem? Can't I use <code>mysql_</code> and <code>mysqli</code> together? Or is it normal? Is the way I can check if the connections are valid at all? (the <code>if(mysq...)</code>)</p>\n"
   },
   "17900211": {
     "tags": [
@@ -655,6 +1575,37 @@
     "title": "Tomcat 6: HTTPS times out but HTTP works (Maybe GWT issue?)",
     "body": "<p>We have a Linux server running tomcat6  (6.0.36).  We have a GWT-based web-app.  It has been running fine for 2 years, until twice in 5 days it developed a problem:  HTTPS ceased to work even though HTTP works fine.  Both times, a simple restart solved the problem.  </p>\n\n<ul>\n<li>The certificates are not close to expiry and indeed are fine after the restart</li>\n<li>There was no significant load on the server at the time of the fault, CPU and %MEM were fine</li>\n<li>HTTP responds instantly</li>\n<li>HTTPS just times out without giving us any clues</li>\n<li>There's nothing in the 'catalina.out' file but there are SocketTimeoutException's in the localhost.*log file, see below</li>\n<li>A thread dump (kill -3) shows nothing out of the ordinary</li>\n</ul>\n\n<p>Any ideas, anyone?</p>\n\n<pre><code>SEVERE: Exception while dispatching incoming RPC call\njava.net.SocketTimeoutException\n    at org.apache.coyote.http11.InternalAprInputBuffer.fill(InternalAprInputBuffer.java:796)\n    at org.apache.coyote.http11.InternalAprInputBuffer$SocketInputBuffer.doRead(InternalAprInputBuffer.java:830)\n    at org.apache.coyote.http11.filters.IdentityInputFilter.doRead(IdentityInputFilter.java:116)\n    at org.apache.coyote.http11.InternalAprInputBuffer.doRead(InternalAprInputBuffer.java:738)\n    at org.apache.coyote.Request.doRead(Request.java:427)\n    at org.apache.catalina.connector.InputBuffer.realReadBytes(InputBuffer.java:304)\n    at org.apache.tomcat.util.buf.ByteChunk.substract(ByteChunk.java:419)\n    at org.apache.catalina.connector.InputBuffer.read(InputBuffer.java:327)\n    at org.apache.catalina.connector.CoyoteInputStream.read(CoyoteInputStream.java:162)\n    at com.google.gwt.user.server.rpc.RPCServletUtils.readContent(RPCServletUtils.java:222)\n    at com.google.gwt.user.server.rpc.RPCServletUtils.readContentAsGwtRpc(RPCServletUtils.java:250)\n    at com.google.gwt.user.server.rpc.AbstractRemoteServiceServlet.readContent(AbstractRemoteServiceServlet.java:182)\n    at com.google.gwt.user.server.rpc.RemoteServiceServlet.processPost(RemoteServiceServlet.java:239)\n    at com.google.gwt.user.server.rpc.AbstractRemoteServiceServlet.doPost(AbstractRemoteServiceServlet.java:62)\n    at javax.servlet.http.HttpServlet.service(HttpServlet.java:637)\n    at javax.servlet.http.HttpServlet.service(HttpServlet.java:717)\n    at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)\n    at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)\n    at au.com.edval.timetable.server.filter.LoginFilter.doFilter(LoginFilter.java:27)\n    at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)\n    at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)\n    at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)\n    at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)\n    at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:127)\n    at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:103)\n    at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:615)\n    at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)\n    at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:293)\n    at org.apache.coyote.http11.Http11AprProcessor.process(Http11AprProcessor.java:879)\n    at org.apache.coyote.http11.Http11AprProtocol$Http11ConnectionHandler.process(Http11AprProtocol.java:600)\n    at org.apache.tomcat.util.net.AprEndpoint$Worker.run(AprEndpoint.java:1703)\n    at java.lang.Thread.run(Thread.java:679)\nJul 30, 2013 10:27:31 AM org.apache.catalina.core.ApplicationContext log\n</code></pre>\n\n<p>Note that a couple of years ago I had a similar problem - HTTPS was working but was very slow.  It turns out there was a configuration option that says that HTTPS should do reverse DNS lookups on each page request.  And this naturally slowed everything down heaps. But this is still disabled now so it can't be the cause, I don't think.</p>\n"
   },
+  "18050071": {
+    "tags": [
+      "php",
+      "parsing",
+      "debugging",
+      "syntax-error"
+    ],
+    "owner": {
+      "reputation": 123024,
+      "user_id": 345031,
+      "user_type": "registered",
+      "accept_rate": 78,
+      "profile_image": "https://www.gravatar.com/avatar/b7ec7f22d50ea13c796815c13075b08f?s=128&d=identicon&r=PG",
+      "display_name": "mario",
+      "link": "https://stackoverflow.com/users/345031/mario"
+    },
+    "is_answered": true,
+    "view_count": 404471,
+    "protected_date": 1423566924,
+    "accepted_answer_id": 18050072,
+    "answer_count": 15,
+    "community_owned_date": 1377213079,
+    "score": 536,
+    "last_activity_date": 1540785916,
+    "creation_date": 1375672275,
+    "last_edit_date": 1540779882,
+    "question_id": 18050071,
+    "link": "https://stackoverflow.com/questions/18050071/php-parse-syntax-errors-and-how-to-solve-them",
+    "title": "PHP parse/syntax errors; and how to solve them?",
+    "body": "<p>Everyone runs into syntax errors. Even experienced programmers make typos. For newcomers it's just part of the learning process. However, it's often easy to interpret error messages such as:</p>\n\n<blockquote>\n  <p>PHP Parse error: syntax error, unexpected '{' in index.php on line 20</p>\n</blockquote>\n\n<p>The unexpected symbol isn't always the real culprit. But the line number gives a rough idea where to start looking.</p>\n\n<blockquote>\n  <p>Always look at the <strong>code context</strong>. The syntax mistake often hides in the mentioned <em>or</em> in <strong>previous code lines</strong>. Compare your code against syntax examples from the manual.</p>\n</blockquote>\n\n<p>While not every case matches the other. Yet there are some <a href=\"https://stackoverflow.com/a/18050072\">general steps to <strong>solve syntax mistakes</strong></a>.\nThis references summarized the common pitfalls:</p>\n\n<ul>\n<li><p><a href=\"https://stackoverflow.com/a/18092277\">Unexpected T_STRING</a></p></li>\n<li><p><a href=\"https://stackoverflow.com/a/18092267\">Unexpected T_VARIABLE <br> Unexpected '$varname' (T_VARIABLE)</a></p></li>\n<li><p><a href=\"https://stackoverflow.com/a/18092288\">Unexpected T_CONSTANT_ENCAPSED_STRING <br> Unexpected T_ENCAPSED_AND_WHITESPACE</a></p></li>\n<li><p><a href=\"https://stackoverflow.com/questions/18050071/php-parse-syntax-errors-and-how-to-solve-them#29500670\">Unexpected $end</a></p></li>\n<li><p><a href=\"https://stackoverflow.com/questions/3723748/php-version-5-2-14-parse-error-syntax-error-unexpected-t-function-expecting\">Unexpected T_FUNCTION</a>…</p></li>\n<li><p><a href=\"https://stackoverflow.com/a/18092308\">Unexpected <code>{</code><br>Unexpected <code>}</code><br>Unexpected <code>(</code><br>Unexpected <code>)</code></a></p></li>\n<li><p><a href=\"https://stackoverflow.com/a/29505827\">Unexpected <code>[</code><br>Unexpected <code>]</code></a></p></li>\n<li><p><a href=\"https://stackoverflow.com/a/18092318\">Unexpected T_IF <br> Unexpected T_FOREACH <br> Unexpected T_FOR <br> Unexpected T_WHILE <br> Unexpected T_DO <br> Unexpected T_PRINT <br> Unexpected T_ECHO</a></p></li>\n<li><p><a href=\"//stackoverflow.com/a/47202089\">Unexpected T_LNUMBER</a></p></li>\n<li><p><a href=\"//stackoverflow.com/a/48670368\">Unexpected ?</a></p></li>\n<li><p><a href=\"//stackoverflow.com/a/51786865\">Unexpected continue (T_CONTINUE)<br>Unexpected continue (T_BREAK)<br>Unexpected continue (T_RETURN)</a></p></li>\n<li><p><a href=\"//stackoverflow.com/a/53037930\">Unexpected '='</a></p></li>\n<li><p><a href=\"https://stackoverflow.com/questions/4934754/t-inline-html-whats-wrong-with-this\">Unexpected T_INLINE_HTML</a>…</p></li>\n<li><p><a href=\"https://stackoverflow.com/questions/1966010/what-does-this-mean-parse-error-syntax-error-unexpected-t-paamayim-nekudotay\">Unexpected T_PAAMAYIM_NEKUDOTAYIM</a>…</p></li>\n<li><p><a href=\"https://stackoverflow.com/questions/3990212/help-with-this-error-message-unexpected-t-object-operator\">Unexpected T_OBJECT_OPERATOR</a>…</p></li>\n<li><p><a href=\"https://stackoverflow.com/questions/2622624/parse-error-syntax-error-unexpected-t-double-arrow-php\">Unexpected T_DOUBLE_ARROW</a>…\n</p></li>\n<li><p><a href=\"https://stackoverflow.com/questions/11208725/parse-error-syntax-error-unexpected-t-sl-php-heredoc\">Unexpected T_SL</a>…\n</p></li>\n<li><p><a href=\"https://stackoverflow.com/questions/4419095/syntax-error-unexpected-t-boolean-or\">Unexpected T_BOOLEAN_OR</a>…\n<br>\n<a href=\"https://stackoverflow.com/questions/11500935/parse-error-syntax-error-unexpected-t-boolean-and-expecting-in\">Unexpected T_BOOLEAN_AND</a>…\n</p></li>\n<li><p><a href=\"https://stackoverflow.com/a/30142092/345031\">Unexpected T_IS_EQUAL <br>\nUnexpected T_IS_GREATER_OR_EQUAL <br>\nUnexpected T_IS_IDENTICAL <br>\nUnexpected T_IS_NOT_EQUAL <br>\nUnexpected T_IS_NOT_IDENTICAL <br>\nUnexpected T_IS_SMALLER_OR_EQUAL <br>\nUnexpected <code>&lt;</code> <br>\nUnexpected <code>&gt;</code></a></p></li>\n<li><p><a href=\"https://stackoverflow.com/questions/6263105/parsing-error-syntax-error-unexpected-t-ns-separator\">Unexpected T_NS_SEPARATOR</a>…\n</p></li>\n<li><p><a href=\"https://stackoverflow.com/questions/17156251/unexpected-character-in-input-ascii-92-state-1\">Unexpected character in input: '<code>\\</code>' (ASCII=92) state=1</a></p></li>\n<li><p><a href=\"https://stackoverflow.com/questions/13341378/php-parse-error-syntax-error-unexpected-t-public\">Unexpected 'public' (T_PUBLIC) <br> Unexpected 'private' (T_PRIVATE) <br> Unexpected 'protected' (T_PROTECTED) <br> Unexpected 'final' (T_FINAL)</a>…</p></li>\n<li><p><a href=\"https://stackoverflow.com/questions/4668557/parse-error-syntax-error-unexpected-t-static\">Unexpected T_STATIC</a>…\n</p></li>\n<li><p><a href=\"https://stackoverflow.com/questions/32205590/laravel-parse-error-syntax-error-unexpected-t-class-expecting-t-string-or-t-v\">Unexpected T_CLASS</a>…</p></li>\n<li><p><a href=\"https://stackoverflow.com/questions/27783613/parse-error-syntax-error-unexpected-t-dnumber-in-home-a3206525-public-html-ea\">Unexpected T_DNUMBER</a></p></li>\n<li><p><a href=\"https://stackoverflow.com/questions/29241208/php-parse-error-syntax-error-unexpected-in\">Unexpected <code>,</code></a> <em>(comma)</em>\n</p></li>\n<li><p><a href=\"https://stackoverflow.com/questions/10969342/parse-error-syntax-error-unexpected-expecting-or\">Unpexected <code>.</code></a> <em>(period)</em>\n</p></li>\n<li><p><a href=\"https://stackoverflow.com/questions/12961248/php-string-parse-error-with-necessary-semicolon-after-variable\">Unexpected <code>;</code></a> <em>(semicolon)</em></p></li>\n<li><p><a href=\"https://stackoverflow.com/q/32905365/3933332\">Unexpected <code>*</code></a> <em>(asterisk)</em></p></li>\n<li><p><a href=\"https://stackoverflow.com/questions/33178974/parse-error-unexpected-works-fine-in-localhost\">Unexpected <code>:</code></a> <em>(colon)</em></p></li>\n</ul>\n\n<p>Closely related references:</p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php\">What does this error mean in PHP? (runtime errors)</a>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/12770089/#12770089\">Parse error: syntax error, unexpected T_XXX</a></li>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/13935532#13935532\">Parse error: syntax error, unexpected T_ENCAPSED_AND_WHITESPACE</a></li>\n<li><a href=\"https://stackoverflow.com/questions/12769982/reference-what-does-this-error-mean-in-php/15539535#15539535\">Parse error: syntax error, unexpected T_VARIABLE</a></li>\n</ul></li>\n<li><a href=\"https://stackoverflow.com/questions/3737139/reference-what-does-this-symbol-mean-in-php\">What does this symbol mean in PHP? (language tokens)</a></li>\n<li><a href=\"https://stackoverflow.com/questions/14303353/double-quotes-are-not-copied-normally-how-can-i-edit-them\">Those <code>“”</code> smart  <code>‘’</code> quotes mean nothing to PHP</a></li>\n</ul>\n\n<p>And:</p>\n\n<ul>\n<li>The <a href=\"http://www.php.net/manual/en/\" rel=\"nofollow noreferrer\">PHP manual on php.net</a> and its various <a href=\"http://php.net/tokens\" rel=\"nofollow noreferrer\">language tokens</a></li>\n<li>Or Wikipedia's <a href=\"http://en.wikipedia.org/wiki/PHP_syntax_and_semantics\" rel=\"nofollow noreferrer\">syntax introduction on PHP</a>.</li>\n<li>And lastly our <a href=\"https://stackoverflow.com/tags/php/info\"><strong>php</strong> tag-wiki</a> of course.</li>\n</ul>\n\n<p>While Stack Overflow is also welcoming rookie coders, it's mostly targetted at professional programming questions.</p>\n\n<ul>\n<li>Answering everyone's coding mistakes and narrow typos is considered mostly off-topic.</li>\n<li>So please take the time to follow the <a href=\"https://stackoverflow.com/a/18050072\">basic steps</a>, before posting syntax fixing requests.</li>\n<li>If you still have to, please show your own solving initiative, attempted fixes, and your thought process on what looks or might be wrong.</li>\n</ul>\n\n<p>If your <em>browser</em> displays error messages such as \"SyntaxError: illegal character\", then it's not actually <a href=\"/questions/tagged/php\" class=\"post-tag\" title=\"show questions tagged &#39;php&#39;\" rel=\"tag\">php</a>-related, but a <a href=\"/questions/tagged/javascript\" class=\"post-tag\" title=\"show questions tagged &#39;javascript&#39;\" rel=\"tag\">javascript</a>-<a href=\"https://stackoverflow.com/questions/2120093/how-to-find-javascript-syntax-errors\">syntax error</a>.</p>\n\n<hr>\n\n<p><strong>Syntax errors raised on vendor code:</strong> Finally, consider that if the syntax error was not raised by editing your codebase, but after an external vendor package install or upgrade, it could be due to PHP version incompatibility, so check vendor's requirements against your platform setup.</p>\n"
+  },
   "18507518": {
     "tags": [
       "c++",
@@ -707,6 +1658,90 @@
     "link": "https://stackoverflow.com/questions/22193583/win32-program-crashes-on-windows-8-when-calling-getsavefilename-or-shbrowsefor",
     "title": "Win32 program crashes on Windows 8 when calling GetSaveFileName() or SHBrowseForFolder()",
     "body": "<p>I'm maintaining a C++ program that uses Win32.  It's been working fine for years, but now I am having problems with the \"select file\" or \"select folder\" functions on 2 computers both running Windows 8, yet not on 2 other computers running Windows 8.  </p>\n\n<p>The problem is that the program crashes in the \"select file\" or \"select folder\" functions, deep in Microsoft code. It crashes immediately after displaying the dialog, before the user has a chance to touch anything.</p>\n\n<p>I've done a lot of experimentation, and I've got it to randomly work, but then recompiling the same code will make the bug reappear.  Finally I produced a tiny program that calls the function 10 times in succession, without any other code, and the first time always succeeds but the 2nd time the program crashes.  Linked in with my full program, it sometimes crashes on the first call, sometimes on the 2nd.  My code is below:</p>\n\n<pre><code>#include &lt;windows.h&gt;\nint WINAPI WinMain(HINSTANCE _hInstance, HINSTANCE hPrevInstance,\n    LPSTR args, int nCmdShow)\n{   \nfor (int i=0; i &lt; 10; i++) {\n    OPENFILENAME OFN;\n    char buf[1024];\n\n    memset(&amp;OFN, 0, sizeof(OFN));\n    OFN.lStructSize = sizeof(OFN);\n    OFN.hwndOwner = NULL;\n    OFN.hInstance = NULL;\n    OFN.lpstrFilter = \"PTN files\\0*.ptn\\0\\0\\0\";//overkill\n    OFN.lpstrCustomFilter = NULL;\n    OFN.nMaxCustFilter = 0;\n    OFN.nFilterIndex = 1;\n    OFN.nMaxFile = sizeof(buf);\n    OFN.lpstrFileTitle = NULL;\n    OFN.nMaxFileTitle = 0;\n    OFN.lpstrTitle = NULL;\n    OFN.nFileOffset = 0;\n    OFN.nFileExtension = 0;\n    OFN.lpstrDefExt = \"ptn\";\n    OFN.lCustData = 0;\n    OFN.lpfnHook = 0;\n    OFN.lpTemplateName = NULL;\n    OFN.lpstrInitialDir = NULL;\n    strcpy(buf, \"\\0\");//overkill\n    OFN.lpstrFile = buf;\n    OFN.Flags = OFN_LONGNAMES | OFN_HIDEREADONLY | OFN_EXPLORER;\n    //NB: tried both with and without OFN_EXPLORER\n    GetSaveFileName(&amp;OFN);\n}\nreturn 0;\n}\n</code></pre>\n\n<p>Any ideas?</p>\n"
+  },
+  "22662488": {
+    "tags": [
+      "php",
+      "mysqli",
+      "prepared-statement",
+      "environment",
+      "error-reporting"
+    ],
+    "owner": {
+      "reputation": 298,
+      "user_id": 3464338,
+      "user_type": "registered",
+      "profile_image": "https://www.gravatar.com/avatar/6ccea595299b09705736dd390180c27a?s=128&d=identicon&r=PG&f=1",
+      "display_name": "siopaoman",
+      "link": "https://stackoverflow.com/users/3464338/siopaoman"
+    },
+    "is_answered": true,
+    "view_count": 7407,
+    "accepted_answer_id": 22662582,
+    "answer_count": 2,
+    "score": 59,
+    "last_activity_date": 1539266843,
+    "creation_date": 1395840458,
+    "last_edit_date": 1524830276,
+    "question_id": 22662488,
+    "link": "https://stackoverflow.com/questions/22662488/how-to-get-mysqli-error-information-in-different-environments",
+    "title": "How to get MySQLi error information in different environments",
+    "body": "<p>In my local/development environment, the MySQLi query is performing OK. However, when I upload it on my web host environment, I get this error:</p>\n\n<blockquote>\n  <p>Fatal error: Call to a member function bind_param() on a non-object in...</p>\n</blockquote>\n\n<p>Here is the code:</p>\n\n<pre><code>global $mysqli;\n$stmt = $mysqli-&gt;prepare(\"SELECT id, description FROM tbl_page_answer_category WHERE cur_own_id = ?\");\n$stmt-&gt;bind_param('i', $cur_id);\n$stmt-&gt;execute();\n$stmt-&gt;bind_result($uid, $desc);\n</code></pre>\n\n<p>To check my query, I tried to execute the query via control panel phpMyAdmin and the result is OK.</p>\n"
+  },
+  "23740548": {
+    "tags": [
+      "javascript",
+      "php"
+    ],
+    "owner": {
+      "reputation": 113370,
+      "user_id": 871050,
+      "user_type": "moderator",
+      "accept_rate": 93,
+      "profile_image": "https://www.gravatar.com/avatar/a7a50a9492be737b0c012a839338272a?s=128&d=identicon&r=PG",
+      "display_name": "Madara Uchiha",
+      "link": "https://stackoverflow.com/users/871050/madara-uchiha"
+    },
+    "is_answered": true,
+    "view_count": 638937,
+    "protected_date": 1400679153,
+    "accepted_answer_id": 23740549,
+    "answer_count": 18,
+    "score": 571,
+    "last_activity_date": 1536971369,
+    "creation_date": 1400510276,
+    "last_edit_date": 1490172270,
+    "question_id": 23740548,
+    "link": "https://stackoverflow.com/questions/23740548/how-to-pass-variables-and-data-from-php-to-javascript",
+    "title": "How to pass variables and data from PHP to JavaScript?",
+    "body": "<p>I have a variable in PHP, and I need its value in my JavaScript code. How can I get my variable from PHP to JavaScript?</p>\n\n<p>I have code that looks like this:</p>\n\n<pre><code>&lt;?php\n     ...\n     $val = $myService-&gt;getValue(); // makes an api and db call\n?&gt;\n</code></pre>\n\n<p>I have JavaScript code that needs <code>val</code> and looks along the lines of:</p>\n\n<pre><code>&lt;script&gt;\n    myPlugin.start($val); // tried this, didn't work\n    &lt;?php myPlugin.start($val); ?&gt; // this didn't work either\n    myPlugin.start(&lt;?=$val?&gt; // this works sometimes, but sometimes it fails\n&lt;/script&gt;\n</code></pre>\n"
+  },
+  "24644436": {
+    "tags": [
+      "php",
+      "html",
+      "email"
+    ],
+    "owner": {
+      "reputation": 1999,
+      "user_id": 3818620,
+      "user_type": "registered",
+      "profile_image": "https://www.gravatar.com/avatar/8827d814004cf2bf25800b2c8d8f2830?s=128&d=identicon&r=PG&f=1",
+      "display_name": "user3818620",
+      "link": "https://stackoverflow.com/users/3818620/user3818620"
+    },
+    "is_answered": true,
+    "view_count": 253193,
+    "protected_date": 1444035537,
+    "answer_count": 24,
+    "score": 398,
+    "last_activity_date": 1541063665,
+    "creation_date": 1404872335,
+    "last_edit_date": 1501849048,
+    "question_id": 24644436,
+    "link": "https://stackoverflow.com/questions/24644436/php-mail-function-doesnt-complete-sending-of-e-mail",
+    "title": "PHP mail function doesn&#39;t complete sending of e-mail",
+    "body": "<pre><code>&lt;?php\n    $name = $_POST['name'];\n    $email = $_POST['email'];\n    $message = $_POST['message'];\n    $from = 'From: yoursite.com'; \n    $to = 'contact@yoursite.com'; \n    $subject = 'Customer Inquiry';\n    $body = \"From: $name\\n E-Mail: $email\\n Message:\\n $message\";\n\n    if ($_POST['submit']) {\n        if (mail ($to, $subject, $body, $from)) { \n            echo '&lt;p&gt;Your message has been sent!&lt;/p&gt;';\n        } else { \n            echo '&lt;p&gt;Something went wrong, go back and try again!&lt;/p&gt;'; \n        }\n    }\n?&gt;\n</code></pre>\n\n<p>I've tried creating a simple mail form. The form itself is on my <code>index.html</code> page, but submits to a separate \"thank you for your submission\" page, <code>thankyou.php</code>, where the above php code is embedded.\nThe code submits perfectly, but never sends an email. please help.</p>\n"
   },
   "25766228": {
     "tags": [
@@ -839,6 +1874,149 @@
     "link": "https://stackoverflow.com/questions/29244995/bing-maps-transit-api-am-i-formatting-the-query-datetime-incorrectly-or-parsing",
     "title": "Bing Maps transit API: Am I formatting the query datetime incorrectly or parsing output datetime incorrectly?",
     "body": "<p>I'm failing to get the Bing Maps API working.  I'm inputting a query \"How do I get from Annandale to Eastwood (Sydney) using public transport?\" and getting results that have completely different times to what I queried.</p>\n\n<p>The API is documented here:</p>\n\n<p><a href=\"https://msdn.microsoft.com/en-us/library/ff701717.aspx\" rel=\"nofollow\">https://msdn.microsoft.com/en-us/library/ff701717.aspx</a></p>\n\n<p>and here:</p>\n\n<p><a href=\"https://msdn.microsoft.com/en-us/library/ff701718.aspx\" rel=\"nofollow\">https://msdn.microsoft.com/en-us/library/ff701718.aspx</a></p>\n\n<p>The documentation fails to specify what date format the responses are in, but I presume this is correct:</p>\n\n<p><a href=\"http://weblogs.asp.net/bleroy/dates-and-json\" rel=\"nofollow\">http://weblogs.asp.net/bleroy/dates-and-json</a></p>\n\n<p>So here's my query:\n<a href=\"http://dev.virtualearth.net/REST/V1/Routes/Transit?wp.0=-33.886620,151.171720&amp;wp.1=-33.785780,151.075740&amp;timeType=Departure&amp;dateTime=11:43:00&amp;maxSolns=3&amp;output=json&amp;key=(redacted)\" rel=\"nofollow\">http://dev.virtualearth.net/REST/V1/Routes/Transit?wp.0=-33.886620,151.171720&amp;wp.1=-33.785780,151.075740&amp;timeType=Departure&amp;dateTime=11:43:00&amp;maxSolns=3&amp;output=json&amp;key=(redacted)</a></p>\n\n<p>Note that I redacted our API key, for obvious reasons.  </p>\n\n<p>Note that I'm requesting a bus at 11:43am.  I've tried this in conjunction with a date and without a date, it makes no difference.</p>\n\n<p>I get a response which looks quite valid at first glance, but it's giving me times like this:\n\"time\":\"/Date(1427222880000-0700)/\"</p>\n\n<p>...which would be reasonable if my query time was 5:43, but it's not. That date format clearly indicates \"milliseconds since 1970, UTC\" (in desperation I tried adding &amp; subtracting 7 hrs, but got nothing meaningful). The documentation clearly says my time of 11:43 should be specified in the local timezone, i.e. just as \"11:43\".  </p>\n\n<p>Proceeding on the assumption that the Bing documentation is wrong or that the implementation is wrong, I tried arbitrarily adding 6 hrs or subtracting 18 hrs from my query time (that necessitated adding the date into the URL), but I got nothing that made sense.  I can't get any correspondence between my API results and the public Bing browser app.</p>\n\n<p>I couldn't find out who to ask from Microsoft either.</p>\n\n<p>Any ideas?</p>\n"
+  },
+  "29308898": {
+    "tags": [
+      "php",
+      "json"
+    ],
+    "owner": {
+      "reputation": 16569,
+      "user_id": 3942918,
+      "user_type": "registered",
+      "profile_image": "https://i.stack.imgur.com/Rup3Y.jpg?s=128&g=1",
+      "display_name": "Paul Crovella",
+      "link": "https://stackoverflow.com/users/3942918/paul-crovella"
+    },
+    "is_answered": true,
+    "view_count": 191821,
+    "accepted_answer_id": 29308899,
+    "answer_count": 2,
+    "score": 156,
+    "last_activity_date": 1538105607,
+    "creation_date": 1427485126,
+    "last_edit_date": 1538105607,
+    "question_id": 29308898,
+    "link": "https://stackoverflow.com/questions/29308898/how-do-i-extract-data-from-json-with-php",
+    "title": "How do I extract data from JSON with PHP?",
+    "body": "<blockquote>\n  <p>This is intended to be a general reference question and answer covering many of the never-ending <em>\"How do I access data in my JSON?\"</em> questions. It is here to handle the broad basics of decoding JSON in PHP and accessing the results.</p>\n</blockquote>\n\n<p>I have the JSON:</p>\n\n<pre><code>{\n    \"type\": \"donut\",\n    \"name\": \"Cake\",\n    \"toppings\": [\n        { \"id\": \"5002\", \"type\": \"Glazed\" },\n        { \"id\": \"5006\", \"type\": \"Chocolate with Sprinkles\" },\n        { \"id\": \"5004\", \"type\": \"Maple\" }\n    ]\n}\n</code></pre>\n\n<p>How do I decode this in PHP and access the resulting data?</p>\n"
+  },
+  "30680938": {
+    "tags": [
+      "php",
+      "arrays",
+      "class",
+      "object",
+      "properties"
+    ],
+    "owner": {
+      "reputation": 536,
+      "user_id": 4476788,
+      "user_type": "registered",
+      "accept_rate": 70,
+      "profile_image": "https://graph.facebook.com/100000129818719/picture?type=large",
+      "display_name": "Muhamad Yulianto",
+      "link": "https://stackoverflow.com/users/4476788/muhamad-yulianto"
+    },
+    "is_answered": true,
+    "view_count": 29118,
+    "accepted_answer_id": 30681087,
+    "answer_count": 4,
+    "score": 45,
+    "last_activity_date": 1520995310,
+    "creation_date": 1433581447,
+    "last_edit_date": 1433585491,
+    "question_id": 30680938,
+    "link": "https://stackoverflow.com/questions/30680938/how-can-i-access-an-array-object",
+    "title": "How can I access an array/object?",
+    "body": "<p>I have the following array and when I do <code>print_r(array_values($get_user));</code>, I get:</p>\n\n<pre><code>Array (\n          [0] =&gt; 10499478683521864\n          [1] =&gt; 07/22/1983\n          [2] =&gt; email@saya.com\n          [3] =&gt; Alan [4] =&gt; male\n          [5] =&gt; Malmsteen\n          [6] =&gt; https://www.facebook.com  app_scoped_user_id/1049213468352864/\n          [7] =&gt; stdClass Object (\n                   [id] =&gt; 102173722491792\n                   [name] =&gt; Jakarta, Indonesia\n          )\n          [8] =&gt; id_ID\n          [9] =&gt; El-nino\n          [10] =&gt; Alan El-nino Malmsteen\n          [11] =&gt; 7\n          [12] =&gt; 2015-05-28T04:09:50+0000\n          [13] =&gt; 1\n        ) \n</code></pre>\n\n<p>I tried to access the array as followed:</p>\n\n<pre><code>echo $get_user[0];\n</code></pre>\n\n<p>But this displays me:</p>\n\n<blockquote>\n  <p>undefined 0</p>\n</blockquote>\n\n<p><strong>Note:</strong></p>\n\n<p>I get this array from the <strong>Facebook SDK 4</strong>, so I don't know the original array strucutre.</p>\n\n<p>How can I access as an example the value <code>email@saya.com</code> from the array?</p>\n"
+  },
+  "32648371": {
+    "tags": [
+      "php",
+      "mysql",
+      "pdo"
+    ],
+    "owner": {
+      "reputation": 131,
+      "user_id": 3821713,
+      "user_type": "registered",
+      "accept_rate": 25,
+      "profile_image": "https://www.gravatar.com/avatar/eb573d129d0b8a1161af554a7092fea4?s=128&d=identicon&r=PG&f=1",
+      "display_name": "Rifthy",
+      "link": "https://stackoverflow.com/users/3821713/rifthy"
+    },
+    "is_answered": true,
+    "view_count": 4360,
+    "protected_date": 1444117343,
+    "accepted_answer_id": 32648423,
+    "answer_count": 1,
+    "score": 24,
+    "last_activity_date": 1490200042,
+    "creation_date": 1442568028,
+    "last_edit_date": 1490200042,
+    "question_id": 32648371,
+    "link": "https://stackoverflow.com/questions/32648371/my-pdo-statement-doesnt-work",
+    "title": "My PDO Statement doesn&#39;t work",
+    "body": "<p>This is my PHP sql statement and it's returning false while var dumping</p>\n\n<pre><code>$password_md5 = md5($_GET['password']);\n$sql = $dbh-&gt;prepare('INSERT INTO users(full_name, e_mail, username, password, password_plain) VALUES (:fullname, :email, :username, :password, :password_plain)');\n$result = $sql-&gt;execute(array(\n                    ':fullname' =&gt; $_GET['fullname'], \n                    ':email' =&gt; $_GET['email'], \n                    ':username' =&gt; $_GET['username'],\n                    ':password' =&gt; $password_md5,\n                    ':password_plain' =&gt; $_GET['password']));\n</code></pre>\n"
+  },
+  "36577020": {
+    "tags": [
+      "php",
+      "require",
+      "fopen",
+      "include-path"
+    ],
+    "owner": {
+      "reputation": 4851,
+      "user_id": 2873507,
+      "user_type": "registered",
+      "accept_rate": 70,
+      "profile_image": "https://i.stack.imgur.com/Wc1lw.png?s=128&g=1",
+      "display_name": "Vic Seedoubleyew",
+      "link": "https://stackoverflow.com/users/2873507/vic-seedoubleyew"
+    },
+    "is_answered": true,
+    "view_count": 258315,
+    "accepted_answer_id": 36577021,
+    "answer_count": 5,
+    "score": 110,
+    "last_activity_date": 1536315086,
+    "creation_date": 1460473120,
+    "last_edit_date": 1503137612,
+    "question_id": 36577020,
+    "link": "https://stackoverflow.com/questions/36577020/php-failed-to-open-stream-no-such-file-or-directory",
+    "title": "PHP - Failed to open stream : No such file or directory",
+    "body": "<p>In PHP scripts, whether calling <code>include()</code>, <code>require()</code>, <code>fopen()</code>, or their derivatives such as <code>include_once</code>, <code>require_once</code>, or even, <code>move_uploaded_file()</code>, one often runs into an error or warning: </p>\n\n<blockquote>\n  <p>Failed to open stream : No such file or directory.</p>\n</blockquote>\n\n<p>What is a good process to quickly find the root cause of the problem?</p>\n"
+  },
+  "36628418": {
+    "tags": [
+      "php",
+      "sql",
+      "pdo",
+      "hash"
+    ],
+    "owner": {
+      "reputation": 35153,
+      "user_id": 1011527,
+      "user_type": "registered",
+      "accept_rate": 98,
+      "profile_image": "https://www.gravatar.com/avatar/950d56c466691980bba71859798bfe65?s=128&d=identicon&r=PG",
+      "display_name": "Jay Blanchard",
+      "link": "https://stackoverflow.com/users/1011527/jay-blanchard"
+    },
+    "is_answered": true,
+    "view_count": 4158,
+    "accepted_answer_id": 36628423,
+    "answer_count": 2,
+    "score": 79,
+    "last_activity_date": 1490199985,
+    "creation_date": 1460650100,
+    "last_edit_date": 1490199985,
+    "question_id": 36628418,
+    "link": "https://stackoverflow.com/questions/36628418/cleansing-user-passwords",
+    "title": "Cleansing User Passwords",
+    "body": "<p>How should I escape or cleanse user-provided passwords before I hash them and store them in my database?</p>\n\n<p>When PHP developers consider hashing users' passwords for security purposes, they often tend to think of those passwords like they would any other user-provided data. This subject comes up often in PHP questions related to password storage; the developer often wants to cleanse the password using functions such as <code>escape_string()</code>(in various iterations), <code>htmlspecialchars()</code>, <code>addslashes()</code> and others before hashing it and storing it in the database. </p>\n"
   },
   "39077661": {
     "tags": [

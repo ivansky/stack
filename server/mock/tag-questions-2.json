@@ -1,0 +1,301 @@
+{
+  "items": [
+    {
+      "tags": [
+        "php",
+        "mysql",
+        "sql",
+        "security",
+        "sql-injection"
+      ],
+      "owner": {
+        "reputation": 32188,
+        "user_id": 95944,
+        "user_type": "registered",
+        "accept_rate": 91,
+        "profile_image": "https://i.stack.imgur.com/dEHGM.jpg?s=128&g=1",
+        "display_name": "Richard Knop",
+        "link": "https://stackoverflow.com/users/95944/richard-knop"
+      },
+      "is_answered": true,
+      "view_count": 195937,
+      "protected_date": 1444036903,
+      "accepted_answer_id": 5741264,
+      "answer_count": 4,
+      "score": 521,
+      "last_activity_date": 1514965366,
+      "creation_date": 1303372571,
+      "last_edit_date": 1513785166,
+      "question_id": 5741187,
+      "link": "https://stackoverflow.com/questions/5741187/sql-injection-that-gets-around-mysql-real-escape-string",
+      "title": "SQL injection that gets around mysql_real_escape_string()",
+      "body": "<p>Is there an SQL injection possibility even when using <code>mysql_real_escape_string()</code> function?</p>\n\n<p>Consider this sample situation. SQL is constructed in PHP like this:</p>\n\n<pre><code>$login = mysql_real_escape_string(GetFromPost('login'));\n$password = mysql_real_escape_string(GetFromPost('password'));\n\n$sql = \"SELECT * FROM table WHERE login='$login' AND password='$password'\";\n</code></pre>\n\n<p>I have heard numerous people say to me that a code like that is still dangerous and possible to hack even with <code>mysql_real_escape_string()</code> function used. But I cannot think of any possible exploit?</p>\n\n<p>Classic injections like this:</p>\n\n<pre><code>aaa' OR 1=1 --\n</code></pre>\n\n<p>do not work.</p>\n\n<p>Do you know of any possible injection that would get through the PHP code above?</p>\n"
+    },
+    {
+      "tags": [
+        "javascript",
+        "php",
+        "client-side",
+        "server-side"
+      ],
+      "owner": {
+        "reputation": 386257,
+        "user_id": 476,
+        "user_type": "moderator",
+        "accept_rate": 70,
+        "profile_image": "https://www.gravatar.com/avatar/a235706e3d81b614acaec3368edfea4b?s=128&d=identicon&r=PG",
+        "display_name": "deceze",
+        "link": "https://stackoverflow.com/users/476/deceze"
+      },
+      "is_answered": true,
+      "view_count": 31356,
+      "protected_date": 1407750116,
+      "accepted_answer_id": 13840431,
+      "answer_count": 5,
+      "score": 411,
+      "last_activity_date": 1534958246,
+      "creation_date": 1355317380,
+      "last_edit_date": 1502799448,
+      "question_id": 13840429,
+      "link": "https://stackoverflow.com/questions/13840429/what-is-the-difference-between-client-side-and-server-side-programming",
+      "title": "What is the difference between client-side and server-side programming?",
+      "body": "<p>I have this code:</p>\n\n<pre><code>&lt;script type=\"text/javascript\"&gt;\n    var foo = 'bar';\n    &lt;?php\n        file_put_contents('foo.txt', ' + foo + ');\n    ?&gt;\n\n    var baz = &lt;?php echo 42; ?&gt;;\n    alert(baz);\n&lt;/script&gt;\n</code></pre>\n\n<p>Why does this not write \"bar\" into my text file, but alerts \"42\"?</p>\n\n<hr>\n\n<p>NB: Earlier revisions of this question were explicitly about PHP on the server and JavaScript on the client. The essential nature of the problem and solutions is the same for <em>any</em> pair of languages when one is running on the client and the other on the server. Please take this in to account when you see answers talking about specific languages.</p>\n"
+    },
+    {
+      "tags": [
+        "php",
+        "mysql",
+        "pdo",
+        "mysqli"
+      ],
+      "owner": {
+        "reputation": 585,
+        "user_id": 2544399,
+        "user_type": "registered",
+        "accept_rate": 100,
+        "profile_image": "https://i.stack.imgur.com/kpiAq.png?s=128&g=1",
+        "display_name": "N3mo",
+        "link": "https://stackoverflow.com/users/2544399/n3mo"
+      },
+      "is_answered": true,
+      "view_count": 9447,
+      "protected_date": 1444035671,
+      "accepted_answer_id": 17498248,
+      "answer_count": 4,
+      "score": 88,
+      "last_activity_date": 1522868369,
+      "creation_date": 1373068116,
+      "last_edit_date": 1490198920,
+      "question_id": 17498216,
+      "link": "https://stackoverflow.com/questions/17498216/can-i-mix-mysql-apis-in-php",
+      "title": "Can I mix MySQL APIs in PHP?",
+      "body": "<p>I have searched the net and so far what I have seen is that you can use <code>mysql_</code> and <code>mysqli_</code> together meaning:</p>\n\n<pre><code>&lt;?php\n$con=mysqli_connect(\"localhost\", \"root\" ,\"\" ,\"mysql\");\n\nif( mysqli_connect_errno( $con ) ) {\n    echo \"failed to connect\";\n}else{\n    echo \"connected\";\n}\nmysql_close($con);\necho \"Done\";\n?&gt;\n</code></pre>\n\n<p>or </p>\n\n<pre><code>&lt;?php\n$con=mysql_connect(\"localhost\", \"root\" ,\"\" ,\"mysql\");\nif( mysqli_connect_errno( $con ) ) {\n    echo \"failed to connect\";\n}else{\n    echo \"connected\";\n}\nmysqli_close($con);\necho \"Done\";\n?&gt;\n</code></pre>\n\n<p>Are valid but when I use this code what I get is:</p>\n\n<pre><code>Connected\nWarning: mysql_close() expects parameter 1 to be resource, object given in D:\\************.php on line 9\nDone\n</code></pre>\n\n<p>For the first and the same except with <code>mysqli_close()</code>. For the second one.</p>\n\n<p>What is the problem? Can't I use <code>mysql_</code> and <code>mysqli</code> together? Or is it normal? Is the way I can check if the connections are valid at all? (the <code>if(mysq...)</code>)</p>\n"
+    },
+    {
+      "tags": [
+        "php",
+        "operators",
+        "symbols",
+        "php-5.3"
+      ],
+      "owner": {
+        "reputation": 259231,
+        "user_id": 208809,
+        "user_type": "registered",
+        "accept_rate": 100,
+        "profile_image": "https://i.stack.imgur.com/LXDBV.png?s=128&g=1",
+        "display_name": "Gordon",
+        "link": "https://stackoverflow.com/users/208809/gordon"
+      },
+      "is_answered": true,
+      "view_count": 555498,
+      "protected_date": 1368947826,
+      "accepted_answer_id": 3737177,
+      "answer_count": 17,
+      "community_owned_date": 1284740647,
+      "score": 3919,
+      "last_activity_date": 1529020687,
+      "creation_date": 1284740647,
+      "last_edit_date": 1526905977,
+      "question_id": 3737139,
+      "link": "https://stackoverflow.com/questions/3737139/reference-what-does-this-symbol-mean-in-php",
+      "title": "Reference — What does this symbol mean in PHP?",
+      "body": "<h3>What is this?</h3>\n\n<p>This is a collection of questions that come up every now and then about syntax in PHP. This is also a Community Wiki, so everyone is invited to participate in maintaining this list. </p>\n\n<h3>Why is this?</h3>\n\n<p>It used to be hard to find questions about operators and other syntax tokens.¹<br>\nThe main idea is to have links to existing questions on Stack Overflow, so it's easier for us to reference them, not to copy over content from the PHP Manual.</p>\n\n<p>¹ Note: Since January 2013, Stack Overflow <a href=\"https://meta.stackexchange.com/questions/160100/a-new-search-engine-for-stack-exchange\">does support special characters</a>. Just surround the search terms by quotes, e.g. <a href=\"https://stackoverflow.com/search?q=%5Bphp%5D%20%22===%22%20vs%20%22==%22\"><code>[php] \"==\" vs \"===\"</code></a></p>\n\n<h3>What should I do here?</h3>\n\n<p>If you have been pointed here by someone because you have asked such a question, please find the particular syntax below. The linked pages to the <a href=\"http://php.net/manual/en/index.php\" rel=\"noreferrer\">PHP manual</a> along with the linked questions will likely answer your question then. If so, you are encouraged to upvote the answer. This list is not meant as a substitute to the help others provided.</p>\n\n<h2>The List</h2>\n\n<p>If your particular token is not listed below, you might find it in the <a href=\"http://secure.php.net/manual/en/tokens.php\" rel=\"noreferrer\">List of Parser Tokens</a>.</p>\n\n<hr>\n\n<p><code>&amp;</code> <a href=\"http://secure.php.net/manual/en/language.operators.bitwise.php\" rel=\"noreferrer\">Bitwise Operators</a> or <a href=\"http://secure.php.net/manual/en/language.references.php\" rel=\"noreferrer\">References</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/1676897\">What does it mean to start a PHP function with an ampersand?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/600202\">Understanding PHP &amp; (ampersand, bitwise and) operator</a></li>\n<li><a href=\"https://stackoverflow.com/questions/2209934/\">PHP &quot;&amp;&quot; operator</a></li>\n<li><a href=\"https://stackoverflow.com/questions/2376348\">Difference between &amp; and &amp;&amp; in PHP</a></li>\n<li><a href=\"https://stackoverflow.com/questions/1006652\">What does &quot;&amp;&quot; mean here in PHP?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/2297592\">What does &quot;&amp;&quot; mean in this case?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/2422907\">What does the &quot;&amp;&quot; sign mean in PHP?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/2478149\">What does this signature mean (&amp;) in PHP?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/3957584\">How does the &quot;&amp;&quot; operator work in a PHP function?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/4705262\">What does &amp; in &amp;2 mean in PHP?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/4705838\">When should I use a bitwise operator?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/21058439\">Is there ever a need to use ampersand in front of an object?</a> (&amp;$)</li>\n</ul>\n\n<hr>\n\n<p><code>=&amp;</code> <a href=\"http://secure.php.net/manual/en/language.references.php\" rel=\"noreferrer\">References</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/1768343\">Reference assignment operator in PHP, =&amp;</a></li>\n<li><a href=\"https://stackoverflow.com/questions/1367454\">What do the &quot;=&amp;&quot; and &quot;&amp;=&quot; operators in PHP mean?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/3177342\">What do the &#39;&amp;=&#39; and &#39;=&amp;&#39; operators do?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/2081806\">What does =&amp; mean in PHP?</a></li>\n</ul>\n\n<hr>\n\n<p><code>&amp;=</code> <a href=\"http://secure.php.net/manual/en/language.operators.bitwise.php\" rel=\"noreferrer\">Bitwise Operators</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/1367454\">What do the &quot;=&amp;&quot; and &quot;&amp;=&quot; operators in PHP mean?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/3177342\">What do the &#39;&amp;=&#39; and &#39;=&amp;&#39; operators do?</a></li>\n</ul>\n\n<hr>\n\n<p><code>&amp;&amp;</code> <a href=\"http://secure.php.net/manual/en/language.operators.logical.php\" rel=\"noreferrer\">Logical Operators</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/2803321\">&#39;AND&#39; vs &#39;&amp;&amp;&#39; as operator</a></li>\n<li><a href=\"https://stackoverflow.com/questions/2376348\">Difference between &amp; and &amp;&amp; in PHP</a></li>\n<li><a href=\"https://stackoverflow.com/questions/4746865\">Is there any difference between &quot;and&quot; and &quot;&amp;&amp;&quot; operators in PHP?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/4502092\">PHP - and / or keywords</a></li>\n</ul>\n\n<hr>\n\n<p><code>%</code> <a href=\"http://secure.php.net/manual/en/language.operators.arithmetic.php\" rel=\"noreferrer\">Arithmetic Operators</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/1934173\">What does the percent sign mean in PHP?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/3204919\">What is the PHP operator % and how do I use it in real-world examples?</a></li>\n</ul>\n\n<hr>\n\n<p><code>!!</code> <a href=\"http://secure.php.net/manual/en/language.operators.logical.php\" rel=\"noreferrer\">Logical Operators</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/2127260\">Double not (!!) operator in PHP</a></li>\n</ul>\n\n<hr>\n\n<p><code>@</code> <a href=\"http://secure.php.net/manual/en/language.operators.errorcontrol.php\" rel=\"noreferrer\">Error Control Operators</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/1032161\">What is the use of the @ symbol in PHP?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/3551527\">&#39;At&#39; symbol before variable name in PHP: @$_POST</a></li>\n<li><a href=\"https://stackoverflow.com/questions/3984864\">PHP functions and @functions</a></li>\n<li><a href=\"https://stackoverflow.com/questions/4872340\">Should I use @ in my PHP code?</a></li>\n</ul>\n\n<hr>\n\n<p><code>?:</code> <a href=\"http://php.net/manual/en/language.operators.comparison.php#language.operators.comparison.ternary\" rel=\"noreferrer\">Ternary Operator</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/1080247\">What are the PHP operators &quot;?&quot; and &quot;:&quot; called and what do they do?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/1993409\">?: operator (the &#39;Elvis operator&#39;) in PHP</a></li>\n<li><a href=\"https://stackoverflow.com/questions/4055355\">Where can I read about conditionals done with &quot;?&quot; and &quot;:&quot; (colon)?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/4210187\">Using PHP 5.3 ?: operator</a></li>\n</ul>\n\n<hr>\n\n<p><code>??</code> <a href=\"http://php.net/manual/en/migration70.new-features.php#migration70.new-features.null-coalesce-op\" rel=\"noreferrer\">Null Coalesce Operator</a> (since PHP 7)</p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/7278835\">C#&#39;s null coalescing operator (??) in PHP</a></li>\n</ul>\n\n<hr>\n\n<p><code>:</code> <a href=\"http://secure.php.net/manual/en/control-structures.alternative-syntax.php\" rel=\"noreferrer\">Alternative syntax for control structures</a>, <a href=\"http://php.net/manual/en/language.operators.comparison.php#language.operators.comparison.ternary\" rel=\"noreferrer\">Ternary Operator</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/2908095\">What is &quot;:&quot; in PHP?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/4747761\">What does &quot;:&quot; mean in PHP?</a></li>\n</ul>\n\n<hr>\n\n<p><code>::</code> <a href=\"http://secure.php.net/manual/en/language.oop5.paamayim-nekudotayim.php\" rel=\"noreferrer\">Scope Resolution Operator</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/2903564\">What do two colons mean in PHP?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/2588298\">What&#39;s the meaning of the PHP token name T_PAAMAYIM_NEKUDOTAYIM?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/3173501\">What&#39;s the difference between :: (double colon) and -&gt; (arrow) in PHP?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/1912902\">What exactly are late static bindings in PHP?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/4120755\">static::staticFunctionName()</a></li>\n<li><a href=\"https://stackoverflow.com/questions/8734823\">Unexpected T_PAAMAYIM_NEKUDOTAYIM, expecting T_NS_Separator</a></li>\n</ul>\n\n<hr>\n\n<p><code>\\</code> <a href=\"http://php.net/namespaces\" rel=\"noreferrer\">Namespaces</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/10788400\">Backslash in PHP -- what does it mean?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/4790020\">What does a \\ (backslash) do in PHP (5.3+)?</a></li>\n</ul>\n\n<hr>\n\n<p><code>-&gt;</code> <a href=\"http://secure.php.net/manual/en/language.oop5.php\" rel=\"noreferrer\">Classes And Objects</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/2588149\">What is the &quot;-&gt;&quot; PHP operator called and how do you say it when reading code out loud?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/3037526\">Where do we use the object operator &quot;-&gt;&quot; in PHP?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/3173501\">What&#39;s the difference between :: (double colon) and -&gt; (arrow) in PHP?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/2316370\">What does the PHP syntax $var1-&gt;$var2 mean?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/4502587\">What does &quot;-&gt;&quot; mean/refer to in PHP?</a></li>\n</ul>\n\n<hr>\n\n<p><code>=&gt;</code> <a href=\"http://secure.php.net/manual/en/language.types.array.php\" rel=\"noreferrer\">Arrays</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/1241819\">What does &quot;=&gt;&quot; mean in PHP?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/1655336\">Use of =&gt; in PHP</a></li>\n<li><a href=\"https://stackoverflow.com/questions/4758791\">What does $k =&gt; $v in foreach($ex as $k=&gt;$v) mean?</a></li>\n</ul>\n\n<hr>\n\n<p><code>^</code> <a href=\"http://secure.php.net/manual/en/language.operators.bitwise.php\" rel=\"noreferrer\">Bitwise Operators</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/2674920\">How does the bitwise operator XOR (&#39;^&#39;) work?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/2724936\">What does ^ mean in PHP?</a></li>\n</ul>\n\n<hr>\n\n<p><code>&gt;&gt;</code> <a href=\"http://secure.php.net/manual/en/language.operators.bitwise.php\" rel=\"noreferrer\">Bitwise Operators</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/2790329\">What does &gt;&gt; mean in PHP?</a></li>\n</ul>\n\n<hr>\n\n<p><code>&lt;&lt;</code> <a href=\"http://secure.php.net/manual/en/language.operators.bitwise.php\" rel=\"noreferrer\">Bitwise Operators</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/9718689/strange-print-behaviour-in-php\">Strange print behaviour in PHP?</a></li>\n</ul>\n\n<hr>\n\n<p><code>&lt;&lt;&lt;</code> <a href=\"http://php.net/manual/en/language.types.string.php#language.types.string.syntax.heredoc\" rel=\"noreferrer\">Heredoc or Nowdoc</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/5539669\">What does &lt;&lt;&lt;END mean in PHP?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/1048481\">PHP expression &lt;&lt;&lt;EOB</a></li>\n<li><a href=\"https://stackoverflow.com/questions/3700042\">In PHP, what does &quot;&lt;&lt;&lt;&quot; represent?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/2090081\">Using &lt;&lt;&lt;CON in PHP</a></li>\n<li><a href=\"https://stackoverflow.com/questions/2333779\">What&#39;s this kind of syntax in PHP?</a></li>\n</ul>\n\n<hr>\n\n<p><code>=</code> <a href=\"http://secure.php.net/manual/en/language.operators.assignment.php\" rel=\"noreferrer\">Assignment Operators</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/2063480\">The 3 different equals</a></li>\n</ul>\n\n<hr>\n\n<p><code>==</code> <a href=\"http://secure.php.net/manual/en/language.operators.comparison.php\" rel=\"noreferrer\">Comparison Operators</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/80646\">How do the PHP equality (== double equals) and identity (=== triple equals) comparison operators differ?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/1663451\">PHP != and == operators</a></li>\n<li><a href=\"https://stackoverflow.com/questions/2063480\">The 3 different equals</a></li>\n<li><a href=\"https://stackoverflow.com/questions/15813490/\">Type-juggling and (strict) greater/lesser-than comparisons in PHP</a></li>\n</ul>\n\n<hr>\n\n<p><code>===</code> <a href=\"http://secure.php.net/manual/en/language.operators.comparison.php\" rel=\"noreferrer\">Comparison Operators</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/1117967\">What does &quot;===&quot; mean?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/80646\">How do the PHP equality (== double equals) and identity (=== triple equals) comparison operators differ?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/2063480\">The 3 different equals</a></li>\n<li><a href=\"https://stackoverflow.com/questions/15813490/\">Type-juggling and (strict) greater/lesser-than comparisons in PHP</a></li>\n</ul>\n\n<hr>\n\n<p><code>!==</code> <a href=\"http://secure.php.net/manual/en/language.operators.comparison.php\" rel=\"noreferrer\">Comparison Operators</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/1298083\">What does !== comparison operator in PHP mean?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/1139154\">Is there a difference between !== and != in PHP?</a></li>\n</ul>\n\n<hr>\n\n<p><code>!=</code> <a href=\"http://secure.php.net/manual/en/language.operators.comparison.php\" rel=\"noreferrer\">Comparison Operators</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/1663451\">PHP != and == operators</a></li>\n<li><a href=\"https://stackoverflow.com/questions/1139154\">Is there a difference between !== and != in PHP?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/6356826\">comparing, !== versus !=</a></li>\n<li><a href=\"https://stackoverflow.com/questions/9671785/what-is-the-difference-between-and\">What is the difference between &lt;&gt; and !=</a></li>\n</ul>\n\n<hr>\n\n<p><code>&lt;&gt;</code> <a href=\"http://secure.php.net/manual/en/language.operators.comparison.php\" rel=\"noreferrer\">Comparison Operators</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/249312\">PHP operator &lt;&gt;</a></li>\n<li><a href=\"https://stackoverflow.com/questions/589391\">PHP&#39;s &lt;&gt; operator</a></li>\n<li><a href=\"https://stackoverflow.com/questions/9671785\">What is the difference between &lt;&gt; and !=</a></li>\n<li><a href=\"https://stackoverflow.com/questions/15813490/\">Type-juggling and (strict) greater/lesser-than comparisons in PHP</a></li>\n</ul>\n\n<hr>\n\n<p><code>&lt;=&gt;</code> <a href=\"http://secure.php.net/manual/en/language.operators.comparison.php\" rel=\"noreferrer\">Comparison Operators</a> (since PHP 7.0)</p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/a/31298778\">Spaceship (three way comparison) operator</a></li>\n</ul>\n\n<hr>\n\n<p><code>|</code> <a href=\"http://secure.php.net/manual/en/language.operators.bitwise.php\" rel=\"noreferrer\">Bitwise Operators</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/2233835\">What is the difference between the | and || operators?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/13811922\">What Does Using A Single Pipe &#39;|&#39; In A Function Argument Do?</a></li>\n</ul>\n\n<hr>\n\n<p><code>||</code> <a href=\"http://secure.php.net/manual/en/language.operators.logical.php\" rel=\"noreferrer\">Logical Operators</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/2233835\">What is the difference between the | and || operators?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/4502092\">PHP - and / or keywords</a></li>\n<li><a href=\"https://stackoverflow.com/questions/5666741\">What exactly does || mean?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/12213283\">The behaviour of the or operator in PHP</a></li>\n</ul>\n\n<hr>\n\n<p><code>~</code> <a href=\"http://secure.php.net/manual/en/language.operators.bitwise.php\" rel=\"noreferrer\">Bitwise Operators</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/1967360\">What does this ~ operator mean here?</a></li>\n</ul>\n\n<hr>\n\n<p><code>+</code> <a href=\"http://secure.php.net/manual/en/language.operators.arithmetic.php\" rel=\"noreferrer\">Arithmetic Operators</a>, <a href=\"http://secure.php.net/manual/en/language.operators.array.php\" rel=\"noreferrer\">Array Operators</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/2140090\">+ operator for array in PHP?</a></li>\n</ul>\n\n<hr>\n\n<p><code>+=</code> and <code>-=</code> <a href=\"http://secure.php.net/manual/en/language.operators.assignment.php\" rel=\"noreferrer\">Assignment Operators</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/542995\">What is += used for?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/7140158\">What does `$page -= 1` in my PHP document mean?</a></li>\n</ul>\n\n<hr>\n\n<p><code>++</code> and <code>--</code> <a href=\"http://secure.php.net/manual/en/language.operators.increment.php\" rel=\"noreferrer\">Incrementing/Decrementing Operators</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/1968371\">Understanding Incrementing</a></li>\n<li><a href=\"https://stackoverflow.com/a/3737177\">Answer below</a></li>\n</ul>\n\n<hr>\n\n<p><code>.=</code> <a href=\"http://secure.php.net/manual/en/language.operators.assignment.php\" rel=\"noreferrer\">Assignment Operators</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/2202331\">What is the difference between .= and += in PHP?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/1241432\">To understand a line of PHP</a></li>\n</ul>\n\n<hr>\n\n<p><code>.</code> <a href=\"http://secure.php.net/manual/en/language.operators.string.php\" rel=\"noreferrer\">String Operators</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/1466408\">Difference between period and comma when concatenating with echo versus return?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/6484968\">What does a . (dot) do in PHP?</a></li>\n</ul>\n\n<hr>\n\n<p><code>,</code> <a href=\"http://php.net/manual/en/functions.arguments.php\" rel=\"noreferrer\">Function Arguments</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/1466408\">Difference between period and comma when concatenating with echo versus return?</a></li>\n</ul>\n\n<p><code>,</code> <a href=\"http://php.net/manual/en/language.variables.scope.php\" rel=\"noreferrer\">Variable Declarations</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/41383218\">What do commas mean in a variable declaration?</a></li>\n</ul>\n\n<hr>\n\n<p><code>$$</code> <a href=\"http://php.net/manual/en/language.variables.variable.php\" rel=\"noreferrer\">Variable Variables</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/2715654\">What does $$ (dollar dollar or double dollar) mean in PHP?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/4169882\">what is &quot;$$&quot; in PHP</a></li>\n<li><a href=\"https://stackoverflow.com/questions/4891872\">$function() and $$variable</a></li>\n</ul>\n\n<hr>\n\n<p><code>`</code> <a href=\"http://php.net/manual/en/language.operators.execution.php\" rel=\"noreferrer\">Execution Operator</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/6002296\">What are the backticks `` called?</a></li>\n</ul>\n\n<hr>\n\n<p><code>&lt;?=</code> <a href=\"http://php.net/manual/en/ini.core.php#ini.short-open-tag\" rel=\"noreferrer\">Short Open Tags</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/1963901\">What does this symbol mean in PHP &lt;?=</a></li>\n<li><a href=\"https://stackoverflow.com/questions/2020445\">What does &#39;&lt;?=&#39; mean in PHP?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/1959256/what-does-mean\">What does &lt;?= mean?</a></li>\n</ul>\n\n<hr>\n\n<p><code>[]</code> <a href=\"http://secure.php.net/manual/en/language.types.array.php\" rel=\"noreferrer\">Arrays</a> (short syntax since PHP 5.4)</p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/q/20709055/2758197\">PHP arrays... What is/are the meaning(s) of an empty bracket?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/6933345\">What is the meaning of []</a></li>\n<li><a href=\"https://stackoverflow.com/questions/2431629\">Php array_push() vs myArray[]</a></li>\n<li><a href=\"https://stackoverflow.com/questions/3908576\">What does [] mean when reading from a PHP array?</a></li>\n<li><a href=\"https://stackoverflow.com/questions/4271874\">Shorthand for arrays: literal <code>$var = []</code> empty array</a></li>\n</ul>\n\n<hr>\n\n<p><code>&lt;?</code> <a href=\"http://secure.php.net/manual/en/language.basic-syntax.php\" rel=\"noreferrer\">Opening and Closing tags</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/200640\">Are PHP short tags acceptable to use?</a></li>\n</ul>\n\n<hr>\n\n<p><code>...</code> <a href=\"http://php.net/manual/en/functions.arguments.php#functions.variable-arg-list\" rel=\"noreferrer\">Argument unpacking</a> (since PHP 5.6)</p>\n\n<hr>\n\n<p><code>**</code> <a href=\"http://secure.php.net/manual/en/migration56.new-features.php#migration56.new-features.exponentiation\" rel=\"noreferrer\">Exponentiation</a> (since PHP 5.6)</p>\n\n<hr>\n\n<p><code>#</code> <a href=\"http://php.net/manual/en/language.basic-syntax.comments.php\" rel=\"noreferrer\">One-line shell-style comment</a></p>\n\n<ul>\n<li><a href=\"https://stackoverflow.com/questions/9093609/can-i-use-hashes-for-comments-in-php\">Can I use hashes for comments in PHP?</a></li>\n</ul>\n\n<hr>\n"
+    },
+    {
+      "tags": [
+        "php",
+        "mysqli",
+        "prepared-statement",
+        "environment",
+        "error-reporting"
+      ],
+      "owner": {
+        "reputation": 298,
+        "user_id": 3464338,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/6ccea595299b09705736dd390180c27a?s=128&d=identicon&r=PG&f=1",
+        "display_name": "siopaoman",
+        "link": "https://stackoverflow.com/users/3464338/siopaoman"
+      },
+      "is_answered": true,
+      "view_count": 7407,
+      "accepted_answer_id": 22662582,
+      "answer_count": 2,
+      "score": 59,
+      "last_activity_date": 1539266843,
+      "creation_date": 1395840458,
+      "last_edit_date": 1524830276,
+      "question_id": 22662488,
+      "link": "https://stackoverflow.com/questions/22662488/how-to-get-mysqli-error-information-in-different-environments",
+      "title": "How to get MySQLi error information in different environments",
+      "body": "<p>In my local/development environment, the MySQLi query is performing OK. However, when I upload it on my web host environment, I get this error:</p>\n\n<blockquote>\n  <p>Fatal error: Call to a member function bind_param() on a non-object in...</p>\n</blockquote>\n\n<p>Here is the code:</p>\n\n<pre><code>global $mysqli;\n$stmt = $mysqli-&gt;prepare(\"SELECT id, description FROM tbl_page_answer_category WHERE cur_own_id = ?\");\n$stmt-&gt;bind_param('i', $cur_id);\n$stmt-&gt;execute();\n$stmt-&gt;bind_result($uid, $desc);\n</code></pre>\n\n<p>To check my query, I tried to execute the query via control panel phpMyAdmin and the result is OK.</p>\n"
+    },
+    {
+      "tags": [
+        "php",
+        "date",
+        "datetime",
+        "format",
+        "date-conversion"
+      ],
+      "owner": {
+        "reputation": 16280,
+        "user_id": 244932,
+        "user_type": "registered",
+        "accept_rate": 99,
+        "profile_image": "https://www.gravatar.com/avatar/01647fd568f49ef5f1b17203a51aa92c?s=128&d=identicon&r=PG",
+        "display_name": "Tom",
+        "link": "https://stackoverflow.com/users/244932/tom"
+      },
+      "is_answered": true,
+      "view_count": 377396,
+      "protected_date": 1391445097,
+      "accepted_answer_id": 2167925,
+      "answer_count": 14,
+      "score": 282,
+      "last_activity_date": 1522866895,
+      "creation_date": 1264856336,
+      "last_edit_date": 1507896573,
+      "question_id": 2167916,
+      "link": "https://stackoverflow.com/questions/2167916/convert-one-date-format-into-another-in-php",
+      "title": "Convert one date format into another in PHP",
+      "body": "<p>Is there a simple way to convert one date format into another date format in PHP?</p>\n\n<p>I have this:</p>\n\n<pre><code>$old_date = date('y-m-d-h-i-s');            // works\n\n$middle = strtotime($old_date);             // returns bool(false)\n\n$new_date = date('Y-m-d H:i:s', $middle);   // returns 1970-01-01 00:00:00\n</code></pre>\n\n<p>But I'd of course like it to return a current date rather than the crack 'o dawn. What am I doing wrong?</p>\n"
+    },
+    {
+      "tags": [
+        "php",
+        "apache"
+      ],
+      "owner": {
+        "reputation": 3438,
+        "user_id": 365383,
+        "user_type": "registered",
+        "accept_rate": 96,
+        "profile_image": "https://i.stack.imgur.com/g3LgJ.jpg?s=128&g=1",
+        "display_name": "Gui",
+        "link": "https://stackoverflow.com/users/365383/gui"
+      },
+      "is_answered": true,
+      "view_count": 446243,
+      "protected_date": 1433898071,
+      "accepted_answer_id": 5121589,
+      "answer_count": 24,
+      "score": 248,
+      "last_activity_date": 1538542187,
+      "creation_date": 1298660811,
+      "last_edit_date": 1490199382,
+      "question_id": 5121495,
+      "link": "https://stackoverflow.com/questions/5121495/php-code-is-not-being-executed-instead-code-shows-on-the-page",
+      "title": "PHP code is not being executed, instead code shows on the page",
+      "body": "<p>I'm trying to execute some PHP code on a project (using Dreamweaver) but the code isn't being run.</p>\n\n<p>When I check the source code, the PHP code appears as HTML tags (I can see it in the source code). Apache is running properly (I'm working with XAMPP), the PHP pages are being opened properly but the PHP code isn't being executed.</p>\n\n<p>Does someone have a suggestion about what is happening?</p>\n\n<p><strong>Note:</strong> The file is already named as <code>filename.php</code></p>\n\n<p><strong>Edit:</strong>\nThe Code..:</p>\n\n<pre><code>&lt;?\ninclude_once(\"/code/configs.php\");\n?&gt;\n</code></pre>\n\n<p><img src=\"https://i.stack.imgur.com/FVVLX.png\" alt=\"The print\"></p>\n"
+    },
+    {
+      "tags": [
+        "php",
+        "debugging",
+        "error-handling"
+      ],
+      "owner": {
+        "reputation": 3682,
+        "user_id": 5010,
+        "user_type": "registered",
+        "accept_rate": 75,
+        "profile_image": "https://www.gravatar.com/avatar/217a4e91ece4b8295c6c0894e2cda359?s=128&d=identicon&r=PG",
+        "display_name": "Candidasa",
+        "link": "https://stackoverflow.com/users/5010/candidasa"
+      },
+      "is_answered": true,
+      "view_count": 507302,
+      "protected_date": 1444035600,
+      "accepted_answer_id": 845025,
+      "answer_count": 29,
+      "score": 501,
+      "last_activity_date": 1536895915,
+      "creation_date": 1241948892,
+      "last_edit_date": 1490199136,
+      "question_id": 845021,
+      "link": "https://stackoverflow.com/questions/845021/how-to-get-useful-error-messages-in-php",
+      "title": "How to get useful error messages in PHP?",
+      "body": "<p>I find programming in PHP quite frustrating. Quite often I will try and run the script and just get a blank screen back. No error message, just empty screen. The cause might have been a simple syntax error (wrong bracket, missing semicolon), or a failed function call, or something else entirely.</p>\n\n<p>It is very difficult to figure out what went wrong. I end up commenting out code, entering \"echo\" statements everywhere, etc. trying to narrow down the problem. But there surely must be a better way, right?.</p>\n\n<p>So, is there a way to get PHP to produce useful error message like Java does?\nCan anyone recommend good PHP debugging tips, tools and techniques?</p>\n"
+    },
+    {
+      "tags": [
+        "php",
+        "string",
+        "syntax"
+      ],
+      "owner": {
+        "reputation": 9284,
+        "user_id": 379800,
+        "user_type": "registered",
+        "accept_rate": 83,
+        "profile_image": "https://www.gravatar.com/avatar/4f68ffa7c457a0da70bbca813d054a40?s=128&d=identicon&r=PG",
+        "display_name": "rob waminal",
+        "link": "https://stackoverflow.com/users/379800/rob-waminal"
+      },
+      "is_answered": true,
+      "view_count": 303736,
+      "protected_date": 1391679488,
+      "accepted_answer_id": 3446286,
+      "answer_count": 11,
+      "score": 686,
+      "last_activity_date": 1523279920,
+      "creation_date": 1281417176,
+      "last_edit_date": 1520778868,
+      "question_id": 3446216,
+      "link": "https://stackoverflow.com/questions/3446216/what-is-the-difference-between-single-quoted-and-double-quoted-strings-in-php",
+      "title": "What is the difference between single-quoted and double-quoted strings in PHP?",
+      "body": "<p>I'm not an expert in PHP programming, but I'm a little confused why I see some code in PHP with string placed in single quotes and sometimes in double quotes.</p>\n\n<p>I just know in .NET, or the C language, if it is in single quote, that means it is a character, not a string.</p>\n"
+    },
+    {
+      "tags": [
+        "php",
+        "json"
+      ],
+      "owner": {
+        "reputation": 16569,
+        "user_id": 3942918,
+        "user_type": "registered",
+        "profile_image": "https://i.stack.imgur.com/Rup3Y.jpg?s=128&g=1",
+        "display_name": "Paul Crovella",
+        "link": "https://stackoverflow.com/users/3942918/paul-crovella"
+      },
+      "is_answered": true,
+      "view_count": 191821,
+      "accepted_answer_id": 29308899,
+      "answer_count": 2,
+      "score": 156,
+      "last_activity_date": 1538105607,
+      "creation_date": 1427485126,
+      "last_edit_date": 1538105607,
+      "question_id": 29308898,
+      "link": "https://stackoverflow.com/questions/29308898/how-do-i-extract-data-from-json-with-php",
+      "title": "How do I extract data from JSON with PHP?",
+      "body": "<blockquote>\n  <p>This is intended to be a general reference question and answer covering many of the never-ending <em>\"How do I access data in my JSON?\"</em> questions. It is here to handle the broad basics of decoding JSON in PHP and accessing the results.</p>\n</blockquote>\n\n<p>I have the JSON:</p>\n\n<pre><code>{\n    \"type\": \"donut\",\n    \"name\": \"Cake\",\n    \"toppings\": [\n        { \"id\": \"5002\", \"type\": \"Glazed\" },\n        { \"id\": \"5006\", \"type\": \"Chocolate with Sprinkles\" },\n        { \"id\": \"5004\", \"type\": \"Maple\" }\n    ]\n}\n</code></pre>\n\n<p>How do I decode this in PHP and access the resulting data?</p>\n"
+    }
+  ],
+  "has_more": true,
+  "quota_max": 10000,
+  "quota_remaining": 9987
+}
