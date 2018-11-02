@@ -17,7 +17,7 @@ import { QuestionPageComponent } from './containers/question-page.component';
 import { HighlightSubstringPipe } from './pipes/highlight-substring.pipe';
 import { SearchFormComponent } from './components/search-form/search-form.component';
 import { SearchTableComponent } from './components/search-table/search-table.component';
-import { PopularUserQuestionsComponent } from './containers/popular-user-questions.component';
+import { QuickQuestionsTableComponent } from './containers/quick-questions-table.component';
 import { QuestionDetailComponent } from './components/question-detail/question-detail.component';
 import { AnswerListComponent } from './components/answer-list/answer-list.component';
 
@@ -27,7 +27,7 @@ import { AnswerListComponent } from './components/answer-list/answer-list.compon
     SearchResultsComponent,
     SearchFormComponent,
     SearchTableComponent,
-    PopularUserQuestionsComponent,
+    QuickQuestionsTableComponent,
     QuestionPageComponent,
     QuestionDetailComponent,
     AnswerListComponent,
@@ -47,7 +47,7 @@ import { AnswerListComponent } from './components/answer-list/answer-list.compon
     MaterialModule,
   ],
   entryComponents: [
-    PopularUserQuestionsComponent,
+    QuickQuestionsTableComponent,
   ],
   providers: [
     StackService,

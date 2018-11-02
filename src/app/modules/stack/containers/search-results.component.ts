@@ -6,7 +6,7 @@ import * as stackActions from '../stack.actions';
 import * as stackSelectors from '../stack.selectors';
 import { Question} from '../stack.models';
 import { StackState } from '../stack.reducer';
-import { PopularUserQuestionsComponent } from './popular-user-questions.component';
+import { QuickQuestionsTableComponent, QuickQuestionsType } from './quick-questions-table.component';
 import { PageableQuestionListService } from '../services/impl/pageable-question-list.service';
 import { PageableItemsListService } from '../services/pageable-items-list.service';
 
@@ -18,7 +18,8 @@ const QUESTIONS_PER_PAGE = 10;
     <h2 class="search-results__title">Search results for: {{ query }}</h2>
     <app-search-table
       (reachedEnd)="onReachedEnd($event)"
-      (openUserQuestions)="onOpenUsersQuestions($event)"
+      (openUserQuestions)="onOpenUserQuestions($event)"
+      (openTag)="onOpenTag($event)"
       (openQuestion)="onOpenQuestion($event)"
       [query]="query"
       [pending]="pending$ | async"
@@ -76,10 +77,20 @@ export class SearchResultsComponent implements OnInit {
     this.itemsListService.nextPage();
   }
 
-  onOpenUsersQuestions(userId): void {
-    this.bottomSheet.open(PopularUserQuestionsComponent, {
+  onOpenUserQuestions(userId): void {
+    this.bottomSheet.open(QuickQuestionsTableComponent, {
       data: {
         userId,
+        type: QuickQuestionsType.USER,
+      }
+    });
+  }
+
+  onOpenTag(tag: string): void {
+    this.bottomSheet.open(QuickQuestionsTableComponent, {
+      data: {
+        tag,
+        type: QuickQuestionsType.TAG,
       }
     });
   }

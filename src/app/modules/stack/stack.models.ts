@@ -3,16 +3,21 @@ export type QuestionId = number;
 export type AnswerId = number;
 export type HTMLString = string;
 
-export interface SearchData {
-  query: string;
+export interface Pageable {
   page: number;
   pageSize?: number;
 }
 
-export interface UserQuestionsRequestData {
+export interface SearchData extends Pageable {
+  query: string;
+}
+
+export interface UserQuestionsRequestData extends Pageable {
   userId: UserId;
-  page: number;
-  pageSize?: number;
+}
+
+export interface TagQuestionsRequestData extends Pageable {
+  tag: string;
 }
 
 export interface StackUser {

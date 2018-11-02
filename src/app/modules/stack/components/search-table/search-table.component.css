@@ -6,6 +6,10 @@
   margin: 20px;
 }
 
+.search-table__item .tag {
+  cursor: pointer;
+}
+
 .search-table__item-buttons {
   display: flex;
 }

@@ -38,16 +38,19 @@ export class PageableQuestionListService implements PageableItemsListService<Que
     );
   }
 
-  public init() {
-    this.pageSubscription = this.page$.subscribe(this.onChangedPage.bind(this));
-    this.selectPageSubscription = this.selectPageQuestions(this.page$.getValue())
-      .subscribe((questions) => {
-        if (!questions) {
-          this.loadPage(this.page$.getValue());
-        } else {
-          this.items$.next(questions);
-        }
-      });
+  public init(): Promise<void> {
+    return new Promise((resolve) => {
+      this.pageSubscription = this.page$.subscribe(this.onChangedPage.bind(this));
+      this.selectPageSubscription = this.selectPageQuestions(this.page$.getValue())
+        .subscribe((questions) => {
+          if (!questions) {
+            this.loadPage(this.page$.getValue());
+          } else {
+            this.items$.next(questions);
+            resolve();
+          }
+        });
+    });
   }
 
   public destroy() {

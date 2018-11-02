@@ -1,6 +1,14 @@
 import * as stackActions from './stack.actions';
-import { QuestionId, Question, SearchData, ResponseList, Answer, UserId, UserQuestionsRequestData } from './stack.models';
-import { GET_USER_QUESTIONS, GET_USER_QUESTIONS_FAILURE } from './stack.actions';
+import {
+  QuestionId,
+  Question,
+  SearchData,
+  ResponseList,
+  Answer,
+  UserId,
+  UserQuestionsRequestData,
+  TagQuestionsRequestData
+} from './stack.models';
 
 interface QuestionsEntities { [id: number]: Question; }
 
@@ -16,16 +24,22 @@ interface UserQuestionsMap {
   [userId: number]: { [page: number]: QuestionId[] };
 }
 
+interface TagQuestionsMap {
+  [tag: string]: { [page: number]: QuestionId[] };
+}
+
 export interface StackReducerState {
   query: string;
   isSearchPending: boolean;
   isGetQuestionPending: boolean;
   isGetUserQuestionsPending: boolean;
+  isGetTagQuestionsPending: boolean;
   error: any;
   questionsEntities: QuestionsEntities;
   answersMap: QuestionAnswersMap;
   searchResultsMap: SearchResultsMap;
   userQuestionsMap: UserQuestionsMap;
+  tagQuestionsMap: TagQuestionsMap;
 }
 
 const initialStackState: StackReducerState = {
@@ -33,11 +47,13 @@ const initialStackState: StackReducerState = {
   isSearchPending: false,
   isGetQuestionPending: false,
   isGetUserQuestionsPending: false,
+  isGetTagQuestionsPending: false,
   error: null,
   questionsEntities: {},
   answersMap: {},
   searchResultsMap: {},
   userQuestionsMap: {},
+  tagQuestionsMap: {},
 };
 
 const searchSuccessReducer = (state, { items }: ResponseList<Question>, { query, page }: SearchData) => {
@@ -117,6 +133,30 @@ const getUserQuestionsSuccessReducer = (state, { items }: ResponseList<Question>
   };
 };
 
+const getTagQuestionsSuccessReducer = (state, { items }: ResponseList<Question>, { tag, page }: TagQuestionsRequestData) => {
+  const questionsEntities = items.reduce((entities: QuestionsEntities, question: Question) => ({
+    ...entities,
+    [question.question_id]: question,
+  }), state.questionsEntities);
+
+  const tagQuestionsIds: QuestionId[] = items.map((question) => question.question_id);
+
+  const tagQuestionsMap = {
+    ...state.tagQuestionsMap,
+    [tag]: {
+      ...(state.tagQuestionsMap[tag] || {}),
+      [page]: tagQuestionsIds,
+    }
+  };
+
+  return {
+    ...state,
+    isGetTagQuestionPending: false,
+    questionsEntities,
+    tagQuestionsMap
+  };
+};
+
 export const stackReducer = (state = initialStackState, action: stackActions.StackActionUnion) => {
   switch (action.type) {
     case stackActions.SEARCH:
@@ -142,7 +182,7 @@ export const stackReducer = (state = initialStackState, action: stackActions.Sta
       };
     case stackActions.GET_ANSWERS_SUCCESS:
       return getAnswersSuccessReducer(state, action.payload as ResponseList<Answer>, action.parentPayload as QuestionId);
-    case GET_USER_QUESTIONS:
+    case stackActions.GET_USER_QUESTIONS:
       return {
         ...state,
         isGetUserQuestionsPending: true,
@@ -153,10 +193,26 @@ export const stackReducer = (state = initialStackState, action: stackActions.Sta
         action.payload as ResponseList<Question>,
         action.parentPayload as UserQuestionsRequestData
       );
-    case GET_USER_QUESTIONS_FAILURE:
+    case stackActions.GET_USER_QUESTIONS_FAILURE:
       return {
         ...state,
         isGetUserQuestionsPending: false,
+      };
+    case stackActions.GET_TAG_QUESTIONS:
+      return {
+        ...state,
+        isGetTagQuestionsPending: true,
+      };
+    case stackActions.GET_TAG_QUESTIONS_SUCCESS:
+      return getTagQuestionsSuccessReducer(
+        state,
+        action.payload as ResponseList<Question>,
+        action.parentPayload as TagQuestionsRequestData
+      );
+    case stackActions.GET_TAG_QUESTIONS_FAILURE:
+      return {
+        ...state,
+        isGetTagQuestionsPending: false,
       };
   }
 

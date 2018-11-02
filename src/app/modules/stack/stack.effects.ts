@@ -5,7 +5,15 @@ import { Actions as ActionsEffect, Effect, ofType } from '@ngrx/effects';
 import { tap, withLatestFrom } from 'rxjs/operators';
 import { makeRequestEffect } from '../../store/utils/makeRequestEffect';
 import * as stackActions from './stack.actions';
-import { Answer, Question, QuestionId, ResponseList, SearchData, UserId, UserQuestionsRequestData } from './stack.models';
+import {
+  Answer,
+  Question,
+  QuestionId,
+  ResponseList,
+  SearchData,
+  TagQuestionsRequestData,
+  UserQuestionsRequestData
+} from './stack.models';
 import { RouterStateUrl } from '../../store/reducers';
 
 @Injectable()
@@ -46,6 +54,15 @@ export class StackEffects {
     this.stack.getUserQuestions.bind(this.stack),
     stackActions.GetUserQuestionsSuccessAction,
     stackActions.GetUserQuestionsFailureAction,
+  );
+
+  @Effect()
+  getTagQuestions$ = makeRequestEffect<TagQuestionsRequestData, ResponseList<Question>, any>(
+    this.actions$,
+    stackActions.GET_TAG_QUESTIONS,
+    this.stack.getTagQuestions.bind(this.stack),
+    stackActions.GetTagQuestionsSuccessAction,
+    stackActions.GetTagQuestionsFailureAction,
   );
 
   @Effect()

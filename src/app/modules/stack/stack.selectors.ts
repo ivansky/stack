@@ -13,6 +13,11 @@ export const  selectGetUserQuestionsPending = createSelector(
   (stackState) => stackState.isGetUserQuestionsPending,
 );
 
+export const  selectGetTagQuestionsPending = createSelector(
+  selectStackState,
+  (stackState) => stackState.isGetTagQuestionsPending,
+);
+
 export const selectSearchError = createSelector(
   selectStackState,
   (stackState) => stackState.error,
@@ -41,6 +46,18 @@ export const selectUserQuestions = createSelector(
   ({ userQuestionsMap, questionsEntities }, { userId, page }) => {
     if (userQuestionsMap[userId] && userQuestionsMap[userId][page]) {
       return userQuestionsMap[userId][page].map(questionId => questionsEntities[questionId]);
+    }
+
+    return null;
+  }
+);
+
+export const selectTagQuestions = createSelector(
+  selectStackState,
+  (_, props) => props,
+  ({ tagQuestionsMap, questionsEntities }, { tag, page }) => {
+    if (tagQuestionsMap[tag] && tagQuestionsMap[tag][page]) {
+      return tagQuestionsMap[tag][page].map(questionId => questionsEntities[questionId]);
     }
 
     return null;

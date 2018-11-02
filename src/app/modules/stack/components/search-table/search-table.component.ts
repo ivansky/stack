@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
-import { fromEvent, Observable, Subscription } from 'rxjs';
+import { fromEvent, Subscription } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 
 @Component({
@@ -11,6 +11,12 @@ import { debounceTime } from 'rxjs/operators';
           <a (click)="onOpenQuestion(question.question_id)" routerLink="/stack/question/{{ question.question_id }}"
              [innerHTML]="question.title | hl: query"></a>
         </mat-card-title>
+        <mat-chip-list>
+          <mat-chip class="tag"
+                    color="primary"
+                    *ngFor="let tag of question.tags"
+                    (click)="onOpenTag(tag)">{{ tag }}</mat-chip>
+        </mat-chip-list>
         <mat-card-actions class="search-table__item-buttons">
           <button (click)="onOpenQuestion(question.question_id)" routerLink="/stack/question/{{ question.question_id }}"
                   mat-button color="primary">{{ question.answer_count }} answers</button>
@@ -57,6 +63,9 @@ export class SearchTableComponent implements AfterViewInit, OnDestroy {
   @Output()
   openQuestion = new EventEmitter<number>();
 
+  @Output()
+  openTag = new EventEmitter<string>();
+
   scrollSubscription: Subscription;
 
   onScroll = (event) => {
@@ -82,6 +91,12 @@ export class SearchTableComponent implements AfterViewInit, OnDestroy {
   onOpenQuestion(questionId: number): void {
     if (this.openQuestion) {
       this.openQuestion.emit(questionId);
+    }
+  }
+
+  onOpenTag(tag: string): void {
+    if (this.openTag) {
+      this.openTag.emit(tag);
     }
   }
 

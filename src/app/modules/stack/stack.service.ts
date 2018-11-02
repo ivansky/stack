@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from '../../services/api.service';
-import { SearchData, UserQuestionsRequestData } from './stack.models';
+import { SearchData, TagQuestionsRequestData, UserQuestionsRequestData } from './stack.models';
 
 function fixedEncodeURI (str) {
   return encodeURI(str).replace(/%5B/g, '[').replace(/%5D/g, ']');
@@ -55,6 +55,16 @@ export class StackService {
       params: {
         order: 'desc',
         sort: 'votes',
+        site: 'stackoverflow',
+        page,
+        pagesize: pageSize,
+      }
+    });
+  }
+
+  getTagQuestions({ tag, page, pageSize = 10 }: TagQuestionsRequestData) {
+    return this.api.get(`/tags/${tag}/faq`, {
+      params: {
         site: 'stackoverflow',
         page,
         pagesize: pageSize,

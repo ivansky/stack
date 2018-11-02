@@ -5,7 +5,7 @@ import { Action } from '@ngrx/store';
 export interface PageableItemsListService<T> {
   items$: BehaviorSubject<T[]>;
   page$: BehaviorSubject<number>;
-  init(): void;
+  init(): Promise<void>;
   destroy(): void;
   nextPage(): void;
 }

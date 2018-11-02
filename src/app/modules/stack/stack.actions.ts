@@ -1,6 +1,15 @@
 import { Action } from '@ngrx/store';
 import { AbstractAction } from '../../store/utils/abstract-actions';
-import { Answer, Question, QuestionId, ResponseList, SearchData, UserId, UserQuestionsRequestData } from './stack.models';
+import {
+  Answer,
+  Question,
+  QuestionId,
+  ResponseList,
+  SearchData,
+  TagQuestionsRequestData,
+  UserId,
+  UserQuestionsRequestData
+} from './stack.models';
 
 export const SEARCH = 'stack/search';
 export const SEARCH_SUCCESS = 'stack/search/success';
@@ -70,7 +79,24 @@ export class GetUserQuestionsFailureAction extends AbstractAction<any, UserQuest
   type = GET_USER_QUESTIONS_FAILURE;
 }
 
+export const GET_TAG_QUESTIONS = 'stack/tag-questions/get';
+export const GET_TAG_QUESTIONS_SUCCESS = 'stack/tag-questions/get/success';
+export const GET_TAG_QUESTIONS_FAILURE = 'stack/tag-questions/get/failure';
+
+export class GetTagQuestionsAction extends AbstractAction<TagQuestionsRequestData> implements Action {
+  type = GET_TAG_QUESTIONS;
+}
+
+export class GetTagQuestionsSuccessAction extends AbstractAction<ResponseList<Question>, TagQuestionsRequestData> implements Action {
+  type = GET_TAG_QUESTIONS_SUCCESS;
+}
+
+export class GetTagQuestionsFailureAction extends AbstractAction<any, TagQuestionsRequestData> implements Action {
+  type = GET_TAG_QUESTIONS_FAILURE;
+}
+
 export type StackActionUnion = SearchAction | SearchSuccessAction | SearchFailureAction
   | GetQuestionAction | GetQuestionSuccessAction | GetQuestionFailureAction
   | GetAnswersAction | GetAnswersSuccessAction | GetAnswersFailureAction
-  | GetUserQuestionsAction | GetUserQuestionsSuccessAction | GetUserQuestionsFailureAction;
+  | GetUserQuestionsAction | GetUserQuestionsSuccessAction | GetUserQuestionsFailureAction
+  | GetTagQuestionsAction | GetTagQuestionsSuccessAction | GetTagQuestionsFailureAction;
