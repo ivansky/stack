@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatBottomSheet } from '@angular/material';
@@ -17,7 +17,7 @@ const QUESTIONS_PER_PAGE = 10;
   template: `
     <h2 class="search-results__title">Search results for: {{ query }}</h2>
     <app-search-table
-      (reachedEnd)="onReachedEnd($event)"
+      (reachedEnd)="onReachedEnd()"
       (openUserQuestions)="onOpenUserQuestions($event)"
       (openTag)="onOpenTag($event)"
       (openQuestion)="onOpenQuestion($event)"
@@ -36,7 +36,7 @@ const QUESTIONS_PER_PAGE = 10;
     `
   ]
 })
-export class SearchResultsComponent implements OnInit {
+export class SearchResultsComponent implements OnInit, OnDestroy {
   public pending$ = this.store.pipe(select(stackSelectors.selectSearchPending));
   public error$ = this.store.pipe(select(stackSelectors.selectSearchError));
 
@@ -71,6 +71,12 @@ export class SearchResultsComponent implements OnInit {
     );
 
     this.itemsListService.init();
+  }
+
+  ngOnDestroy(): void {
+    if (this.itemsListService) {
+      this.itemsListService.destroy();
+    }
   }
 
   onReachedEnd() {

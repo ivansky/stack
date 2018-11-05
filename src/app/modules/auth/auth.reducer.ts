@@ -19,7 +19,7 @@ const initialAuthState = {
   errors: null,
 };
 
-export const authReducer = (state = initialAuthState, action: authActions.AuthActionUnion) => {
+export function authReducer(state = initialAuthState, action: authActions.AuthActionUnion) {
   switch (action.type) {
     case authActions.LOGOUT:
       return {
@@ -77,4 +77,8 @@ export const authReducer = (state = initialAuthState, action: authActions.AuthAc
   }
 
   return state;
-};
+}
+
+export interface AuthState {
+  auth: AuthReducerState;
+}

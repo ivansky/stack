@@ -7,7 +7,7 @@ import { RouterStateSerializer, StoreRouterConnectingModule } from '@ngrx/router
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import effects from '../../store/effects';
+import { effects } from '../../store/effects';
 import { environment } from '../../../environments/environment';
 import { MaterialModule } from '../material/material.module';
 import { AppRoutingModule } from './app-routing.module';

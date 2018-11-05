@@ -5,7 +5,6 @@ import {
   SearchData,
   ResponseList,
   Answer,
-  UserId,
   UserQuestionsRequestData,
   TagQuestionsRequestData
 } from './stack.models';
@@ -127,7 +126,7 @@ const getUserQuestionsSuccessReducer = (state, { items }: ResponseList<Question>
 
   return {
     ...state,
-    isGetUserQuestionPending: false,
+    isGetUserQuestionsPending: false,
     questionsEntities,
     userQuestionsMap
   };
@@ -157,7 +156,7 @@ const getTagQuestionsSuccessReducer = (state, { items }: ResponseList<Question>,
   };
 };
 
-export const stackReducer = (state = initialStackState, action: stackActions.StackActionUnion) => {
+export function stackReducer(state = initialStackState, action: stackActions.StackActionUnion) {
   switch (action.type) {
     case stackActions.SEARCH:
       return {
@@ -217,7 +216,7 @@ export const stackReducer = (state = initialStackState, action: stackActions.Sta
   }
 
   return state;
-};
+}
 
 export interface StackState {
   stack: StackReducerState;

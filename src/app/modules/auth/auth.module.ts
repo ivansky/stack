@@ -37,7 +37,7 @@ export const COMPONENTS = [
     MaterialModule,
     AuthRoutingModule,
     StoreModule.forFeature('auth', authReducer),
-    EffectsModule.forFeature([AuthEffects])
+    EffectsModule.forFeature([AuthEffects]),
   ],
   exports: [
     UserButtonComponent,

@@ -55,7 +55,7 @@ export class SearchTableComponent implements AfterViewInit, OnDestroy {
   scrollingElement: Element;
 
   @Output()
-  reachedEnd = new EventEmitter<void>();
+  reachedEnd = new EventEmitter<any>();
 
   @Output()
   openUserQuestions = new EventEmitter<number>();
@@ -78,7 +78,7 @@ export class SearchTableComponent implements AfterViewInit, OnDestroy {
       : this.scrollingElement;
 
     if (!this.pending && scrollTop + clientHeight === scrollHeight) {
-      this.reachedEnd.emit();
+      this.reachedEnd.emit(null);
     }
   }
 

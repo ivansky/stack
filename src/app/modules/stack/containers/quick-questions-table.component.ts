@@ -1,4 +1,4 @@
-import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MAT_BOTTOM_SHEET_DATA, MatBottomSheetRef } from '@angular/material';
 import { select, Store } from '@ngrx/store';
 import { Router } from '@angular/router';
@@ -8,7 +8,7 @@ import * as stackSelectors from '../stack.selectors';
 import * as stackActions from '../stack.actions';
 import { Question } from '../stack.models';
 import { StackState } from '../stack.reducer';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Subscription } from 'rxjs';
 
 const QUESTIONS_PER_PAGE = 10;
 
@@ -28,7 +28,7 @@ export enum QuickQuestionsType {
         (openQuestion)="onOpenQuestion($event)"
         (openUserQuestions)="onOpenUserQuestions($event)"
         (openTag)="onOpenTagQuestions($event)"
-        (reachedEnd)="onReachedEnd($event)"
+        (reachedEnd)="onReachedEnd()"
         [questions]="itemsListService.items$ | async"
         [scrollingElement]="wrapper"
         [pending]="pending$ | async"
@@ -49,12 +49,13 @@ export enum QuickQuestionsType {
     `,
   ]
 })
-export class QuickQuestionsTableComponent implements OnInit {
-  public pending$: Observable<boolean>;
+export class QuickQuestionsTableComponent implements OnInit, OnDestroy {
+  public pending$: BehaviorSubject<boolean> = new BehaviorSubject(false);
   public title: string;
   private currentUserId: number;
   private currentTag: string;
   private currentType: QuickQuestionsType;
+  private pendingSubscription: Subscription;
 
   @ViewChild('wrapper') wrapper: ElementRef;
 
@@ -73,13 +74,22 @@ export class QuickQuestionsTableComponent implements OnInit {
     }
   }
 
+  private setPendingSelector(selector) {
+    if (this.pendingSubscription) {
+      this.pendingSubscription.unsubscribe();
+    }
+
+    this.pendingSubscription = this.store.pipe(select(selector))
+      .subscribe(isPending => this.pending$.next(isPending));
+  }
+
   private createUserItemListService(userId: number) {
     if (this.currentUserId === userId && this.currentType === QuickQuestionsType.USER) {
       return this.itemsListService;
     }
 
     if (this.currentType !== QuickQuestionsType.USER) {
-      this.pending$ = this.store.pipe(select(stackSelectors.selectGetUserQuestionsPending));
+      this.setPendingSelector(stackSelectors.selectGetUserQuestionsPending);
     }
 
     this.currentUserId = userId;
@@ -105,7 +115,7 @@ export class QuickQuestionsTableComponent implements OnInit {
     }
 
     if (this.currentType !== QuickQuestionsType.TAG) {
-      this.pending$ = this.store.pipe(select(stackSelectors.selectGetTagQuestionsPending));
+      this.setPendingSelector(stackSelectors.selectGetTagQuestionsPending);
     }
 
     this.currentTag = tag;
@@ -144,6 +154,14 @@ export class QuickQuestionsTableComponent implements OnInit {
     this.itemsListService.init();
   }
 
+  ngOnDestroy() {
+    this.itemsListService.destroy();
+
+    if (this.pendingSubscription) {
+      this.pendingSubscription.unsubscribe();
+    }
+  }
+
   onReachedEnd() {
     this.itemsListService.nextPage();
   }
@@ -174,6 +192,6 @@ export class QuickQuestionsTableComponent implements OnInit {
   }
 
   private releaseHeight() {
-    this.wrapper.nativeElement.style.height = undefined;
+    this.wrapper.nativeElement.style.height = '100%';
   }
 }
