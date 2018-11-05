@@ -19,8 +19,4 @@ services:
       - 3031:3031
   db:
     image: mongo:latest
-    volumes:
-      - ./node_modules/.cache/mongo/data/db:/data/db
-    ports:
-      - 27017:27017
     command: mongod --smallfiles --logpath=/dev/null

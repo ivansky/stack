@@ -3,14 +3,27 @@
 
 ## Agenda
 
- 1. [Prerequisites](#pre)
- 2. [Configuration](#config)
- 3. [Development](#dev)
- 4. [Production](#prod)
- 5. [TODO](#todo)
+ 1. [Stack](#stack)
+ 2. [Prerequisites](#pre)
+ 3. [Configuration](#config)
+ 4. [Development](#dev)
+ 5. [Production](#prod)
+ 6. [TODO](#todo)
+
+## <a name="stack"></a> Stack
+ - Angular 6
+   + NGRX Store
+   + NGRX Effects
+   + Material
+   + Animations
+   + Forms
+ - NodeJS
+ - MongoDB
+ - Nginx
+ - Docker
 
 ## <a name="pre"></a> Prerequisites
-To develop and build for prod you should use **Docker**.
+To develop and build for prod you should use **Docker** (includes compose).
 
 Install docker on [Mac][docker-for-mac] or [Windows][docker-for-windows].
 
@@ -31,6 +44,8 @@ You should configure OAuth
 
 ## <a name="dev"></a> Development
 
+You won't be able run application until ENV configuration isn't created.
+
 To run front, auth and api services just run _docker-compose_.
 
 It will build containers and instantly run it.
@@ -43,14 +58,16 @@ Navigate to `http://localhost:3030/` and develop.
 To re-build it just add `--build` at the end of command.
 
 ## <a name="prod"></a> Production
-Build images
-```shell
-docker-compose -f docker-compose.prod.yml build
-```
 
-Run `ng build` to build the project. 
-The build artifacts will be stored in the `dist/` directory. 
-Use the `--prod` flag for a production build.
+You won't be able run application until ENV configuration isn't created.
+
+Build and Run application 
+```shell
+docker-compose -f docker-compose.prod.yml up
+```
+Navigate to `http://localhost:8081/`.
+
+To re-build it just add `--build` at the end of command.
 
 ## <a name="todo"></a> TODO
 - ~~Tags~~

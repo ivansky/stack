@@ -12,6 +12,7 @@ services:
   api:
     build:
       context: ./server
+      dockerfile: DockerfileProd
     ports:
       - 3035:3035
     depends_on:
