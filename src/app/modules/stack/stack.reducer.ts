@@ -75,7 +75,7 @@ const initialStackState: StackReducerState = {
   tagQuestionsFinishMap: {},
 };
 
-const searchSuccessReducer = (state, { items }: ResponseList<Question>, { query, page }: SearchData) => {
+const searchSuccessReducer = (state, { items }: ResponseList<Question>, { query, page, pageSize }: SearchData) => {
   let questionsEntities = state.questionsEntities;
   let searchResultsMap = state.searchResultsMap;
   let searchResultsFinishMap = state.searchResultsFinishMap;
@@ -95,7 +95,9 @@ const searchSuccessReducer = (state, { items }: ResponseList<Question>, { query,
         [page]: searchQuestionsIds,
       }
     };
-  } else {
+  }
+
+  if (items.length < pageSize) {
     searchResultsFinishMap = {
       ...state.searchResultsFinishMap,
       [query]: page,
@@ -140,7 +142,7 @@ const getAnswersSuccessReducer = (state, { items }: ResponseList<Answer>, questi
   };
 };
 
-const getUserQuestionsSuccessReducer = (state, { items }: ResponseList<Question>, { userId, page }: UserQuestionsRequestData) => {
+const getUserQuestionsSuccessReducer = (state, { items }: ResponseList<Question>, { userId, page, pageSize }: UserQuestionsRequestData) => {
   let questionsEntities = state.questionsEntities;
   let userQuestionsMap = state.userQuestionsMap;
   let userQuestionsFinishMap = state.userQuestionsFinishMap;
@@ -160,7 +162,9 @@ const getUserQuestionsSuccessReducer = (state, { items }: ResponseList<Question>
         [page]: userQuestionsIds,
       }
     };
-  } else {
+  }
+
+  if (items.length < pageSize) {
     userQuestionsFinishMap = {
       ...state.userQuestionsFinishMap,
       [userId]: page,
@@ -176,7 +180,7 @@ const getUserQuestionsSuccessReducer = (state, { items }: ResponseList<Question>
   };
 };
 
-const getTagQuestionsSuccessReducer = (state, { items }: ResponseList<Question>, { tag, page }: TagQuestionsRequestData) => {
+const getTagQuestionsSuccessReducer = (state, { items }: ResponseList<Question>, { tag, page, pageSize }: TagQuestionsRequestData) => {
   let questionsEntities = state.questionsEntities;
   let tagQuestionsMap = state.tagQuestionsMap;
   let tagQuestionsFinishMap = state.tagQuestionsFinishMap;
@@ -196,7 +200,9 @@ const getTagQuestionsSuccessReducer = (state, { items }: ResponseList<Question>,
         [page]: tagQuestionsIds,
       }
     };
-  } else {
+  }
+
+  if (items.length < pageSize) {
     tagQuestionsFinishMap = {
       ...state.tagQuestionsFinishMap,
       [tag]: page,
