@@ -23,6 +23,7 @@ const SERVER_SESSION_SECRET = process.env.SERVER_SESSION_SECRET || 'some_sesssio
 
 const API_SERVER_URL = process.env.API_SERVER_URL || 'http://api.stackexchange.com/2.2';
 const STATIC_SERVER_URL = process.env.STATIC_SERVER_URL || 'http://front:3031';
+const FRONT_URL = process.env.FRONT_URL || 'http://localhost:8081';
 const MOCK = process.env.MOCK;
 
 const STACKEXCHANGE_CLIENT_ID = process.env.STACKEXCHANGE_CLIENT_ID;
@@ -77,10 +78,12 @@ passport.deserializeUser((userId, done) => {
   });
 });
 
+const frontProxyUrl = NODE_ENV === 'production' ? FRONT_URL : `${SERVER_PROTOCOL}://${SERVER_DOMAIN}:${SERVER_PORT}`;
+
 passport.use(new StackExchangeStrategy({
     clientID: STACKEXCHANGE_CLIENT_ID,
     clientSecret: STACKEXCHANGE_CLIENT_SECRET,
-    callbackURL: `${SERVER_PROTOCOL}://${SERVER_DOMAIN}:${SERVER_PORT}/api/auth/stack/callback`,
+    callbackURL: `${frontProxyUrl}/api/auth/stack/callback`,
     stackAppsKey: STACKEXCHANGE_APPS_KEY,
     site: 'stackoverflow',
   },

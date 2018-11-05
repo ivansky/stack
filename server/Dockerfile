@@ -1,5 +1,8 @@
 FROM node:8-slim
 
+ENV NODE_ENV production
+ENV SERVER_PORT 3035
+
 RUN mkdir -p /app
 WORKDIR app
 
@@ -8,6 +11,6 @@ RUN npm install
 
 COPY .env index.js /app/
 
-EXPOSE 3030
+EXPOSE 3035
 
 CMD ["node", "index.js"]
