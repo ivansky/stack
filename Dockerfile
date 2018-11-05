@@ -2,6 +2,8 @@ FROM node:8-slim
 
 WORKDIR /app
 
+ENV NODE_ENV development
+
 COPY package.json package-lock.json /app/
 RUN npm install
 
