@@ -65,6 +65,8 @@ Build and Run application
 ```shell
 docker-compose -f docker-compose.prod.yml up
 ```
+There isn't message success after compose is done.
+
 Navigate to `http://localhost:8081/`.
 
 To re-build it just add `--build` at the end of command.
