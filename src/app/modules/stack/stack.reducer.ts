@@ -205,7 +205,7 @@ const getTagQuestionsSuccessReducer = (state, { items }: ResponseList<Question>,
 
   return {
     ...state,
-    isGetTagQuestionPending: false,
+    isGetTagQuestionsPending: false,
     questionsEntities,
     tagQuestionsMap,
     tagQuestionsFinishMap,
