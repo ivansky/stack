@@ -8,8 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "docker-start": "docker-compose up",
-    "docker-prod": "docker-compose -f docker-compose.prod.yml up"
+    "docker-start": "docker-compose up --build",
+    "docker-prod": "docker-compose -f docker-compose.prod.yml up --build"
   },
   "private": true,
   "dependencies": {
