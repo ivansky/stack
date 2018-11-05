@@ -8,10 +8,12 @@ export interface PageableItemsListService<T> {
   init(): Promise<void>;
   destroy(): void;
   nextPage(): void;
+  isLimitReached(): boolean;
 }
 
 export interface PageableItemsListServiceOptions<T, State = StackState> {
   limit?: number;
   itemsSelectProject: (page: number) => (source$: Observable<State>) => Observable<T[]>;
   nextPageActionCreator: (nextPage: number) => Action;
+  finishPageOperator: (source$: Observable<State>) => Observable<number>;
 }

@@ -8,14 +8,32 @@ export const selectSearchPending = createSelector(
   (stackState) => stackState.isSearchPending,
 );
 
+export const selectSearchFinishPage = createSelector(
+  selectStackState,
+  (_, props) => props,
+  ({ searchResultsFinishMap }, { query }) => searchResultsFinishMap[query],
+);
+
 export const  selectGetUserQuestionsPending = createSelector(
   selectStackState,
   (stackState) => stackState.isGetUserQuestionsPending,
 );
 
+export const selectUserQuestionsFinishPage = createSelector(
+  selectStackState,
+  (_, props) => props,
+  ({ userQuestionsFinishMap }, { userId }) => userQuestionsFinishMap[userId],
+);
+
 export const  selectGetTagQuestionsPending = createSelector(
   selectStackState,
   (stackState) => stackState.isGetTagQuestionsPending,
+);
+
+export const selectTagQuestionsFinishPage = createSelector(
+  selectStackState,
+  (_, props) => props,
+  ({ tagQuestionsFinishMap }, { tag }) => tagQuestionsFinishMap[tag],
 );
 
 export const selectSearchError = createSelector(

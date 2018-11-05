@@ -9,10 +9,16 @@ import {
   TagQuestionsRequestData
 } from './stack.models';
 
+type FinishPage = number;
+
 interface QuestionsEntities { [id: number]: Question; }
 
 interface SearchResultsMap {
   [query: string]: { [page: number]: QuestionId[] };
+}
+
+interface SearchResultsFinishMap {
+  [query: string]: FinishPage;
 }
 
 interface QuestionAnswersMap {
@@ -23,8 +29,16 @@ interface UserQuestionsMap {
   [userId: number]: { [page: number]: QuestionId[] };
 }
 
+interface UserQuestionsFinishMap {
+  [userId: number]: FinishPage;
+}
+
 interface TagQuestionsMap {
   [tag: string]: { [page: number]: QuestionId[] };
+}
+
+interface TagQuestionsFinishMap {
+  [tag: string]: FinishPage;
 }
 
 export interface StackReducerState {
@@ -37,8 +51,11 @@ export interface StackReducerState {
   questionsEntities: QuestionsEntities;
   answersMap: QuestionAnswersMap;
   searchResultsMap: SearchResultsMap;
+  searchResultsFinishMap: SearchResultsFinishMap;
   userQuestionsMap: UserQuestionsMap;
+  userQuestionsFinishMap: UserQuestionsFinishMap;
   tagQuestionsMap: TagQuestionsMap;
+  tagQuestionsFinishMap: TagQuestionsFinishMap;
 }
 
 const initialStackState: StackReducerState = {
@@ -51,31 +68,46 @@ const initialStackState: StackReducerState = {
   questionsEntities: {},
   answersMap: {},
   searchResultsMap: {},
+  searchResultsFinishMap: {},
   userQuestionsMap: {},
+  userQuestionsFinishMap: {},
   tagQuestionsMap: {},
+  tagQuestionsFinishMap: {},
 };
 
 const searchSuccessReducer = (state, { items }: ResponseList<Question>, { query, page }: SearchData) => {
-  const questionsEntities = items.reduce((entities: QuestionsEntities, question: Question) => ({
-    ...entities,
-    [question.question_id]: question,
-  }), state.questionsEntities);
+  let questionsEntities = state.questionsEntities;
+  let searchResultsMap = state.searchResultsMap;
+  let searchResultsFinishMap = state.searchResultsFinishMap;
 
-  const searchQuestionsIds: QuestionId[] = items.map((question) => question.question_id);
+  if (items.length > 0) {
+    questionsEntities = items.reduce((entities: QuestionsEntities, question: Question) => ({
+      ...entities,
+      [question.question_id]: question,
+    }), state.questionsEntities);
 
-  const searchResultsMap = {
-    ...state.searchResultsMap,
-    [query]: {
-      ...(state.searchResultsMap[query] || {}),
-      [page]: searchQuestionsIds,
-    }
-  };
+    const searchQuestionsIds: QuestionId[] = items.map((question) => question.question_id);
+
+    searchResultsMap = {
+      ...state.searchResultsMap,
+      [query]: {
+        ...(state.searchResultsMap[query] || {}),
+        [page]: searchQuestionsIds,
+      }
+    };
+  } else {
+    searchResultsFinishMap = {
+      ...state.searchResultsFinishMap,
+      [query]: page,
+    };
+  }
 
   return {
     ...state,
     isSearchPending: false,
     questionsEntities,
     searchResultsMap,
+    searchResultsFinishMap,
   };
 };
 
@@ -109,50 +141,74 @@ const getAnswersSuccessReducer = (state, { items }: ResponseList<Answer>, questi
 };
 
 const getUserQuestionsSuccessReducer = (state, { items }: ResponseList<Question>, { userId, page }: UserQuestionsRequestData) => {
-  const questionsEntities = items.reduce((entities: QuestionsEntities, question: Question) => ({
-    ...entities,
-    [question.question_id]: question,
-  }), state.questionsEntities);
+  let questionsEntities = state.questionsEntities;
+  let userQuestionsMap = state.userQuestionsMap;
+  let userQuestionsFinishMap = state.userQuestionsFinishMap;
 
-  const userQuestionsIds: QuestionId[] = items.map((question) => question.question_id);
+  if (items.length > 0) {
+    questionsEntities = items.reduce((entities: QuestionsEntities, question: Question) => ({
+      ...entities,
+      [question.question_id]: question,
+    }), state.questionsEntities);
 
-  const userQuestionsMap = {
-    ...state.userQuestionsMap,
-    [userId]: {
-      ...(state.userQuestionsMap[userId] || {}),
-      [page]: userQuestionsIds,
-    }
-  };
+    const userQuestionsIds: QuestionId[] = items.map((question) => question.question_id);
+
+    userQuestionsMap = {
+      ...state.userQuestionsMap,
+      [userId]: {
+        ...(state.userQuestionsMap[userId] || {}),
+        [page]: userQuestionsIds,
+      }
+    };
+  } else {
+    userQuestionsFinishMap = {
+      ...state.userQuestionsFinishMap,
+      [userId]: page,
+    };
+  }
 
   return {
     ...state,
     isGetUserQuestionsPending: false,
     questionsEntities,
-    userQuestionsMap
+    userQuestionsMap,
+    userQuestionsFinishMap,
   };
 };
 
 const getTagQuestionsSuccessReducer = (state, { items }: ResponseList<Question>, { tag, page }: TagQuestionsRequestData) => {
-  const questionsEntities = items.reduce((entities: QuestionsEntities, question: Question) => ({
-    ...entities,
-    [question.question_id]: question,
-  }), state.questionsEntities);
+  let questionsEntities = state.questionsEntities;
+  let tagQuestionsMap = state.tagQuestionsMap;
+  let tagQuestionsFinishMap = state.tagQuestionsFinishMap;
 
-  const tagQuestionsIds: QuestionId[] = items.map((question) => question.question_id);
+  if (items.length > 0) {
+    questionsEntities = items.reduce((entities: QuestionsEntities, question: Question) => ({
+      ...entities,
+      [question.question_id]: question,
+    }), state.questionsEntities);
 
-  const tagQuestionsMap = {
-    ...state.tagQuestionsMap,
-    [tag]: {
-      ...(state.tagQuestionsMap[tag] || {}),
-      [page]: tagQuestionsIds,
-    }
-  };
+    const tagQuestionsIds: QuestionId[] = items.map((question) => question.question_id);
+
+    tagQuestionsMap = {
+      ...state.tagQuestionsMap,
+      [tag]: {
+        ...(state.tagQuestionsMap[tag] || {}),
+        [page]: tagQuestionsIds,
+      }
+    };
+  } else {
+    tagQuestionsFinishMap = {
+      ...state.tagQuestionsFinishMap,
+      [tag]: page,
+    };
+  }
 
   return {
     ...state,
     isGetTagQuestionPending: false,
     questionsEntities,
-    tagQuestionsMap
+    tagQuestionsMap,
+    tagQuestionsFinishMap,
   };
 };
 

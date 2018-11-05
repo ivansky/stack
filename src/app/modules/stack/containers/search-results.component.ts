@@ -67,6 +67,7 @@ export class SearchResultsComponent implements OnInit, OnDestroy {
           page,
           pageSize: QUESTIONS_PER_PAGE,
         }),
+        finishPageOperator: select(stackSelectors.selectSearchFinishPage, { query: this.query }),
       },
     );
 

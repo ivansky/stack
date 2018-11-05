@@ -8,7 +8,7 @@ import * as stackSelectors from '../stack.selectors';
 import * as stackActions from '../stack.actions';
 import { Question } from '../stack.models';
 import { StackState } from '../stack.reducer';
-import { BehaviorSubject, Subscription } from 'rxjs';
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 
 const QUESTIONS_PER_PAGE = 10;
 
@@ -105,6 +105,9 @@ export class QuickQuestionsTableComponent implements OnInit, OnDestroy {
         userId,
         page,
         pageSize: QUESTIONS_PER_PAGE,
+      }),
+      select(stackSelectors.selectUserQuestionsFinishPage, {
+        userId,
       })
     );
   }
@@ -131,11 +134,18 @@ export class QuickQuestionsTableComponent implements OnInit, OnDestroy {
         tag,
         page,
         pageSize: QUESTIONS_PER_PAGE,
+      }),
+      select(stackSelectors.selectTagQuestionsFinishPage, {
+        tag,
       })
     );
   }
 
-  private createItemListService(itemsSelectProject, nextPageActionCreator): PageableItemsListService<Question> {
+  private createItemListService(
+    itemsSelectProject,
+    nextPageActionCreator,
+    finishPageOperator: (source$: Observable<StackState>) => Observable<number>,
+  ): PageableItemsListService<Question> {
     if (this.itemsListService) {
       this.itemsListService.destroy();
     }
@@ -146,6 +156,7 @@ export class QuickQuestionsTableComponent implements OnInit, OnDestroy {
         limit: QUESTIONS_PER_PAGE,
         itemsSelectProject,
         nextPageActionCreator,
+        finishPageOperator,
       },
     );
   }
@@ -155,7 +166,9 @@ export class QuickQuestionsTableComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.itemsListService.destroy();
+    if (this.itemsListService) {
+      this.itemsListService.destroy();
+    }
 
     if (this.pendingSubscription) {
       this.pendingSubscription.unsubscribe();

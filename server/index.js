@@ -241,7 +241,7 @@ if (MOCK) {
     const isExists = await file_exists(filename);
 
     if (!isExists) {
-      res.status(404).send('Not found');
+      res.json({ items: [] }); // just empty array as in real stack
       return;
     }
 
@@ -255,7 +255,7 @@ if (MOCK) {
     const isExists = await file_exists(filename);
 
     if (!isExists) {
-      res.status(404).send('Not found');
+      res.json({ items: [] }); // just empty array as in real stack
       return;
     }
 
@@ -273,7 +273,7 @@ if (MOCK) {
     const isExists = await file_exists(filename);
 
     if (!isExists) {
-      res.status(404).send('Not found');
+      res.json({ items: [] }); // just empty array as in real stack
       return;
     }
 

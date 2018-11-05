@@ -11,7 +11,9 @@ const defaultOptions = {
 
 export class PageableQuestionListService implements PageableItemsListService<Question> {
   private requestedPagesMap: { [page: number]: boolean } = {};
+  private finishPage: number;
 
+  private finishPageSubscription: Subscription;
   private pageSubscription: Subscription;
   private selectPageSubscription: Subscription;
   private waitForLoadingPageSubscription: Subscription;
@@ -41,6 +43,8 @@ export class PageableQuestionListService implements PageableItemsListService<Que
   public init(): Promise<void> {
     return new Promise((resolve) => {
       this.pageSubscription = this.page$.subscribe(this.onChangedPage.bind(this));
+      this.finishPageSubscription = this.store.pipe(this.options.finishPageOperator)
+        .subscribe(finishPage => this.finishPage = finishPage);
       this.selectPageSubscription = this.selectPageQuestions(this.page$.getValue())
         .subscribe((questions) => {
           if (!questions) {
@@ -54,13 +58,33 @@ export class PageableQuestionListService implements PageableItemsListService<Que
   }
 
   public destroy() {
-    this.pageSubscription.unsubscribe();
-    this.selectPageSubscription.unsubscribe();
-    this.waitForLoadingPageSubscription.unsubscribe();
+    if (this.pageSubscription) {
+      this.pageSubscription.unsubscribe();
+    }
+
+    if (this.finishPageSubscription) {
+      this.finishPageSubscription.unsubscribe();
+    }
+
+    if (this.selectPageSubscription) {
+      this.selectPageSubscription.unsubscribe();
+    }
+
+    if (this.waitForLoadingPageSubscription) {
+      this.waitForLoadingPageSubscription.unsubscribe();
+    }
   }
 
   public nextPage() {
+    if (this.isLimitReached()) {
+      return;
+    }
+
     this.loadPage(this.page$.getValue() + 1);
+  }
+
+  public isLimitReached() {
+    return this.finishPage && this.finishPage <= this.page$.value;
   }
 
   private loadPage(page) {
